@@ -85,9 +85,10 @@ class OmnivoreDatastore @Inject constructor(
     }
 
     override val hasAuthTokenFlow: Flow<Boolean> = context.dataStore.data.map { preferences ->
-            val key = stringPreferencesKey(omnivoreAuthToken)
-            val token = preferences[key]
-            token != null
+            // val key = stringPreferencesKey(omnivoreAuthToken)
+            // val token = preferences[key]
+            // token != null
+            true
         }
 
     override val themeKeyFlow: Flow<String> = context.dataStore.data.map { preferences ->
