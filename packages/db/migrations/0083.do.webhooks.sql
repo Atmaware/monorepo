@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.webhooks (
+CREATE TABLE ruminer.webhooks (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
     url text NOT NULL,
     method text NOT NULL DEFAULT 'POST',
     content_type text NOT NULL DEFAULT 'application/json',
@@ -17,7 +17,7 @@ CREATE TABLE omnivore.webhooks (
     UNIQUE (user_id, event_types)
 );
 
-CREATE TRIGGER update_webhook_modtime BEFORE UPDATE ON omnivore.webhooks
+CREATE TRIGGER update_webhook_modtime BEFORE UPDATE ON ruminer.webhooks
     FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 COMMIT;

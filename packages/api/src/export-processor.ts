@@ -74,7 +74,7 @@ import { logger } from './utils/logger'
 import { getQueue } from './queue-processor'
 
 export const EXPORT_QUEUE_NAME =
-  process.env['EXPORT_QUEUE_NAME'] ?? 'omnivore-export-queue'
+  process.env['EXPORT_QUEUE_NAME'] ?? 'ruminer-export-queue'
 
 export const createWorker = (connection: ConnectionOptions) =>
   new Worker(

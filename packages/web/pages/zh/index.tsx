@@ -5,10 +5,10 @@ export default function LandingPage(): JSX.Element {
   return (
     <>
       <PageMetaData
-        title="Omnivore"
+        title="Ruminer"
         path="/about"
         ogImage="/static/images/og-homepage-zh.png"
-        description="Omnivore 为认真读者提供免付费read-it-later应用程序"
+        description="Ruminer 为认真读者提供免付费read-it-later应用程序"
       />
 
       <About lang="zh" />

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization ADD COLUMN fields json;
+ALTER TABLE ruminer.user_personalization ADD COLUMN fields json;
 
 COMMIT;

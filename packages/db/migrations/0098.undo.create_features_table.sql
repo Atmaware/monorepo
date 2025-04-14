@@ -4,9 +4,9 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.features;
+DROP TABLE IF EXISTS ruminer.features;
 
-ALTER TABLE omnivore.user_personalization
+ALTER TABLE ruminer.user_personalization
     DROP COLUMN IF EXISTS speech_secondary_voice,
     ALTER COLUMN speech_rate TYPE integer USING speech_rate::integer,
     ALTER COLUMN speech_volume TYPE integer USING speech_volume::integer;

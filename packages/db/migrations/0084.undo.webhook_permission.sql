@@ -4,6 +4,6 @@
 
 BEGIN;
 
-REVOKE SELECT, INSERT, UPDATE, DELETE ON omnivore.webhooks FROM omnivore_user;
+REVOKE SELECT, INSERT, UPDATE, DELETE ON ruminer.webhooks FROM ruminer_user;
 
 COMMIT;

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP INDEX omnivore.article_slug_idx;
+DROP INDEX ruminer.article_slug_idx;
 
 COMMIT;

@@ -6,7 +6,7 @@ BEGIN;
 
 CREATE TYPE remind_at AS ENUM ('TONIGHT', 'TOMORROW', 'THIS_WEEKEND', 'NEXT_WEEK');
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
     ADD COLUMN remind_at remind_at NOT NULL;
 
 COMMIT;

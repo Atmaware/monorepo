@@ -15,7 +15,7 @@ COPY /packages/export-handler/package.json ./packages/export-handler/package.jso
 RUN yarn install --pure-lockfile
 
 COPY /packages/export-handler ./packages/export-handler
-RUN yarn workspace @omnivore/export-handler build
+RUN yarn workspace @ruminer/export-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/export-handler/node_modules
@@ -24,4 +24,4 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-ENTRYPOINT ["yarn", "workspace", "@omnivore/export-handler", "start"]
+ENTRYPOINT ["yarn", "workspace", "@ruminer/export-handler", "start"]

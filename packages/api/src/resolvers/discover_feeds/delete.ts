@@ -15,7 +15,7 @@ export const deleteDiscoverFeedsResolver = authorized<
   try {
     // Ensure that it actually exists for the user.
     const feeds = (await appDataSource.query(
-      `SELECT * FROM omnivore.discover_feed_subscription sub
+      `SELECT * FROM ruminer.discover_feed_subscription sub
       WHERE sub.user_id = $1 and sub.feed_id = $2`,
       [uid, feedId]
     )) as {
@@ -32,7 +32,7 @@ export const deleteDiscoverFeedsResolver = authorized<
     }
 
     await appDataSource.query(
-      `DELETE FROM omnivore.discover_feed_subscription sub
+      `DELETE FROM ruminer.discover_feed_subscription sub
       WHERE sub.user_id = $1 and sub.feed_id = $2`,
       [uid, feedId]
     )

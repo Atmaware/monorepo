@@ -20,8 +20,8 @@ RUN yarn install --pure-lockfile
 ADD /packages/utils ./packages/utils
 ADD /packages/import-handler ./packages/import-handler
 ADD /packages/readabilityjs ./packages/readabilityjs
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/import-handler build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/import-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/import-handler/node_modules
@@ -30,4 +30,4 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-ENTRYPOINT ["yarn", "workspace", "@omnivore/import-handler", "start"]
+ENTRYPOINT ["yarn", "workspace", "@ruminer/import-handler", "start"]

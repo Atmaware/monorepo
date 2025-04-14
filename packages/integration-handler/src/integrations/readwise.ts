@@ -66,7 +66,7 @@ export class ReadwiseClient extends IntegrationClient {
           image_url: item.image || undefined,
           location_type: 'order',
           note: highlight.annotation || undefined,
-          source_type: 'omnivore',
+          source_type: 'ruminer',
           source_url: item.url,
         }
       })

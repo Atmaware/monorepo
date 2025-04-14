@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article_saving_request DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.reaction DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.highlight DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.reminders DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.abuse_report DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.content_display_report DROP COLUMN elastic_page_id;
-ALTER TABLE omnivore.link_share_info DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.article_saving_request DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.reaction DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.highlight DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.reminders DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.abuse_report DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.content_display_report DROP COLUMN elastic_page_id;
+ALTER TABLE ruminer.link_share_info DROP COLUMN elastic_page_id;
 
 COMMIT;

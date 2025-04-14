@@ -59,7 +59,7 @@ export const FormInput = styled('input', {
   color: '$grayTextContrast',
   '&:focus': {
     border: '1px solid transparent',
-    outline: '2px solid $omnivoreCtaYellow',
+    outline: '2px solid $ruminerCtaYellow',
   },
 })
 
@@ -416,7 +416,7 @@ export default function Account(): JSX.Element {
               <>
                 <ProgressBar
                   fillPercentage={((libraryCount ?? 0) / ACCOUNT_LIMIT) * 100}
-                  fillColor={theme.colors.omnivoreCtaYellow.toString()}
+                  fillColor={theme.colors.ruminerCtaYellow.toString()}
                   backgroundColor={theme.colors.grayText.toString()}
                   borderRadius={'2px'}
                 />
@@ -513,7 +513,7 @@ const ExportSection = (): JSX.Element => {
       </StyledText>
       <StyledText style="footnote" css={{ mt: '10px', mb: '20px' }}>
         If you do not receive your completed export within 24hrs please contact{' '}
-        <a href="mailto:feedback@omnivore.app">
+        <a href="mailto:feedback@ruminer.app">
           Contact&nbsp;us via&nbsp;email
         </a>
       </StyledText>
@@ -549,7 +549,7 @@ const ExportSection = (): JSX.Element => {
                       fillPercentage={
                         ((item.processedItems ?? 0) / item.totalItems) * 100
                       }
-                      fillColor={theme.colors.omnivoreCtaYellow.toString()}
+                      fillColor={theme.colors.ruminerCtaYellow.toString()}
                       backgroundColor={theme.colors.grayText.toString()}
                       borderRadius={'2px'}
                     />
@@ -612,7 +612,7 @@ const BetaFeaturesSection = (): JSX.Element => {
       })}
       <StyledText style="footnote" css={{ display: 'flex', gap: '5px' }}>
         To learn more about beta features available,{' '}
-        <a href="https://discord.gg/h2z5rppzz9">join the Omnivore Discord</a>
+        <a href="https://discord.gg/h2z5rppzz9">join the Ruminer Discord</a>
       </StyledText>
     </VStack>
   )
@@ -737,8 +737,8 @@ const DigestSection = (): JSX.Element => {
           mt: '0px',
         }}
       >
-        Omnivore Digest is a free daily digest of some of your best recent
-        library items. Omnivore filters and ranks all the items recently added
+        Ruminer Digest is a free daily digest of some of your best recent
+        library items. Ruminer filters and ranks all the items recently added
         to your library, uses AI to summarize them, and creates a short library
         item, email, or a daily podcast you can listen to in our iOS app.
       </StyledText>
@@ -767,7 +767,7 @@ const DigestSection = (): JSX.Element => {
                 mt: '0px',
               }}
             >
-              You are opted into Omnivore Digest, please make sure to pick at
+              You are opted into Ruminer Digest, please make sure to pick at
               least one channel for your digest delivery.
             </StyledText>
           )}

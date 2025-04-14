@@ -32,7 +32,7 @@ export function DiscoverContainer(): JSX.Element {
   const topics = [
     {
       title: 'Popular',
-      subTitle: 'Stories that are popular on Omnivore right now...',
+      subTitle: 'Stories that are popular on Ruminer right now...',
     },
     {
       title: 'All',

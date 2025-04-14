@@ -6,9 +6,9 @@ BEGIN;
 
 CREATE TYPE folder_action AS ENUM ('DELETE', 'ARCHIVE');
 
-CREATE TABLE omnivore.folder_policy (
+CREATE TABLE ruminer.folder_policy (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id UUID NOT NULL REFERENCES omnivore.user(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES ruminer.user(id) ON DELETE CASCADE,
     folder TEXT NOT NULL, -- folder name in lowercase
     action folder_action NOT NULL, -- delete or archive
     after_days INT NOT NULL, -- number of days after which the action should be taken
@@ -17,11 +17,11 @@ CREATE TABLE omnivore.folder_policy (
     UNIQUE (user_id, folder, action) -- only one policy per user and folder action
 );
 
-CREATE TRIGGER update_folder_policy_modtime BEFORE UPDATE ON omnivore.folder_policy FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER update_folder_policy_modtime BEFORE UPDATE ON ruminer.folder_policy FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.folder_policy TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.folder_policy TO ruminer_user;
 
-CREATE PROCEDURE omnivore.expire_folders()
+CREATE PROCEDURE ruminer.expire_folders()
 LANGUAGE plpgsql
 AS $$
 DECLARE
@@ -33,7 +33,7 @@ DECLARE
     old_states library_item_state[];
     new_state library_item_state;
     column_name TEXT;
-    folder_policy_cursor CURSOR FOR SELECT id, user_id, folder, action, after_days FROM omnivore.folder_policy;
+    folder_policy_cursor CURSOR FOR SELECT id, user_id, folder, action, after_days FROM ruminer.folder_policy;
 BEGIN
     FOR folder_record IN folder_policy_cursor LOOP
         folder_user_id := folder_record.user_id;
@@ -52,9 +52,9 @@ BEGIN
         END IF;
 
         BEGIN
-            PERFORM omnivore.set_claims(folder_user_id, 'omnivore_user');
+            PERFORM ruminer.set_claims(folder_user_id, 'ruminer_user');
             
-            EXECUTE format('UPDATE omnivore.library_item '
+            EXECUTE format('UPDATE ruminer.library_item '
                 'SET state = $1, %I = CURRENT_TIMESTAMP '
                 'WHERE user_id = $2 AND state = ANY ($3) AND folder = $4 AND created_at < CURRENT_TIMESTAMP - INTERVAL ''$5 days''', column_name) 
                 USING new_state, folder_user_id, old_states, folder_name, folder_after_days;

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.rules;
+DROP TABLE IF EXISTS ruminer.rules;
 
 COMMIT;

@@ -173,11 +173,11 @@ export function SettingsMenu(): JSX.Element {
             </Button>
           </StyledLink>
           <ExternalLink
-            destination="https://blog.omnivore.app/p/contributing-to-omnivore"
+            destination="https://blog.ruminer.app/p/contributing-to-ruminer"
             title="Contribute"
           />
           <ExternalLink
-            destination="https://docs.omnivore.app"
+            destination="https://docs.ruminer.app"
             title="Documentation"
           />
         </VStack>

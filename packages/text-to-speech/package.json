@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/text-to-speech-handler",
+  "name": "@ruminer/text-to-speech-handler",
   "version": "1.0.0",
   "description": "",
   "main": "build/src/index.js",
@@ -37,7 +37,7 @@
   "dependencies": {
     "@google-cloud/functions-framework": "3.4.5",
     "@google-cloud/storage": "^7.0.1",
-    "@omnivore/utils": "1.0.0",
+    "@ruminer/utils": "1.0.0",
     "@sentry/serverless": "^7.77.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",

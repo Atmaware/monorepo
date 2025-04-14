@@ -1,3 +1,3 @@
 #!/bin/sh
 cat hosts >> /etc/hosts
-yarn workspace @omnivore/content-fetch start
+yarn workspace @ruminer/content-fetch start

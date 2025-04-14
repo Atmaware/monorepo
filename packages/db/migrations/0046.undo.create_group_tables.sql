@@ -4,8 +4,8 @@
 
 BEGIN;
 
-DROP TABLE omnivore.group_membership ;
-DROP TABLE omnivore.invite ;
-DROP TABLE omnivore.group ;
+DROP TABLE ruminer.group_membership ;
+DROP TABLE ruminer.invite ;
+DROP TABLE ruminer.group ;
 
 COMMIT;

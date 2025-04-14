@@ -1,7 +1,7 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { Queue, RedisClient } from 'bullmq'
 
-export const QUEUE = 'omnivore-backend-queue'
+export const QUEUE = 'ruminer-backend-queue'
 
 export const getQueue = async (
   connection: RedisClient,

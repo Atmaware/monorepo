@@ -10,9 +10,9 @@ begin
     setweight(to_tsvector('pg_catalog.english', coalesce(new.title, '')), 'A') ||
     setweight(to_tsvector('pg_catalog.english', coalesce(new.author, '')), 'A') ||
     setweight(to_tsvector('pg_catalog.english', coalesce(new.description,'')), 'A') ||
-    -- full hostname (eg www.omnivore.app)
+    -- full hostname (eg www.ruminer.app)
     setweight(to_tsvector('pg_catalog.english', coalesce(regexp_replace(new.url, '^((http[s]?):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$', '\3'), '')), 'A') ||
-    -- secondary hostname (eg omnivore)
+    -- secondary hostname (eg ruminer)
     setweight(to_tsvector('pg_catalog.english', coalesce(regexp_replace(new.url, '^((http[s]?):\/)?\/?(.*\.)?([^:\/\s]+)(\..*)((\/+)*\/)?([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$', '\4'), '')), 'A') ||
     setweight(to_tsvector('pg_catalog.english', coalesce(new.content,'')), 'B');
   return new;
@@ -20,10 +20,10 @@ end
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER page_tsv_update BEFORE INSERT OR UPDATE
-    ON omnivore.pages FOR EACH ROW EXECUTE PROCEDURE update_page_tsv();
+    ON ruminer.pages FOR EACH ROW EXECUTE PROCEDURE update_page_tsv();
 
 -- rename to page* since we aren't using Article naming anymore
-DROP TRIGGER IF EXISTS article_tsv_update ON omnivore.pages ;
+DROP TRIGGER IF EXISTS article_tsv_update ON ruminer.pages ;
 
 COMMIT;
 
@@ -33,5 +33,5 @@ BEGIN;
 -- We need to do it in a separate transaction 
 -- block though, otherwise the trigger wont be
 -- executed on update.
-UPDATE omnivore.pages SET updated_at = NOW();
+UPDATE ruminer.pages SET updated_at = NOW();
 COMMIT;

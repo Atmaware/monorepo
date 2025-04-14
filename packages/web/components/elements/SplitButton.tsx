@@ -45,7 +45,7 @@ export const SplitButton = (props: SplitButtonProps): JSX.Element => {
       <Button
         css={{
           display: 'flex',
-          bg: '$omnivoreYellow',
+          bg: '$ruminerYellow',
           color: '#2A2A2A',
           fontSize: '14px',
           fontFamily: '$inter',

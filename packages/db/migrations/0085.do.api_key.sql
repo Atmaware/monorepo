@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.api_key (
+CREATE TABLE ruminer.api_key (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user (id) ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user (id) ON DELETE CASCADE,
     name text NOT NULL,
     key text NOT NULL,
     scopes text[] NOT NULL DEFAULT '{}',
@@ -16,6 +16,6 @@ CREATE TABLE omnivore.api_key (
     UNIQUE (user_id, name)
 );
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.api_key TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.api_key TO ruminer_user;
 
 COMMIT;

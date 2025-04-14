@@ -24,7 +24,7 @@ export function TermsAndConditions(
       }}
     >
       <div className="page-title">
-        <StyledText style="boldHeadline">Omnivore Terms of Service</StyledText>
+        <StyledText style="boldHeadline">Ruminer Terms of Service</StyledText>
         <StyledText style="body" className="date">
           January 8, 2021
         </StyledText>

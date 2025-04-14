@@ -1,12 +1,12 @@
 import { Storage } from '@google-cloud/storage'
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { v4 as uuid } from 'uuid'
 import { EmailJobType, queueEmailJob } from './job'
 
 const storage = process.env.GCS_UPLOAD_SA_KEY_FILE_PATH
   ? new Storage({ keyFilename: process.env.GCS_UPLOAD_SA_KEY_FILE_PATH })
   : new Storage()
-const bucketName = process.env.GCS_UPLOAD_BUCKET || 'omnivore-files'
+const bucketName = process.env.GCS_UPLOAD_BUCKET || 'ruminer-files'
 
 export interface Attachment {
   contentType: string

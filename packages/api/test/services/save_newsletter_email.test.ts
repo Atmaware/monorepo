@@ -43,9 +43,9 @@ describe('saveNewsletterEmail', () => {
   })
 
   it('adds the newsletter to the library', async () => {
-    nock('https://blog.omnivore.app').get('/fake-url').reply(200)
-    nock('https://blog.omnivore.app').head('/fake-url').reply(200)
-    const url = 'https://blog.omnivore.app/fake-url'
+    nock('https://blog.ruminer.app').get('/fake-url').reply(200)
+    nock('https://blog.ruminer.app').head('/fake-url').reply(200)
+    const url = 'https://blog.ruminer.app/fake-url'
 
     await saveNewsletter(
       {
@@ -56,7 +56,7 @@ describe('saveNewsletterEmail', () => {
         title,
         author,
         receivedEmailId: receivedEmail.id,
-        unsubHttpUrl: 'https://blog.omnivore.app/unsubscribe',
+        unsubHttpUrl: 'https://blog.ruminer.app/unsubscribe',
       },
       newsletterEmail
     )
@@ -75,9 +75,9 @@ describe('saveNewsletterEmail', () => {
   })
 
   it('adds a Newsletter label to that page', async () => {
-    nock('https://blog.omnivore.app').get('/new-fake-url').reply(200)
-    nock('https://blog.omnivore.app').head('/new-fake-url').reply(200)
-    const url = 'https://blog.omnivore.app/new-fake-url'
+    nock('https://blog.ruminer.app').get('/new-fake-url').reply(200)
+    nock('https://blog.ruminer.app').head('/new-fake-url').reply(200)
+    const url = 'https://blog.ruminer.app/new-fake-url'
     const newLabel = {
       name: 'Newsletter',
       color: '#07D2D1',
@@ -101,8 +101,8 @@ describe('saveNewsletterEmail', () => {
   })
 
   it('does not create a subscription if no unsubscribe header', async () => {
-    const url = 'https://omnivore.app/no_url?q=no-unsubscribe'
-    nock('https://omnivore.app').get('/no_url?q=no-unsubscribe').reply(404)
+    const url = 'https://ruminer.app/no_url?q=no-unsubscribe'
+    nock('https://ruminer.app').get('/no_url?q=no-unsubscribe').reply(404)
 
     await saveNewsletter(
       {

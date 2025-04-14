@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.highlight
+ALTER TABLE ruminer.highlight
     ALTER COLUMN updated_at DROP NOT NULL;
 
 COMMIT;

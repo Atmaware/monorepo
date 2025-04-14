@@ -1,4 +1,4 @@
-import { Label } from '../../../types/OmnivoreSchema'
+import { Label } from '../../../types/RuminerSchema'
 import { fromArrayLike } from 'rxjs/internal/observable/innerFrom'
 
 // We use this to generate the Embeddings for our topics.

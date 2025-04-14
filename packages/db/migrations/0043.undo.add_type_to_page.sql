@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article DROP COLUMN type;
+ALTER TABLE ruminer.article DROP COLUMN type;
 
 COMMIT;

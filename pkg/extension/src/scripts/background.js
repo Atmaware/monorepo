@@ -56,8 +56,8 @@ class TaskQueue {
 
 let authToken = undefined
 const queue = new TaskQueue()
-const omnivoreURL = process.env.OMNIVORE_URL
-const omnivoreGraphqlURL = process.env.OMNIVORE_GRAPHQL_URL
+const ruminerURL = process.env.OMNIVORE_URL
+const ruminerGraphqlURL = process.env.OMNIVORE_GRAPHQL_URL
 
 let completedRequests = {}
 
@@ -117,7 +117,7 @@ async function uploadFileRequest(url, contentType) {
   })
 
   const field = 'uploadFileRequest'
-  const result = await gqlRequest(omnivoreGraphqlURL + 'graphql', data)
+  const result = await gqlRequest(ruminerGraphqlURL + 'graphql', data)
 
   if (result[field]['errorCodes']) {
     if (result[field]['errorCodes'][0] === 'UNAUTHORIZED') {
@@ -155,7 +155,7 @@ async function savePdfFile(
   contentObjUrl
 ) {
   const toolbarCtx = {
-    omnivoreURL,
+    ruminerURL,
     originalURL: url,
     requestId: requestId,
   }
@@ -220,7 +220,7 @@ async function saveUrl(currentTab, url) {
 
 async function saveApiRequest(currentTab, query, field, input) {
   const toolbarCtx = {
-    omnivoreURL,
+    ruminerURL,
     originalURL: input.url,
     requestId: input.clientRequestId,
   }
@@ -242,7 +242,7 @@ async function saveApiRequest(currentTab, query, field, input) {
   })
 
   try {
-    const result = await gqlRequest(omnivoreGraphqlURL + 'graphql', requestBody)
+    const result = await gqlRequest(ruminerGraphqlURL + 'graphql', requestBody)
     if (result[field]['errorCodes']) {
       if (result[field]['errorCodes'][0] === 'UNAUTHORIZED') {
         browserApi.tabs.sendMessage(currentTab.id, {
@@ -310,7 +310,7 @@ function updateClientStatus(tabId, target, status, message) {
 
 async function editTitleRequest(tabId, request, completedResponse) {
   return updatePageTitle(
-    omnivoreGraphqlURL + 'graphql',
+    ruminerGraphqlURL + 'graphql',
     completedResponse.responseId,
     request.title
   )
@@ -330,7 +330,7 @@ async function addNoteRequest(tabId, request, completedResponse) {
   const shortId = nanoid(8)
 
   return addNote(
-    omnivoreGraphqlURL + 'graphql',
+    ruminerGraphqlURL + 'graphql',
     completedResponse.responseId,
     noteId,
     shortId,
@@ -349,7 +349,7 @@ async function addNoteRequest(tabId, request, completedResponse) {
 
 async function setLabelsRequest(tabId, request, completedResponse) {
   return setLabels(
-    omnivoreGraphqlURL + 'graphql',
+    ruminerGraphqlURL + 'graphql',
     completedResponse.responseId,
     request.labels
   )
@@ -370,7 +370,7 @@ async function setLabelsRequest(tabId, request, completedResponse) {
 }
 
 async function archiveRequest(tabId, request, completedResponse) {
-  return archive(omnivoreGraphqlURL + 'graphql', completedResponse.responseId)
+  return archive(ruminerGraphqlURL + 'graphql', completedResponse.responseId)
     .then(() => {
       updateClientStatus(tabId, 'extra', 'success', 'Archived')
       return true
@@ -383,7 +383,7 @@ async function archiveRequest(tabId, request, completedResponse) {
 
 async function deleteRequest(tabId, request, completedResponse) {
   return deleteItem(
-    omnivoreGraphqlURL + 'graphql',
+    ruminerGraphqlURL + 'graphql',
     completedResponse.responseId
   )
     .then(() => {
@@ -593,13 +593,13 @@ function extensionSaveCurrentPage(tabId, createHighlight) {
         }
         await saveArticle(tab, createHighlight)
         try {
-          await updateLabelsCache(omnivoreGraphqlURL + 'graphql', tab)
+          await updateLabelsCache(ruminerGraphqlURL + 'graphql', tab)
           browserApi.tabs.sendMessage(tab.id, {
             action: ACTIONS.LabelCacheUpdated,
             payload: {},
           })
         } catch (err) {
-          console.error('error fetching labels', err, omnivoreGraphqlURL)
+          console.error('error fetching labels', err, ruminerGraphqlURL)
           return undefined
         }
       }
@@ -809,7 +809,7 @@ function init() {
 
   browserApi.contextMenus.create({
     id: 'save-link-selection',
-    title: 'Save this link to Omnivore',
+    title: 'Save this link to Ruminer',
     contexts: ['link'],
     onclick: async function (obj) {
       executeAction(async function (currentTab) {
@@ -820,7 +820,7 @@ function init() {
 
   browserApi.contextMenus.create({
     id: 'save-page-selection',
-    title: 'Save this page to Omnivore',
+    title: 'Save this page to Ruminer',
     contexts: ['page'],
     onclick: async function (obj) {
       executeAction(function (currentTab) {
@@ -831,7 +831,7 @@ function init() {
 
   browserApi.contextMenus.create({
     id: 'save-text-selection',
-    title: 'Create Highlight and Save to Omnivore',
+    title: 'Create Highlight and Save to Ruminer',
     contexts: ['selection'],
     onclick: async function (obj) {
       executeAction(function (currentTab) {

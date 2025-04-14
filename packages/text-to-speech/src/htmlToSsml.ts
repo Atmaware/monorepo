@@ -50,10 +50,10 @@ const DEFAULT_LANGUAGE = 'en-US'
 const DEFAULT_VOICE = 'en-US-JennyNeural'
 const DEFAULT_SECONDARY_VOICE = 'en-US-GuyNeural'
 const DEFAULT_RATE = '1.1'
-const ELEMENT_INDEX_ATTRIBUTE = 'data-omnivore-anchor-idx'
+const ELEMENT_INDEX_ATTRIBUTE = 'data-ruminer-anchor-idx'
 
 const ANCHOR_ELEMENTS_BLOCKED_ATTRIBUTES = [
-  'omnivore-highlight-id',
+  'ruminer-highlight-id',
   'data-twitter-tweet-id',
   'data-instagram-id',
 ]

@@ -29,11 +29,11 @@ ADD /packages/web ./packages/web
 
 # We want an empty next.config.js when running in docker
 RUN echo "module.exports = {}" > ./packages/web/next.config.js
-RUN yarn workspace @omnivore/web build
+RUN yarn workspace @ruminer/web build
 
 
 FROM node:22.12-alpine as runner
-LABEL org.opencontainers.image.source="https://github.com/omnivore-app/omnivore"
+LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
 
 ENV NODE_ENV production
 ENV PORT=8080
@@ -50,4 +50,4 @@ COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/package.json /app/package.json
 
 EXPOSE 8080
-CMD ["yarn", "workspace", "@omnivore/web", "start"]
+CMD ["yarn", "workspace", "@ruminer/web", "start"]

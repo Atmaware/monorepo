@@ -9,6 +9,6 @@ interface PruneTrashJobData {
 export const pruneTrashJob = async (jobData: PruneTrashJobData) => {
   // call the stored procedure to delete trash items older than {numDays} days
   await appDataSource.query(
-    `CALL omnivore.batch_delete_trash_items(${jobData.numDays});`
+    `CALL ruminer.batch_delete_trash_items(${jobData.numDays});`
   )
 }

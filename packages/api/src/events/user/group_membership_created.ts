@@ -18,16 +18,16 @@ export class FollowAllGroupMembers
   async afterInsert(event: InsertEvent<GroupMembership>): Promise<void> {
     // Make all existing group members follow the new user
     await event.manager.query(
-      `insert into omnivore.user_friends (user_id, friend_user_id)
-      select user_id, $1 from omnivore.group_membership where group_id = $2 and user_id != $1
+      `insert into ruminer.user_friends (user_id, friend_user_id)
+      select user_id, $1 from ruminer.group_membership where group_id = $2 and user_id != $1
         `,
       [event.entity.user.id, event.entity.group.id]
     )
 
     // Make the new user follow all existing group members
     await event.manager.query(
-      `insert into omnivore.user_friends (user_id, friend_user_id)
-      select $1, user_id from omnivore.group_membership where group_id = $2 and user_id != $1
+      `insert into ruminer.user_friends (user_id, friend_user_id)
+      select $1, user_id from ruminer.group_membership where group_id = $2 and user_id != $1
         `,
       [event.entity.user.id, event.entity.group.id]
     )

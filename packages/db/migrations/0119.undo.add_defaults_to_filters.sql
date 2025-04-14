@@ -3,7 +3,7 @@
 -- Description: Add Defaults to Filters
 BEGIN;
 
-ALTER TABLE omnivore.filters
+ALTER TABLE ruminer.filters
     DROP COLUMN default_filter,
     DROP COLUMN visible;
 

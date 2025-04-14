@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.content_display_report CASCADE ;
+DROP TABLE ruminer.content_display_report CASCADE ;
 
 COMMIT;

@@ -28,7 +28,7 @@
   }
 
   @available(iOS 16.0, *)
-  enum OmnivoreIntentError: Swift.Error, CustomLocalizedStringResourceConvertible {
+  enum RuminerIntentError: Swift.Error, CustomLocalizedStringResourceConvertible {
     case general
     case message(_ message: String)
 
@@ -50,10 +50,10 @@
     var title: String
     @Property(title: "Orignal URL")
     var originalURL: String?
-    @Property(title: "Omnivore web URL")
-    var omnivoreWebURL: String
-    @Property(title: "Omnivore deeplink URL")
-    var omnivoreShortcutURL: String
+    @Property(title: "Ruminer web URL")
+    var ruminerWebURL: String
+    @Property(title: "Ruminer deeplink URL")
+    var ruminerShortcutURL: String
     @Property(title: "Author if set")
     var author: String?
     @Property(title: "Site name if set")
@@ -67,8 +67,8 @@
       self.id = UUID(uuidString: item.unwrappedID)!
       self.title = item.unwrappedTitle
       self.originalURL = item.pageURLString
-      self.omnivoreWebURL = "https://omnivore.app/me/\(item.slug!)"
-      self.omnivoreShortcutURL = "omnivore://read/\(item.unwrappedID)"
+      self.ruminerWebURL = "https://ruminer.app/me/\(item.slug!)"
+      self.ruminerShortcutURL = "ruminer://read/\(item.unwrappedID)"
       self.author = item.author
       self.siteName = item.siteName
       self.publishedAt = item.publishDate
@@ -102,19 +102,19 @@
   }
 
   @available(iOS 16.0, *)
-  public struct OmnivoreAppShorcuts: AppShortcutsProvider {
+  public struct RuminerAppShorcuts: AppShortcutsProvider {
     @AppShortcutsBuilder public static var appShortcuts: [AppShortcut] {
-      AppShortcut(intent: SaveToOmnivoreIntent(), phrases: ["Save URL to \(.applicationName)"])
+      AppShortcut(intent: SaveToRuminerIntent(), phrases: ["Save URL to \(.applicationName)"])
     }
   }
 
   @available(iOS 16.0, *)
-  struct SaveToOmnivoreIntent: AppIntent {
-    static var title: LocalizedStringResource = "Save to Omnivore"
-    static var description: LocalizedStringResource = "Save a URL to your Omnivore library"
+  struct SaveToRuminerIntent: AppIntent {
+    static var title: LocalizedStringResource = "Save to Ruminer"
+    static var description: LocalizedStringResource = "Save a URL to your Ruminer library"
 
     static var parameterSummary: some ParameterSummary {
-      Summary("Save \(\.$link) to your Omnivore library.")
+      Summary("Save \(\.$link) to your Ruminer library.")
     }
 
     @Parameter(title: "link")
@@ -124,20 +124,20 @@
     func perform() async throws -> some IntentResult & ProvidesDialog & ReturnsValue<URL> {
       let requestId = UUID().uuidString.lowercased()
       let result  = try? await Services().dataService.saveURL(id: requestId, url: link.absoluteString)
-      if let result = result, let deepLink = URL(string: "omnivore://read/\(result)") {
+      if let result = result, let deepLink = URL(string: "ruminer://read/\(result)") {
         return .result(value: deepLink, dialog: "Link saved")
       }
-      throw OmnivoreIntentError.message("Unable to save link")
+      throw RuminerIntentError.message("Unable to save link")
     }
   }
 
   @available(iOS 16.0, *)
-  struct SaveToOmnivoreAndReturnDeeplinkIntent: AppIntent {
-    static var title: LocalizedStringResource = "Save to Omnivore"
-    static var description: LocalizedStringResource = "Save a URL to your Omnivore library"
+  struct SaveToRuminerAndReturnDeeplinkIntent: AppIntent {
+    static var title: LocalizedStringResource = "Save to Ruminer"
+    static var description: LocalizedStringResource = "Save a URL to your Ruminer library"
 
     static var parameterSummary: some ParameterSummary {
-      Summary("Save \(\.$link) to your Omnivore library.")
+      Summary("Save \(\.$link) to your Ruminer library.")
     }
 
     @Parameter(title: "link")
@@ -147,16 +147,16 @@
     func perform() async throws -> some IntentResult & ReturnsValue<URL> {
       let requestId = UUID().uuidString.lowercased()
       let result  = try? await Services().dataService.saveURL(id: requestId, url: link.absoluteString)
-      if let result = result, let deepLink = URL(string: "omnivore://read/\(result)") {
+      if let result = result, let deepLink = URL(string: "ruminer://read/\(result)") {
         return .result(value: deepLink)
       }
-      throw OmnivoreIntentError.message("Unable to save link")
+      throw RuminerIntentError.message("Unable to save link")
     }
   }
 
   @available(iOS 16.4, *)
-  struct ReadInOmnivoreIntent: ForegroundContinuableIntent {
-    static var title: LocalizedStringResource = "Save and read a URL in Omnivore"
+  struct ReadInRuminerIntent: ForegroundContinuableIntent {
+    static var title: LocalizedStringResource = "Save and read a URL in Ruminer"
     static var openAppWhenRun: Bool = false
 
     @Parameter(title: "link")
@@ -168,7 +168,7 @@
       _ = try? await Services().dataService.saveURL(id: requestId, url: link.absoluteString)
 
       throw needsToContinueInForegroundError("Please continue to open the app.") {
-        UIApplication.shared.open(URL(string: "omnivore://read/\(requestId)")!)
+        UIApplication.shared.open(URL(string: "ruminer://read/\(requestId)")!)
       }
 
       return .result(dialog: "I opened the app.")

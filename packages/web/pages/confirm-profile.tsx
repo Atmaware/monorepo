@@ -5,7 +5,7 @@ import { ConfirmProfileForm } from '../components/templates/ConfirmProfileForm'
 export default function ConfirmProfilePage(): JSX.Element {
   return (
     <>
-      <PageMetaData title="Create Profile - Omnivore" path="/confirm-profile" />
+      <PageMetaData title="Create Profile - Ruminer" path="/confirm-profile" />
       <ProfileLayout>
         <ConfirmProfileForm />
       </ProfileLayout>

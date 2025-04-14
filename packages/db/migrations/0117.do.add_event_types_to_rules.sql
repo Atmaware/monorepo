@@ -4,15 +4,15 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.rules ADD COLUMN event_types text[] NOT NULL DEFAULT '{PAGE_CREATED,PAGE_UPDATED}';
+ALTER TABLE ruminer.rules ADD COLUMN event_types text[] NOT NULL DEFAULT '{PAGE_CREATED,PAGE_UPDATED}';
 
 -- Add event_types to existing rules
-UPDATE omnivore.rules 
+UPDATE ruminer.rules 
     SET 
         event_types = '{PAGE_CREATED}', filter = REPLACE (filter, 'event:created', '') 
     WHERE 
         filter LIKE '%event:created%';
-UPDATE omnivore.rules 
+UPDATE ruminer.rules 
     SET 
         event_types = '{PAGE_UPDATED}', filter = REPLACE (filter, 'event:updated', '') 
     WHERE 

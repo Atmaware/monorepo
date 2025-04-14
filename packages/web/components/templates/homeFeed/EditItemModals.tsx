@@ -220,7 +220,7 @@ function EditItemModal(props: EditItemModalProps): JSX.Element {
     color: '$thTextContrast2',
     '&:focus': {
       outline: 'none !important',
-      border: '1px solid $omnivoreCtaYellow',
+      border: '1px solid $ruminerCtaYellow',
     },
   }
 

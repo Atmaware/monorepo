@@ -5,12 +5,12 @@ import { parseSearchQuery } from '../../src/utils/search'
 
 describe('filterItemEvents', () => {
   it('returns events if there are quotation marks in the subscription name', () => {
-    const query = 'subscription:"Best \\"Omnivore\\""'
+    const query = 'subscription:"Best \\"Ruminer\\""'
     const ast = parseSearchQuery(query)
     const events = [
       {
         id: '1',
-        subscription: 'Best "Omnivore"',
+        subscription: 'Best "Ruminer"',
       },
     ]
     const result = filterItemEvents(ast, events)

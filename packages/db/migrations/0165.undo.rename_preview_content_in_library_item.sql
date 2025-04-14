@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.highlight DROP COLUMN representation;
+ALTER TABLE ruminer.highlight DROP COLUMN representation;
 DROP TYPE representation_type;
 
-ALTER TABLE omnivore.subscriptions DROP COLUMN fetch_content_type;
+ALTER TABLE ruminer.subscriptions DROP COLUMN fetch_content_type;
 DROP TYPE fetch_content_enum;
 
-ALTER TABLE omnivore.library_item RENAME COLUMN feed_content TO preview_content;
+ALTER TABLE ruminer.library_item RENAME COLUMN feed_content TO preview_content;
 
 COMMIT;

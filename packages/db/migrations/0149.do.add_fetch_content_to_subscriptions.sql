@@ -4,11 +4,11 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     ADD COLUMN fetch_content BOOLEAN NOT NULL DEFAULT TRUE,
     ADD COLUMN folder TEXT NOT NULL DEFAULT 'following';
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     ADD COLUMN name TEXT,
     ADD COLUMN description TEXT,
     ADD COLUMN folder TEXT NOT NULL DEFAULT 'inbox';

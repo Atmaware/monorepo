@@ -45,8 +45,8 @@ export function About(props: AboutProps): JSX.Element {
             }}
           >
             {props.lang == 'zh'
-              ? `Omnivore 为认真读者提供免付费read-it-later应用程序`
-              : `Omnivore is the free, open source, read-it-later app for serious
+              ? `Ruminer 为认真读者提供免付费read-it-later应用程序`
+              : `Ruminer is the free, open source, read-it-later app for serious
             readers.`}
           </Box>
           <Box

@@ -11,6 +11,6 @@ CREATE type import_item_state_type AS ENUM (
     'ALL'
 );
 
-ALTER TABLE omnivore.integrations ADD COLUMN import_item_state import_item_state_type;
+ALTER TABLE ruminer.integrations ADD COLUMN import_item_state import_item_state_type;
 
 COMMIT;

@@ -3,8 +3,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-base-to-string */
 
-import { preParseContent } from '@omnivore/content-handler'
-import { Readability } from '@omnivore/readability'
+import { preParseContent } from '@ruminer/content-handler'
+import { Readability } from '@ruminer/readability'
 import addressparser from 'addressparser'
 import axios from 'axios'
 import createDOMPurify, { SanitizeElementHookEvent } from 'dompurify'
@@ -75,9 +75,9 @@ const DOM_PURIFY_CONFIG = {
     'data-feature',
   ],
 }
-const ARTICLE_PREFIX = 'omnivore:'
+const ARTICLE_PREFIX = 'ruminer:'
 
-export const FAKE_URL_PREFIX = 'https://omnivore.app/no_url?q='
+export const FAKE_URL_PREFIX = 'https://ruminer.app/no_url?q='
 export const rssParserConfig = () => {
   const fingerprint = generateFingerprint()
 
@@ -338,7 +338,7 @@ export const parsePreparedContent = async (
     highlightData = findEmbeddedHighlight(newDocumentElement)
 
     const ANCHOR_ELEMENTS_BLOCKED_ATTRIBUTES = [
-      'omnivore-highlight-id',
+      'ruminer-highlight-id',
       'data-twitter-tweet-id',
       'data-instagram-id',
     ]
@@ -371,7 +371,7 @@ export const parsePreparedContent = async (
     visitedNodeList.shift()
     visitedNodeList.forEach((node, index) => {
       // start from index 1, index 0 reserved for anchor unknown.
-      node.setAttribute('data-omnivore-anchor-idx', (index + 1).toString())
+      node.setAttribute('data-ruminer-anchor-idx', (index + 1).toString())
     })
 
     const newHtml = newDocumentElement.outerHTML
@@ -514,7 +514,7 @@ export const getTitleFromEmailSubject = (subject: string) => {
 
 export const parseEmailAddress = (from: string): addressparser.EmailAddress => {
   // get author name from email
-  // e.g. 'Jackson Harper from Omnivore App <jacksonh@substack.com>'
+  // e.g. 'Jackson Harper from Ruminer App <jacksonh@substack.com>'
   // or 'Mike Allen <mike@axios.com>'
   const parsed = addressparser(from)
   if (parsed.length > 0) {

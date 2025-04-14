@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.group_membership ADD CONSTRAINT group_membership_unique UNIQUE (group_id, user_id);
+ALTER TABLE ruminer.group_membership ADD CONSTRAINT group_membership_unique UNIQUE (group_id, user_id);
 
-GRANT UPDATE ON TABLE omnivore.invite TO omnivore_user;
+GRANT UPDATE ON TABLE ruminer.invite TO ruminer_user;
 
-GRANT UPDATE ON TABLE omnivore.group TO omnivore_user;
+GRANT UPDATE ON TABLE ruminer.group TO ruminer_user;
 
-GRANT UPDATE ON TABLE omnivore.group_membership TO omnivore_user;
+GRANT UPDATE ON TABLE ruminer.group_membership TO ruminer_user;
 
 COMMIT;

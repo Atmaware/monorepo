@@ -29,14 +29,14 @@ export const registerDatabase = async (secrets: any): Promise<Connection> => {
   console.log('connecting to database:', {
     type: 'postgres',
     host: host,
-    schema: 'omnivore',
+    schema: 'ruminer',
     database: secrets.DB_DATABASE,
   })
 
   const connection = await createConnection({
     type: 'postgres',
     host: host,
-    schema: 'omnivore',
+    schema: 'ruminer',
     username: secrets.DB_USER,
     password: secrets.DB_PASS,
     database: secrets.DB_DATABASE,

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions ALTER status DROP DEFAULT;
+ALTER TABLE ruminer.subscriptions ALTER status DROP DEFAULT;
 
 COMMIT;

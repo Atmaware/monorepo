@@ -1,6 +1,6 @@
 import { File, Storage } from '@google-cloud/storage'
-import { Highlight, Omnivore } from '@omnivore-app/api'
-import { RedisDataSource } from '@omnivore/utils'
+import { Highlight, Ruminer } from '@ruminer-app/api'
+import { RedisDataSource } from '@ruminer/utils'
 import * as Sentry from '@sentry/serverless'
 import archiver from 'archiver'
 import * as dotenv from 'dotenv'
@@ -22,7 +22,7 @@ interface Claims {
 }
 
 const storage = new Storage()
-const GCS_BUCKET = process.env.GCS_UPLOAD_BUCKET || 'omnivore-export'
+const GCS_BUCKET = process.env.GCS_UPLOAD_BUCKET || 'ruminer-export'
 
 const createGCSFile = (bucket: string, filename: string): File => {
   return storage.bucket(bucket).file(filename)
@@ -43,7 +43,7 @@ const sendExportCompletedEmail = async (
 ) => {
   return queueEmailJob(redisDataSource, {
     userId,
-    subject: 'Your Omnivore export is ready',
+    subject: 'Your Ruminer export is ready',
     html: `<p>Your export is ready. You can download it from the following link: <a href="${urlToDownload}">${urlToDownload}</a></p>`,
   })
 }
@@ -75,7 +75,7 @@ export const exporter = Sentry.GCPFunction.wrapHttpFunction(
       return res.status(500).send({ errorCode: 'ENV_NOT_CONFIGURED' })
     }
 
-    const token = req.get('Omnivore-Authorization')
+    const token = req.get('Ruminer-Authorization')
     if (!token) {
       return res.status(401).send({ errorCode: 'INVALID_TOKEN' })
     }
@@ -148,7 +148,7 @@ export const exporter = Sentry.GCPFunction.wrapHttpFunction(
       archive.pipe(passthroughStream)
 
       // fetch data from the database
-      const omnivore = new Omnivore({
+      const ruminer = new Ruminer({
         apiKey: claims.token,
       })
 
@@ -156,7 +156,7 @@ export const exporter = Sentry.GCPFunction.wrapHttpFunction(
       let cursor = 0
       let hasNext = false
       do {
-        const response = await omnivore.items.search({
+        const response = await ruminer.items.search({
           first: batchSize,
           after: cursor,
           includeContent: true,

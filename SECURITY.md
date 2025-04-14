@@ -4,16 +4,16 @@ Keeping user information safe and secure is a top priority, and we welcome the c
 
 # Scope
 
-Omnivore runs a number of services but only submissions under the following domains are eligible for rewards. Any Omnivore-owned domains not listed below are not in scope, not eligible for rewards, and not covered by our legal safe harbor.
+Ruminer runs a number of services but only submissions under the following domains are eligible for rewards. Any Ruminer-owned domains not listed below are not in scope, not eligible for rewards, and not covered by our legal safe harbor.
 
-- omnivore.app
-- demo.omnivore.app
+- ruminer.app
+- demo.ruminer.app
 
 ## Domains that are out of scope:
 
-- docs.omnivore.app
-- blog.omnivore.app
-- changes.omnivore.app
+- docs.ruminer.app
+- blog.ruminer.app
+- changes.ruminer.app
 
 ## The following vulnerability categories are outside of the scope of our responsible disclosure program, and aren't eligible for bounty:
 
@@ -30,11 +30,11 @@ Omnivore runs a number of services but only submissions under the following doma
 
 # How to Submit a Report
 
-To submit a vulnerability report to Omnivore Media, please contact us at feedback@omnivore.app. Your submission will be reviewed and validated by a member of our security team.
+To submit a vulnerability report to Ruminer Media, please contact us at feedback@ruminer.app. Your submission will be reviewed and validated by a member of our security team.
 
 # Safe Harbor
 
-Omnivore Media supports safe harbor for security researchers who:
+Ruminer Media supports safe harbor for security researchers who:
 
 - Make a good faith effort to avoid privacy violations, destruction of data, and interruption or degradation of our services.
 - Only interact with accounts you own or with explicit permission of the account holder. If you do encounter Personally Identifiable Information (PII) contact us immediately, do not proceed with access, and immediately purge any local information.

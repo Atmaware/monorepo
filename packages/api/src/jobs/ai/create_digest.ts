@@ -6,7 +6,7 @@ import {
   htmlToSpeechFile,
   SpeechFile,
   SSMLOptions,
-} from '@omnivore/text-to-speech-handler'
+} from '@ruminer/text-to-speech-handler'
 import axios from 'axios'
 import { truncate } from 'lodash'
 import { v4 as uuid } from 'uuid'
@@ -98,7 +98,7 @@ export const CRON_PATTERNS = {
   weekly: '30 10 * * 7',
 }
 
-const AUTHOR = 'Omnivore Digest'
+const AUTHOR = 'Ruminer Digest'
 
 let digestDefinition: DigestDefinition
 
@@ -487,7 +487,7 @@ const filterSummaries = (summaries: RankedItem[]): RankedItem[] => {
 
 // we can use something more sophisticated to generate titles
 const generateTitle = (summaries: RankedItem[]): string =>
-  'Omnivore digest: ' +
+  'Ruminer digest: ' +
   summaries
     .map((item) => item.libraryItem.title.replace(/\|.*/, '').trim()) // remove the author
     .join(', ')
@@ -601,7 +601,7 @@ const sendEmail = async (user: User, digest: Digest, channels: Channel[]) => {
                     margin: 20px 0;
                     font-family: Inter, sans-serif;
                     border-radius: 5px;">
-              <a href="${env.client.url}/digest/${digest.id}">Read in Omnivore</a>
+              <a href="${env.client.url}/digest/${digest.id}">Read in Ruminer</a>
             </button>`
           : ''
       }
@@ -670,7 +670,7 @@ export const moveDigestToLibrary = async (user: User, digest: Digest) => {
   const html = `
     <html>
       <body>
-        <div class="_omnivore_digest">
+        <div class="_ruminer_digest">
             ${chapters
               .map(
                 (chapter) => `
@@ -690,7 +690,7 @@ export const moveDigestToLibrary = async (user: User, digest: Digest) => {
 
   await savePage(
     {
-      url: `${env.client.url}/omnivore-digest/${digest.id}`,
+      url: `${env.client.url}/ruminer-digest/${digest.id}`,
       title,
       originalContent: html,
       clientRequestId: digest.id,

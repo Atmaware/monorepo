@@ -11,8 +11,8 @@
 
   const url = decodeURIComponent(encodedUrl);
 
-  const linkEl = document.getElementById('get-omnivore-link');
-  const loginLinkEl = document.getElementById('omnivore-login');
+  const linkEl = document.getElementById('get-ruminer-link');
+  const loginLinkEl = document.getElementById('ruminer-login');
 
   linkEl.href = url;
   loginLinkEl.href = url;

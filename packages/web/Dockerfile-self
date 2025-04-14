@@ -21,11 +21,11 @@ RUN yarn install --pure-lockfile
 ADD /packages/web ./packages/web
 
 COPY ./packages/web/next.config.self.js ./packages/web/next.config.js
-RUN yarn workspace @omnivore/web build
+RUN yarn workspace @ruminer/web build
 
 
 FROM node:22.12-alpine as runner
-LABEL org.opencontainers.image.source="https://github.com/omnivore-app/omnivore"
+LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
 
 ENV NODE_ENV production
 ENV PORT=8080

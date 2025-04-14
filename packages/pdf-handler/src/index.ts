@@ -1,5 +1,5 @@
 import { GetSignedUrlConfig, Storage } from '@google-cloud/storage'
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import * as Sentry from '@sentry/serverless'
 import 'dotenv/config'
 import { queueUpdatePageJob, State } from './job'

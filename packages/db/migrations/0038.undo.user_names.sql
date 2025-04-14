@@ -5,6 +5,6 @@
 BEGIN;
 
 -- Remove the fullname column from the user table
-ALTER TABLE omnivore.user DROP COLUMN full_name;
+ALTER TABLE ruminer.user DROP COLUMN full_name;
 
 COMMIT;

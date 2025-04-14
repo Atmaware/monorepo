@@ -4,11 +4,11 @@
 
 BEGIN;
 
-CREATE TYPE omnivore.membership_tier AS ENUM ('WAIT_LIST', 'BETA');
+CREATE TYPE ruminer.membership_tier AS ENUM ('WAIT_LIST', 'BETA');
 
-ALTER TABLE omnivore.user
-    ADD column membership omnivore.membership_tier NOT NULL DEFAULT 'WAIT_LIST';
+ALTER TABLE ruminer.user
+    ADD column membership ruminer.membership_tier NOT NULL DEFAULT 'WAIT_LIST';
 
-UPDATE omnivore.user SET membership = 'BETA';
+UPDATE ruminer.user SET membership = 'BETA';
 
 COMMIT;

@@ -1,34 +1,34 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 import { mergeMap } from 'rxjs/operators'
-import { OmnivoreArticle } from '../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../types/RuminerArticle'
 import { OperatorFunction, pipe, share } from 'rxjs'
 import { fromPromise } from 'rxjs/internal/observable/innerFrom'
 import { client } from '../clients/ai/client'
 import { onErrorContinue, rateLimiter } from '../utils/reactive'
-import { Label } from '../../types/OmnivoreSchema'
+import { Label } from '../../types/RuminerSchema'
 import { sqlClient } from '../store/db'
 import { toSql } from 'pgvector/pg'
 
-export type EmbeddedOmnivoreArticle = {
+export type EmbeddedRuminerArticle = {
   embedding: Array<number>
-  article: OmnivoreArticle
+  article: RuminerArticle
   topics: string[]
 }
 
-export type EmbeddedOmnivoreLabel = {
+export type EmbeddedRuminerLabel = {
   embedding: Array<number>
   label: Label
 }
 
 // Remove, for instance, "The Verge" and " - The Verge" to avoid the cosine similarity matching on that.
-const prepareTitle = (article: OmnivoreArticle): string =>
+const prepareTitle = (article: RuminerArticle): string =>
   article.title
     .replace(article.site, '')
     .replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>{}[]\\\/]/gi, '')
 
 const getEmbeddingForArticle = async (
-  it: OmnivoreArticle
-): Promise<EmbeddedOmnivoreArticle> => {
+  it: RuminerArticle
+): Promise<EmbeddedRuminerArticle> => {
   // console.log(`${prepareTitle(it)}: ${it.description}`)
   const embedding = await client.getEmbeddings(
     `${prepareTitle(it)}: ${it.summary}`
@@ -42,13 +42,13 @@ const getEmbeddingForArticle = async (
 }
 
 const addTopicsToArticle = async (
-  it: EmbeddedOmnivoreArticle
-): Promise<EmbeddedOmnivoreArticle> => {
+  it: EmbeddedRuminerArticle
+): Promise<EmbeddedRuminerArticle> => {
   const articleEmbedding = it.embedding
 
   const topics = await sqlClient.query(
     `SELECT name, similarity
-     FROM (SELECT discover_topic_name as name, MAX(ABS(embed.embedding <#> $1)) AS "similarity" FROM omnivore.omnivore.discover_topic_embedding_link embed group by discover_topic_name)  topics
+     FROM (SELECT discover_topic_name as name, MAX(ABS(embed.embedding <#> $1)) AS "similarity" FROM ruminer.ruminer.discover_topic_embedding_link embed group by discover_topic_name)  topics
      ORDER BY similarity desc`,
     [toSql(articleEmbedding)]
   )
@@ -93,7 +93,7 @@ const addTopicsToArticle = async (
 
 const getEmbeddingForLabel = async (
   label: Label
-): Promise<EmbeddedOmnivoreLabel> => {
+): Promise<EmbeddedRuminerLabel> => {
   const embedding = await client.getEmbeddings(
     `${label.name}${label.description ? ' : ' + label.description : ''}`
   )
@@ -114,28 +114,28 @@ export const rateLimiting = rateLimitEmbedding<any>()
 
 export const addEmbeddingToLabel$: OperatorFunction<
   Label,
-  EmbeddedOmnivoreLabel
+  EmbeddedRuminerLabel
 > = pipe(
   rateLimiting,
   mergeMap((it: Label) => fromPromise(getEmbeddingForLabel(it)))
 )
 
 export const addEmbeddingToArticle$: OperatorFunction<
-  OmnivoreArticle,
-  EmbeddedOmnivoreArticle
+  RuminerArticle,
+  EmbeddedRuminerArticle
 > = pipe(
   rateLimiting,
   onErrorContinue(
-    mergeMap((it: OmnivoreArticle) => fromPromise(getEmbeddingForArticle(it)))
+    mergeMap((it: RuminerArticle) => fromPromise(getEmbeddingForArticle(it)))
   )
 )
 
 export const addTopicsToArticle$: OperatorFunction<
-  EmbeddedOmnivoreArticle,
-  EmbeddedOmnivoreArticle
+  EmbeddedRuminerArticle,
+  EmbeddedRuminerArticle
 > = pipe(
   onErrorContinue(
-    mergeMap((it: EmbeddedOmnivoreArticle) =>
+    mergeMap((it: EmbeddedRuminerArticle) =>
       fromPromise(addTopicsToArticle(it))
     )
   )

@@ -72,7 +72,7 @@ export const exporter = Sentry.GCPFunction.wrapHttpFunction(
       return res.status(500).send('Environment not configured correctly')
     }
 
-    const token = req.get('Omnivore-Authorization')
+    const token = req.get('Ruminer-Authorization')
     if (!token) {
       return res.status(401).send({ errorCode: 'INVALID_TOKEN' })
     }
@@ -192,7 +192,7 @@ export const importer = Sentry.GCPFunction.wrapHttpFunction(
       return res.status(500).send('Environment not configured correctly')
     }
 
-    const token = req.get('Omnivore-Authorization')
+    const token = req.get('Ruminer-Authorization')
     if (!token) {
       return res.status(401).send({ errorCode: 'INVALID_TOKEN' })
     }

@@ -13,8 +13,8 @@ export const getDiscoverFeedsResolver = authorized<
 >(async (_, _args, { uid, log }) => {
   try {
     const existingFeed = (await appDataSource.query(
-      `SELECT *, COALESCE(visible_name, title) as "visibleName" FROM omnivore.discover_feed_subscription sub
-      INNER JOIN omnivore.discover_feed feed on sub.feed_id=id
+      `SELECT *, COALESCE(visible_name, title) as "visibleName" FROM ruminer.discover_feed_subscription sub
+      INNER JOIN ruminer.discover_feed feed on sub.feed_id=id
       WHERE sub.user_id = $1`,
       [uid]
     )) as {

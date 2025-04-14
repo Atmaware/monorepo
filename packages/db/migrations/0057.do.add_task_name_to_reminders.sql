@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
     ADD column task_name text;
 
 COMMIT;

@@ -59,7 +59,7 @@ const DragnDropIndicator = styled('div', {
 })
 
 const ProgressIndicator = styled(Progress.Indicator, {
-  backgroundColor: '$omnivoreCtaYellow',
+  backgroundColor: '$ruminerCtaYellow',
   width: '100%',
   height: '100%',
 })
@@ -67,7 +67,7 @@ const ProgressIndicator = styled(Progress.Indicator, {
 const ProgressRoot = styled(Progress.Root, {
   position: 'relative',
   overflow: 'hidden',
-  background: '$omnivoreGray',
+  background: '$ruminerGray',
   borderRadius: '99999px',
   width: '100%',
   height: '5px',
@@ -307,7 +307,7 @@ export function UploadModal(props: UploadModalProps): JSX.Element {
               event: DropEvent
             ) => {
               console.log('onDropRejected: ', fileRejections, event)
-              alert('You can only upload PDF files to your Omnivore Library.')
+              alert('You can only upload PDF files to your Ruminer Library.')
               setInDragOperation(false)
               event.preventDefault()
             }}

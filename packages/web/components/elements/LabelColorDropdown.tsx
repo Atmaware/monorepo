@@ -66,7 +66,7 @@ export const LabelColorDropdown = (props: LabelColorDropdownProps) => {
           },
           borderRadius: '6px',
           outlineStyle: 'solid',
-          outlineColor: open ? '$omnivoreYellow' : 'transparent',
+          outlineColor: open ? '$ruminerYellow' : 'transparent',
         }}
       >
         <LabelOption

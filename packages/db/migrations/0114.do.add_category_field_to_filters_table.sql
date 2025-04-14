@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.filters ADD COLUMN category VARCHAR(255) NOT NULL;
+ALTER TABLE ruminer.filters ADD COLUMN category VARCHAR(255) NOT NULL;
 
 COMMIT;

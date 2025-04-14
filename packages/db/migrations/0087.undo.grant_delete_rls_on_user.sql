@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP POLICY delete_users ON omnivore.user;
+DROP POLICY delete_users ON ruminer.user;
 
 COMMIT;

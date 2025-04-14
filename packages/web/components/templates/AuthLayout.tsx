@@ -1,5 +1,5 @@
 import { Box, VStack, HStack } from '../elements/LayoutPrimitives'
-import { OmnivoreNameLogo } from '../elements/images/OmnivoreNameLogo'
+import { RuminerNameLogo } from '../elements/images/RuminerNameLogo'
 import { theme } from '../tokens/stitches.config'
 import { GoogleReCaptchaProvider } from '@google-recaptcha/react'
 
@@ -45,7 +45,7 @@ export function AuthLayout(props: ProfileLayoutProps): JSX.Element {
             },
           }}
         >
-          <OmnivoreNameLogo
+          <RuminerNameLogo
             color="#898989"
             href={props.logoDestination ?? '/login'}
           />

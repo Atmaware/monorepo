@@ -8,7 +8,7 @@ describe('validateUrl', () => {
       validateUrl('https://google.com')
     }).not.to.throw()
     expect(() => {
-      validateUrl('https://omnivore.app/path')
+      validateUrl('https://ruminer.app/path')
     }).not.to.throw()
   })
   it('doesnt allow access to private addresses', () => {

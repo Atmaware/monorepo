@@ -48,7 +48,7 @@ export const FormInput = styled('input', {
 
 export const FormLabel = styled('label', {
   fontSize: '16px',
-  color: '$omnivoreGray',
+  color: '$ruminerGray',
   '&.required:after': {
     content: ' *',
     color: 'red',
@@ -73,7 +73,7 @@ export const BorderedFormInput = styled(FormInput, {
   transition: 'all .2s',
   '&:focus': {
     border: '1px solid transparent',
-    outline: '2px solid $omnivoreCtaYellow',
+    outline: '2px solid $ruminerCtaYellow',
   },
 })
 
@@ -192,7 +192,7 @@ export function GeneralFormInput(props: FormInputProps): JSX.Element {
           color: '$grayTextContrast',
           '&:focus': {
             border: '1px solid transparent',
-            outline: '2px solid $omnivoreCtaYellow',
+            outline: '2px solid $ruminerCtaYellow',
           },
         }}
         name={input.name}

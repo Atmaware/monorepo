@@ -69,7 +69,7 @@ import { CONTENT_FETCH_QUEUE, getQueue, JOB_VERSION } from '../queue-processor'
 import { redisDataSource } from '../redis_data_source'
 import { writeDigest } from '../services/digest'
 import { signFeatureToken } from '../services/features'
-import { OmnivoreAuthorizationHeader } from './auth'
+import { RuminerAuthorizationHeader } from './auth'
 import { CreateTaskError } from './errors'
 import { stringToHash } from './helpers'
 import { logError, logger } from './logger'
@@ -432,7 +432,7 @@ export const enqueueTextToSpeech = async ({
   priority,
   textType = 'ssml',
   bucket = env.fileUpload.gcsUploadBucket,
-  queue = 'omnivore-text-to-speech-queue',
+  queue = 'ruminer-text-to-speech-queue',
   location = env.gcp.location,
   isUltraRealisticVoice = false,
   language,
@@ -515,7 +515,7 @@ export const enqueueRecommendation = async (
   }
 
   const headers = {
-    [OmnivoreAuthorizationHeader]: authToken,
+    [RuminerAuthorizationHeader]: authToken,
   }
   // If there is no Google Cloud Project Id exposed, it means that we are in local environment
   if (env.dev.isLocal || !GOOGLE_CLOUD_PROJECT) {
@@ -567,7 +567,7 @@ export const enqueueImportFromIntegration = async (
   }
 
   const headers = {
-    [OmnivoreAuthorizationHeader]: authToken,
+    [RuminerAuthorizationHeader]: authToken,
   }
   // If there is no Google Cloud Project Id exposed, it means that we are in local environment
   if (env.dev.isLocal || !GOOGLE_CLOUD_PROJECT) {

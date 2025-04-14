@@ -4,8 +4,8 @@
 
 BEGIN;
 
-CREATE POLICY delete_users on omnivore.user
-    FOR DELETE TO omnivore_user
-    USING (id = omnivore.get_current_user_id());
+CREATE POLICY delete_users on ruminer.user
+    FOR DELETE TO ruminer_user
+    USING (id = ruminer.get_current_user_id());
 
 COMMIT;

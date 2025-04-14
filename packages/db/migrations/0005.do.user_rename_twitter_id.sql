@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     RENAME COLUMN twitter_id TO source_user_id;
 
 COMMIT;

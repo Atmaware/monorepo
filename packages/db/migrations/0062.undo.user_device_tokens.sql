@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.user_device_tokens;
+DROP TABLE ruminer.user_device_tokens;
 
 COMMIT;

@@ -25,7 +25,7 @@ export const createTestConnection = async (): Promise<void> => {
     type: 'postgres',
     host: process.env.PG_HOST,
     port: Number(process.env.PG_PORT),
-    schema: 'omnivore',
+    schema: 'ruminer',
     username: process.env.PG_USER,
     password: process.env.PG_PASSWORD,
     database: process.env.PG_DB,
@@ -66,7 +66,7 @@ export const createTestUser = async (
   const [newUser] = await createUser({
     provider: 'GOOGLE',
     sourceUserId: 'fake-user-id-' + name,
-    email: `${name}@omnivore.app`,
+    email: `${name}@ruminer.app`,
     username: name,
     bio: `i am ${name}`,
     name: name,
@@ -82,7 +82,7 @@ export const createUserWithoutProfile = async (name: string): Promise<User> => {
   return userRepository.save({
     source: 'GOOGLE',
     sourceUserId: 'fake-user-id-' + name,
-    email: `${name}@omnivore.app`,
+    email: `${name}@ruminer.app`,
     name: name,
   })
 }
@@ -115,8 +115,8 @@ export const createTestLibraryItem = async (
   const item = {
     user: { id: userId },
     title: 'test title',
-    originalUrl: `https://blog.omnivore.app/test-url-${generateFakeUuid()}`,
-    slug: 'test-with-omnivore',
+    originalUrl: `https://blog.ruminer.app/test-url-${generateFakeUuid()}`,
+    slug: 'test-with-ruminer',
   }
 
   const createdItem = await createOrUpdateLibraryItem(

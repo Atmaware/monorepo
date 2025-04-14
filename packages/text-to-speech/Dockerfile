@@ -15,9 +15,9 @@ COPY /packages/utils/package.json ./packages/utils/package.json
 RUN yarn install --pure-lockfile
 
 ADD /packages/utils ./packages/utils
-RUN yarn workspace @omnivore/utils build
+RUN yarn workspace @ruminer/utils build
 ADD /packages/text-to-speech ./packages/text-to-speech
-RUN yarn workspace @omnivore/text-to-speech-handler build
+RUN yarn workspace @ruminer/text-to-speech-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/text-to-speech/node_modules
@@ -26,5 +26,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/text-to-speech-handler", "start_streaming"]
+CMD ["yarn", "workspace", "@ruminer/text-to-speech-handler", "start_streaming"]
 

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article RENAME COLUMN page_type TO type;
+ALTER TABLE ruminer.article RENAME COLUMN page_type TO type;
 
 COMMIT;

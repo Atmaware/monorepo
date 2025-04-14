@@ -234,7 +234,7 @@ export default function EpubContainer(props: EpubContainerProps): JSX.Element {
       renditionRef.current.annotations.highlight(
         cfirange,
         {
-          omnivoreHighlight: highlight,
+          ruminerHighlight: highlight,
         },
         undefined,
         'hl',

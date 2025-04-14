@@ -1,5 +1,5 @@
-import { Readability } from '@omnivore/readability'
-import { RedisDataSource } from '@omnivore/utils'
+import { Readability } from '@ruminer/readability'
+import { RedisDataSource } from '@ruminer/utils'
 import * as chai from 'chai'
 import { expect } from 'chai'
 import chaiString from 'chai-string'

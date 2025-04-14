@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.integrations ADD COLUMN settings jsonb;
+ALTER TABLE ruminer.integrations ADD COLUMN settings jsonb;
 
 COMMIT;

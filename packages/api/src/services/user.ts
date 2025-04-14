@@ -47,7 +47,7 @@ export const softDeleteUser = async (userId: string) => {
 
       return t.getRepository(User).update(userId, {
         status: StatusType.Deleted,
-        email: `deleted_user_${userId}@omnivore.app`,
+        email: `deleted_user_${userId}@ruminer.app`,
         sourceUserId: `deleted_user_${userId}`,
       })
     },
@@ -88,7 +88,7 @@ export const batchDelete = async (criteria: FindOptionsWhere<User>) => {
   DO $$
   BEGIN
       LOOP
-          DELETE FROM omnivore.user
+          DELETE FROM ruminer.user
           WHERE id IN (${userSubQuery});
 
           EXIT WHEN NOT FOUND;

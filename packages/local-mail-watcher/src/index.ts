@@ -1,4 +1,4 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import express, { Express, Request, Response } from 'express'
 
 import { env } from './env'

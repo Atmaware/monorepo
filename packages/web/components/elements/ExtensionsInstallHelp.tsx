@@ -18,10 +18,10 @@ const icons = {
 }
 
 const extensionDownloadLinks = {
-  'Google Chrome': 'https://omnivore.app/install/chrome',
-  Safari: 'https://omnivore.app/install/mac',
-  'Microsoft Edge': 'https://omnivore.app/install/edge',
-  Firefox: 'https://omnivore.app/install/firefox',
+  'Google Chrome': 'https://ruminer.app/install/chrome',
+  Safari: 'https://ruminer.app/install/mac',
+  'Microsoft Edge': 'https://ruminer.app/install/edge',
+  Firefox: 'https://ruminer.app/install/firefox',
 }
 
 const browserOptions = [
@@ -160,8 +160,8 @@ export default function ExtensionsInstallHelp({
           },
         }}
       >
-        Installing the Omnivore browser extension is the best way to save pages
-        to Omnivore from your computer.
+        Installing the Ruminer browser extension is the best way to save pages
+        to Ruminer from your computer.
         <br />
         {!onboarding && (
           <StyledAnchor
@@ -171,7 +171,7 @@ export default function ExtensionsInstallHelp({
               fontWeight: 600,
               textDecoration: 'underline',
             }}
-            href="https://docs.omnivore.app/using/saving.html"
+            href="https://docs.ruminer.app/using/saving.html"
             target="_blank"
             rel="noreferrer"
           >

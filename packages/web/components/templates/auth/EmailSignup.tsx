@@ -193,10 +193,10 @@ export function EmailSignup(): JSX.Element {
             style="caption"
             css={{
               p: '0px',
-              color: '$omnivoreLightGray',
+              color: '$ruminerLightGray',
             }}
           >
-            Omnivore will send you daily tips for your first week as a new user.
+            Ruminer will send you daily tips for your first week as a new user.
             If you don&apos;t like them you can unsubscribe.
           </StyledText>
 
@@ -240,7 +240,7 @@ export function EmailSignup(): JSX.Element {
             style="action"
             css={{
               pt: '16px',
-              color: '$omnivoreLightGray',
+              color: '$ruminerLightGray',
               textAlign: 'center',
             }}
           >

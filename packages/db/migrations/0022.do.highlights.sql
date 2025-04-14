@@ -1,13 +1,13 @@
 -- Type: DO
 -- Name: highlights
--- Description: Create omnivore.highlight table
+-- Description: Create ruminer.highlight table
 
 BEGIN;
 
-CREATE TABLE omnivore.highlight (
+CREATE TABLE ruminer.highlight (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
-    article_id uuid NOT NULL REFERENCES omnivore.article ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
+    article_id uuid NOT NULL REFERENCES ruminer.article ON DELETE CASCADE,
     quote text NOT NULL,
     prefix varchar(5000),
     suffix varchar(5000),
@@ -19,22 +19,22 @@ CREATE TABLE omnivore.highlight (
     shared_at timestamptz
 );
 
-CREATE TRIGGER update_highlight_modtime BEFORE UPDATE ON omnivore.highlight FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER update_highlight_modtime BEFORE UPDATE ON ruminer.highlight FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-ALTER TABLE omnivore.highlight ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ruminer.highlight ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY read_highlight on omnivore.highlight
-  FOR SELECT TO omnivore_user
+CREATE POLICY read_highlight on ruminer.highlight
+  FOR SELECT TO ruminer_user
   USING (true);
 
-CREATE POLICY create_highlight on omnivore.highlight
-  FOR INSERT TO omnivore_user
+CREATE POLICY create_highlight on ruminer.highlight
+  FOR INSERT TO ruminer_user
   WITH CHECK (true);
 
-CREATE POLICY update_highlight on omnivore.highlight
-  FOR UPDATE TO omnivore_user
-  USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY update_highlight on ruminer.highlight
+  FOR UPDATE TO ruminer_user
+  USING (user_id = ruminer.get_current_user_id());
 
-GRANT SELECT, INSERT, UPDATE ON omnivore.highlight TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE ON ruminer.highlight TO ruminer_user;
 
 COMMIT;

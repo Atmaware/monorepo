@@ -70,7 +70,7 @@ export default function DiscoverFeedsSettings(): JSX.Element {
   return (
     <SettingsTable
       pageId={'feeds'}
-      pageInfoLink="https://docs.omnivore.app/using/feeds.html"
+      pageInfoLink="https://docs.ruminer.app/using/feeds.html"
       headerTitle="Subscribed feeds"
       createTitle="Add a Discover feed"
       createAction={() => {
@@ -105,7 +105,7 @@ export default function DiscoverFeedsSettings(): JSX.Element {
                     <HStack>
                       <FloppyDisk
                         style={{ cursor: 'pointer', marginLeft: '5px' }}
-                        color={theme.colors.omnivoreCtaYellow.toString()}
+                        color={theme.colors.ruminerCtaYellow.toString()}
                         onClick={async (e) => {
                           e.stopPropagation()
                           await updateSubscription({
@@ -117,7 +117,7 @@ export default function DiscoverFeedsSettings(): JSX.Element {
                       />
                       <XCircle
                         style={{ cursor: 'pointer', marginLeft: '5px' }}
-                        color={theme.colors.omnivoreRed.toString()}
+                        color={theme.colors.ruminerRed.toString()}
                         onClick={(e) => {
                           e.stopPropagation()
                           setOnEditId('')
@@ -142,7 +142,7 @@ export default function DiscoverFeedsSettings(): JSX.Element {
                     </SpanBox>
                     <Pencil
                       style={{ cursor: 'pointer', marginLeft: '5px' }}
-                      color={theme.colors.omnivoreLightGray.toString()}
+                      color={theme.colors.ruminerLightGray.toString()}
                       onClick={(e) => {
                         e.stopPropagation()
                         setOnEditName(feed.visibleName)

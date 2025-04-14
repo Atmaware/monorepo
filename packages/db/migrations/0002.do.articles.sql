@@ -4,7 +4,7 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.article (
+CREATE TABLE ruminer.article (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
   title text NOT NULL,
   slug text NOT NULL,
@@ -19,16 +19,16 @@ CREATE TABLE omnivore.article (
   UNIQUE (url, hash)
 );
 
-ALTER TABLE omnivore.article ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ruminer.article ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY read_article on omnivore.article
-  FOR SELECT TO omnivore_user
+CREATE POLICY read_article on ruminer.article
+  FOR SELECT TO ruminer_user
   USING (true);
 
-CREATE POLICY create_article on omnivore.article
-  FOR INSERT TO omnivore_user
+CREATE POLICY create_article on ruminer.article
+  FOR INSERT TO ruminer_user
   WITH CHECK (true);
 
-GRANT SELECT, INSERT ON omnivore.article TO omnivore_user;
+GRANT SELECT, INSERT ON ruminer.article TO ruminer_user;
 
 COMMIT;

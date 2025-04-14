@@ -4,15 +4,15 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.abuse_reports RENAME TO abuse_report;
+ALTER TABLE ruminer.abuse_reports RENAME TO abuse_report;
 
-ALTER TABLE omnivore.abuse_report
+ALTER TABLE ruminer.abuse_report
 ALTER COLUMN report_types TYPE text[];
 
 DROP TYPE report_type CASCADE;
 
 -- change the foreign key on the abuse_report_id column to be on the abuse_report_id column
-ALTER TABLE omnivore.abuse_report DROP CONSTRAINT abuse_reports_reported_by_fkey;
-ALTER TABLE omnivore.abuse_report ADD FOREIGN KEY (reported_by) REFERENCES omnivore.user(id);
+ALTER TABLE ruminer.abuse_report DROP CONSTRAINT abuse_reports_reported_by_fkey;
+ALTER TABLE ruminer.abuse_report ADD FOREIGN KEY (reported_by) REFERENCES ruminer.user(id);
 
 COMMIT;

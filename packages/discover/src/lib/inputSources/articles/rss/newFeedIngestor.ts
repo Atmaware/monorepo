@@ -1,14 +1,14 @@
 import { PubSub } from '@google-cloud/pubsub'
 import { catchError, EMPTY, Observable, Subscriber } from 'rxjs'
 import { Message } from '@google-cloud/pubsub/build/src/subscriber'
-import { OmnivoreFeed } from '../../../../types/Feeds'
+import { RuminerFeed } from '../../../../types/Feeds'
 
 const TOPIC_NAME = 'entityCreated'
 const client = new PubSub()
 
 // If a user creates a brand new Feed (IE: Never before subscribed to) we will endeavor to
 // create all the items from it immediately.
-export const newFeeds$ = new Observable<OmnivoreFeed>(
+export const newFeeds$ = new Observable<RuminerFeed>(
   (subscriber: Subscriber<any>) => {
     client
       .topic(TOPIC_NAME)
@@ -52,7 +52,7 @@ export const newFeeds$ = new Observable<OmnivoreFeed>(
         subscription.on('message', (msg: Message) => {
           const parsedMessage = JSON.parse(msg.data.toString())
           if (parsedMessage.type == 'feed') {
-            subscriber.next(parsedMessage.feed as OmnivoreFeed)
+            subscriber.next(parsedMessage.feed as RuminerFeed)
           }
           msg.ack()
         })

@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_device_tokens
+ALTER TABLE ruminer.user_device_tokens
     ADD COLUMN updated_at timestamptz NOT NULL default current_timestamp,
     ADD CONSTRAINT token_unique UNIQUE (token);
 
-CREATE TRIGGER user_device_tokens_modtime BEFORE UPDATE ON omnivore.user_device_tokens FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER user_device_tokens_modtime BEFORE UPDATE ON ruminer.user_device_tokens FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 COMMIT;

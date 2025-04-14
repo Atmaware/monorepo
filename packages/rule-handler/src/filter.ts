@@ -72,7 +72,7 @@ export const search = async (
         headers: {
           Cookie: `auth=${auth};`,
           'Content-Type': 'application/json',
-          'X-OmnivoreClient': 'rule-handler',
+          'X-RuminerClient': 'rule-handler',
         },
       }
     )

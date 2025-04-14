@@ -10,7 +10,7 @@ import { redisDataSource } from '../redis_data_source'
 import { getRepository } from '../repository'
 import { Claims, ClaimsToSet } from '../resolvers/types'
 
-export const OmnivoreAuthorizationHeader = 'Omnivore-Authorization'
+export const RuminerAuthorizationHeader = 'Ruminer-Authorization'
 
 const signToken = promisify(jwt.sign)
 
@@ -185,7 +185,7 @@ export const setAuthInCookie = async (
 
 export const getTokenByRequest = (req: express.Request): string | undefined => {
   return (
-    req.header(OmnivoreAuthorizationHeader) ||
+    req.header(RuminerAuthorizationHeader) ||
     req.headers.authorization ||
     (req.cookies.auth as string | undefined)
   )

@@ -7,7 +7,7 @@ import {
 } from '../elements/LayoutPrimitives'
 import { LoginForm } from './LoginForm'
 import type { LoginFormProps } from './LoginForm'
-import { OmnivoreNameLogo } from '../elements/images/OmnivoreNameLogo'
+import { RuminerNameLogo } from '../elements/images/RuminerNameLogo'
 
 import featureFullWidthImage from '../../public/static/images/login/login-feature-image-full.png'
 
@@ -35,7 +35,7 @@ export function LoginLayout(props: LoginFormProps): JSX.Element {
           width: '100%',
         }}
       >
-        <OmnivoreNameLogo color="#898989" href="/login" />
+        <RuminerNameLogo color="#898989" href="/login" />
       </Box>
     </>
   )
@@ -82,7 +82,7 @@ function MediumLoginLayout(props: LoginFormProps) {
       >
         <LoginForm {...props} />
       </Box>
-      <OmnivoreIllustration />
+      <RuminerIllustration />
     </HStack>
   )
 }
@@ -100,7 +100,7 @@ const srcSetToImageSet = (srcFallback: string, srcSet?: string): string => {
 )`
 }
 
-function OmnivoreIllustration() {
+function RuminerIllustration() {
   const { props: fullWidthImgProps } = getImgProps({
     src: featureFullWidthImage,
     alt: '',

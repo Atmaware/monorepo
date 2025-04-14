@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Box, VStack } from '@omnivore/web/components/elements/LayoutPrimitives'
-import { ArticleContainer } from '@omnivore/web/components/templates/article/ArticleContainer'
-import { applyStoredTheme } from '@omnivore/web/lib/themeUpdater'
-import '@omnivore/web/styles/globals.css'
-import '@omnivore/web/styles/articleInnerStyling.css'
+import { Box, VStack } from '@ruminer/web/components/elements/LayoutPrimitives'
+import { ArticleContainer } from '@ruminer/web/components/templates/article/ArticleContainer'
+import { applyStoredTheme } from '@ruminer/web/lib/themeUpdater'
+import '@ruminer/web/styles/globals.css'
+import '@ruminer/web/styles/articleInnerStyling.css'
 
 const mutation = async (name, input) => {
   if (window.webkit) {
@@ -68,8 +68,8 @@ const App = () => {
           style={{ backgroundColor: 'var(--colors-readerBg)' }}
         >
           <ArticleContainer
-            article={window.omnivoreArticle}
-            labels={window.omnivoreArticle.labels}
+            article={window.ruminerArticle}
+            labels={window.ruminerArticle.labels}
             isAppleAppEmbed={true}
             highlightBarDisabled={!window.enableHighlightBar}
             fontSize={window.fontSize ?? 18}

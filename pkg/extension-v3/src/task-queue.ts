@@ -3,7 +3,7 @@ import {
   archiveLibraryItem,
   deleteItem, setLabels, updateLabelsCache,
   updatePageTitle
-} from './scripts/omnivore-api'
+} from './scripts/ruminer-api'
 import { TaskInput } from './scripts/types'
 
 export class TaskQueue {
@@ -104,7 +104,7 @@ export class TaskQueue {
         })
       }
     } catch (err) {
-      console.log('[omnivore] task queue error: ', err)
+      console.log('[ruminer] task queue error: ', err)
       if (this.tabId) {
         console.log('sending error message')
         chrome.tabs.sendMessage(this.tabId, {

@@ -5,18 +5,18 @@
 BEGIN;
 
 CREATE TRIGGER label_names_update
-AFTER UPDATE ON omnivore.labels
+AFTER UPDATE ON ruminer.labels
 FOR EACH ROW
 WHEN (OLD.name <> NEW.name)
 EXECUTE FUNCTION update_label_names();
 
 CREATE TRIGGER library_item_highlight_annotations_update
-AFTER INSERT OR UPDATE OR DELETE ON omnivore.highlight
+AFTER INSERT OR UPDATE OR DELETE ON ruminer.highlight
 FOR EACH ROW
 EXECUTE FUNCTION update_library_item_highlight_annotations();
 
 CREATE TRIGGER library_item_labels_update
-AFTER INSERT OR UPDATE OR DELETE ON omnivore.entity_labels
+AFTER INSERT OR UPDATE OR DELETE ON ruminer.entity_labels
 FOR EACH ROW
 EXECUTE FUNCTION update_library_item_labels();
 

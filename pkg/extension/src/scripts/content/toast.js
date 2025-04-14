@@ -71,7 +71,7 @@
     }
 
     const toastEl = document.createElement('div')
-    toastEl.id = '#omnivore-toast'
+    toastEl.id = '#ruminer-toast'
     toastEl.innerHTML = html
     toastEl.tabIndex = 0
     root.shadowRoot.appendChild(toastEl)
@@ -86,9 +86,9 @@
   function displayLoggedOutView() {
     cancelAutoDismiss()
     updatePageStatus('failure')
-    toggleRow('#omnivore-logged-out-row')
+    toggleRow('#ruminer-logged-out-row')
     updateStatusBox(
-      '#omnivore-logged-out-status',
+      '#ruminer-logged-out-status',
       'empty',
       `You are not logged in.`
     )
@@ -97,11 +97,11 @@
 
   function disableAllButtons() {
     const actionButtons = [
-      '#omnivore-toast-edit-title-btn',
-      '#omnivore-toast-edit-labels-btn',
-      '#omnivore-toast-read-now-btn',
-      '#omnivore-toast-add-note-btn',
-      '#omnivore-open-menu-btn',
+      '#ruminer-toast-edit-title-btn',
+      '#ruminer-toast-edit-labels-btn',
+      '#ruminer-toast-read-now-btn',
+      '#ruminer-toast-add-note-btn',
+      '#ruminer-open-menu-btn',
     ]
     actionButtons.forEach((btnId) => {
       const btn = currentToastEl.shadowRoot.querySelector(btnId)
@@ -133,33 +133,33 @@
         break
       case 'note':
         updateStatusBox(
-          '#omnivore-add-note-status',
+          '#ruminer-add-note-status',
           payload.status,
           payload.message,
           payload.status == 'success' ? 2500 : undefined
         )
         if (payload.status == 'success') {
           setTimeout(() => {
-            toggleRow('#omnivore-add-note-status')
+            toggleRow('#ruminer-add-note-status')
           }, 3000)
         }
         break
       case 'title':
         updateStatusBox(
-          '#omnivore-edit-title-status',
+          '#ruminer-edit-title-status',
           payload.status,
           payload.message,
           payload.status == 'success' ? 2500 : undefined
         )
         if (payload.status == 'success') {
           setTimeout(() => {
-            toggleRow('#omnivore-edit-title-status')
+            toggleRow('#ruminer-edit-title-status')
           }, 3000)
         }
         break
       case 'labels':
         updateStatusBox(
-          '#omnivore-edit-labels-status',
+          '#ruminer-edit-labels-status',
           payload.status,
           payload.message,
           payload.status == 'success' ? 2500 : undefined
@@ -167,7 +167,7 @@
         break
       case 'extra':
         updateStatusBox(
-          '#omnivore-extra-status',
+          '#ruminer-extra-status',
           payload.status,
           payload.message,
           payload.status == 'success' ? 2500 : undefined
@@ -191,7 +191,7 @@
 
   function showConsentError() {
     alert(
-      'You have not granted the Omnivore extension consent to save pages. Check the extension options page to grant consent.'
+      'You have not granted the Ruminer extension consent to save pages. Check the extension options page to grant consent.'
     )
   }
 
@@ -229,7 +229,7 @@
       })
     }
 
-    document.querySelectorAll('#omnivore-toast').forEach((toastEl) => {
+    document.querySelectorAll('#ruminer-toast').forEach((toastEl) => {
       if (toastEl !== currentToastEl) {
         console.log('removing current toast el: ', currentToastEl)
         toastEl.remove()
@@ -243,7 +243,7 @@
 
   function updatePageStatus(status) {
     const statusBox = currentToastEl.shadowRoot.querySelector(
-      '.omnivore-toast-statusBox'
+      '.ruminer-toast-statusBox'
     )
     switch (status) {
       case 'loading':
@@ -327,7 +327,7 @@
     const container = currentToastEl.shadowRoot.querySelector(rowId)
     const initialState = container?.getAttribute('data-state')
     const rows = currentToastEl.shadowRoot.querySelectorAll(
-      '.omnivore-toast-func-row'
+      '.ruminer-toast-func-row'
     )
 
     rows.forEach((r) => {
@@ -342,15 +342,15 @@
 
   function connectButtons(root) {
     const btns = [
-      { id: '#omnivore-toast-add-note-btn', func: addNote },
-      { id: '#omnivore-toast-edit-title-btn', func: editTitle },
-      { id: '#omnivore-toast-edit-labels-btn', func: editLabels },
-      { id: '#omnivore-toast-read-now-btn', func: readNow },
-      { id: '#omnivore-open-menu-btn', func: openMenu },
-      { id: '#omnivore-toast-close-btn', func: closeToast },
-      { id: '#omnivore-toast-login-btn', func: login },
-      { id: '#omnivore-toast-archive-btn', func: archive },
-      { id: '#omnivore-toast-delete-btn', func: deleteItem },
+      { id: '#ruminer-toast-add-note-btn', func: addNote },
+      { id: '#ruminer-toast-edit-title-btn', func: editTitle },
+      { id: '#ruminer-toast-edit-labels-btn', func: editLabels },
+      { id: '#ruminer-toast-read-now-btn', func: readNow },
+      { id: '#ruminer-open-menu-btn', func: openMenu },
+      { id: '#ruminer-toast-close-btn', func: closeToast },
+      { id: '#ruminer-toast-login-btn', func: login },
+      { id: '#ruminer-toast-archive-btn', func: archive },
+      { id: '#ruminer-toast-delete-btn', func: deleteItem },
     ]
 
     for (const btnInfo of btns) {
@@ -363,13 +363,13 @@
     var x = window.matchMedia('(max-width: 500px)')
     if (x.matches) {
       const labels = root.shadowRoot.querySelectorAll(
-        '.omnivore-top-button-label'
+        '.ruminer-top-button-label'
       )
       labels.forEach((label) => {
         label.style.display = 'none'
       })
       const container = root.shadowRoot.querySelector(
-        '#omnivore-toast-container'
+        '#ruminer-toast-container'
       )
       container.style.width = '280px'
       container.style.top = 'unset'
@@ -474,7 +474,7 @@
 
     const labelList = event.target.form.querySelector('#label-list')
     const labelInput = event.target.form.querySelector(
-      '#omnivore-edit-label-input'
+      '#ruminer-edit-label-input'
     )
     if (toggledValue) {
       addLabel(labelList, labelInput, label.name)
@@ -501,7 +501,7 @@
   }
 
   function labelEditorClickHandler(event) {
-    const input = event.target.querySelector('#omnivore-edit-label-input')
+    const input = event.target.querySelector('#ruminer-edit-label-input')
     if (input && event.target != input) {
       input.focus()
       return
@@ -528,7 +528,7 @@
 
     switch (event.key.toLowerCase()) {
       case 'arrowup': {
-        if (event.target.id == 'omnivore-edit-label-input') {
+        if (event.target.id == 'ruminer-edit-label-input') {
           return
         }
 
@@ -540,18 +540,18 @@
         if (prev && prev.getAttribute('data-label-id')) {
           prev.focus()
         } else {
-          event.target.form.querySelector('#omnivore-edit-label-input')?.focus()
+          event.target.form.querySelector('#ruminer-edit-label-input')?.focus()
         }
         event.preventDefault()
         break
       }
       case 'arrowdown': {
         let next = undefined
-        if (event.target.id == 'omnivore-edit-label-input') {
+        if (event.target.id == 'ruminer-edit-label-input') {
           idx = event.target.getAttribute('data-label-id')
           next = event.target
-            .closest('#omnivore-edit-labels-form')
-            .querySelector('#omnivore-edit-labels-list')
+            .closest('#ruminer-edit-labels-form')
+            .querySelector('#ruminer-edit-labels-list')
             .querySelector('[data-label-id]')
         } else {
           next = event.target.nextElementSibling
@@ -565,7 +565,7 @@
       }
       case 'backspace': {
         if (
-          event.target.id == 'omnivore-edit-label-input' &&
+          event.target.id == 'ruminer-edit-label-input' &&
           event.target.value.length == 0
         ) {
           const labelList = event.target.form.querySelector('#label-list')
@@ -574,7 +574,7 @@
         break
       }
       case 'enter': {
-        if (event.target.id == 'omnivore-edit-label-input') {
+        if (event.target.id == 'ruminer-edit-label-input') {
           if (event.target.value && !event.isComposing) {
             const labelList = event.target.form.querySelector('#label-list')
             addLabel(labelList, event.target, event.target.value)
@@ -600,10 +600,10 @@
     const cachedNoteKey = noteCacheKey()
 
     cancelAutoDismiss()
-    toggleRow('#omnivore-add-note-row')
+    toggleRow('#ruminer-add-note-row')
 
     const noteArea = currentToastEl.shadowRoot.querySelector(
-      '#omnivore-add-note-textarea'
+      '#ruminer-add-note-textarea'
     )
 
     if (noteArea) {
@@ -634,7 +634,7 @@
         // Handle the enter key
         if (e.keyCode == 13 && (e.metaKey || e.ctrlKey)) {
           updateStatusBox(
-            '#omnivore-add-note-status',
+            '#ruminer-add-note-status',
             'loading',
             'Adding note...'
           )
@@ -651,9 +651,9 @@
     }
 
     currentToastEl.shadowRoot.querySelector(
-      '#omnivore-add-note-form'
+      '#ruminer-add-note-form'
     ).onsubmit = (event) => {
-      updateStatusBox('#omnivore-add-note-status', 'loading', 'Adding note...')
+      updateStatusBox('#ruminer-add-note-status', 'loading', 'Adding note...')
 
       browserApi.runtime.sendMessage({
         action: ACTIONS.AddNote,
@@ -672,10 +672,10 @@
 
   function editTitle() {
     cancelAutoDismiss()
-    toggleRow('#omnivore-edit-title-row')
+    toggleRow('#ruminer-edit-title-row')
 
     const titleArea = currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-title-textarea'
+      '#ruminer-edit-title-textarea'
     )
 
     if (titleArea) {
@@ -690,10 +690,10 @@
     }
 
     currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-title-form'
+      '#ruminer-edit-title-form'
     ).onsubmit = (event) => {
       updateStatusBox(
-        '#omnivore-edit-title-status',
+        '#ruminer-edit-title-status',
         'loading',
         'Updating title...'
       )
@@ -737,7 +737,7 @@
     const existingLabel = labels.find((l) => l.name === labelValue)
     const labelID = existingLabel ? existingLabel.id : getTempUUID()
     const labelEntryItem = labelList.querySelector('#label-entry-item')
-    const inputItem = labelEntryItem.querySelector('#omnivore-edit-label-input')
+    const inputItem = labelEntryItem.querySelector('#ruminer-edit-label-input')
 
     // Handle case where label is already selected
     if (
@@ -785,7 +785,7 @@
       }
     }
 
-    const form = labelList.closest('#omnivore-edit-labels-form')
+    const form = labelList.closest('#ruminer-edit-labels-form')
     if (existingLabel) {
       const element = form.querySelector(
         `[data-label-id='${existingLabel.id}']`
@@ -795,7 +795,7 @@
       labelElem.setAttribute('data-label-id', existingLabel.id)
     } else {
       // insert a toggle row at the top
-      const rowList = form.querySelector('#omnivore-edit-labels-list')
+      const rowList = form.querySelector('#ruminer-edit-labels-list')
       const newLabel = {
         id: labelID,
         color: labelColor,
@@ -822,7 +822,7 @@
   }
 
   function removeLabel(labelList, labelID) {
-    const form = labelList.closest('#omnivore-edit-labels-form')
+    const form = labelList.closest('#ruminer-edit-labels-form')
     const element = labelList.querySelector(`[data-label-id='${labelID}']`)
     if (element) {
       element.remove()
@@ -843,7 +843,7 @@
 
   function syncLabelChanges() {
     updateStatusBox(
-      '#omnivore-edit-labels-status',
+      '#ruminer-edit-labels-status',
       'loading',
       'Updating Labels...',
       undefined
@@ -873,24 +873,24 @@
       labels = cachedLabels
     })
 
-    toggleRow('#omnivore-edit-labels-row')
+    toggleRow('#ruminer-edit-labels-row')
     currentToastEl.shadowRoot
-      .querySelector('#omnivore-edit-label-input')
+      .querySelector('#ruminer-edit-label-input')
       ?.focus()
     const list = currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-labels-list'
+      '#ruminer-edit-labels-list'
     )
 
     currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-label-input'
+      '#ruminer-edit-label-input'
     ).onkeydown = labelEditorKeyDownHandler
 
     currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-label-editor'
+      '#ruminer-edit-label-editor'
     ).onclick = labelEditorClickHandler
 
     currentToastEl.shadowRoot
-      .querySelector('#omnivore-edit-label-input')
+      .querySelector('#ruminer-edit-label-input')
       .addEventListener('input', (event) => {
         updateLabels(event.target.value)
       })
@@ -910,7 +910,7 @@
 
   async function updateLabels(filterValue) {
     const list = currentToastEl.shadowRoot.querySelector(
-      '#omnivore-edit-labels-list'
+      '#ruminer-edit-labels-list'
     )
     if (list) {
       list.innerHTML = ''
@@ -942,7 +942,7 @@
   function readNow() {
     cancelAutoDismiss()
     const container = currentToastEl.shadowRoot.querySelector(
-      '#omnivore-toast-container'
+      '#ruminer-toast-container'
     )
     container.setAttribute('data-state', 'open')
 
@@ -950,7 +950,7 @@
       window.open(ctx.readerURL, '_blank')
     } else if (ctx) {
       window.open(
-        new URL(`/article?url=${encodeURI(ctx.originalURL)}`, ctx.omnivoreURL),
+        new URL(`/article?url=${encodeURI(ctx.originalURL)}`, ctx.ruminerURL),
         '_blank'
       )
     } else {
@@ -986,7 +986,7 @@
 
   function openMenu() {
     cancelAutoDismiss()
-    toggleRow('#omnivore-extra-buttons-row')
+    toggleRow('#ruminer-extra-buttons-row')
   }
 
   function closeToast() {
@@ -995,7 +995,7 @@
   }
 
   function login() {
-    window.open(new URL(`/login`, ctx.omnivoreURL), '_blank')
+    window.open(new URL(`/login`, ctx.ruminerURL), '_blank')
     setTimeout(closeToast, 2000)
   }
 

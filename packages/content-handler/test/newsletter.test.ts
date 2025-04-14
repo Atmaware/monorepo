@@ -163,9 +163,9 @@ describe('Newsletter email test', () => {
 
   describe('get author from email address', () => {
     it('returns author when email is from Substack', () => {
-      const from = 'Jackson Harper from Omnivore App <jacksonh@substack.com>'
+      const from = 'Jackson Harper from Ruminer App <jacksonh@substack.com>'
       expect(new AxiosHandler().parseAuthor(from)).to.equal(
-        'Jackson Harper from Omnivore App'
+        'Jackson Harper from Ruminer App'
       )
     })
 
@@ -243,7 +243,7 @@ describe('Newsletter email test', () => {
 
       const preparsed = await handler?.preParse(url, dom)
       const tweets = Array.from(
-        preparsed?.querySelectorAll('div[class="_omnivore-static-tweet"]') ?? []
+        preparsed?.querySelectorAll('div[class="_ruminer-static-tweet"]') ?? []
       )
 
       expect(tweets.length).to.eq(7)
@@ -266,7 +266,7 @@ describe('Newsletter email test', () => {
       const preparsed = await handler?.preParse(url, dom)
       const tweets = Array.from(
         preparsed?.querySelectorAll(
-          'div[class="_omnivore-static-quote-tweet"]'
+          'div[class="_ruminer-static-quote-tweet"]'
         ) ?? []
       )
 
@@ -542,11 +542,11 @@ describe('Newsletter email test', () => {
   })
 
   describe('get unsubscribe from header', () => {
-    const mailTo = 'unsub@omnivore.com'
-    const httpUrl = 'https://omnivore.com/unsubscribe'
+    const mailTo = 'unsub@ruminer.com'
+    const httpUrl = 'https://ruminer.com/unsubscribe'
 
     it('returns mail to address if exists', () => {
-      const header = `<https://omnivore.com/unsub>, <mailto:${mailTo}>`
+      const header = `<https://ruminer.com/unsub>, <mailto:${mailTo}>`
 
       expect(new GenericHandler().parseUnsubscribe(header).mailTo).to.equal(
         mailTo
@@ -565,7 +565,7 @@ describe('Newsletter email test', () => {
   describe('preParse', () => {
     context('when email is from Substack', () => {
       it('removes the Substack footer and header', async () => {
-        const url = 'https://blog.omnivore.app/p/omnivore-2021-01-31'
+        const url = 'https://blog.ruminer.app/p/ruminer-2021-01-31'
         const html = load('./test/data/substack-newsletter-new.html')
         const dom = parseHTML(html).document
         const preparedDom = await new SubstackHandler().preParse(url, dom)

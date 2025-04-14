@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.speech (
+CREATE TABLE ruminer.speech (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
     elastic_page_id TEXT NOT NULL,
     voice text,
     audio_url text NOT NULL,
@@ -15,12 +15,12 @@ CREATE TABLE omnivore.speech (
     updated_at timestamptz NOT NULL DEFAULT current_timestamp
 );
 
-CREATE TRIGGER speech_modtime BEFORE UPDATE ON omnivore.speech FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER speech_modtime BEFORE UPDATE ON ruminer.speech FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 -- No permission to delete on the speech table, only superuser can delete.
-GRANT SELECT, INSERT, UPDATE ON omnivore.speech TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE ON ruminer.speech TO ruminer_user;
 
-ALTER TABLE omnivore.user_personalization
+ALTER TABLE ruminer.user_personalization
     ADD COLUMN speech_voice TEXT,
     ADD COLUMN speech_rate INTEGER,
     ADD COLUMN speech_volume INTEGER;

@@ -14,7 +14,7 @@ import { StyledText } from '../../elements/StyledText'
 import { theme } from '../../tokens/stitches.config'
 import { useCopyLink } from '../../../lib/hooks/useCopyLink'
 import { CloseIcon } from '../../elements/images/CloseIcon'
-import { OmnivoreLogoIcon } from '../../elements/images/OmnivoreNameLogo'
+import { RuminerLogoIcon } from '../../elements/images/RuminerNameLogo'
 import { useState } from 'react'
 import { TwitterLogo, FacebookLogo } from '@phosphor-icons/react'
 
@@ -152,7 +152,7 @@ export function ShareModalLayout(props: ShareModalLayoutProps): JSX.Element {
                 referrerPolicy="no-referrer"
                 href={``}
               >
-                <OmnivoreLogoIcon
+                <RuminerLogoIcon
                   size={26}
                   strokeColor={theme.colors.thTextContrast.toString()}
                 />

@@ -229,7 +229,7 @@ const ListImage = (props: ListImageProps): JSX.Element => {
       )}
       {displayFallback ? (
         <ListFallbackImage
-          title={props.title ?? 'Omnivore Fallback'}
+          title={props.title ?? 'Ruminer Fallback'}
           width="55px"
           height="55px"
           fontSize="16pt"

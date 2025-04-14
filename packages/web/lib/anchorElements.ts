@@ -1,17 +1,17 @@
 const ANCHOR_ELEMENTS_BLOCKED_ATTRIBUTES = [
-  'omnivore-highlight-id',
+  'ruminer-highlight-id',
   'data-twitter-tweet-id',
   'data-instagram-id',
 ]
 
 // We search in reverse so we can find the last element
 // that is visible on the page
-export const getTopOmnivoreAnchorElement = (
+export const getTopRuminerAnchorElement = (
   articleContentElement: HTMLElement
 ): string | undefined => {
   let topVisibleRect: Element | undefined = undefined
   const anchors = Array.from(
-    document.querySelectorAll(`p[data-omnivore-anchor-idx]`)
+    document.querySelectorAll(`p[data-ruminer-anchor-idx]`)
   ).reverse()
 
   for (const anchor of anchors) {
@@ -31,7 +31,7 @@ export const getTopOmnivoreAnchorElement = (
     }
   }
 
-  return topVisibleRect?.getAttribute(`data-omnivore-anchor-idx`) ?? undefined
+  return topVisibleRect?.getAttribute(`data-ruminer-anchor-idx`) ?? undefined
 }
 
 export function parseDomTree(
@@ -67,7 +67,7 @@ export function parseDomTree(
   visitedNodeList.shift()
   visitedNodeList.forEach((node, index) => {
     // start from index 1, index 0 reserved for anchor unknown.
-    node.setAttribute('data-omnivore-anchor-idx', (index + 1).toString())
+    node.setAttribute('data-ruminer-anchor-idx', (index + 1).toString())
   })
   return visitedNodeList
 }

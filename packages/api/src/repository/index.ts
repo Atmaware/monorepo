@@ -53,8 +53,8 @@ export const setClaims = async (
   userRole = 'user'
 ): Promise<unknown> => {
   const dbRole =
-    userRole === SetClaimsRole.ADMIN ? 'omnivore_admin' : 'omnivore_user'
-  return manager.query('SELECT * from omnivore.set_claims($1, $2)', [
+    userRole === SetClaimsRole.ADMIN ? 'ruminer_admin' : 'ruminer_user'
+  return manager.query('SELECT * from ruminer.set_claims($1, $2)', [
     uid,
     dbRole,
   ])

@@ -6,6 +6,6 @@ BEGIN;
 
 DROP TYPE IF EXISTS user_status_type CASCADE;
 
-ALTER TABLE omnivore.user DROP COLUMN IF EXISTS status;
+ALTER TABLE ruminer.user DROP COLUMN IF EXISTS status;
 
 COMMIT;

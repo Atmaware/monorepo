@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.group_membership DROP CONSTRAINT IF EXISTS group_membership_unique;
+ALTER TABLE ruminer.group_membership DROP CONSTRAINT IF EXISTS group_membership_unique;
 
-REVOKE UPDATE ON omnivore.invite FROM omnivore_user;
+REVOKE UPDATE ON ruminer.invite FROM ruminer_user;
 
-REVOKE UPDATE ON omnivore.group FROM omnivore_user;
+REVOKE UPDATE ON ruminer.group FROM ruminer_user;
 
-REVOKE UPDATE ON omnivore.group_membership FROM omnivore_user;
+REVOKE UPDATE ON ruminer.group_membership FROM ruminer_user;
 
 COMMIT;

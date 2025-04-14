@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article RENAME TO pages;
+ALTER TABLE ruminer.article RENAME TO pages;
 
 COMMIT;

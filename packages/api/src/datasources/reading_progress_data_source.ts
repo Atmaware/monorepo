@@ -13,7 +13,7 @@ export class ReadingProgressDataSource {
     uid: string,
     libraryItemID: string
   ): Promise<ReadingProgressCacheItem | undefined> {
-    const cacheKey = `omnivore:reading-progress:${uid}:${libraryItemID}`
+    const cacheKey = `ruminer:reading-progress:${uid}:${libraryItemID}`
     const cached = this.cacheItems[cacheKey]
     if (cached) {
       return cached

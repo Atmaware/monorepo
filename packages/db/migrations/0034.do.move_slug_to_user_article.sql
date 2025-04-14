@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles ADD COLUMN slug TEXT;
-UPDATE omnivore.user_articles SET slug = a.slug FROM omnivore.article a WHERE article_id = a.id ;
-ALTER TABLE omnivore.user_articles ALTER COLUMN slug SET NOT NULL;
+ALTER TABLE ruminer.user_articles ADD COLUMN slug TEXT;
+UPDATE ruminer.user_articles SET slug = a.slug FROM ruminer.article a WHERE article_id = a.id ;
+ALTER TABLE ruminer.user_articles ALTER COLUMN slug SET NOT NULL;
 
-ALTER TABLE omnivore.article DROP column slug;
+ALTER TABLE ruminer.article DROP column slug;
 
 COMMIT;

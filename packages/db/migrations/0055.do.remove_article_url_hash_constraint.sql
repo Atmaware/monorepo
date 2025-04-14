@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article DROP constraint article_url_hash_key ;
+ALTER TABLE ruminer.article DROP constraint article_url_hash_key ;
 
 COMMIT;

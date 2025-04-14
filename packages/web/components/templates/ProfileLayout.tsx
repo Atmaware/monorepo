@@ -1,5 +1,5 @@
 import { Box, VStack, HStack } from '../elements/LayoutPrimitives'
-import { OmnivoreNameLogo } from '../elements/images/OmnivoreNameLogo'
+import { RuminerNameLogo } from '../elements/images/RuminerNameLogo'
 import { theme } from '../tokens/stitches.config'
 
 type ProfileLayoutProps = {
@@ -44,7 +44,7 @@ export function ProfileLayout(props: ProfileLayoutProps): JSX.Element {
             },
           }}
         >
-          <OmnivoreNameLogo
+          <RuminerNameLogo
             color="#898989"
             href={props.logoDestination ?? '/login'}
           />

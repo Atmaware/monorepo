@@ -4,6 +4,6 @@
 
 BEGIN;
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.webhooks TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.webhooks TO ruminer_user;
 
 COMMIT;

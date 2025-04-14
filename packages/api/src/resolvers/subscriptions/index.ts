@@ -261,8 +261,8 @@ export const subscribeResolver = authorized<
 
     // limit number of rss subscriptions to max
     const results = (await getRepository(Subscription).query(
-      `insert into omnivore.subscriptions (name, url, description, type, user_id, icon, is_private, fetch_content_type, folder) 
-          select $1, $2, $3, $4, $5, $6, $7, $8, $9 from omnivore.subscriptions 
+      `insert into ruminer.subscriptions (name, url, description, type, user_id, icon, is_private, fetch_content_type, folder) 
+          select $1, $2, $3, $4, $5, $6, $7, $8, $9 from ruminer.subscriptions 
           where user_id = $5 and type = 'RSS' and status = 'ACTIVE' 
           having count(*) < $10
           returning *;`,

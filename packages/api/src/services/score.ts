@@ -44,7 +44,7 @@ export type ScoreBody = {
 
 // use prometheus to monitor the latency of digest score api
 const latency = new client.Histogram({
-  name: 'omnivore_digest_score_latency',
+  name: 'ruminer_digest_score_latency',
   help: 'Latency of digest score API in seconds',
   buckets: [0.1, 0.5, 1, 2, 5, 10, 20, 30, 60],
 })

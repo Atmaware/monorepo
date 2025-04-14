@@ -17,11 +17,11 @@ export const updateLabels = async (data: UpdateLabelsData) => {
   return authTrx(
     async (tx) =>
       tx.query(
-        `UPDATE omnivore.library_item
+        `UPDATE ruminer.library_item
           SET label_names = COALESCE((
             SELECT array_agg(DISTINCT l.name)
-            FROM omnivore.labels l
-            INNER JOIN omnivore.entity_labels el
+            FROM ruminer.labels l
+            INNER JOIN ruminer.entity_labels el
               ON el.label_id = l.id
               AND el.library_item_id = $1
           ), ARRAY[]::TEXT[])
@@ -38,10 +38,10 @@ export const updateHighlight = async (data: UpdateHighlightData) => {
   return authTrx(
     async (tx) =>
       tx.query(
-        `UPDATE omnivore.library_item
+        `UPDATE ruminer.library_item
           SET highlight_annotations = COALESCE((
             SELECT array_agg(COALESCE(annotation, ''))
-            FROM omnivore.highlight
+            FROM ruminer.highlight
             WHERE library_item_id = $1
           ), ARRAY[]::TEXT[])
           WHERE id = $1`,

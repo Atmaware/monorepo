@@ -1,4 +1,4 @@
-@testable import Omnivore
+@testable import Ruminer
 import XCTest
 
 final class IOSAppSmokeTest: XCTestCase {

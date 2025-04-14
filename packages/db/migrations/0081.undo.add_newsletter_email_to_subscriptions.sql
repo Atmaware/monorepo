@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions DROP COLUMN newsletter_email;
+ALTER TABLE ruminer.subscriptions DROP COLUMN newsletter_email;
 
 COMMIT;

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.admin_users;
+DROP TABLE ruminer.admin_users;
 
 COMMIT;

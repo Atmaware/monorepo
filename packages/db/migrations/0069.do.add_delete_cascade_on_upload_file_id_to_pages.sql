@@ -4,11 +4,11 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.pages
+ALTER TABLE ruminer.pages
     DROP CONSTRAINT article_upload_file_id_fkey,
     ADD CONSTRAINT pages_upload_file_id_fkey
         FOREIGN KEY (upload_file_id)
-        REFERENCES omnivore.upload_files (id)
+        REFERENCES ruminer.upload_files (id)
         ON DELETE CASCADE;
 
 COMMIT;

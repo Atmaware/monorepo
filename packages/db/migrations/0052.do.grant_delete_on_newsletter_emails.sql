@@ -4,6 +4,6 @@
 
 BEGIN;
 
-GRANT DELETE ON omnivore.newsletter_emails TO omnivore_user;
+GRANT DELETE ON ruminer.newsletter_emails TO ruminer_user;
 
 COMMIT;

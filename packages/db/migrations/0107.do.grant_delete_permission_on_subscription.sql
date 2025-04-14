@@ -4,13 +4,13 @@
 
 BEGIN;
 
-GRANT DELETE ON omnivore.subscriptions TO omnivore_user;
+GRANT DELETE ON ruminer.subscriptions TO ruminer_user;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     DROP CONSTRAINT subscriptions_newsletter_email_id_fkey,
     ADD CONSTRAINT subscriptions_newsletter_email_id_fkey
         FOREIGN KEY (newsletter_email_id)
-        REFERENCES omnivore.newsletter_emails (id)
+        REFERENCES ruminer.newsletter_emails (id)
         ON DELETE CASCADE;
 
 COMMIT;

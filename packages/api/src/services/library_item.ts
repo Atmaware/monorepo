@@ -1,4 +1,4 @@
-import { ExpressionToken, LiqeQuery } from '@omnivore/liqe'
+import { ExpressionToken, LiqeQuery } from '@ruminer/liqe'
 import { camelCase } from 'lodash'
 import { DateTime } from 'luxon'
 import {
@@ -998,7 +998,7 @@ export const updateLibraryItemReadingProgress = async (
     async (tx) =>
       tx.getRepository(LibraryItem).query(
         `
-      UPDATE omnivore.library_item
+      UPDATE ruminer.library_item
       SET reading_progress_top_percent = CASE
         WHEN reading_progress_top_percent < $2 THEN $2
         WHEN $2 = 0 THEN 0
@@ -1406,7 +1406,7 @@ export const batchDelete = async (criteria: FindOptionsWhere<LibraryItem>) => {
       -- Loop through batches
       FOR i IN 0..CEIL((${countSql}) * 1.0 / batch_size) - 1 LOOP
           -- Delete batch
-          DELETE FROM omnivore.library_item
+          DELETE FROM ruminer.library_item
           WHERE id = ANY(
             ${subQuery}
           );
@@ -1429,13 +1429,13 @@ export const findLibraryItemIdsByLabelId = async (
         SELECT library_item_id
         FROM (
             SELECT library_item_id
-            FROM omnivore.entity_labels
+            FROM ruminer.entity_labels
             WHERE label_id = $1
                   AND library_item_id IS NOT NULL
             UNION
             SELECT h.library_item_id
-            FROM omnivore.highlight h
-            INNER JOIN omnivore.entity_labels ON entity_labels.highlight_id = h.id
+            FROM ruminer.highlight h
+            INNER JOIN ruminer.entity_labels ON entity_labels.highlight_id = h.id
             WHERE label_id = $1
                   AND highlight_id IS NOT NULL
         ) AS combined_results

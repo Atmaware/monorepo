@@ -1,10 +1,10 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { Queue } from 'bullmq'
 import { ArticleSavingRequestStatus } from '.'
 import crypto from 'crypto'
 
-const BACKEND_QUEUE = 'omnivore-backend-queue'
-const CONTENT_FETCH_QUEUE = 'omnivore-content-fetch-queue'
+const BACKEND_QUEUE = 'ruminer-backend-queue'
+const CONTENT_FETCH_QUEUE = 'ruminer-content-fetch-queue'
 
 export const SEND_EMAIL_JOB = 'send-email'
 const FETCH_CONTENT_JOB = 'fetch-content'

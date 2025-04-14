@@ -84,10 +84,10 @@ const MoreOptions = (props: MoreOptionsProps) => (
         }}
       >
         <HStack alignment={'center'} distribution={'start'}>
-          <Pencil size={24} color={theme.colors.omnivoreLightGray.toString()} />
+          <Pencil size={24} color={theme.colors.ruminerLightGray.toString()} />
           <SpanBox
             css={{
-              color: theme.colors.omnivoreLightGray.toString(),
+              color: theme.colors.ruminerLightGray.toString(),
               marginLeft: '8px',
               border: 'none',
               backgroundColor: 'transparent',
@@ -110,10 +110,10 @@ const MoreOptions = (props: MoreOptionsProps) => (
         }}
       >
         <HStack alignment={'center'} distribution={'start'}>
-          <Trash size={24} color={theme.colors.omnivoreRed.toString()} />
+          <Trash size={24} color={theme.colors.ruminerRed.toString()} />
           <SpanBox
             css={{
-              color: theme.colors.omnivoreRed.toString(),
+              color: theme.colors.ruminerRed.toString(),
               marginLeft: '8px',
               border: 'none',
               backgroundColor: 'transparent',

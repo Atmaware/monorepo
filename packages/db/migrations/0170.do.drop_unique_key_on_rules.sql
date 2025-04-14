@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.rules DROP CONSTRAINT rules_user_id_filter_key;
+ALTER TABLE ruminer.rules DROP CONSTRAINT rules_user_id_filter_key;
 
 COMMIT;

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-update omnivore.article set type = 'FILE' where upload_file_id is not null ;
+update ruminer.article set type = 'FILE' where upload_file_id is not null ;
 
 COMMIT;

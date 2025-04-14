@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article
-    ADD COLUMN upload_file_id uuid REFERENCES omnivore.upload_files;
+ALTER TABLE ruminer.article
+    ADD COLUMN upload_file_id uuid REFERENCES ruminer.upload_files;
 
 COMMIT;

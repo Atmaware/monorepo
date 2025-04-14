@@ -34,7 +34,7 @@ export interface PreHandleResult {
   dom?: Document
 }
 
-export const FAKE_URL_PREFIX = 'https://omnivore.app/no_url?q='
+export const FAKE_URL_PREFIX = 'https://ruminer.app/no_url?q='
 export const generateUniqueUrl = () => FAKE_URL_PREFIX + uuid()
 
 export abstract class ContentHandler {
@@ -134,7 +134,7 @@ export abstract class ContentHandler {
 
   parseAuthor(from: string): string {
     // get author name from email
-    // e.g. 'Jackson Harper from Omnivore App <jacksonh@substack.com>'
+    // e.g. 'Jackson Harper from Ruminer App <jacksonh@substack.com>'
     // or 'Mike Allen <mike@axios.com>'
     const parsed = addressparser(from)
     if (parsed.length > 0 && parsed[0].name) {
@@ -145,7 +145,7 @@ export abstract class ContentHandler {
 
   parseUnsubscribe(unSubHeader: string): Unsubscribe {
     // parse list-unsubscribe header
-    // e.g. List-Unsubscribe: <https://omnivore.com/unsub>, <mailto:unsub@omnivore.com>
+    // e.g. List-Unsubscribe: <https://ruminer.com/unsub>, <mailto:unsub@ruminer.com>
     return {
       httpUrl: unSubHeader.match(/<(https?:\/\/[^>]*)>/)?.[1],
       mailTo: unSubHeader.match(/<mailto:([^>]*)>/)?.[1],

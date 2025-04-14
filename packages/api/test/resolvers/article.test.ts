@@ -369,7 +369,7 @@ describe('Article API', () => {
 
     context('when saving from document', () => {
       before(() => {
-        url = 'https://blog.omnivore.app/p/testing-is-fun-with-omnivore'
+        url = 'https://blog.ruminer.app/p/testing-is-fun-with-ruminer'
         source = 'puppeteer-parse'
         document = '<p>test</p>'
         title = 'new title'
@@ -389,7 +389,7 @@ describe('Article API', () => {
 
     context('when saving an archived article', () => {
       before(async () => {
-        url = 'https://blog.omnivore.app/saving-archived-article.com'
+        url = 'https://blog.ruminer.app/saving-archived-article.com'
         source = 'puppeteer-parse'
         document = '<p>test</p>'
         title = 'new title'
@@ -424,7 +424,7 @@ describe('Article API', () => {
   })
 
   describe('GetArticle', () => {
-    const realSlug = 'testing-is-really-fun-with-omnivore'
+    const realSlug = 'testing-is-really-fun-with-ruminer'
 
     let query = ''
     let slug = ''
@@ -436,7 +436,7 @@ describe('Article API', () => {
         slug: realSlug,
         readingProgressTopPercent: 100,
         user,
-        originalUrl: 'https://blog.omnivore.app/test-with-omnivore',
+        originalUrl: 'https://blog.ruminer.app/test-with-ruminer',
         directionality: DirectionalityType.RTL,
       }
       const item = await createOrUpdateLibraryItem(
@@ -538,7 +538,7 @@ describe('Article API', () => {
 
   describe('SavePage', () => {
     const title = 'Example Title'
-    let url = 'https://blog.omnivore.app'
+    let url = 'https://blog.ruminer.app'
     const originalContent =
       '<html dir="rtl"><body><div>Example Content</div></body></html>'
     const source = 'puppeteer-parse'
@@ -566,7 +566,7 @@ describe('Article API', () => {
 
     context('when we save a item that is already archived', () => {
       before(() => {
-        url = 'https://blog.omnivore.app/new-url'
+        url = 'https://blog.ruminer.app/new-url'
       })
 
       after(async () => {
@@ -617,7 +617,7 @@ describe('Article API', () => {
 
     context('when we also want to save labels and archives the item', () => {
       before(() => {
-        url = 'https://blog.omnivore.app/new-url-2'
+        url = 'https://blog.ruminer.app/new-url-2'
       })
 
       after(async () => {
@@ -677,7 +677,7 @@ describe('Article API', () => {
 
   describe('SaveUrl', () => {
     let query = ''
-    const url = 'https://blog.omnivore.app/new-url-1'
+    const url = 'https://blog.ruminer.app/new-url-1'
 
     before(() => {
       sinon.replace(
@@ -717,8 +717,8 @@ describe('Article API', () => {
         user,
         title: 'test title',
         readableContent: '<p>test</p>',
-        originalUrl: 'https://blog.omnivore.app/setBookmarkArticle',
-        slug: 'test-with-omnivore',
+        originalUrl: 'https://blog.ruminer.app/setBookmarkArticle',
+        slug: 'test-with-ruminer',
       }
       const item = await createOrUpdateLibraryItem(
         itemToSave,
@@ -832,8 +832,8 @@ describe('Article API', () => {
           await createOrUpdateLibraryItem(
             {
               user: { id: user.id },
-              originalUrl: 'https://blog.omnivore.app/setBookmarkArticle',
-              slug: 'test-with-omnivore',
+              originalUrl: 'https://blog.ruminer.app/setBookmarkArticle',
+              slug: 'test-with-ruminer',
               readableContent: '<p>test</p>',
               title: 'test title',
               readingProgressBottomPercent: 100,
@@ -875,8 +875,8 @@ describe('Article API', () => {
       const item = await createOrUpdateLibraryItem(
         {
           user: { id: user.id },
-          originalUrl: 'https://blog.omnivore.app/setBookmarkArticle',
-          slug: 'test-with-omnivore',
+          originalUrl: 'https://blog.ruminer.app/setBookmarkArticle',
+          slug: 'test-with-ruminer',
           readableContent: '<p>test</p>',
           title: 'test title',
           readingProgressBottomPercent: 100,
@@ -917,7 +917,7 @@ describe('Article API', () => {
 
     context('when the file is uploaded', () => {
       before(async () => {
-        url = 'https://blog.omnivore.app/'
+        url = 'https://blog.ruminer.app/'
         const uploadFile = await getRepository(UploadFile).save({
           fileName: 'test.pdf',
           contentType: 'application/pdf',
@@ -938,7 +938,7 @@ describe('Article API', () => {
   })
 
   describe('Search API', () => {
-    const url = 'https://blog.omnivore.app/p/getting-started-with-omnivore'
+    const url = 'https://blog.ruminer.app/p/getting-started-with-ruminer'
     const items: LibraryItem[] = []
     const highlights: Highlight[] = []
     const searchedKeyword = 'aaabbbccc'
@@ -1731,7 +1731,7 @@ describe('Article API', () => {
               title: 'test title 1',
               readableContent: '<p>test 1</p>',
               slug: 'test slug 1',
-              originalUrl: 'https://www.youtube.com/watch?v=Omnivore',
+              originalUrl: 'https://www.youtube.com/watch?v=Ruminer',
               itemType: PageType.Video,
             },
             {
@@ -1771,7 +1771,7 @@ describe('Article API', () => {
               title: 'test title 1',
               readableContent: '<p>test 1</p>',
               slug: 'test slug 1',
-              originalUrl: 'https://en.wikipedia.org/wiki/Omnivore',
+              originalUrl: 'https://en.wikipedia.org/wiki/Ruminer',
             },
             {
               user,
@@ -2021,7 +2021,7 @@ describe('Article API', () => {
           title: 'typeahead search item',
           readableContent: '<p>test</p>',
           slug: '',
-          originalUrl: `https://blog.omnivore.app/p/typeahead-search-${i}`,
+          originalUrl: `https://blog.ruminer.app/p/typeahead-search-${i}`,
         }
         const item = await createOrUpdateLibraryItem(
           itemToSave,
@@ -2099,7 +2099,7 @@ describe('Article API', () => {
           title: 'test item',
           slug: '',
           readableContent: '<p>test</p>',
-          originalUrl: `https://blog.omnivore.app/p/updates-since-${i}`,
+          originalUrl: `https://blog.ruminer.app/p/updates-since-${i}`,
           user,
         }
         const item = await createOrUpdateLibraryItem(
@@ -2229,7 +2229,7 @@ describe('Article API', () => {
               slug: '',
               state:
                 i == 0 ? LibraryItemState.Failed : LibraryItemState.Succeeded,
-              originalUrl: `https://blog.omnivore.app/p/bulk-action-${i}`,
+              originalUrl: `https://blog.ruminer.app/p/bulk-action-${i}`,
             },
             user.id,
             undefined,
@@ -2271,7 +2271,7 @@ describe('Article API', () => {
                 title: 'test item',
                 readableContent: '<p>test</p>',
                 slug: 'test-item',
-                originalUrl: `https://blog.omnivore.app/p/bulk-action-archive`,
+                originalUrl: `https://blog.ruminer.app/p/bulk-action-archive`,
                 publishedAt: new Date('2023-10-01'),
               },
               {
@@ -2279,7 +2279,7 @@ describe('Article API', () => {
                 title: 'test item 2',
                 readableContent: '<p>test</p>',
                 slug: 'test-item-2',
-                originalUrl: `https://blog.omnivore.app/p/bulk-action-archive-2`,
+                originalUrl: `https://blog.ruminer.app/p/bulk-action-archive-2`,
                 publishedAt: new Date('2023-10-02'),
               },
             ],
@@ -2324,7 +2324,7 @@ describe('Article API', () => {
               slug: '',
               state:
                 i == 0 ? LibraryItemState.Failed : LibraryItemState.Succeeded,
-              originalUrl: `https://blog.omnivore.app/p/bulk-action-${i}`,
+              originalUrl: `https://blog.ruminer.app/p/bulk-action-${i}`,
             },
             user.id,
             undefined,
@@ -2368,7 +2368,7 @@ describe('Article API', () => {
                 user,
                 title: 'test item',
                 slug: '',
-                originalUrl: `https://blog.omnivore.app/p/bulk-action-${i}`,
+                originalUrl: `https://blog.ruminer.app/p/bulk-action-${i}`,
               },
               user.id,
               undefined,
@@ -2424,7 +2424,7 @@ describe('Article API', () => {
         title: 'test setFavoriteArticle',
         slug: '',
         readableContent: '<p>test</p>',
-        originalUrl: `https://blog.omnivore.app/p/setFavoriteArticle`,
+        originalUrl: `https://blog.ruminer.app/p/setFavoriteArticle`,
       }
       const item = await createOrUpdateLibraryItem(
         itemToSave,
@@ -2478,7 +2478,7 @@ describe('Article API', () => {
           title: 'test item',
           readableContent: '<p>test</p>',
           slug: '',
-          originalUrl: `https://blog.omnivore.app/p/empty-trash-${i}`,
+          originalUrl: `https://blog.ruminer.app/p/empty-trash-${i}`,
           deletedAt: new Date(),
           state: LibraryItemState.Deleted,
         }

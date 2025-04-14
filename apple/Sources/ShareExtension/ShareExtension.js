@@ -54,8 +54,8 @@ const markHighlightSelection = () => {
   // First remove any previous markers, this would only normally happen during debugging
   try {
     const markers = window.document.querySelectorAll(
-      `span[data-omnivore-highlight-start="true"],
-       span[data-omnivore-highlight-end="true"]`
+      `span[data-ruminer-highlight-start="true"],
+       span[data-ruminer-highlight-end="true"]`
     )
 
     for (let i = 0; i < markers.length; i++) {
@@ -71,8 +71,8 @@ const markHighlightSelection = () => {
       const range = sel.getRangeAt(0)
       const endMarker = document.createElement("span")
       const startMarker = document.createElement("span")
-      endMarker.setAttribute("data-omnivore-highlight-end", "true")
-      startMarker.setAttribute("data-omnivore-highlight-start", "true")
+      endMarker.setAttribute("data-ruminer-highlight-end", "true")
+      startMarker.setAttribute("data-ruminer-highlight-start", "true")
 
       var container = document.createElement("div")
       for (var i = 0, len = sel.rangeCount; i < len; ++i) {

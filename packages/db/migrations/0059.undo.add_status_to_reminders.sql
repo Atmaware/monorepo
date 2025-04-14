@@ -4,11 +4,11 @@
 
 BEGIN;
 
-DROP TRIGGER reminders_modtime ON omnivore.reminders;
+DROP TRIGGER reminders_modtime ON ruminer.reminders;
 
 DROP TYPE reminder_status CASCADE;
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
     DROP COLUMN created_at,
     DROP COLUMN updated_at;
 

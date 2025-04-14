@@ -66,7 +66,7 @@ const handleExistingSubscription = async (
 ): Promise<AddDiscoverFeedSuccess | AddDiscoverFeedError> => {
   // Add to existing, otherwise conflict.
   const existingSubscription = await appDataSource.query(
-    'SELECT * FROM omnivore.discover_feed_subscription WHERE user_id = $1 and feed_id = $2',
+    'SELECT * FROM ruminer.discover_feed_subscription WHERE user_id = $1 and feed_id = $2',
     [userId, feed.id]
   )
 
@@ -78,7 +78,7 @@ const handleExistingSubscription = async (
   }
 
   await appDataSource.query(
-    'INSERT INTO omnivore.discover_feed_subscription(feed_id, user_id) VALUES($1, $2)',
+    'INSERT INTO ruminer.discover_feed_subscription(feed_id, user_id) VALUES($1, $2)',
     [feed.id, userId]
   )
 
@@ -131,7 +131,7 @@ const addNewSubscription = async (
 
   const discoverFeedId = v4()
   await appDataSource.query(
-    'INSERT INTO omnivore.discover_feed(id, title, link, image, type, description) VALUES($1, $2, $3, $4, $5, $6)',
+    'INSERT INTO ruminer.discover_feed(id, title, link, image, type, description) VALUES($1, $2, $3, $4, $5, $6)',
     [
       discoverFeedId,
       feed.title,
@@ -143,7 +143,7 @@ const addNewSubscription = async (
   )
 
   await appDataSource.query(
-    'INSERT INTO omnivore.discover_feed_subscription(feed_id, user_id) VALUES($2, $1)',
+    'INSERT INTO ruminer.discover_feed_subscription(feed_id, user_id) VALUES($2, $1)',
     [userId, discoverFeedId]
   )
 
@@ -160,7 +160,7 @@ export const addDiscoverFeedResolver = authorized<
 >(async (_, { input: { url } }, { uid, log, pubsub }) => {
   try {
     const existingFeed = (await appDataSource.query(
-      'SELECT id from omnivore.discover_feed where link = $1',
+      'SELECT id from ruminer.discover_feed where link = $1',
       [url]
     )) as DiscoverFeedRows
 

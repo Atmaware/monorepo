@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/discord",
+  "name": "@ruminer/discord",
   "version": "1.0.0",
   "description": "A Discord Bot to extract features to add to Community Picks",
   "scripts": {

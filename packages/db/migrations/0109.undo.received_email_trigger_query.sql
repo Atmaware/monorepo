@@ -5,12 +5,12 @@
 BEGIN;
 
 -- Create a trigger to keep the most recent 20 emails for each user
-CREATE OR REPLACE FUNCTION omnivore.delete_old_received_emails()
+CREATE OR REPLACE FUNCTION ruminer.delete_old_received_emails()
     RETURNS trigger AS $$
     BEGIN
-        DELETE FROM omnivore.received_emails
+        DELETE FROM ruminer.received_emails
         WHERE id NOT IN (
-            SELECT id FROM omnivore.received_emails
+            SELECT id FROM ruminer.received_emails
             WHERE user_id = NEW.user_id
             ORDER BY created_at DESC
             LIMIT 20

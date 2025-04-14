@@ -1,5 +1,5 @@
 import { Box } from '../../elements/LayoutPrimitives'
-import { OmnivoreNameLogo } from '../../elements/images/OmnivoreNameLogo'
+import { RuminerNameLogo } from '../../elements/images/RuminerNameLogo'
 import { Button } from '../../elements/Button'
 import Link from 'next/link'
 
@@ -34,7 +34,7 @@ export function LandingHeader(): JSX.Element {
         width: '100%',
       }}
     >
-      <OmnivoreNameLogo color="#898989" href="/login" />
+      <RuminerNameLogo color="#898989" href="/login" />
       <LoginButton />
     </Box>
   )

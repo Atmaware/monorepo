@@ -4,6 +4,6 @@
 
 BEGIN;
 
-CREATE INDEX article_slug_idx ON omnivore.article(slug);
+CREATE INDEX article_slug_idx ON ruminer.article(slug);
 
 COMMIT;

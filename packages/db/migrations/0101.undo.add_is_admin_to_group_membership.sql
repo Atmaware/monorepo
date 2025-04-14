@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.group_membership DROP COLUMN IF EXISTS is_admin;
+ALTER TABLE ruminer.group_membership DROP COLUMN IF EXISTS is_admin;
 
 COMMIT;

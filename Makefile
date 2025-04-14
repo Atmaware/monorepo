@@ -8,34 +8,34 @@ apple_extension_gen:
 	$(MAKE) -C apple extension_gen
 
 android_graphql_gen:
-	cp packages/api/src/generated/schema.graphql android/Omnivore/app/src/main/graphql/schema.graphqls
+	cp packages/api/src/generated/schema.graphql android/Ruminer/app/src/main/graphql/schema.graphqls
 
 droid:
-	@if ! [ -e android/Omnivore/app/src/main/res/values/secrets.xml ]; then \
-		cp android/Omnivore/secrets.xml android/Omnivore/app/src/main/res/values/secrets.xml; \
+	@if ! [ -e android/Ruminer/app/src/main/res/values/secrets.xml ]; then \
+		cp android/Ruminer/secrets.xml android/Ruminer/app/src/main/res/values/secrets.xml; \
 	fi
-	studio android/Omnivore
+	studio android/Ruminer
 
 webview_gen:
-	yarn workspace @omnivore/appreader build
-	cp packages/appreader/build/bundle.js apple/OmnivoreKit/Sources/Views/Resources/bundle.js
-	cp packages/appreader/build/bundle.js android/Omnivore/app/src/main/assets/bundle.js
+	yarn workspace @ruminer/appreader build
+	cp packages/appreader/build/bundle.js apple/RuminerKit/Sources/Views/Resources/bundle.js
+	cp packages/appreader/build/bundle.js android/Ruminer/app/src/main/assets/bundle.js
 
 api:
-	yarn workspace @omnivore/api dev
+	yarn workspace @ruminer/api dev
 
 web:
-	yarn workspace @omnivore/web dev
+	yarn workspace @ruminer/web dev
 
 qp:
-	yarn workspace @omnivore/api dev_qp
+	yarn workspace @ruminer/api dev_qp
 
 content_handler:
-	yarn workspace @omnivore/content-handler build
+	yarn workspace @ruminer/content-handler build
 
 puppeteer:
-	yarn workspace @omnivore/puppeteer-parse build
+	yarn workspace @ruminer/puppeteer-parse build
 
 content_fetch: content_handler puppeteer
-	yarn workspace @omnivore/content-fetch build
-	yarn workspace @omnivore/content-fetch start
+	yarn workspace @ruminer/content-fetch build
+	yarn workspace @ruminer/content-fetch start

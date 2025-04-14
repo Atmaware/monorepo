@@ -36,7 +36,7 @@ const FormInput = styled('input', {
   color: '$grayTextContrast',
   '&:focus': {
     border: '1px solid transparent',
-    outline: '2px solid $omnivoreCtaYellow',
+    outline: '2px solid $ruminerCtaYellow',
   },
 })
 

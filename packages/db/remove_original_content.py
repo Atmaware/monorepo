@@ -7,7 +7,7 @@ PG_HOST = os.getenv('PG_HOST', 'localhost')
 PG_PORT = os.getenv('PG_PORT', 5432)
 PG_USER = os.getenv('PG_USER', 'app_user')
 PG_PASSWORD = os.getenv('PG_PASSWORD', 'app_pass')
-PG_DB = os.getenv('PG_DB', 'omnivore')
+PG_DB = os.getenv('PG_DB', 'ruminer')
 PG_TIMEOUT = os.getenv('PG_TIMEOUT', 10)
 BATCH_SIZE = os.getenv('BATCH_SIZE', 100)
 
@@ -17,11 +17,11 @@ def batch_update_library_items(conn):
     with conn.cursor() as cursor:
         while True:
             cursor.execute(f"""
-                UPDATE omnivore.library_item
+                UPDATE ruminer.library_item
                 SET original_content = NULL
                 WHERE id IN (
                     SELECT id
-                    FROM omnivore.library_item
+                    FROM ruminer.library_item
                     WHERE original_content IS NOT NULL
                     ORDER BY user_id
                     LIMIT {BATCH_SIZE}

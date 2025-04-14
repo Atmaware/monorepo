@@ -14,7 +14,7 @@ We make use of Apollo resolvers and data sources. Resolvers typically contain bu
 
 All operations on the database must be wrapped in Knex transaction on a resolver layer. This ensures data integrity and safety with no side effects on a failed operations.
 
-Because we make use of Row Level Security in the database, - all operations typically begin with assuming the role for which policies exist via `omnivore.set_claims` database function.
+Because we make use of Row Level Security in the database, - all operations typically begin with assuming the role for which policies exist via `ruminer.set_claims` database function.
 
 ## ElasticSearch
 

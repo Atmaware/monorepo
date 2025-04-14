@@ -239,7 +239,7 @@ const AddFromURL = (props: AddFromURLProps): JSX.Element => {
           </HStack>
         )}
         <Button
-          style="ctaOmnivoreYellow"
+          style="ctaRuminerYellow"
           type="submit"
           css={{
             marginLeft: 'auto',
@@ -317,7 +317,7 @@ const UploadImportTab = (props: AddLinkModalProps): JSX.Element => {
             <Info size={14} color="#007AFF" />
             Imports must be in a supported format.{' '}
             <a
-              href="https://docs.omnivore.app/using/importing.html"
+              href="https://docs.ruminer.app/using/importing.html"
               target="_blank"
               rel="noreferrer"
               style={{ color: '#007AFF' }}
@@ -372,7 +372,7 @@ const DragnDropIndicator = styled('div', {
 })
 
 const ProgressIndicator = styled(Progress.Indicator, {
-  backgroundColor: '$omnivoreCtaYellow',
+  backgroundColor: '$ruminerCtaYellow',
   width: '100%',
   height: '100%',
 })
@@ -380,7 +380,7 @@ const ProgressIndicator = styled(Progress.Indicator, {
 const ProgressRoot = styled(Progress.Root, {
   position: 'relative',
   overflow: 'hidden',
-  background: '$omnivoreGray',
+  background: '$ruminerGray',
   borderRadius: '99999px',
   width: '100%',
   height: '5px',
@@ -616,7 +616,7 @@ const UploadPad = (props: UploadPadProps): JSX.Element => {
         onDropAccepted={handleAcceptedFiles}
         onDropRejected={(fileRejections: FileRejection[], event: DropEvent) => {
           console.log('onDropRejected: ', fileRejections, event)
-          alert('You can only upload PDF files to your Omnivore Library.')
+          alert('You can only upload PDF files to your Ruminer Library.')
           setInDragOperation(false)
           event.preventDefault()
         }}

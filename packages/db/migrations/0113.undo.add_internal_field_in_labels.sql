@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.labels DROP COLUMN IF EXISTS internal;
+ALTER TABLE ruminer.labels DROP COLUMN IF EXISTS internal;
 
 COMMIT;

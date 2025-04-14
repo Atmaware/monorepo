@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP POLICY update_labels on omnivore.labels ;
+DROP POLICY update_labels on ruminer.labels ;
 
 COMMIT;

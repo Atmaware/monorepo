@@ -4,7 +4,7 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.public_item_source (
+CREATE TABLE ruminer.public_item_source (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
     name TEXT NOT NULL,
     type TEXT NOT NULL, -- public feeds, newsletters, or user recommended
@@ -17,13 +17,13 @@ CREATE TABLE omnivore.public_item_source (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TRIGGER update_public_item_source_modtime BEFORE UPDATE ON omnivore.public_item_source FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
-GRANT SELECT ON omnivore.public_item_source TO omnivore_user;
+CREATE TRIGGER update_public_item_source_modtime BEFORE UPDATE ON ruminer.public_item_source FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+GRANT SELECT ON ruminer.public_item_source TO ruminer_user;
 
 
-CREATE TABLE omnivore.public_item (
+CREATE TABLE ruminer.public_item (
 	id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    source_id uuid NOT NULL REFERENCES omnivore.public_item_source(id) ON DELETE CASCADE,
+    source_id uuid NOT NULL REFERENCES ruminer.public_item_source(id) ON DELETE CASCADE,
     site_icon TEXT,
     type TEXT NOT NULL, -- public feeds, newsletters, or user recommended
     title TEXT NOT NULL,
@@ -42,13 +42,13 @@ CREATE TABLE omnivore.public_item (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TRIGGER update_public_item_modtime BEFORE UPDATE ON omnivore.public_item FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
-GRANT SELECT ON omnivore.public_item TO omnivore_user;
+CREATE TRIGGER update_public_item_modtime BEFORE UPDATE ON ruminer.public_item FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+GRANT SELECT ON ruminer.public_item TO ruminer_user;
 
 
-CREATE TABLE omnivore.public_item_stats (
+CREATE TABLE ruminer.public_item_stats (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    public_item_id uuid NOT NULL REFERENCES omnivore.public_item(id) ON DELETE CASCADE,
+    public_item_id uuid NOT NULL REFERENCES ruminer.public_item(id) ON DELETE CASCADE,
     save_count INT NOT NULL DEFAULT 0,
     like_count INT NOT NULL DEFAULT 0,
     broadcast_count INT NOT NULL DEFAULT 0,
@@ -56,15 +56,15 @@ CREATE TABLE omnivore.public_item_stats (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX public_item_stats_public_item_id_idx ON omnivore.public_item_stats(public_item_id);
-CREATE TRIGGER update_public_item_stats_modtime BEFORE UPDATE ON omnivore.public_item_stats FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
-GRANT SELECT ON omnivore.public_item_stats TO omnivore_user;
+CREATE INDEX public_item_stats_public_item_id_idx ON ruminer.public_item_stats(public_item_id);
+CREATE TRIGGER update_public_item_stats_modtime BEFORE UPDATE ON ruminer.public_item_stats FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+GRANT SELECT ON ruminer.public_item_stats TO ruminer_user;
 
 
-CREATE TABLE omnivore.public_item_interactions (
+CREATE TABLE ruminer.public_item_interactions (
 	id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user(id) ON DELETE CASCADE,
-    public_item_id uuid NOT NULL REFERENCES omnivore.public_item(id) ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user(id) ON DELETE CASCADE,
+    public_item_id uuid NOT NULL REFERENCES ruminer.public_item(id) ON DELETE CASCADE,
     saved_at TIMESTAMPTZ,
     liked_at TIMESTAMPTZ,
     broadcasted_at TIMESTAMPTZ,
@@ -74,14 +74,14 @@ CREATE TABLE omnivore.public_item_interactions (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX public_item_interaction_user_id_idx ON omnivore.public_item_interactions(user_id);
-CREATE INDEX public_item_interaction_public_item_id_idx ON omnivore.public_item_interactions(public_item_id);
-CREATE TRIGGER update_public_item_interactions_modtime BEFORE UPDATE ON omnivore.public_item_interactions FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
-GRANT SELECT, INSERT, UPDATE ON omnivore.public_item_interactions TO omnivore_user;
+CREATE INDEX public_item_interaction_user_id_idx ON ruminer.public_item_interactions(user_id);
+CREATE INDEX public_item_interaction_public_item_id_idx ON ruminer.public_item_interactions(public_item_id);
+CREATE TRIGGER update_public_item_interactions_modtime BEFORE UPDATE ON ruminer.public_item_interactions FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+GRANT SELECT, INSERT, UPDATE ON ruminer.public_item_interactions TO ruminer_user;
 
 CREATE EXTENSION IF NOT EXISTS LTREE;
 
-ALTER TABLE omnivore.library_item 
+ALTER TABLE ruminer.library_item 
     ADD COLUMN seen_at TIMESTAMPTZ,
     ADD COLUMN digested_at TIMESTAMPTZ,
     ADD COLUMN topic LTREE,

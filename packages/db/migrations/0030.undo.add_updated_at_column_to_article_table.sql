@@ -3,6 +3,6 @@
 -- Description: Add an updated_at column to the article table
 
 BEGIN;
-ALTER TABLE omnivore.article DROP COLUMN updated_at;
-DROP TRIGGER update_article_modtime ON omnivore.article;
+ALTER TABLE ruminer.article DROP COLUMN updated_at;
+DROP TRIGGER update_article_modtime ON ruminer.article;
 COMMIT;

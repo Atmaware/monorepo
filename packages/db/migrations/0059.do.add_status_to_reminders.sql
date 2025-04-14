@@ -6,11 +6,11 @@ BEGIN;
 
 CREATE TYPE reminder_status AS ENUM ('CREATED', 'DELETED', 'COMPLETED');
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
     ADD COLUMN status reminder_status DEFAULT 'CREATED' NOT NULL,
     ADD COLUMN created_at timestamptz NOT NULL default current_timestamp,
     ADD COLUMN updated_at timestamptz;
 
-CREATE TRIGGER reminders_modtime BEFORE UPDATE ON omnivore.reminders FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER reminders_modtime BEFORE UPDATE ON ruminer.reminders FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 COMMIT;

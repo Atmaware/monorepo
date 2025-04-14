@@ -41,7 +41,7 @@ export function Loader(): JSX.Element {
   )
 }
 
-type OmnivoreLogoProps = {
+type RuminerLogoProps = {
   size: number
   strokeColor: string
 }
@@ -66,7 +66,7 @@ export function ErrorComponent(props: ErrorComponentProps): JSX.Element {
   )
 }
 
-function LogoIcon(props: OmnivoreLogoProps): JSX.Element {
+function LogoIcon(props: RuminerLogoProps): JSX.Element {
   return (
     <svg
       width={props.size}

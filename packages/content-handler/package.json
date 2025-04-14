@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/content-handler",
+  "name": "@ruminer/content-handler",
   "version": "1.0.0",
   "description": "A standalone version of content handler to parse and format each type of content",
   "main": "build/src/index.js",
@@ -30,7 +30,7 @@
     "nock": "^13.2.9"
   },
   "dependencies": {
-    "@omnivore/utils": "1.0.0",
+    "@ruminer/utils": "1.0.0",
     "addressparser": "^1.0.1",
     "axios": "^0.27.2",
     "linkedom": "^0.14.16",

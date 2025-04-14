@@ -4,13 +4,13 @@
 
 BEGIN;
 
-DROP TRIGGER IF EXISTS library_item_highlight_annotations_update ON omnivore.highlight;
+DROP TRIGGER IF EXISTS library_item_highlight_annotations_update ON ruminer.highlight;
 DROP FUNCTION IF EXISTS update_library_item_highlight_annotations();
 
-DROP POLICY delete_highlight on omnivore.highlight;
-REVOKE DELETE ON omnivore.highlight FROM omnivore_user;
+DROP POLICY delete_highlight on ruminer.highlight;
+REVOKE DELETE ON ruminer.highlight FROM ruminer_user;
 
-ALTER TABLE omnivore.highlight 
+ALTER TABLE ruminer.highlight 
     ADD COLUMN deleted boolean DEFAULT false,
     ADD COLUMN article_id uuid,
     ADD COLUMN elastic_page_id uuid,

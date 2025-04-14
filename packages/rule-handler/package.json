@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/rule-handler",
+  "name": "@ruminer/rule-handler",
   "version": "1.0.0",
   "main": "build/src/index.js",
   "files": [

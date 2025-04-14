@@ -4,6 +4,6 @@
 
 BEGIN;
 
-UPDATE omnivore.user set source = 'GOOGLE' where source = 'TWITTER';
+UPDATE ruminer.user set source = 'GOOGLE' where source = 'TWITTER';
 
 COMMIT;

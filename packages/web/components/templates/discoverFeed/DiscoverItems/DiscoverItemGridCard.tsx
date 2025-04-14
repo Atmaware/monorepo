@@ -165,7 +165,7 @@ const DiscoverGridCardContent = (
           </HStack>
           {displayFallback ? (
             <GridFallbackImage
-              title={item.title ?? 'Omnivore Fallback'}
+              title={item.title ?? 'Ruminer Fallback'}
               width="100%"
               height="150px"
               fontSize="128px"

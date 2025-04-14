@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { preHandleContent } from '@omnivore/content-handler'
+import { preHandleContent } from '@ruminer/content-handler'
 import path from 'path'
 import { BrowserContext, Page, Protocol } from 'puppeteer-core'
 import { getBrowser } from './browser'
@@ -485,7 +485,7 @@ async function retrieveHtml(page: Page, logRecord: Record<string, any>) {
         if (el.tagName === 'IFRAME') {
           if (src && iframes[src]) {
             const newNode = document.createElement('div')
-            newNode.className = 'omnivore-instagram-embed'
+            newNode.className = 'ruminer-instagram-embed'
             newNode.innerHTML = iframes[src]
             el && el.parentNode && el.parentNode.replaceChild(newNode, el)
           }

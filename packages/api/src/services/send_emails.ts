@@ -45,16 +45,16 @@ export const sendWithMailJet = async (
       Messages: [
         {
           From: {
-            Email: 'no-reply@omnivore.app',
+            Email: 'no-reply@ruminer.app',
           },
           To: [
             {
               Email: email,
-              Name: 'Omnivore',
+              Name: 'Ruminer',
             },
           ],
-          Subject: 'Your Omnivore verification link',
-          TextPart: `Your Omnivore verification link ${link}`,
+          Subject: 'Your Ruminer verification link',
+          TextPart: `Your Ruminer verification link ${link}`,
         },
       ],
     })
@@ -128,15 +128,15 @@ export const sendExportJobEmail = async (
         throw new Error('urlToDownload is required')
       }
 
-      subject = 'Your Omnivore export is ready'
+      subject = 'Your Ruminer export is ready'
       html = `<p>Your export is ready. You can download it from the following link: <a href="${urlToDownload}">${urlToDownload}</a></p>`
       break
     case 'failed':
-      subject = 'Your Omnivore export failed'
+      subject = 'Your Ruminer export failed'
       html = '<p>Your export failed. Please try again later.</p>'
       break
     case 'started':
-      subject = 'Your Omnivore export has started'
+      subject = 'Your Ruminer export has started'
       html =
         '<p>Your export has started. You will receive an email once it is completed.</p>'
       break

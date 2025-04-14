@@ -7,7 +7,7 @@ interface WatcherEnv {
       password: string
     }
   }
-  omnivoreEmail: string
+  ruminerEmail: string
   apiKey: string
   apiEndpoint: string,
   waitTime: number
@@ -44,7 +44,7 @@ export function getEnv(): WatcherEnv {
   return {
     apiKey: parse('WATCHER_API_KEY')!,
     apiEndpoint: parse('WATCHER_API_ENDPOINT')!,
-    omnivoreEmail: parse('OMNIVORE_EMAIL')!,
+    ruminerEmail: parse('OMNIVORE_EMAIL')!,
     waitTime: Number(parse('WAIT_TIME')),
     imap,
   }

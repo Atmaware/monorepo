@@ -4,13 +4,13 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.integrations RENAME COLUMN "type" TO "name";
-ALTER TABLE omnivore.integrations
+ALTER TABLE ruminer.integrations RENAME COLUMN "type" TO "name";
+ALTER TABLE ruminer.integrations
     DROP CONSTRAINT integrations_user_id_type_key,
     ALTER COLUMN "name" TYPE VARCHAR(40) USING "name"::VARCHAR(40);
-DROP TYPE omnivore.integration_type;
-CREATE TYPE omnivore.integration_type AS ENUM ('EXPORT', 'IMPORT');
-ALTER TABLE omnivore.integrations
-    ADD COLUMN "type" omnivore.integration_type NOT NULL DEFAULT 'EXPORT';
+DROP TYPE ruminer.integration_type;
+CREATE TYPE ruminer.integration_type AS ENUM ('EXPORT', 'IMPORT');
+ALTER TABLE ruminer.integrations
+    ADD COLUMN "type" ruminer.integration_type NOT NULL DEFAULT 'EXPORT';
 
 COMMIT;

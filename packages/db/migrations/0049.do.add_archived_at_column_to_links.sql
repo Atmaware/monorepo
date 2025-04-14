@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.links ADD archived_at timestamp;
+ALTER TABLE ruminer.links ADD archived_at timestamp;
 
 COMMIT;

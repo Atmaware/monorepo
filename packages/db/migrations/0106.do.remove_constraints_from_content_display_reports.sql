@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.content_display_report DROP CONSTRAINT content_display_report_page_id_fkey;
-ALTER TABLE omnivore.content_display_report DROP CONSTRAINT content_display_report_user_id_fkey;
+ALTER TABLE ruminer.content_display_report DROP CONSTRAINT content_display_report_page_id_fkey;
+ALTER TABLE ruminer.content_display_report DROP CONSTRAINT content_display_report_user_id_fkey;
 
 COMMIT;

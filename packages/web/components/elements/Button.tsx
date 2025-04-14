@@ -18,7 +18,7 @@ export const Button = styled('button', {
           border: '1px solid $grayBorderHover',
         },
       },
-      ctaOmnivoreYellow: {
+      ctaRuminerYellow: {
         borderRadius: '5px',
         px: '20px',
         py: '8px',
@@ -26,7 +26,7 @@ export const Button = styled('button', {
         fontWeight: '500',
         cursor: 'pointer',
         border: '0px solid $yellow3',
-        bg: '$omnivoreYellow',
+        bg: '$ruminerYellow',
         color: '#2A2A2A',
         '&:hover': {
           opacity: 1.0,
@@ -96,8 +96,8 @@ export const Button = styled('button', {
         bg: '#FFEA9F',
         p: '10px 15px',
         '&:hover, &:focus': {
-          bg: '$omnivoreCtaYellow',
-          outline: '1px solid $omnivoreCtaYellow',
+          bg: '$ruminerCtaYellow',
+          outline: '1px solid $ruminerCtaYellow',
         },
       },
       landingCta: {
@@ -144,7 +144,7 @@ export const Button = styled('button', {
         bg: 'transparent',
         '&:hover, &:focus': {
           bg: '#EBEBEB',
-          outline: '1px solid $omnivoreCtaYellow',
+          outline: '1px solid $ruminerCtaYellow',
         },
       },
       cancelAuth: {
@@ -165,7 +165,7 @@ export const Button = styled('button', {
       ctaOutlineYellow: {
         boxSizing: 'border-box',
         borderColor: 'unset',
-        border: '1px solid $omnivoreCtaYellow',
+        border: '1px solid $ruminerCtaYellow',
         fontSize: '14px',
         fontWeight: 500,
         fontStyle: 'normal',
@@ -205,7 +205,7 @@ export const Button = styled('button', {
         fontFamily: 'Inter',
         borderRadius: '8px',
         cursor: 'pointer',
-        color: '$omnivoreGray',
+        color: '$ruminerGray',
         bg: '$grayBgActive',
         p: '10px 12px',
       },

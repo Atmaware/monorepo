@@ -13,7 +13,7 @@ import {
   removeHTMLTag,
   streamHeadAndRetrieveOpenGraph,
 } from './generic'
-import { OmnivoreFeed } from '../../../../../types/Feeds'
+import { RuminerFeed } from '../../../../../types/Feeds'
 
 const getImage = (article: any): string | undefined => {
   // If there's a thumbnail exposed in the RSS Feed, we should default to that as it is the most likely
@@ -93,7 +93,7 @@ const getDescriptionAndImage = async (article: any) => {
   return { image, description }
 }
 
-export const parseRss = (feed: OmnivoreFeed) => (parsedXml: any) => {
+export const parseRss = (feed: RuminerFeed) => (parsedXml: any) => {
   return fromArrayLike(parsedXml).pipe(
     mapOrNull(async (article: any) => {
       const { description, image } = await getDescriptionAndImage(article)

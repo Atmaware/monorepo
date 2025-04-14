@@ -1,6 +1,6 @@
 import React from 'react'
 import { HStack } from '../../../elements/LayoutPrimitives'
-import { OmnivoreSmallLogo } from '../../../elements/images/OmnivoreNameLogo'
+import { RuminerSmallLogo } from '../../../elements/images/RuminerNameLogo'
 import { theme } from '../../../tokens/stitches.config'
 import { FunnelSimple } from '@phosphor-icons/react'
 import { DiscoverHeaderProps } from './DiscoverHeader'
@@ -55,7 +55,7 @@ export function MenuHeaderButton(props: MenuHeaderButtonProps): JSX.Element {
         props.setShowFilterMenu(!props.showFilterMenu)
       }}
     >
-      <OmnivoreSmallLogo
+      <RuminerSmallLogo
         size={20}
         strokeColor={
           props.showFilterMenu

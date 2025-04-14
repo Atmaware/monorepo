@@ -12,9 +12,9 @@ export type SelectionAttributes = {
   wasDragEvent: boolean
 }
 
-export const highlightIdAttribute = 'omnivore-highlight-id'
-export const highlightNoteIdAttribute = 'omnivore-highlight-note-id'
-export const highlightLabelIdAttribute = 'omnivore-highlight-label-id'
+export const highlightIdAttribute = 'ruminer-highlight-id'
+export const highlightNoteIdAttribute = 'ruminer-highlight-note-id'
+export const highlightLabelIdAttribute = 'ruminer-highlight-label-id'
 
 export function getHighlightElements(highlightId: string): Element[] {
   return Array.from(

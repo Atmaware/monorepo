@@ -9,7 +9,7 @@ import { editLabels } from './labels'
 
 const collectPageContent = async (): Promise<string> => {
   const mainContent = document.documentElement.outerHTML
-  console.log('[omnivore] captured mainContent')
+  console.log('[ruminer] captured mainContent')
   return mainContent
 }
 
@@ -18,7 +18,7 @@ const handleToolbarMessage = async (
   sender: chrome.runtime.MessageSender,
   sendResponse: (response?: any) => void
 ) => {
-  console.log('[omnivore] content script message:', request)
+  console.log('[ruminer] content script message:', request)
 
   switch (request.message) {
     case 'showLoggedOutToolbar':
@@ -53,12 +53,12 @@ const setupToolbar = async (clientRequestId: string) => {
 }
 
 const savePage = async (clientRequestId: string) => {
-  console.log('[omnivore] v3 extension triggered: ', clientRequestId)
+  console.log('[ruminer] v3 extension triggered: ', clientRequestId)
 
   await setupToolbar(clientRequestId)
 
   const content = await collectPageContent()
-  console.log('[omnivore] collected page content: ', content)
+  console.log('[ruminer] collected page content: ', content)
 
   try {
     const page: SavePageInput = {

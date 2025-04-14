@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article ADD constraint UNIQUE(url, hash) ;
+ALTER TABLE ruminer.article ADD constraint UNIQUE(url, hash) ;
 
 COMMIT;

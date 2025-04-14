@@ -1,5 +1,5 @@
 {
-  "name": "omnivore-app",
+  "name": "ruminer-app",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -11,7 +11,7 @@
     "test": "lerna run --stream test",
     "lint": "lerna run --parallel lint",
     "build": "lerna run build",
-    "test:scoped:example": "lerna run test --scope={@omnivore/pdf-handler,@omnivore/web}",
+    "test:scoped:example": "lerna run test --scope={@ruminer/pdf-handler,@ruminer/web}",
     "gql-typegen": "graphql-codegen",
     "deploy:web": "vercel --prod"
   },

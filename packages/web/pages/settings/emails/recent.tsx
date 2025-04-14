@@ -33,7 +33,7 @@ type TypeChipProps = {
 }
 
 const TypeChip = (props: TypeChipProps): JSX.Element => {
-  const backgroundColor = props.type == 'article' ? '$omnivoreCtaYellow' : 'red'
+  const backgroundColor = props.type == 'article' ? '$ruminerCtaYellow' : 'red'
   return (
     <SpanBox
       css={{
@@ -166,7 +166,7 @@ export default function RecentEmails(): JSX.Element {
   return (
     <SettingsTable
       pageId="recent-emails"
-      pageInfoLink="https://docs.omnivore.app/using/inbox.html"
+      pageInfoLink="https://docs.ruminer.app/using/inbox.html"
       headerTitle="Recently Received Emails"
     >
       {sortedRecentEmails.length > 0 ? (
@@ -194,7 +194,7 @@ export default function RecentEmails(): JSX.Element {
                       my: '0px',
                       fontSize: '11px',
                       a: {
-                        color: '$omnivoreCtaYellow',
+                        color: '$ruminerCtaYellow',
                       },
                     }}
                   >

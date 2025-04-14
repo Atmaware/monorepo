@@ -6,7 +6,7 @@ BEGIN;
 
 CREATE TYPE speech_state_type AS ENUM ('INITIALIZED', 'COMPLETED', 'FAILED', 'CANCELLED');
 
-ALTER TABLE omnivore.speech
+ALTER TABLE ruminer.speech
     DROP COLUMN audio_url,
     DROP COLUMN speech_marks_url,
     ADD COLUMN audio_file_name VARCHAR(255) NOT NULL DEFAULT '',

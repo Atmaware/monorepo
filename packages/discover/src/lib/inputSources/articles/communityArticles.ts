@@ -1,17 +1,17 @@
 import { PubSub } from '@google-cloud/pubsub'
 import { catchError, EMPTY, Observable, Subscriber } from 'rxjs'
 import { Message } from '@google-cloud/pubsub/build/src/subscriber'
-import { OmnivoreArticle } from '../../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../../types/RuminerArticle'
 
 const TOPIC_NAME = 'discordCommunityArticles'
 const client = new PubSub()
 
 export const COMMUNITY = 'OMNIVORE_COMMUNITY'
 
-const extractArticleFromMessage = (message: Message): OmnivoreArticle => {
-  const parsedMessage: OmnivoreArticle = JSON.parse(
+const extractArticleFromMessage = (message: Message): RuminerArticle => {
+  const parsedMessage: RuminerArticle = JSON.parse(
     message.data.toString()
-  ) as OmnivoreArticle
+  ) as RuminerArticle
 
   return {
     ...parsedMessage,

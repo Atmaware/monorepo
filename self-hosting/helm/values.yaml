@@ -8,34 +8,34 @@ controllers:
     containers:
       api:
         image:
-          repository: sejaeger/omnivore-api
+          repository: sejaeger/ruminer-api
           tag: 150444efb
           pullPolicy: IfNotPresent
         env:
           API_ENV: local
           PG_HOST: postgres.postgres.svc.cluster.local
           PG_USER: app_user
-          PG_DB: omnivore
+          PG_DB: ruminer
           PG_PORT: 5432
           PG_POOL_MAX: 20
-          CLIENT_URL: https://omnivore.example.com # URL any client can use to reach the server
-          GATEWAY_URL: http://omnivore-api:8080/api
-          CONTENT_FETCH_URL: http://omnivore-content-fetch:8080/?token=$(VERIFICATION_TOKEN)
+          CLIENT_URL: https://ruminer.example.com # URL any client can use to reach the server
+          GATEWAY_URL: http://ruminer-api:8080/api
+          CONTENT_FETCH_URL: http://ruminer-content-fetch:8080/?token=$(VERIFICATION_TOKEN)
         envFrom:
           - secretRef:
-              name: omnivore-image-proxy-secret
+              name: ruminer-image-proxy-secret
           - secretRef:
-              name: omnivore-jwt-secret
+              name: ruminer-jwt-secret
           - secretRef:
-              name: omnivore-sso-jwt-secret
+              name: ruminer-sso-jwt-secret
           - secretRef:
-              name: omnivore-pg-password
+              name: ruminer-pg-password
           - secretRef:
-              name: omnivore-content-fetch-verification-token
+              name: ruminer-content-fetch-verification-token
     initContainers:
       migrate:
         image:
-          repository: sejaeger/omnivore-migrate
+          repository: sejaeger/ruminer-migrate
           tag: 150444efb
           pullPolicy: IfNotPresent
         command: ["/bin/sh", "-c", "--"]
@@ -43,11 +43,11 @@ controllers:
         env:
           PG_HOST: postgres.postgres.svc.cluster.local
           PG_USER: app_user
-          PG_DB: omnivore
+          PG_DB: ruminer
           NO_DEMO_USER: 1
         envFrom:
           - secretRef:
-              name: omnivore-pg-password
+              name: ruminer-pg-password
           - secretRef:
               name: postgres-admin-user-and-password
 
@@ -61,7 +61,7 @@ controllers:
     containers:
       web:
         image:
-          repository: sejaeger/omnivore-web
+          repository: sejaeger/ruminer-web
           tag: 150444efb
           pullPolicy: IfNotPresent
 
@@ -72,16 +72,16 @@ controllers:
     containers:
       content-fetch:
         image:
-          repository: sejaeger/omnivore-content-fetch
+          repository: sejaeger/ruminer-content-fetch
           tag: e44616b01
           pullPolicy: IfNotPresent
         env:
-          REST_BACKEND_ENDPOINT: http://omnivore-api:8080/api
+          REST_BACKEND_ENDPOINT: http://ruminer-api:8080/api
         envFrom:
           - secretRef:
-              name: omnivore-jwt-secret
+              name: ruminer-jwt-secret
           - secretRef:
-              name: omnivore-content-fetch-token
+              name: ruminer-content-fetch-token
 
 service:
   main:

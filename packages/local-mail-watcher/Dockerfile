@@ -19,8 +19,8 @@ RUN yarn install --pure-lockfile
 
 ADD /packages/utils ./packages/utils
 
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/local-mail-watcher build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/local-mail-watcher build
 
 FROM node:22.12 as runner
 
@@ -37,4 +37,4 @@ COPY --from=builder /app/packages/utils/ /app/packages/utils/
 COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/package.json /app/package.json
 
-CMD ["yarn", "workspace", "@omnivore/local-mail-watcher", "start"]
+CMD ["yarn", "workspace", "@ruminer/local-mail-watcher", "start"]

@@ -1,9 +1,9 @@
-import { EmbeddedOmnivoreLabel } from './embedding'
+import { EmbeddedRuminerLabel } from './embedding'
 
 export type PredefinedEmbeds = Partial<
-  EmbeddedOmnivoreLabel & {
-    children?: EmbeddedOmnivoreLabel[]
-    parent?: EmbeddedOmnivoreLabel
+  EmbeddedRuminerLabel & {
+    children?: EmbeddedRuminerLabel[]
+    parent?: EmbeddedRuminerLabel
   }
 >
 

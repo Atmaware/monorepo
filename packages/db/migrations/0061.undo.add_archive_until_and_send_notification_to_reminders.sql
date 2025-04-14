@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
   DROP COLUMN archive_until,
   DROP COLUMN send_notification ;
 

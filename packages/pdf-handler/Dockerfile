@@ -16,8 +16,8 @@ RUN yarn install --pure-lockfile
 
 ADD /packages/pdf-handler ./packages/pdf-handler
 ADD /packages/utils ./packages/utils
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/pdf-handler build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/pdf-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/pdf-handler/node_modules
@@ -26,5 +26,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/pdf-handler", "start"]
+CMD ["yarn", "workspace", "@ruminer/pdf-handler", "start"]
 

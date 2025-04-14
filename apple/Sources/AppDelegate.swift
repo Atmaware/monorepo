@@ -10,7 +10,7 @@ import OSLog
   import Views
 #endif
 
-private let logger = Logger(subsystem: "app.omnivore", category: "app-delegate")
+private let logger = Logger(subsystem: "app.ruminer", category: "app-delegate")
 
 #if os(macOS)
   class AppDelegate: NSObject, NSApplicationDelegate {

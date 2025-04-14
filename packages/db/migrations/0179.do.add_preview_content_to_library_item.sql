@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item
+ALTER TABLE ruminer.library_item
     ADD COLUMN preview_content TEXT;
 
 COMMIT;

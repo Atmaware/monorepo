@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/liqe",
+  "name": "@ruminer/liqe",
   "ava": {
     "extensions": [
       "ts"

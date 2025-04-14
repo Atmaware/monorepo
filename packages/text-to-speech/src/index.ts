@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { File, Storage } from '@google-cloud/storage'
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import * as Sentry from '@sentry/serverless'
 import axios from 'axios'
 import crypto from 'crypto'

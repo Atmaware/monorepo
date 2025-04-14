@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.integrations DROP COLUMN IF EXISTS import_item_state;
+ALTER TABLE ruminer.integrations DROP COLUMN IF EXISTS import_item_state;
 
 DROP TYPE IF EXISTS import_item_state_type;
 

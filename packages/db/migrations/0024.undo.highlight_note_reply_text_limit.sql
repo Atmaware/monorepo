@@ -4,8 +4,8 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.highlight ALTER COLUMN annotation TYPE varchar(400);
+ALTER TABLE ruminer.highlight ALTER COLUMN annotation TYPE varchar(400);
 
-ALTER TABLE omnivore.highlight_reply ALTER COLUMN text TYPE text;
+ALTER TABLE ruminer.highlight_reply ALTER COLUMN text TYPE text;
 
 COMMIT;

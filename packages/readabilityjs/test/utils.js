@@ -12,10 +12,10 @@ function readJSON(jsonPath) {
 
 var testPageRoot = path.join(__dirname, "test-pages");
 
-exports.getTestPages = function(isOmnivore = null) {
-  const root = isOmnivore ? `${testPageRoot}/omnivore` : testPageRoot;
+exports.getTestPages = function(isRuminer = null) {
+  const root = isRuminer ? `${testPageRoot}/ruminer` : testPageRoot;
   const testPages = [];
-  const testPageDirs = fs.readdirSync(root).filter(dir => dir !== 'omnivore');
+  const testPageDirs = fs.readdirSync(root).filter(dir => dir !== 'ruminer');
   testPageDirs.forEach(function(dir) {
     if (dir === 'newsletters') {
       // newsletters are a special case, they are in a subdirectory

@@ -4,11 +4,11 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.service_usage;
+DROP TABLE IF EXISTS ruminer.service_usage;
 
-DROP TABLE IF EXISTS omnivore.subscription_plan;
+DROP TABLE IF EXISTS ruminer.subscription_plan;
 
-ATLER TABLE omnivore.received_emails
+ATLER TABLE ruminer.received_emails
     DROP COLUMN IF EXISTS reply_to,
     DROP COLUMN IF EXISTS reply;
 

@@ -4,9 +4,9 @@
 
 BEGIN;
 
-DROP TRIGGER IF EXISTS library_item_recommenders_update ON omnivore.recommendation;
+DROP TRIGGER IF EXISTS library_item_recommenders_update ON ruminer.recommendation;
 DROP FUNCTION IF EXISTS update_library_item_recommenders();
 
-ALTER TABLE omnivore.library_item DROP COLUMN recommender_names;
+ALTER TABLE ruminer.library_item DROP COLUMN recommender_names;
 
 COMMIT;

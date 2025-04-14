@@ -64,7 +64,7 @@ export function PrivacyPolicy(props: PrivacyPolicyProps): JSX.Element {
         </StyledText>
         <StyledText style="body">
           <strong>Application</strong> means the software program provided by
-          the Company downloaded by You on any electronic device, named Omnivore
+          the Company downloaded by You on any electronic device, named Ruminer
         </StyledText>
         <StyledText style="body">
           <strong>Business</strong>, for the purpose of the CCPA (California
@@ -79,7 +79,7 @@ export function PrivacyPolicy(props: PrivacyPolicyProps): JSX.Element {
         <StyledText style="body">
           <strong>Company</strong> (referred to as either &quot;the
           Company&quot;, &quot;We&quot;, &quot;Us&quot; or &quot;Our&quot; in
-          this Agreement) refers to Omnivore Media, Inc, 548 Market Street PMB
+          this Agreement) refers to Ruminer Media, Inc, 548 Market Street PMB
           21052, San Francisco, CA 94104. For the purpose of the GDPR, the
           Company is the Data Controller.
         </StyledText>
@@ -158,8 +158,8 @@ export function PrivacyPolicy(props: PrivacyPolicyProps): JSX.Element {
           page visit).
         </StyledText>
         <StyledText style="body">
-          <strong>Website</strong> refers to Omnivore, accessible from
-          https://omnivore.app
+          <strong>Website</strong> refers to Ruminer, accessible from
+          https://ruminer.app
         </StyledText>
         <StyledText style="body">
           <strong>You</strong> means the individual accessing or using the
@@ -1107,7 +1107,7 @@ export function PrivacyPolicy(props: PrivacyPolicyProps): JSX.Element {
         California resident, You can contact Us:
       </StyledText>
       <StyledList>
-        <StyledListElement>By email: privacy@omnivore.app</StyledListElement>
+        <StyledListElement>By email: privacy@ruminer.app</StyledListElement>
       </StyledList>
       <StyledText style="body">
         Only You, or a person registered with the California Secretary of State
@@ -1259,7 +1259,7 @@ export function PrivacyPolicy(props: PrivacyPolicyProps): JSX.Element {
         If you have any questions about this Privacy Policy, You can contact us:
       </StyledText>
       <StyledList>
-        <StyledListElement>By email: privacy@omnivore.app</StyledListElement>
+        <StyledListElement>By email: privacy@ruminer.app</StyledListElement>
       </StyledList>
     </Box>
   )

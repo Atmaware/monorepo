@@ -4397,9 +4397,9 @@
   dependencies:
     "@octokit/openapi-types" "^18.0.0"
 
-"@omnivore-app/api@^1.0.4":
+"@ruminer-app/api@^1.0.4":
   version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@omnivore-app/api/-/api-1.0.4.tgz#1de62d3f1b253c013a1e59c361a2a2a18937ccb1"
+  resolved "https://registry.yarnpkg.com/@ruminer-app/api/-/api-1.0.4.tgz#1de62d3f1b253c013a1e59c361a2a2a18937ccb1"
   integrity sha512-M3a0we1WryUt7qaBV4fI0CmTJaC7eeJ8TAbF5hVTcrIeIJU9I1Lwfdq/coSx5SIHSf2jxOaCUqn1YRB314euRg==
   dependencies:
     "@urql/core" "^4.3.0"

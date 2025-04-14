@@ -1,13 +1,13 @@
 describe('save link', () => {
-  const title = 'Omnivore - Cypress Webpage Test'
+  const title = 'Ruminer - Cypress Webpage Test'
   const desc = 'OMNIvore'
 
-  const TEST_LINK = 'https://blog.omnivore.app/p/getting-started-with-omnivore'
+  const TEST_LINK = 'https://blog.ruminer.app/p/getting-started-with-ruminer'
 
   const WEBPAGE_URL = 'https://sites.google.com/gitstart.dev/webpage/home'
 
   beforeEach(() => {
-    const email = 'tester@omnivore.app'
+    const email = 'tester@ruminer.app'
     const password = 'testpassword'
 
     cy.login(email, password)

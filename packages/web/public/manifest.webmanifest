@@ -1,18 +1,18 @@
 {
-  "name": "Omnivore",
-  "short_name": "Omnivore",
-  "description": "Save links to your Omnivore library",
+  "name": "Ruminer",
+  "short_name": "Ruminer",
+  "description": "Save links to your Ruminer library",
   "start_url": "/",
   "scope": "/",
   "dir": "ltr",
   "capture_links": ["existing-client-navigate", "new-client", "none"],
   "categories": [],
   "url_handlers" : [{
-    "origin": "omnivore.app"
+    "origin": "ruminer.app"
   }, {
-    "origin": "beta.omnivore.app"
+    "origin": "beta.ruminer.app"
   }, {
-    "origin": "demo.omnivore.app"
+    "origin": "demo.ruminer.app"
   }],
   "share_target": {
     "action": "/share-target",
@@ -35,7 +35,7 @@
   }],
   "related_applications": [{
     "platform": "webapp",
-    "url": "https://omnivore.app/manifest.webmanifest"
+    "url": "https://ruminer.app/manifest.webmanifest"
   }],
   "icons": [{
     "src": "/pwa-maskable-36.png",

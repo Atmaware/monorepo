@@ -1,7 +1,7 @@
 {
-  "name": "omnivore-extension",
+  "name": "ruminer-extension",
   "version": "1.0.0",
-  "description": "browser extension for omnivore",
+  "description": "browser extension for ruminer",
   "scripts": {
     "build": "env webpack --mode production",
     "watch": "webpack --mode development --watch"

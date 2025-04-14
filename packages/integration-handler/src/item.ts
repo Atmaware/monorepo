@@ -100,7 +100,7 @@ export const search = async (
         headers: {
           Cookie: `auth=${token};`,
           'Content-Type': 'application/json',
-          'X-OmnivoreClient': 'integration-handler',
+          'X-RuminerClient': 'integration-handler',
         },
       }
     )
@@ -113,4 +113,4 @@ export const search = async (
 }
 
 export const highlightUrl = (slug: string, highlightId: string): string =>
-  `https://omnivore.app/me/${slug}#${highlightId}`
+  `https://ruminer.app/me/${slug}#${highlightId}`

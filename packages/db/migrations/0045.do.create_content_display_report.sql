@@ -4,10 +4,10 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.content_display_report (
+CREATE TABLE ruminer.content_display_report (
   id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-  user_id uuid NOT NULL REFERENCES omnivore.user(id),
-  page_id uuid NOT NULL REFERENCES omnivore.article,
+  user_id uuid NOT NULL REFERENCES ruminer.user(id),
+  page_id uuid NOT NULL REFERENCES ruminer.article,
 
   content text,
   original_html text,
@@ -19,9 +19,9 @@ CREATE TABLE omnivore.content_display_report (
   updated_at timestamptz NOT NULL DEFAULT current_timestamp
 );
 
-CREATE TRIGGER update_content_display_report_modtime BEFORE UPDATE ON omnivore.content_display_report FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER update_content_display_report_modtime BEFORE UPDATE ON ruminer.content_display_report FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-GRANT SELECT, INSERT ON omnivore.content_display_report TO omnivore_user;
+GRANT SELECT, INSERT ON ruminer.content_display_report TO ruminer_user;
 
 
 COMMIT;

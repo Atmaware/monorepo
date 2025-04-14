@@ -4,12 +4,12 @@
 
 BEGIN;
 
-REVOKE DELETE ON omnivore.subscriptions FROM omnivore_user;
+REVOKE DELETE ON ruminer.subscriptions FROM ruminer_user;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     DROP CONSTRAINT subscriptions_newsletter_email_id_fkey,
     ADD CONSTRAINT subscriptions_newsletter_email_id_fkey
         FOREIGN KEY (newsletter_email_id)
-            REFERENCES omnivore.newsletter_emails (id);
+            REFERENCES ruminer.newsletter_emails (id);
 
 COMMIT;

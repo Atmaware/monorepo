@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.received_emails;
+DROP TABLE IF EXISTS ruminer.received_emails;
 
 COMMIT;

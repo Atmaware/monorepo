@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.api_key;
+DROP TABLE ruminer.api_key;
 
 COMMIT;

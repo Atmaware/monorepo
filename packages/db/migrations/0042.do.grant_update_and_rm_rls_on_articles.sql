@@ -4,7 +4,7 @@
 
 BEGIN;
 
-GRANT UPDATE ON omnivore.article TO omnivore_user;
-ALTER TABLE omnivore.article DISABLE ROW LEVEL SECURITY;
+GRANT UPDATE ON ruminer.article TO ruminer_user;
+ALTER TABLE ruminer.article DISABLE ROW LEVEL SECURITY;
 
 COMMIT;

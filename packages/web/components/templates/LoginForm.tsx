@@ -93,7 +93,7 @@ export function LoginForm(props: LoginFormProps): JSX.Element {
             }}
           >
             <AppleIdButton
-              clientId="app.omnivore"
+              clientId="app.ruminer"
               scope="name email"
               state="web:login"
               redirectURI={appleAuthRedirectURI}
@@ -163,14 +163,14 @@ export function TermAndConditionsFooter(): JSX.Element {
       css={{
         maxWidth: '220px',
         textAlign: 'left',
-        color: '$omnivoreLightGray',
+        color: '$ruminerLightGray',
       }}
     >
-      By signing up, you agree to Omnivore’s{' '}
+      By signing up, you agree to Ruminer’s{' '}
       <Link href="/terms" passHref legacyBehavior>
         <StyledTextSpan
           style="captionLink"
-          css={{ color: '$omnivoreLightGray' }}
+          css={{ color: '$ruminerLightGray' }}
         >
           Terms of Service
         </StyledTextSpan>
@@ -179,7 +179,7 @@ export function TermAndConditionsFooter(): JSX.Element {
       <Link href="/privacy" passHref legacyBehavior>
         <StyledTextSpan
           style="captionLink"
-          css={{ color: '$omnivoreLightGray' }}
+          css={{ color: '$ruminerLightGray' }}
         >
           Privacy Policy
         </StyledTextSpan>

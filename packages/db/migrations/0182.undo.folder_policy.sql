@@ -4,10 +4,10 @@
 
 BEGIN;
 
-DROP TABLE omnivore.folder_policy;
+DROP TABLE ruminer.folder_policy;
 
 DROP TYPE folder_action;
 
-DROP PROCEDURE omnivore.expire_folders();
+DROP PROCEDURE ruminer.expire_folders();
 
 COMMIT;

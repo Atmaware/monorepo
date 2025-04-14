@@ -15,7 +15,7 @@ import {
   PartialUser,
 } from 'discord.js'
 import { PubSub } from '@google-cloud/pubsub'
-import { OmnivoreArticle } from './types/OmnivoreArticle'
+import { RuminerArticle } from './types/RuminerArticle'
 import { slugify } from 'voca'
 import * as dotenv from 'dotenv'
 
@@ -48,7 +48,7 @@ client.once(Events.ClientReady, () => {
   console.log('Ready!')
 })
 
-const createMessageFromEmbed = (embed: Embed): OmnivoreArticle | undefined => {
+const createMessageFromEmbed = (embed: Embed): RuminerArticle | undefined => {
   if (!embed.url || !embed.title || !embed.description) {
     return undefined
   }

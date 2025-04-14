@@ -356,7 +356,7 @@ const fetchContentAndCreateItem = async (
     }
 
     return await createHttpTaskWithToken({
-      queue: 'omnivore-rss-feed-queue',
+      queue: 'ruminer-rss-feed-queue',
       taskHandlerUrl: env.queue.contentFetchGCFUrl,
       payload: {
         ...data,

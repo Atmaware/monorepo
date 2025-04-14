@@ -4,7 +4,7 @@
 
 BEGIN;
 
-UPDATE omnivore.filters 
+UPDATE ruminer.filters 
   SET filter = 'in:all has:highlights mode:highlights' 
   WHERE name = 'Highlights' 
   AND filter = 'has:highlights mode:highlights' ;

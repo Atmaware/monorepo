@@ -4,8 +4,8 @@
 
 BEGIN;
 
-ALTER POLICY read_labels ON omnivore.labels
-    TO omnivore_user
-    USING (user_id = omnivore.get_current_user_id());
+ALTER POLICY read_labels ON ruminer.labels
+    TO ruminer_user
+    USING (user_id = ruminer.get_current_user_id());
 
 COMMIT;

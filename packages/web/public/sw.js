@@ -8,11 +8,11 @@
 ;(function () {
   const globalApi = (typeof globalThis !== 'undefined' && globalThis) || self
 
-  const mainOrigin = 'https://omnivore.app'
-  const devOrigin = 'https://dev.omnivore.app'
-  const demoOrigin = 'https://demo.omnivore.app'
-  const webProdOrigin = 'https://web-prod.omnivore.app'
-  const webDemoOrigin = 'https://web-demo.omnivore.app'
+  const mainOrigin = 'https://ruminer.app'
+  const devOrigin = 'https://dev.ruminer.app'
+  const demoOrigin = 'https://demo.ruminer.app'
+  const webProdOrigin = 'https://web-prod.ruminer.app'
+  const webDemoOrigin = 'https://web-demo.ruminer.app'
 
   const currentOrigin =
     (globalApi.location && globalApi.location.origin) || mainOrigin

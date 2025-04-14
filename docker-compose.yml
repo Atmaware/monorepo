@@ -13,7 +13,7 @@ x-postgres:
 services:
   postgres:
     <<: *postgres-common
-    container_name: "omnivore-postgres"
+    container_name: "ruminer-postgres"
     expose:
       - 5432
     ports:
@@ -21,7 +21,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: omnivore
+      POSTGRES_DB: ruminer
       PG_POOL_MAX: 20
       POSTGRES_HOST_AUTH_METHOD: "scram-sha-256\nhost replication all 0.0.0.0/0 md5"
       POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
@@ -35,7 +35,7 @@ services:
 
   postgres-replica:
     <<: *postgres-common
-    container_name: "omnivore-postgres-replica"
+    container_name: "ruminer-postgres-replica"
     expose:
       - 5433
     ports:
@@ -61,14 +61,14 @@ services:
     build:
       context: .
       dockerfile: ./packages/db/Dockerfile
-    container_name: "omnivore-migrate"
-    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@omnivore.app, password: demo_password
+    container_name: "ruminer-migrate"
+    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@ruminer.app, password: demo_password
     environment:
       - PGPASSWORD=postgres
       - POSTGRES_USER=postgres
       - PG_HOST=postgres
       - PG_PASSWORD=app_pass
-      - PG_DB=omnivore
+      - PG_DB=ruminer
     depends_on:
       postgres:
         condition: service_healthy
@@ -77,7 +77,7 @@ services:
     build:
       context: .
       dockerfile: ./packages/api/Dockerfile
-    container_name: "omnivore-api"
+    container_name: "ruminer-api"
     ports:
       - "4000:8080"
     healthcheck:
@@ -89,7 +89,7 @@ services:
       - PG_HOST=postgres
       - PG_USER=app_user
       - PG_PASSWORD=app_pass
-      - PG_DB=omnivore
+      - PG_DB=ruminer
       - PG_PORT=5432
       - PG_POOL_MAX=20
       - JAEGER_HOST=jaeger
@@ -113,7 +113,7 @@ services:
         - BASE_URL=http://localhost:3000
         - SERVER_BASE_URL=http://localhost:4000
         - HIGHLIGHTS_BASE_URL=http://localhost:3000
-    container_name: "omnivore-web"
+    container_name: "ruminer-web"
     ports:
       - "3000:8080"
     environment:
@@ -129,7 +129,7 @@ services:
     build:
       context: .
       dockerfile: ./packages/content-fetch/Dockerfile
-    container_name: "omnivore-content-fetch"
+    container_name: "ruminer-content-fetch"
     ports:
       - "9090:8080"
     environment:
@@ -145,7 +145,7 @@ services:
 
   redis:
     image: "redis:7.2.4"
-    container_name: "omnivore-redis"
+    container_name: "ruminer-redis"
     ports:
       - "6379:6379"
     healthcheck:

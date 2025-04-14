@@ -4,8 +4,8 @@
 
 BEGIN;
 
-CREATE POLICY update_speech on omnivore.speech
-    FOR UPDATE TO omnivore_user
-    USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY update_speech on ruminer.speech
+    FOR UPDATE TO ruminer_user
+    USING (user_id = ruminer.get_current_user_id());
 
 COMMIT;

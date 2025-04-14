@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item RENAME COLUMN site_name_tsv TO site_tsv ;
+ALTER TABLE ruminer.library_item RENAME COLUMN site_name_tsv TO site_tsv ;
 
 COMMIT;

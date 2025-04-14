@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article_saving_request
+ALTER TABLE ruminer.article_saving_request
     DROP COLUMN task_name;
 
 COMMIT;

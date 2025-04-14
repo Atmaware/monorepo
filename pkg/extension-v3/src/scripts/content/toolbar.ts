@@ -24,19 +24,19 @@ const createToastContainer = async (clientRequestId: string) => {
 
   const root = document.createElement('div')
   root.tabIndex = 0
-  root.id = 'omnivore-extension-root'
+  root.id = 'ruminer-extension-root'
   root.attachShadow({ mode: 'open' })
   root.style.opacity = '1.0'
 
   if (root.shadowRoot) {
     root.shadowRoot.innerHTML = `<style>:host {all initial;}</style>`
   } else {
-    alert('Error opening Omnivore user interface.')
+    alert('Error opening Ruminer user interface.')
     return
   }
 
   const toastEl = document.createElement('div')
-  toastEl.id = '#omnivore-toast'
+  toastEl.id = '#ruminer-toast'
   toastEl.innerHTML = html
   toastEl.tabIndex = 0
   root.shadowRoot.appendChild(toastEl)
@@ -52,7 +52,7 @@ const createToastContainer = async (clientRequestId: string) => {
 
 export const showToolbar = async (clientRequestId: string) => {
   let currentToastEl =
-    document.querySelector<HTMLElement>('#omnivore-extension-root') ?? undefined
+    document.querySelector<HTMLElement>('#ruminer-extension-root') ?? undefined
 
   const bodyEl = document.body
   if (!bodyEl) return
@@ -67,7 +67,7 @@ export const showToolbar = async (clientRequestId: string) => {
     currentToastEl?.setAttribute('data-disable-auto-dismiss', 'true')
   }
   currentToastEl?.setAttribute(
-    'data-omnivore-client-request-id',
+    'data-ruminer-client-request-id',
     clientRequestId
   )
   ;(currentToastEl as HTMLDivElement)?.focus({
@@ -86,9 +86,9 @@ export const updateToolbarStatus = async (
   status: ToolbarStatus,
   task: string | undefined = undefined
 ) => {
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   const statusBox = currentToastEl?.shadowRoot?.querySelector(
-    '.omnivore-toast-statusBox'
+    '.ruminer-toast-statusBox'
   )
   console.log('updating', status, statusBox)
 
@@ -110,7 +110,7 @@ export const updateToolbarStatus = async (
   if (task) {
     if (task == 'addNote' && status == 'failure') {
       updateStatusBox(
-        '#omnivore-add-note-status',
+        '#ruminer-add-note-status',
         'failure',
         'Error adding note...',
         undefined
@@ -118,18 +118,18 @@ export const updateToolbarStatus = async (
     }
     if (task == 'addNote' && status == 'success') {
       updateStatusBox(
-        '#omnivore-add-note-status',
+        '#ruminer-add-note-status',
         'success',
         'Note updated.',
         2500
       )
       setTimeout(() => {
-        toggleRow('#omnivore-add-note-status')
+        toggleRow('#ruminer-add-note-status')
       }, 3000)
     }
     if (task == 'setLabels' && status == 'success') {
       updateStatusBox(
-        '#omnivore-edit-labels-status',
+        '#ruminer-edit-labels-status',
         'success',
         'Labels Updated',
         2500
@@ -137,7 +137,7 @@ export const updateToolbarStatus = async (
     }
     if (task == 'setLabels' && status == 'failure') {
       updateStatusBox(
-        '#omnivore-edit-labels-status',
+        '#ruminer-edit-labels-status',
         'failure',
         'Error Updating Labels...',
         2500
@@ -145,7 +145,7 @@ export const updateToolbarStatus = async (
     }
     if (task == 'editTitle' && status == 'failure') {
       updateStatusBox(
-        '#omnivore-add-note-status',
+        '#ruminer-add-note-status',
         'failure',
         'Error updating title...',
         undefined
@@ -153,18 +153,18 @@ export const updateToolbarStatus = async (
     }
     if (task == 'editTitle' && status == 'success') {
       updateStatusBox(
-        'omnivore-edit-title-status',
+        'ruminer-edit-title-status',
         'success',
         'Title updated.',
         2500
       )
       setTimeout(() => {
-        toggleRow('#omnivore-edit-title-status')
+        toggleRow('#ruminer-edit-title-status')
       }, 3000)
     }
     if (task == 'archive') {
       updateStatusBox(
-        '#omnivore-extra-status',
+        '#ruminer-extra-status',
         status,
         status == 'success' ? 'Success' : 'Error',
         status == 'success' ? 2500 : undefined
@@ -177,7 +177,7 @@ export const updateToolbarStatus = async (
 }
 
 export const cancelAutoDismiss = () => {
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   if (currentToastEl) {
     currentToastEl.setAttribute('data-disable-auto-dismiss', 'true')
   }
@@ -194,7 +194,7 @@ export const startToolbarDismiss = async (message: ToolbarMessage) => {
   const dimissTime = await autoDismissTime()
 
   setTimeout(() => {
-    const currentToastEl = document.querySelector('#omnivore-extension-root')
+    const currentToastEl = document.querySelector('#ruminer-extension-root')
     if (
       currentToastEl &&
       !currentToastEl.getAttribute('data-disable-auto-dismiss')
@@ -203,7 +203,7 @@ export const startToolbarDismiss = async (message: ToolbarMessage) => {
       ;(currentToastEl as HTMLElement).style.opacity = '0'
       setTimeout(() => {
         const currentToastEl = document.querySelector(
-          '#omnivore-extension-root'
+          '#ruminer-extension-root'
         )
         if (
           currentToastEl &&
@@ -218,15 +218,15 @@ export const startToolbarDismiss = async (message: ToolbarMessage) => {
 
 const connectButtons = (root: HTMLElement) => {
   const btns = [
-    { id: '#omnivore-toast-add-note-btn', func: addNote },
-    { id: '#omnivore-toast-edit-title-btn', func: editTitle },
-    { id: '#omnivore-toast-edit-labels-btn', func: editLabels },
-    { id: '#omnivore-toast-read-now-btn', func: readNow },
-    { id: '#omnivore-open-menu-btn', func: openMenu },
-    { id: '#omnivore-toast-close-btn', func: closeToolbar },
-    { id: '#omnivore-toast-login-btn', func: login },
-    { id: '#omnivore-toast-archive-btn', func: archive },
-    { id: '#omnivore-toast-delete-btn', func: deleteItem },
+    { id: '#ruminer-toast-add-note-btn', func: addNote },
+    { id: '#ruminer-toast-edit-title-btn', func: editTitle },
+    { id: '#ruminer-toast-edit-labels-btn', func: editLabels },
+    { id: '#ruminer-toast-read-now-btn', func: readNow },
+    { id: '#ruminer-open-menu-btn', func: openMenu },
+    { id: '#ruminer-toast-close-btn', func: closeToolbar },
+    { id: '#ruminer-toast-login-btn', func: login },
+    { id: '#ruminer-toast-archive-btn', func: archive },
+    { id: '#ruminer-toast-delete-btn', func: deleteItem },
   ]
 
   for (const btnInfo of btns) {
@@ -240,13 +240,13 @@ const connectButtons = (root: HTMLElement) => {
   var x = window.matchMedia('(max-width: 500px)')
   if (x.matches) {
     const labels = root.shadowRoot?.querySelectorAll<HTMLElement>(
-      '.omnivore-top-button-label'
+      '.ruminer-top-button-label'
     )
     labels?.forEach((label) => {
       label.style.display = 'none'
     })
     const container = root.shadowRoot?.querySelector<HTMLElement>(
-      '#omnivore-toast-container'
+      '#ruminer-toast-container'
     )
     if (container) {
       container.style.width = '280px'
@@ -258,9 +258,9 @@ const connectButtons = (root: HTMLElement) => {
 
 function editTitle() {
   cancelAutoDismiss()
-  toggleRow('#omnivore-edit-title-row')
+  toggleRow('#ruminer-edit-title-row')
   let currentToastEl =
-    document.querySelector<HTMLElement>('#omnivore-extension-root') ?? undefined
+    document.querySelector<HTMLElement>('#ruminer-extension-root') ?? undefined
 
   if (!currentToastEl) {
     console.log('no statusBox to update')
@@ -268,7 +268,7 @@ function editTitle() {
   }
 
   const titleArea = currentToastEl?.shadowRoot?.querySelector<HTMLTextAreaElement>(
-    '#omnivore-edit-title-textarea'
+    '#ruminer-edit-title-textarea'
   )
 
   if (titleArea) {
@@ -280,7 +280,7 @@ function editTitle() {
   }
 
   const formElement =  currentToastEl?.shadowRoot?.querySelector<HTMLFormElement>(
-    '#omnivore-edit-title-form'
+    '#ruminer-edit-title-form'
   );
 
   if (!formElement) {
@@ -290,7 +290,7 @@ function editTitle() {
 
  formElement.onsubmit = (event) => {
     updateStatusBox(
-      '#omnivore-edit-title-status',
+      '#ruminer-edit-title-status',
       'waiting',
       'Updating title...',
       undefined
@@ -311,10 +311,10 @@ function editTitle() {
 export const showLoggedOutToolbar = () => {
   cancelAutoDismiss()
   updateToolbarStatus('failure')
-  toggleRow('#omnivore-logged-out-row')
+  toggleRow('#ruminer-logged-out-row')
   disableAllButtons()
   updateStatusBox(
-    '#omnivore-logged-out-status',
+    '#ruminer-logged-out-status',
     undefined,
     `You are not logged in.`,
     undefined
@@ -327,7 +327,7 @@ export const updateStatusBox = (
   message: string,
   dismissAfter: number | undefined
 ) => {
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   const statusBox = currentToastEl?.shadowRoot?.querySelector(boxId)
   const image = (() => {
     switch (state) {
@@ -356,13 +356,13 @@ export const updateStatusBox = (
 
 const disableAllButtons = () => {
   const actionButtons = [
-    '#omnivore-toast-edit-title-btn',
-    '#omnivore-toast-edit-labels-btn',
-    '#omnivore-toast-read-now-btn',
-    '#omnivore-toast-add-note-btn',
-    '#omnivore-open-menu-btn',
+    '#ruminer-toast-edit-title-btn',
+    '#ruminer-toast-edit-labels-btn',
+    '#ruminer-toast-read-now-btn',
+    '#ruminer-toast-add-note-btn',
+    '#ruminer-open-menu-btn',
   ]
-  let currentToastEl = document.querySelector('#omnivore-extension-root')
+  let currentToastEl = document.querySelector('#ruminer-extension-root')
   actionButtons.forEach((btnId) => {
     const btn =
       currentToastEl?.shadowRoot?.querySelector<HTMLButtonElement>(btnId)
@@ -373,7 +373,7 @@ const disableAllButtons = () => {
 }
 
 export const toggleRow = (rowId: string) => {
-  let currentToastEl = document.querySelector('#omnivore-extension-root')
+  let currentToastEl = document.querySelector('#ruminer-extension-root')
 
   if (!currentToastEl) {
     console.log('toggleRow: no row to toggle')
@@ -385,7 +385,7 @@ export const toggleRow = (rowId: string) => {
   const container = currentToastEl?.shadowRoot?.querySelector(rowId)
   const initialState = container?.getAttribute('data-state')
   const rows = currentToastEl?.shadowRoot?.querySelectorAll(
-    '.omnivore-toast-func-row'
+    '.ruminer-toast-func-row'
   )
 
   rows?.forEach((r) => {
@@ -403,9 +403,9 @@ const noteCacheKey = () => {
 }
 
 export const getClientRequestId = () => {
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   const clientRequestId = currentToastEl?.getAttribute(
-    'data-omnivore-client-request-id'
+    'data-ruminer-client-request-id'
   )
   return clientRequestId
 }
@@ -421,22 +421,22 @@ const login = () => {
 
 const openMenu = () => {
   cancelAutoDismiss()
-  toggleRow('#omnivore-extra-buttons-row')
+  toggleRow('#ruminer-extra-buttons-row')
 }
 
 const addNote = async () => {
-  console.log('[omnivore] adding note')
+  console.log('[ruminer] adding note')
   cancelAutoDismiss()
 
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   const clientRequestId = currentToastEl?.getAttribute(
-    'data-omnivore-client-request-id'
+    'data-ruminer-client-request-id'
   )
   console.log('client request id: ', clientRequestId)
   if (!clientRequestId) {
     // TODO: move into an error state
     updateStatusBox(
-      '#omnivore-add-note-status',
+      '#ruminer-add-note-status',
       'failure',
       'Error adding note...',
       undefined
@@ -447,11 +447,11 @@ const addNote = async () => {
   const cachedNoteKey = noteCacheKey()
 
   cancelAutoDismiss()
-  toggleRow('#omnivore-add-note-row')
+  toggleRow('#ruminer-add-note-row')
 
   const noteArea =
     currentToastEl?.shadowRoot?.querySelector<HTMLTextAreaElement>(
-      '#omnivore-add-note-textarea'
+      '#ruminer-add-note-textarea'
     )
 
   if (noteArea) {
@@ -480,7 +480,7 @@ const addNote = async () => {
       console.log('handling the enter key: ', e.keyCode)
       if (e.keyCode == 13 && (e.metaKey || e.ctrlKey)) {
         updateStatusBox(
-          '#omnivore-add-note-status',
+          '#ruminer-add-note-status',
           'waiting',
           'Adding note...',
           undefined
@@ -492,14 +492,14 @@ const addNote = async () => {
   }
 
   const form = currentToastEl?.shadowRoot?.querySelector<HTMLElement>(
-    '#omnivore-add-note-form'
+    '#ruminer-add-note-form'
   )
 
   if (form) {
     form.onsubmit = async (event) => {
       console.log('handling form submit')
       updateStatusBox(
-        '#omnivore-add-note-status',
+        '#ruminer-add-note-status',
         'waiting',
         'Adding note...',
         undefined
@@ -546,16 +546,16 @@ const deleteItem = async (event: Event) => {
 const readNow = async () => {
   cancelAutoDismiss()
 
-  let currentToastEl = document.querySelector('#omnivore-extension-root')
+  let currentToastEl = document.querySelector('#ruminer-extension-root')
   const container = currentToastEl?.shadowRoot?.querySelector(
-    '#omnivore-toast-container'
+    '#ruminer-toast-container'
   )
   container?.setAttribute('data-state', 'open')
 
   window.open(
     new URL(
       `/article?url=${encodeURI(document.location.href)}`,
-      (await getStorageItem("omnivoreUrl")) as string,
+      (await getStorageItem("ruminerUrl")) as string,
     ),
     '_blank'
   )
@@ -569,7 +569,7 @@ const closeToolbarLater = () => {
   }, 1000)
 }
 const closeToolbar = () => {
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
   if (currentToastEl) {
     currentToastEl.remove()
   }

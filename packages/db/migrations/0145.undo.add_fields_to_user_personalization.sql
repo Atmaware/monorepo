@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization DROP COLUMN fields;
+ALTER TABLE ruminer.user_personalization DROP COLUMN fields;
 
 COMMIT;

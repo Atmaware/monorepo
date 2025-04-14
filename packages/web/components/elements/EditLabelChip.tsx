@@ -14,11 +14,11 @@ type EditLabelChipProps = {
 export function EditLabelChip(props: EditLabelChipProps): JSX.Element {
   const isDark = isDarkTheme()
 
-  const selectedBorder = isDark ? '#FFEA9F' : '$omnivoreGray'
+  const selectedBorder = isDark ? '#FFEA9F' : '$ruminerGray'
   const unSelectedBorder = isDark ? 'transparent' : '#DEDEDE'
   const xSelectedColor = isDark
     ? '#FFEA9F'
-    : theme.colors.omnivoreGray.toString()
+    : theme.colors.ruminerGray.toString()
   const xUnselectedColor = isDark ? '#6A6968' : '#2A2A2A'
 
   return (

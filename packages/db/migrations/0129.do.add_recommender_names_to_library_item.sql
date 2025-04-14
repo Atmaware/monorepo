@@ -4,22 +4,22 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item ADD COLUMN IF NOT EXISTS recommender_names text[] DEFAULT '{}'::text[];
+ALTER TABLE ruminer.library_item ADD COLUMN IF NOT EXISTS recommender_names text[] DEFAULT '{}'::text[];
 
 CREATE OR REPLACE FUNCTION update_library_item_recommenders()
 RETURNS trigger AS $$
 BEGIN
     -- update library_item recommender names from user and group table name column
-    UPDATE omnivore.library_item
+    UPDATE ruminer.library_item
     SET recommender_names = array_cat(recommender_names, (
         SELECT array_agg(DISTINCT name)
         FROM (
             SELECT name
-            FROM omnivore.user
+            FROM ruminer.user
             WHERE id = NEW.recommender_id
             UNION
             SELECT name
-            FROM omnivore.group
+            FROM ruminer.group
             WHERE id = NEW.group_id
         ) AS recommender_names
     ))
@@ -30,7 +30,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER library_item_recommenders_update
-BEFORE INSERT ON omnivore.recommendation
+BEFORE INSERT ON ruminer.recommendation
 FOR EACH ROW
 EXECUTE FUNCTION update_library_item_recommenders();
 

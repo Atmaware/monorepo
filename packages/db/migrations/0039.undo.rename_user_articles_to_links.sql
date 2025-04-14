@@ -4,6 +4,6 @@
 
 BEGIN;
 
-AlTER TABLE omnivore.links RENAME TO user_articles;
+AlTER TABLE ruminer.links RENAME TO user_articles;
 
 COMMIT;

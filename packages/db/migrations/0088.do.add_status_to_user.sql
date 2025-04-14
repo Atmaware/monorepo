@@ -6,6 +6,6 @@ BEGIN;
 
 CREATE TYPE user_status_type AS ENUM ('ACTIVE', 'PENDING');
 
-ALTER TABLE omnivore.user ADD COLUMN status user_status_type NOT NULL DEFAULT 'ACTIVE';
+ALTER TABLE ruminer.user ADD COLUMN status user_status_type NOT NULL DEFAULT 'ACTIVE';
 
 COMMIT;

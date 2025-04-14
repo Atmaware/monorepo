@@ -101,7 +101,7 @@ export class SubstackHandler extends ContentHandler {
   }
 
   fixupStaticTweets(dom: Document): Document {
-    const preClassName = '_omnivore-static-'
+    const preClassName = '_ruminer-static-'
     const staticTweets = dom.querySelectorAll('div[class="tweet static"]')
 
     if (staticTweets.length < 1) {

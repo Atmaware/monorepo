@@ -17,10 +17,10 @@ export default function LandingPage(): JSX.Element {
       }}
     >
       <PageMetaData
-        title="Omnivore"
+        title="Ruminer"
         path="/landing/firefox-get-started"
         ogImage="/static/images/og-homepage-03.png"
-        description="Omnivore is the free, open source, read-it-later app for serious readers."
+        description="Ruminer is the free, open source, read-it-later app for serious readers."
       />
 
       <VStack
@@ -31,11 +31,11 @@ export default function LandingPage(): JSX.Element {
           color: '#EDEDED',
           maxWidth: '520px',
           a: {
-            color: '$omnivoreCtaYellow',
+            color: '$ruminerCtaYellow',
           },
         }}
       >
-        <h1>Thank you for installing the Omnivore Firefox Extension</h1>
+        <h1>Thank you for installing the Ruminer Firefox Extension</h1>
 
         <p>
           Thank you for installing our Firefox extension. A few considerations
@@ -43,20 +43,20 @@ export default function LandingPage(): JSX.Element {
         </p>
 
         <p>
-          1. To use Omnivore you need an Omnivore account. You can sign up for
+          1. To use Ruminer you need an Ruminer account. You can sign up for
           free from our <Link href="/login">login page.</Link> Before using the
           extension you should create your account and login.
         </p>
 
         <p>
-          2. By default the extension uses your Omnivore authentication cookie
+          2. By default the extension uses your Ruminer authentication cookie
           to connect to our backend when saving pages. This means your security
           settings must allow the extension access to this cookie. If you are
           using Firefox containers we will not have access to the cookie so you
           will need to use an API key to authenticate. You can read more about
           this{' '}
           <a
-            href="https://docs.omnivore.app/using/saving.html#authentication-issues"
+            href="https://docs.ruminer.app/using/saving.html#authentication-issues"
             rel="noreferrer"
           >
             here.

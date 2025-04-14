@@ -107,11 +107,11 @@ export class YoutubeHandler extends ContentHandler {
       </head>
       <body>
       <div>
-        <article id="_omnivore_youtube">
-          <iframe id="_omnivore_youtube_video" width="${width}" height="${height}" src="${src}" title="${escapedTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <article id="_ruminer_youtube">
+          <iframe id="_ruminer_youtube_video" width="${width}" height="${height}" src="${src}" title="${escapedTitle}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           <p><a href="${url}" target="_blank">${escapedTitle}</a></p>
           <p itemscope="" itemprop="author" itemtype="http://schema.org/Person">By <a href="${oembed.author_url}" target="_blank">${authorName}</a></p>
-          <div id="_omnivore_youtube_transcript"></div>
+          <div id="_ruminer_youtube_transcript"></div>
         </article>
       </div>
       </body>

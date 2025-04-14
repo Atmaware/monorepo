@@ -7,7 +7,7 @@ export const appDataSource = new DataSource({
   type: 'postgres',
   host: env.pg.host,
   port: env.pg.port,
-  schema: 'omnivore',
+  schema: 'ruminer',
   username: env.pg.userName,
   password: env.pg.password,
   database: env.pg.dbName,

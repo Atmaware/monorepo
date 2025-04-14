@@ -1,9 +1,9 @@
 -- Type: UNDO
 -- Name: highlights
--- Description: Create omnivore.highlight table
+-- Description: Create ruminer.highlight table
 
 BEGIN;
 
-DROP TABLE omnivore.highlight;
+DROP TABLE ruminer.highlight;
 
 COMMIT;

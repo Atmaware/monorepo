@@ -373,7 +373,7 @@ const schema = gql`
     id: ID!
     title: String!
     slug: String!
-    # for uploaded file articles (PDFs), the URL here is the saved omnivore link in GCS
+    # for uploaded file articles (PDFs), the URL here is the saved ruminer link in GCS
     url: String!
     hash: String!
     content: String!
@@ -1632,7 +1632,7 @@ const schema = gql`
     id: ID!
     title: String!
     slug: String!
-    # for uploaded file articles (PDFs), the URL here is the saved omnivore link in GCS
+    # for uploaded file articles (PDFs), the URL here is the saved ruminer link in GCS
     url: String!
     pageType: PageType!
     contentReader: ContentReader!

@@ -1,13 +1,13 @@
-# omnivore-discover
+# ruminer-discover
 
 
 ## What is this?  
  
 One of my biggest problems is actually discoverability of articles. I have my five sites, and my link aggregators like Reddit. This is a bubble, and I miss a lot this way.
 
-So I wanted to see if I could create something that would enable discoverability from Omnivore.
+So I wanted to see if I could create something that would enable discoverability from Ruminer.
 
-I had a few goals when creating Omnivore Discover.
+I had a few goals when creating Ruminer Discover.
 
 ![Example Screen](./docs/example.png)
 
@@ -30,23 +30,23 @@ This is of course not 100% accurate, but it does a good enough job at categorisi
 ### Social Features
 #### Discord Integration.
 
-I created Omnivore Discover, and added it to the Omnivore WebApp.
+I created Ruminer Discover, and added it to the Ruminer WebApp.
 
-I wanted to also add some social features to this. We have a fantastic community within the Omnivore Discord. I have found a lot of interesting reads in the #recommendations channel.
+I wanted to also add some social features to this. We have a fantastic community within the Ruminer Discord. I have found a lot of interesting reads in the #recommendations channel.
 
-I wanted to be able to take these recommendations, and expose them to the Omnivore Community.
+I wanted to be able to take these recommendations, and expose them to the Ruminer Community.
 
 We do this using a Discord Bot. In order to moderate these recommendations a moderator must add an emoji (🦥) to the story.
 
 This then gets ingested in the same way as the other stories. Meaning that it is also categorised. It also gets added to the Community Picks tab.
 
-![Tomnivore Slack](./docs/tomnivore.png)
+![Truminer Slack](./docs/truminer.png)
 
 ![community tab](./docs/community.png)
 
 #### Popularity
 
-There is also a popularity feed. This provides a score based on recent saves, weighting more heavily for newer articles. This allows us to have a popular tab, which shows in order the most popular stories on Omnivore Right now according to the community
+There is also a popularity feed. This provides a score based on recent saves, weighting more heavily for newer articles. This allows us to have a popular tab, which shows in order the most popular stories on Ruminer Right now according to the community
 
 ![Popular Items](./docs/popular.png)
 

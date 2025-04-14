@@ -47,12 +47,12 @@ const sections = [
     en: {
       titleText: `Save it now. Read it later.`,
       descriptionText: `Save articles and PDFs as you come across them
-      using Omnivore's mobile apps and browser extensions. Read them
+      using Ruminer's mobile apps and browser extensions. Read them
       later using our distraction free reader.`,
     },
     zh: {
       titleText: `先保存，后阅读`,
-      descriptionText: `看到有趣的内容，但没时间阅读？不论是文章、PDF或是推特线程，只需将它们保存下来，等稍后有空再阅读。Omnivore 应用程序适用于iOS、Android 和主要网络浏览扩展程序。`,
+      descriptionText: `看到有趣的内容，但没时间阅读？不论是文章、PDF或是推特线程，只需将它们保存下来，等稍后有空再阅读。Ruminer 应用程序适用于iOS、Android 和主要网络浏览扩展程序。`,
     },
     image: landingSection1Image,
     imageAlt: '',
@@ -60,13 +60,13 @@ const sections = [
   {
     en: {
       titleText: `Get all your RSS feeds and newsletters in one place.`,
-      descriptionText: `Send newsletters directly to your Omnivore library rather than
+      descriptionText: `Send newsletters directly to your Ruminer library rather than
       scattered across multiple inboxes. Read them on your own time, away
       from the constant distractions and interruptions of your email.`,
     },
     zh: {
       titleText: `集合邮件订阅`,
-      descriptionText: `您不再需要到不同收件箱提取订阅的邮件，只要将它们发送到 Omnivore Library，即可在同一处随心阅读，不受其他电子邮件或 substack 的干扰。`,
+      descriptionText: `您不再需要到不同收件箱提取订阅的邮件，只要将它们发送到 Ruminer Library，即可在同一处随心阅读，不受其他电子邮件或 substack 的干扰。`,
     },
     image: landingSection2Image,
     imageAlt: '',
@@ -103,13 +103,13 @@ const sections = [
   {
     en: {
       titleText: `Sync with your second brain.`,
-      descriptionText: `Omnivore syncs with popular Personal Knowledge Management systems
+      descriptionText: `Ruminer syncs with popular Personal Knowledge Management systems
       including Logseq, Obsidian, and Notion, so you can pull all your saved
       reading, highlights, and notes into your second brain.`,
     },
     zh: {
       titleText: `与您的“第二大脑”同步`,
-      descriptionText: `Omnivore 应用程序能与个人知识管理系统如 Logseq 和 Obsidian 同步，让您轻而易举地综合所有保存文章、高亮和注释。`,
+      descriptionText: `Ruminer 应用程序能与个人知识管理系统如 Logseq 和 Obsidian 同步，让您轻而易举地综合所有保存文章、高亮和注释。`,
     },
     image: landingSection5Image,
     imageAlt: '',
@@ -118,12 +118,12 @@ const sections = [
     en: {
       titleText: `Listen to your reading with text-to-speech.`,
       descriptionText: `Work through your to-be-read list and give your eyes a break with
-      text-to-speech, exclusively in the Omnivore app for iOS. Realistic,
+      text-to-speech, exclusively in the Ruminer app for iOS. Realistic,
       natural-sounding AI voices will read any saved article aloud.`,
     },
     zh: {
       titleText: `使用 text-to-speech 功能聆听阅读`,
-      descriptionText: `使用TTS逼真、自然的人工智能声音为您阅读待读列表中的读物，让眼睛好好休息一下。这便是我们iOS 版Omnivore 应用程序的独家功能。`,
+      descriptionText: `使用TTS逼真、自然的人工智能声音为您阅读待读列表中的读物，让眼睛好好休息一下。这便是我们iOS 版Ruminer 应用程序的独家功能。`,
     },
     image: landingSection6Image,
     imageAlt: '',

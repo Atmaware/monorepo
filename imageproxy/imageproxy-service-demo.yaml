@@ -12,7 +12,7 @@ resources:
   disk_size_gb: 10
 
 env_variables:
-  GCS_IMAGES_PATH: 'gcs://omnivore-demo-files/images/'
+  GCS_IMAGES_PATH: 'gcs://ruminer-demo-files/images/'
   MEM_CACHE_SIZE_MB: 100
 
 includes:

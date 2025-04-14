@@ -12,8 +12,8 @@ var Readability = require('../index').Readability
 var JSDOMParser = require('../JSDOMParser')
 var prettyPrint = require('./utils').prettyPrint
 
-const isOmnivore = process.env.IS_OMNIVORE
-var testPages = require('./utils').getTestPages(isOmnivore)
+const isRuminer = process.env.IS_OMNIVORE
+var testPages = require('./utils').getTestPages(isRuminer)
 
 function reformatError(err) {
   var formattedError = new Error(err.message)
@@ -342,7 +342,7 @@ describe('Readability API', function () {
       )
       var expected_xhtml =
         '<DIV class="page" id="readability-page-1">My image: ' +
-        '<img data-omnivore-original-src="https://webkit.org/demos/srcset/image-src.png" ' +
+        '<img data-ruminer-original-src="https://webkit.org/demos/srcset/image-src.png" ' +
         'src="https://webkit.org/demos/srcset/image-src.png" ' +
         'srcset="https://webkit.org/demos/srcset/image-1x.png 1x,' +
         'https://webkit.org/demos/srcset/image-2x.png 2x,' +
@@ -364,7 +364,7 @@ describe('Readability API', function () {
       )
       var expected_xhtml =
         '<DIV class="page" id="readability-page-1">' +
-        'My image: <img data-omnivore-original-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1" src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1" alt="" width="900" height="380" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1">' +
+        'My image: <img data-ruminer-original-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1" src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1" alt="" width="900" height="380" data-recalc-dims="1" data-lazy-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&is-pending-load=1#038;ssl=1">' +
         '</DIV>'
       var content = (
         await new Readability(dom.document, {

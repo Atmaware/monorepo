@@ -77,8 +77,8 @@ interface PageToNotify {
 //         }
 
 //         const dynamicTemplateData = {
-//           subject: `Omnivore Reminder Service`,
-//           title: `Hey ${user.name}, you have ${pagesToNotify.length} article(s) to read on Omnivore`,
+//           subject: `Ruminer Reminder Service`,
+//           title: `Hey ${user.name}, you have ${pagesToNotify.length} article(s) to read on Ruminer`,
 //           articles: pagesToNotify,
 //         }
 
@@ -149,7 +149,7 @@ interface PageToNotify {
 //   // link to that link.
 //   if (pages.length === 1) {
 //     const page = pages[0]
-//     let title = 'Snoozed: You have one snoozed article to read on Omnivore'
+//     let title = 'Snoozed: You have one snoozed article to read on Ruminer'
 
 //     if (page.author) {
 //       title = `'Snoozed: From ${page.author}`

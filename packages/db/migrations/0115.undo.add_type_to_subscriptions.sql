@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     ADD CONSTRAINT subscriptions_user_id_name_key UNIQUE (user_id, name),
     DROP COLUMN last_fetched_at,
     DROP COLUMN count,

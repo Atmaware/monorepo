@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.rules ADD CONSTRAINT rules_user_id_filter_key UNIQUE (user_id, filter);
+ALTER TABLE ruminer.rules ADD CONSTRAINT rules_user_id_filter_key UNIQUE (user_id, filter);
 
 COMMIT;

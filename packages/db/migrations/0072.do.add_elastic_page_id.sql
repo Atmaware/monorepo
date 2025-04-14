@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article_saving_request ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.reaction ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.highlight ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.reminders ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.abuse_report ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.content_display_report ADD COLUMN elastic_page_id varchar(36);
-ALTER TABLE omnivore.link_share_info ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.article_saving_request ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.reaction ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.highlight ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.reminders ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.abuse_report ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.content_display_report ADD COLUMN elastic_page_id varchar(36);
+ALTER TABLE ruminer.link_share_info ADD COLUMN elastic_page_id varchar(36);
 
 COMMIT;

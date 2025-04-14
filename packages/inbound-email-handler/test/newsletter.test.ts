@@ -18,7 +18,7 @@ describe('Confirmation email test', () => {
 
     it('returns true when email is from Gmail Team', () => {
       from = 'Gmail Team <forwarding-noreply@google.com>'
-      subject = `(#123456789) Gmail Forwarding Confirmation - Receive Mail from test@omnivore.app`
+      subject = `(#123456789) Gmail Forwarding Confirmation - Receive Mail from test@ruminer.app`
 
       expect(isGoogleConfirmationEmail(from, subject)).to.be.true
     })
@@ -26,7 +26,7 @@ describe('Confirmation email test', () => {
     it('returns true when email is from Japan Gmail Team', () => {
       from = 'SWG チーム <forwarding-noreply@google.com>'
       subject =
-        '（#123456789）SWG の転送の確認 - test@omnivore.app からメールを受信'
+        '（#123456789）SWG の転送の確認 - test@ruminer.app からメールを受信'
 
       expect(isGoogleConfirmationEmail(from, subject)).to.be.true
     })
@@ -34,7 +34,7 @@ describe('Confirmation email test', () => {
     it('returns true when email is in Spanish', () => {
       from = 'Equipo de Gmail <forwarding-noreply@google.com>'
       subject =
-        'Confirmación de reenvío de 123456789 (n.º Gmail) - Recibir correo de test@omnivore.app'
+        'Confirmación de reenvío de 123456789 (n.º Gmail) - Recibir correo de test@ruminer.app'
 
       expect(isGoogleConfirmationEmail(from, subject)).to.be.true
     })
@@ -46,21 +46,21 @@ describe('Confirmation email test', () => {
 
     it('returns the confirmation code from the email', () => {
       code = '123456789'
-      subject = `(#${code}) Gmail Forwarding Confirmation - Receive Mail from test@omnivore.app`
+      subject = `(#${code}) Gmail Forwarding Confirmation - Receive Mail from test@ruminer.app`
 
       expect(getConfirmationCode(subject)).to.equal(code)
     })
 
     it('returns the confirmation code from the Google Japan email', () => {
       code = '123456789'
-      subject = `（#${code}）SWG の転送の確認 - test@omnivore.app からメールを受信`
+      subject = `（#${code}）SWG の転送の確認 - test@ruminer.app からメールを受信`
 
       expect(getConfirmationCode(subject)).to.equal(code)
     })
 
     it('returns the confirmation code from the Spanish email', () => {
       code = '123456789'
-      subject = `Confirmación de reenvío de ${code} (n.º Gmail) - Recibir correo de test@omnivore.app`
+      subject = `Confirmación de reenvío de ${code} (n.º Gmail) - Recibir correo de test@ruminer.app`
 
       expect(getConfirmationCode(subject)).to.equal(code)
     })
@@ -69,11 +69,11 @@ describe('Confirmation email test', () => {
 
 describe('Newsletter email test', () => {
   describe('get unsubscribe from header', () => {
-    const mailTo = 'unsub@omnivore.com'
-    const httpUrl = 'https://omnivore.com/unsubscribe'
+    const mailTo = 'unsub@ruminer.com'
+    const httpUrl = 'https://ruminer.com/unsubscribe'
 
     it('returns mail to address if exists', () => {
-      const header = `<https://omnivore.com/unsub>, <mailto:${mailTo}>`
+      const header = `<https://ruminer.com/unsub>, <mailto:${mailTo}>`
 
       expect(parseUnsubscribe(header).mailTo).to.equal(mailTo)
     })
@@ -88,16 +88,16 @@ describe('Newsletter email test', () => {
 
 describe('parsedTo', () => {
   it('returns envelope to if exists', () => {
-    const to = 'receipient@inbox.omnivore.app'
+    const to = 'receipient@inbox.ruminer.app'
     expect(
       parsedTo({
-        envelope: `{"to":["${to}"],"from":"sender@omnivore.app"}`,
+        envelope: `{"to":["${to}"],"from":"sender@ruminer.app"}`,
       })
     ).to.equal(to)
   })
 
   it('returns parsed to if envelope does not exists', () => {
-    const to = 'receipient@inbox.omnivore.app'
+    const to = 'receipient@inbox.ruminer.app'
     expect(
       parsedTo({
         to,
@@ -109,14 +109,14 @@ describe('parsedTo', () => {
 describe('parseAuthor', () => {
   it('returns author if exists', () => {
     const author = 'Tester'
-    const address = `${author} <tester@omnivore.app>`
+    const address = `${author} <tester@ruminer.app>`
     expect(parseAuthor(address)).to.eql(author)
   })
 })
 
 describe('isSubscriptionConfirmationEmail', () => {
   it('returns true if email is a confirmation', () => {
-    const subject = 'Confirm your Omnivore newsletter subscription'
+    const subject = 'Confirm your Ruminer newsletter subscription'
     expect(isSubscriptionConfirmationEmail(subject)).to.be.true
   })
 })

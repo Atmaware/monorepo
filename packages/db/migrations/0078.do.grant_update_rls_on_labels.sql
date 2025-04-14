@@ -4,10 +4,10 @@
 
 BEGIN;
 
-CREATE POLICY update_labels on omnivore.labels
-    FOR UPDATE TO omnivore_user
-    USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY update_labels on ruminer.labels
+    FOR UPDATE TO ruminer_user
+    USING (user_id = ruminer.get_current_user_id());
 
-GRANT UPDATE ON omnivore.labels TO omnivore_user;
+GRANT UPDATE ON ruminer.labels TO ruminer_user;
 
 COMMIT;

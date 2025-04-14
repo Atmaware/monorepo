@@ -84,8 +84,8 @@ export class TikTokHandler extends ContentHandler {
       </head>
       <body>
       <div>
-        <article id="_omnivore_tiktok">
-          <div id="_omnivore_tiktok_video">
+        <article id="_ruminer_tiktok">
+          <div id="_ruminer_tiktok_video">
           ${oembed.html}
           </div>
           <p itemscope="" itemprop="author" itemtype="http://schema.org/Person">By <a href="${oembed.author_url}" target="_blank">${authorName}</a></p>

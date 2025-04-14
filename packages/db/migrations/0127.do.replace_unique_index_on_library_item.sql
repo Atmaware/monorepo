@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item DROP CONSTRAINT IF EXISTS library_item_user_id_original_url_key;
-CREATE UNIQUE INDEX library_item_user_id_hashed_original_url_key ON omnivore.library_item (user_id, md5(original_url));
+ALTER TABLE ruminer.library_item DROP CONSTRAINT IF EXISTS library_item_user_id_original_url_key;
+CREATE UNIQUE INDEX library_item_user_id_hashed_original_url_key ON ruminer.library_item (user_id, md5(original_url));
 
 COMMIT;

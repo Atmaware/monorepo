@@ -5,7 +5,7 @@
 BEGIN;
 
 
-ALTER TABLE omnivore.reminders
+ALTER TABLE ruminer.reminders
   ADD COLUMN archive_until boolean DEFAULT false NOT NULL,
   ADD COLUMN send_notification boolean DEFAULT true NOT NULL ;
 

@@ -4,10 +4,10 @@
 
 BEGIN;
 
-DROP POLICY delete_user_friends ON omnivore.user_friends;
-DROP POLICY create_user_friends ON omnivore.user_friends;
-DROP POLICY read_user_friends ON omnivore.user_friends;
+DROP POLICY delete_user_friends ON ruminer.user_friends;
+DROP POLICY create_user_friends ON ruminer.user_friends;
+DROP POLICY read_user_friends ON ruminer.user_friends;
 
-DROP TABLE omnivore.user_friends;
+DROP TABLE ruminer.user_friends;
 
 COMMIT;

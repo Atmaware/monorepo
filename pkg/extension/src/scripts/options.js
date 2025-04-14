@@ -2,7 +2,7 @@ function saveAPIKey() {
   var apiKey = document.getElementById('api-key').value
   if (!apiKey) {
     alert(
-      'No api-key specified, please create an API key at https://omnivore.app/settings/api'
+      'No api-key specified, please create an API key at https://ruminer.app/settings/api'
     )
     return
   }

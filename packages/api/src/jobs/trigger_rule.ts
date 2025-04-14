@@ -1,4 +1,4 @@
-import { LiqeQuery } from '@omnivore/liqe'
+import { LiqeQuery } from '@ruminer/liqe'
 import axios from 'axios'
 import { Any } from 'typeorm'
 import { ReadingProgressDataSource } from '../datasources/reading_progress_data_source'
@@ -76,7 +76,7 @@ const markPageAsRead = async (obj: RuleActionObj) => {
 const sendNotification = async (obj: RuleActionObj) => {
   const item = obj.data
   const message = {
-    title: item.author?.toString() || item.siteName?.toString() || 'Omnivore',
+    title: item.author?.toString() || item.siteName?.toString() || 'Ruminer',
     body: item.title?.toString(),
     image: item.thumbnail,
   }

@@ -4,10 +4,10 @@
 
 BEGIN;
 
-UPDATE omnivore.article_saving_request
+UPDATE ruminer.article_saving_request
     SET elastic_page_id = article_id
     WHERE elastic_page_id is NULL AND article_id is NOT NULL;
-UPDATE omnivore.highlight
+UPDATE ruminer.highlight
     SET elastic_page_id = article_id
     WHERE elastic_page_id is NULL AND article_id is NOT NULL;
 

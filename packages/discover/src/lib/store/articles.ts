@@ -3,10 +3,10 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import { EmbeddedOmnivoreArticle } from '../ai/embedding'
+import { EmbeddedRuminerArticle } from '../ai/embedding'
 import { filter, map, mergeMap, bufferTime } from 'rxjs/operators'
 import { toSql } from 'pgvector/pg'
-import { OmnivoreArticle } from '../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../types/RuminerArticle'
 import { from, pipe } from 'rxjs'
 import { fromPromise } from 'rxjs/internal/observable/innerFrom'
 import { sqlClient } from './db'
@@ -16,14 +16,14 @@ import { onErrorContinue } from '../utils/reactive'
 
 const hasStoredInDatabase = async (articleSlug: string, feedId: string) => {
   const { rows } = await sqlClient.query(
-    'SELECT slug FROM omnivore.discover_feed_articles WHERE slug = $1 and feed_id = $2',
+    'SELECT slug FROM ruminer.discover_feed_articles WHERE slug = $1 and feed_id = $2',
     [articleSlug, feedId]
   )
   return rows && rows.length === 0
 }
 
 export const removeDuplicateArticles$ = onErrorContinue(
-  mergeMap((x: OmnivoreArticle) =>
+  mergeMap((x: RuminerArticle) =>
     fromPromise(hasStoredInDatabase(x.slug, x.feedId)).pipe(
       filter(Boolean),
       map(() => x)
@@ -32,7 +32,7 @@ export const removeDuplicateArticles$ = onErrorContinue(
 )
 
 export const batchInsertArticlesSql = async (
-  articles: EmbeddedOmnivoreArticle[]
+  articles: EmbeddedRuminerArticle[]
 ) => {
   const params = articles.map((embedded) => [
     v4(),
@@ -49,7 +49,7 @@ export const batchInsertArticlesSql = async (
 
   if (articles.length > 0) {
     const formattedMultiInsert = pgformat(
-      `INSERT INTO omnivore.discover_feed_articles(id, title, feed_id, slug, description, url, author, image, published_at, embedding) VALUES %L ON CONFLICT DO NOTHING`,
+      `INSERT INTO ruminer.discover_feed_articles(id, title, feed_id, slug, description, url, author, image, published_at, embedding) VALUES %L ON CONFLICT DO NOTHING`,
       params
     )
 
@@ -61,7 +61,7 @@ export const batchInsertArticlesSql = async (
     })
 
     const formattedTopicInsert = pgformat(
-      `INSERT INTO omnivore.discover_feed_article_topic_link(discover_topic_name, discover_feed_article_id) VALUES %L ON CONFLICT DO NOTHING`,
+      `INSERT INTO ruminer.discover_feed_article_topic_link(discover_topic_name, discover_feed_article_id) VALUES %L ON CONFLICT DO NOTHING`,
       topicLinks
     )
     await sqlClient.query(formattedTopicInsert)
@@ -73,11 +73,11 @@ export const batchInsertArticlesSql = async (
 }
 
 export const insertArticleToStore$ = pipe(
-  bufferTime<EmbeddedOmnivoreArticle>(5000, null, 100),
+  bufferTime<EmbeddedRuminerArticle>(5000, null, 100),
   onErrorContinue(
-    mergeMap((x: EmbeddedOmnivoreArticle[]) =>
+    mergeMap((x: EmbeddedRuminerArticle[]) =>
       fromPromise(batchInsertArticlesSql(x))
     )
   ),
-  mergeMap((it: EmbeddedOmnivoreArticle[]) => from(it))
+  mergeMap((it: EmbeddedRuminerArticle[]) => from(it))
 )

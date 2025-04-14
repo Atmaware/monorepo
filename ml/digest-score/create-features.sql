@@ -7,7 +7,7 @@ WITH interactions AS (
     li.site_name AS site,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -22,7 +22,7 @@ total_items AS (
     li.site_name AS site,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
     li.created_at < NOW()
@@ -49,7 +49,7 @@ WITH interactions AS (
     li.subscription,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -64,7 +64,7 @@ total_items AS (
     li.subscription,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
     li.created_at < NOW()
@@ -91,7 +91,7 @@ WITH interactions AS (
     li.author,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -106,7 +106,7 @@ total_items AS (
     li.author,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
     li.created_at < NOW()
@@ -133,7 +133,7 @@ WITH interactions AS (
     li.site_name AS site,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.site_name IS NOT NULL AND
@@ -148,7 +148,7 @@ total_items AS (
     li.site_name AS site,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.site_name IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -173,7 +173,7 @@ SELECT
   subscription,
   COUNT(*) AS interactions
 FROM
-  omnivore.library_item li
+  ruminer.library_item li
 WHERE
   li.read_at is not null AND
   li.subscription is not NULL AND
@@ -191,7 +191,7 @@ WITH interactions AS (
     li.subscription,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.subscription IS NOT NULL AND
@@ -206,7 +206,7 @@ total_items AS (
     li.subscription,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.subscription IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -232,7 +232,7 @@ WITH interactions AS (
     li.author,
     COUNT(*) AS interactions
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.read_at IS NOT NULL AND
     li.author IS NOT NULL AND
@@ -247,7 +247,7 @@ total_items AS (
     li.author,
     COUNT(*) AS total_items
   FROM
-    omnivore.library_item li
+    ruminer.library_item li
   WHERE
     li.author IS NOT NULL AND
     li.created_at >= NOW() - INTERVAL '30 DAYS' AND
@@ -293,8 +293,8 @@ SELECT
   CASE WHEN li.reading_progress_bottom_percent > 10 THEN 1 ELSE 0 END AS user_read,
   CASE WHEN li.reading_progress_bottom_percent > 50 THEN 1 ELSE 0 END AS user_long_read
 
-  FROM omnivore.library_item AS li
-  LEFT JOIN omnivore.subscriptions sub on li.subscription = sub.name AND sub.user_id = li.user_id
+  FROM ruminer.library_item AS li
+  LEFT JOIN ruminer.subscriptions sub on li.subscription = sub.name AND sub.user_id = li.user_id
 WHERE 
   li.created_at >= NOW() - INTERVAL '21 days' AND
   li.created_at < NOW()

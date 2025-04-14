@@ -4,13 +4,13 @@ import {
   removeDuplicateArticles$,
 } from './lib/store/articles'
 import { merge, Observable } from 'rxjs'
-import { OmnivoreArticle } from './types/OmnivoreArticle'
+import { RuminerArticle } from './types/RuminerArticle'
 import { rss$ } from './lib/inputSources/articles/rss/rssIngestor'
-import { putImageInProxy$ } from './lib/clients/omnivore/imageProxy'
+import { putImageInProxy$ } from './lib/clients/ruminer/imageProxy'
 import { communityArticles$ } from './lib/inputSources/articles/communityArticles'
 
-const enrichedArticles$ = (): Observable<OmnivoreArticle> => {
-  return merge(communityArticles$, rss$) as Observable<OmnivoreArticle>
+const enrichedArticles$ = (): Observable<RuminerArticle> => {
+  return merge(communityArticles$, rss$) as Observable<RuminerArticle>
 }
 
 ;(() => {

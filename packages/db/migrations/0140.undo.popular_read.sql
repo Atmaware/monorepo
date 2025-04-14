@@ -1,9 +1,9 @@
 -- Type: UNDO
 -- Name: popular_read
--- Description: Create omnivore.popular_read table
+-- Description: Create ruminer.popular_read table
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.popular_read;
+DROP TABLE IF EXISTS ruminer.popular_read;
 
 COMMIT;

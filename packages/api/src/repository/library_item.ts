@@ -62,7 +62,7 @@ export const libraryItemRepository = appDataSource
       // so the items show up in continue reading section
       return this.query(
         `
-        INSERT INTO omnivore.library_item (
+        INSERT INTO ruminer.library_item (
           slug,
           readable_content,
           description,
@@ -94,7 +94,7 @@ export const libraryItemRepository = appDataSource
           NOW(),
           2
         FROM
-          omnivore.popular_read
+          ruminer.popular_read
         WHERE
           key = $3
         RETURNING *

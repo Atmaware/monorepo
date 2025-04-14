@@ -116,7 +116,7 @@ export default function EmailsPage(): JSX.Element {
     <>
       <SettingsTable
         pageId="settings-emails-tag"
-        pageInfoLink="https://docs.omnivore.app/using/inbox.html"
+        pageInfoLink="https://docs.ruminer.app/using/inbox.html"
         headerTitle="Address"
         createTitle="Create a new email address"
         createAction={createEmail}
@@ -136,7 +136,7 @@ export default function EmailsPage(): JSX.Element {
                       my: '5px',
                       fontSize: '11px',
                       a: {
-                        color: '$omnivoreCtaYellow',
+                        color: '$ruminerCtaYellow',
                       },
                     }}
                   >
@@ -221,7 +221,7 @@ export default function EmailsPage(): JSX.Element {
             fontSize: '12px',
             marginLeft: 'auto',
             a: {
-              color: '$omnivoreCtaYellow',
+              color: '$ruminerCtaYellow',
             },
           }}
         >

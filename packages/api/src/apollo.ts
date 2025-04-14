@@ -81,8 +81,8 @@ const contextFunc: ContextFunction<ExpressContext, ResolverContext> = async ({
     const uid =
       (claims && claims.uid) || uuid || '00000000-0000-0000-0000-000000000000'
     const dbRole =
-      userRole === SetClaimsRole.ADMIN ? 'omnivore_admin' : 'omnivore_user'
-    return em.query('SELECT * from omnivore.set_claims($1, $2)', [uid, dbRole])
+      userRole === SetClaimsRole.ADMIN ? 'ruminer_admin' : 'ruminer_user'
+    return em.query('SELECT * from ruminer.set_claims($1, $2)', [uid, dbRole])
   }
 
   const ctx = {

@@ -8,8 +8,8 @@ BEGIN;
 -- from first + last name to name.
 -- In a seperate migration later we will drop the 
 -- first + last name columns.
-ALTER TABLE omnivore.user ADD COLUMN name TEXT;
-UPDATE omnivore.user SET name = concat(first_name, ' ', last_name);
-ALTER TABLE omnivore.user ALTER COLUMN name SET NOT NULL;
+ALTER TABLE ruminer.user ADD COLUMN name TEXT;
+UPDATE ruminer.user SET name = concat(first_name, ' ', last_name);
+ALTER TABLE ruminer.user ALTER COLUMN name SET NOT NULL;
 
 COMMIT;

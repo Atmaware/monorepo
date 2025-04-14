@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article
+ALTER TABLE ruminer.article
     ADD COLUMN published_at timestamptz;
 
 COMMIT;

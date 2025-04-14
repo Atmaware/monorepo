@@ -13,7 +13,7 @@ COPY /packages/queue-manager/package.json ./packages/queue-manager/package.json
 RUN yarn install --pure-lockfile
 
 ADD /packages/queue-manager ./packages/queue-manager
-RUN yarn workspace @omnivore/queue-manager build
+RUN yarn workspace @ruminer/queue-manager build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/queue-manager/node_modules
@@ -22,5 +22,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/queue-manager", "start"]
+CMD ["yarn", "workspace", "@ruminer/queue-manager", "start"]
 

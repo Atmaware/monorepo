@@ -84,7 +84,7 @@ export const createApp = (): Express => {
     }
 
     // get client info from header
-    const client = req.header('X-OmnivoreClient')
+    const client = req.header('X-RuminerClient')
     if (client) {
       httpContext.set('client', client)
     }

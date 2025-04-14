@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     ALTER COLUMN status SET DEFAULT 'ACTIVE';
 
 COMMIT;

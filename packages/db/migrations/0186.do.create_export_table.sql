@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.export (
+CREATE TABLE ruminer.export (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id UUID NOT NULL REFERENCES omnivore.user(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES ruminer.user(id) ON DELETE CASCADE,
     state TEXT NOT NULL,
     total_items INT DEFAULT 0,
     processed_items INT DEFAULT 0,
@@ -16,8 +16,8 @@ CREATE TABLE omnivore.export (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX export_user_id_idx ON omnivore.export(user_id);
+CREATE INDEX export_user_id_idx ON ruminer.export(user_id);
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.export TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.export TO ruminer_user;
 
 COMMIT;

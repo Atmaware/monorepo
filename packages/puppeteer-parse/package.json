@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/puppeteer-parse",
+  "name": "@ruminer/puppeteer-parse",
   "version": "1.0.0",
   "description": "Accepts URL of the article and parses its content",
   "main": "build/src/index.js",
@@ -8,7 +8,7 @@
     "build/src"
   ],
   "dependencies": {
-    "@omnivore/content-handler": "1.0.0",
+    "@ruminer/content-handler": "1.0.0",
     "puppeteer-core": "^23.6.1",
     "puppeteer-extra": "^3.3.6",
     "puppeteer-extra-plugin-adblocker": "^2.13.6",

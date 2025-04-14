@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user DROP COLUMN password;
+ALTER TABLE ruminer.user DROP COLUMN password;
 
 COMMIT;

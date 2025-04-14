@@ -4,6 +4,6 @@
 
 BEGIN;
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.integrations TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.integrations TO ruminer_user;
 
 COMMIT;

@@ -1,4 +1,4 @@
-import { Readability } from '@omnivore/readability'
+import { Readability } from '@ruminer/readability'
 import { DeepPartial } from 'typeorm'
 import { Highlight } from '../entity/highlight'
 import {

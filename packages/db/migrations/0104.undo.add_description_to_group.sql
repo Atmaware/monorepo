@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore."group"
+ALTER TABLE ruminer."group"
     DROP COLUMN IF EXISTS description,
     DROP COLUMN IF EXISTS topics,
     DROP COLUMN IF EXISTS only_admin_can_post,

@@ -1,5 +1,5 @@
 FROM node:22.12-alpine AS build
-LABEL org.opencontainers.image.source="https://github.com/omnivore-app/omnivore"
+LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
 
 # Installs latest Chromium package and other dependencies.
 RUN apk -U upgrade \
@@ -29,10 +29,10 @@ COPY /packages/content-handler ./packages/content-handler
 COPY /packages/puppeteer-parse ./packages/puppeteer-parse
 COPY /packages/utils ./packages/utils
 
-RUN yarn workspace @omnivore/utils build && \
-    yarn workspace @omnivore/content-handler build && \
-    yarn workspace @omnivore/puppeteer-parse build && \
-    yarn workspace @omnivore/content-fetch build && \
+RUN yarn workspace @ruminer/utils build && \
+    yarn workspace @ruminer/content-handler build && \
+    yarn workspace @ruminer/puppeteer-parse build && \
+    yarn workspace @ruminer/content-fetch build && \
     rm -rf /app/packages/content-fetch/node_modules /app/node_modules && \
     yarn install --pure-lockfile --production
 

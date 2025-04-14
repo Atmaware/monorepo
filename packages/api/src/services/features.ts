@@ -87,8 +87,8 @@ const optInLimitedFeature = async (
   }
 
   const optedInFeatures: Feature[] = (await appDataSource.query(
-    `insert into omnivore.features (user_id, name, granted_at) 
-    select $1, $2, $3 from omnivore.features 
+    `insert into ruminer.features (user_id, name, granted_at) 
+    select $1, $2, $3 from ruminer.features 
     where name = $2 and granted_at is not null 
     having count(*) < $4 
     on conflict (user_id, name) 

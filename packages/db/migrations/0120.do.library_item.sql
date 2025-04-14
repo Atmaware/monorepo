@@ -10,9 +10,9 @@ CREATE TYPE library_item_state AS ENUM ('SUCCEEDED', 'FAILED', 'PROCESSING', 'AR
 CREATE TYPE content_reader_type AS ENUM ('WEB', 'PDF', 'EPUB');
 CREATE TYPE directionality_type AS ENUM ('LTR', 'RTL');
 
-CREATE TABLE omnivore.library_item (
+CREATE TABLE ruminer.library_item (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
     state library_item_state NOT NULL DEFAULT 'SUCCEEDED',
     original_url text NOT NULL,
     download_url text,
@@ -38,7 +38,7 @@ CREATE TABLE omnivore.library_item (
     reading_progress_bottom_percent real NOT NULL DEFAULT 0,
     thumbnail text,
     item_type text NOT NULL DEFAULT 'UNKNOWN',
-    upload_file_id uuid REFERENCES omnivore.upload_files ON DELETE CASCADE,
+    upload_file_id uuid REFERENCES ruminer.upload_files ON DELETE CASCADE,
     content_reader content_reader_type NOT NULL DEFAULT 'WEB',
     original_content text,
     readable_content text NOT NULL DEFAULT '',
@@ -62,15 +62,15 @@ CREATE TABLE omnivore.library_item (
     UNIQUE (user_id, original_url)
 );
 
-CREATE TRIGGER update_library_item_modtime BEFORE UPDATE ON omnivore.library_item FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER update_library_item_modtime BEFORE UPDATE ON ruminer.library_item FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-CREATE INDEX library_item_content_tsv_idx ON omnivore.library_item USING GIN (content_tsv);
-CREATE INDEX library_item_site_tsv_idx ON omnivore.library_item USING GIN (site_tsv);
-CREATE INDEX library_item_title_tsv_idx ON omnivore.library_item USING GIN (title_tsv);
-CREATE INDEX library_item_author_tsv_idx ON omnivore.library_item USING GIN (author_tsv);
-CREATE INDEX library_item_description_tsv_idx ON omnivore.library_item USING GIN (description_tsv);
-CREATE INDEX library_item_search_tsv_idx ON omnivore.library_item USING GIN (search_tsv);
-CREATE INDEX library_item_note_tsv_idx ON omnivore.library_item USING GIN (note_tsv);
+CREATE INDEX library_item_content_tsv_idx ON ruminer.library_item USING GIN (content_tsv);
+CREATE INDEX library_item_site_tsv_idx ON ruminer.library_item USING GIN (site_tsv);
+CREATE INDEX library_item_title_tsv_idx ON ruminer.library_item USING GIN (title_tsv);
+CREATE INDEX library_item_author_tsv_idx ON ruminer.library_item USING GIN (author_tsv);
+CREATE INDEX library_item_description_tsv_idx ON ruminer.library_item USING GIN (description_tsv);
+CREATE INDEX library_item_search_tsv_idx ON ruminer.library_item USING GIN (search_tsv);
+CREATE INDEX library_item_note_tsv_idx ON ruminer.library_item USING GIN (note_tsv);
 
 CREATE OR REPLACE FUNCTION update_library_item_tsv() RETURNS trigger AS $$
 begin
@@ -86,9 +86,9 @@ begin
         setweight(new.author_tsv, 'A') || 
         setweight(new.site_tsv, 'A') || 
         setweight(new.description_tsv, 'A') || 
-        -- full hostname (eg www.omnivore.app)
+        -- full hostname (eg www.ruminer.app)
         setweight(to_tsvector('pg_catalog.english', coalesce(regexp_replace(new.original_url, '^((http[s]?):\/)?\/?([^:\/\s]+)((\/\w+)*\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$', '\3'), '')), 'A') || 
-        -- secondary hostname (eg omnivore)
+        -- secondary hostname (eg ruminer)
         setweight(to_tsvector('pg_catalog.english', coalesce(regexp_replace(new.original_url, '^((http[s]?):\/)?\/?(.*\.)?([^:\/\s]+)(\..*)((\/+)*\/)?([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$', '\4'), '')), 'A') ||
         setweight(new.note_tsv, 'A') ||
         setweight(new.content_tsv, 'B');
@@ -97,14 +97,14 @@ end
 $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER library_item_tsv_update BEFORE INSERT OR UPDATE
-    ON omnivore.library_item FOR EACH ROW EXECUTE PROCEDURE update_library_item_tsv();
+    ON ruminer.library_item FOR EACH ROW EXECUTE PROCEDURE update_library_item_tsv();
 
-ALTER TABLE omnivore.library_item ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ruminer.library_item ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY library_item_policy ON omnivore.library_item 
-    USING (user_id = omnivore.get_current_user_id())
-    WITH CHECK (user_id = omnivore.get_current_user_id());
+CREATE POLICY library_item_policy ON ruminer.library_item 
+    USING (user_id = ruminer.get_current_user_id())
+    WITH CHECK (user_id = ruminer.get_current_user_id());
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.library_item TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.library_item TO ruminer_user;
 
 COMMIT;

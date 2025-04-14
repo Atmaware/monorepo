@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article 
+ALTER TABLE ruminer.article 
     DROP COLUMN published_at;
 
 COMMIT;

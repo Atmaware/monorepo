@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.webhooks;
+DROP TABLE IF EXISTS ruminer.webhooks;
 
 COMMIT;

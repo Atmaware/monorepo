@@ -37,7 +37,7 @@ chrome: build
 
 edge: build
 	echo "building edge package"
-	EDGE_PKG_NAME="omnivore-extension-edge-$(shell cat dist/manifest.json| jq -j .version).zip" ; \
+	EDGE_PKG_NAME="ruminer-extension-edge-$(shell cat dist/manifest.json| jq -j .version).zip" ; \
 	pushd dist; zip -r $${EDGE_PKG_NAME} ./*; popd;
 
 

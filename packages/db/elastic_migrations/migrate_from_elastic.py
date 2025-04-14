@@ -13,7 +13,7 @@ PG_HOST = os.getenv('PG_HOST', 'localhost')
 PG_PORT = os.getenv('PG_PORT', 5432)
 PG_USER = os.getenv('PG_USER', 'app_user')
 PG_PASSWORD = os.getenv('PG_PASSWORD', 'app_pass')
-PG_DB = os.getenv('PG_DB', 'omnivore')
+PG_DB = os.getenv('PG_DB', 'ruminer')
 PG_COOLDOWN_TIME = os.getenv('PG_COOLDOWN_TIME', 1)
 PG_TIMEOUT = os.getenv('PG_TIMEOUT', 60)
 ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
@@ -37,7 +37,7 @@ async def assert_data(db_conn, es_client, user_ids, uploaded_files):
         failure = 0
         for user_id in user_ids:
             number_of_docs_in_postgres = await db_conn.fetchval(
-                f'SELECT COUNT(1) FROM omnivore.library_item WHERE user_id = \'{user_id}\'')
+                f'SELECT COUNT(1) FROM ruminer.library_item WHERE user_id = \'{user_id}\'')
 
             query = {
                 'size': 0,
@@ -122,7 +122,7 @@ def convert_string_to_datetime(val):
 
 async def insert_library_items(db_conn, library_items, original_ids):
     insert_query = '''
-        INSERT INTO omnivore.library_item (
+        INSERT INTO ruminer.library_item (
             id, user_id, title, author, description, readable_content, original_url, upload_file_id, item_type, slug, reading_progress_top_percent, reading_progress_bottom_percent, reading_progress_highest_read_anchor, created_at, saved_at, archived_at, site_name, subscription, state, updated_at, published_at, item_language, read_at, word_count, site_icon, thumbnail, content_reader, original_content, deleted_at
         )
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
@@ -163,15 +163,15 @@ async def insert_library_items(db_conn, library_items, original_ids):
 
 async def insert_highlights(db_conn, highlights, original_ids):
     insert_query = '''
-        INSERT INTO omnivore.highlight (
+        INSERT INTO ruminer.highlight (
             id, user_id, quote, prefix, suffix, patch, annotation, created_at, updated_at, shared_at, short_id, library_item_id, highlight_position_percent, highlight_position_anchor_index, highlight_type, color, html
         )
         SELECT
             $1, $2, $3, $4, $5, $6, $7, $8, $9, $10,
             $11, $12, $13, $14, $15, $16, $17
         FROM
-            omnivore.library_item l
-        INNER JOIN omnivore.user u ON u.id = $2
+            ruminer.library_item l
+        INNER JOIN ruminer.user u ON u.id = $2
         WHERE
             l.id = $12
         ON CONFLICT (id) DO UPDATE SET
@@ -199,13 +199,13 @@ async def insert_highlights(db_conn, highlights, original_ids):
 
 async def insert_labels(db_conn, labels, original_ids):
     insert_query = '''
-        INSERT INTO omnivore.entity_labels (
+        INSERT INTO ruminer.entity_labels (
             label_id, library_item_id, highlight_id
         )
         SELECT $1, $2, $3
-        FROM omnivore.labels l
-        LEFT JOIN omnivore.library_item li ON li.id = $2
-        LEFT JOIN omnivore.highlight h ON h.id = $3
+        FROM ruminer.labels l
+        LEFT JOIN ruminer.library_item li ON li.id = $2
+        LEFT JOIN ruminer.highlight h ON h.id = $3
         WHERE l.id = $1 AND ($2 IS NULL OR li.id = $2) AND ($3 IS NULL OR h.id = $3)
         ON CONFLICT (label_id, library_item_id, highlight_id) DO NOTHING
     '''
@@ -216,13 +216,13 @@ async def insert_labels(db_conn, labels, original_ids):
 
 async def insert_recommendations(db_conn, recommendations, original_ids):
     insert_query = '''
-        INSERT INTO omnivore.recommendation (
+        INSERT INTO ruminer.recommendation (
             library_item_id, recommender_id, group_id, note, created_at
         )
         SELECT $1, $2, $3, $4, $5
-        FROM omnivore.library_item li
-        INNER JOIN omnivore.user u ON u.id = $2
-        INNER JOIN omnivore.group g ON g.id = $3
+        FROM ruminer.library_item li
+        INNER JOIN ruminer.user u ON u.id = $2
+        INNER JOIN ruminer.group g ON g.id = $3
         WHERE li.id = $1
         ON CONFLICT (library_item_id, recommender_id, group_id) DO UPDATE SET
             note = EXCLUDED.note,
@@ -253,11 +253,11 @@ async def insert_into_postgres(insert_query, db_conn, records, original_ids):
                     # create a transaction
                     async with db_conn.transaction():
                         # disable library_item_tsv_update trigger
-                        await db_conn.execute('ALTER TABLE omnivore.library_item DISABLE TRIGGER library_item_tsv_update')
+                        await db_conn.execute('ALTER TABLE ruminer.library_item DISABLE TRIGGER library_item_tsv_update')
                         # insert record again
                         await db_conn.execute(insert_query, *record, timeout=int(PG_TIMEOUT))
                         # enable library_item_tsv_update trigger
-                        await db_conn.execute('ALTER TABLE omnivore.library_item ENABLE TRIGGER library_item_tsv_update')
+                        await db_conn.execute('ALTER TABLE ruminer.library_item ENABLE TRIGGER library_item_tsv_update')
                 elif 'duplicate key value violates unique constraint' in str(err):
                     # skip the error
                     print('Skipping duplicate record', original_ids[i])
@@ -318,13 +318,13 @@ async def main():
         print(await es_client.info())
 
         # disable update_library_item_modtime trigger
-        await db_conn.execute('ALTER TABLE omnivore.library_item DISABLE TRIGGER update_library_item_modtime')
+        await db_conn.execute('ALTER TABLE ruminer.library_item DISABLE TRIGGER update_library_item_modtime')
 
         print('Getting list of users from postgres')
-        users = await db_conn.fetch('SELECT id FROM omnivore.user')
+        users = await db_conn.fetch('SELECT id FROM ruminer.user')
 
         print('Getting list of uploaded files from postgres')
-        uploaded_files = await db_conn.fetch('SELECT id FROM omnivore.upload_files')
+        uploaded_files = await db_conn.fetch('SELECT id FROM ruminer.upload_files')
 
         print('Getting data from elastic and if uploadFileId exists, check if it exists in postgres')
         i = 0
@@ -557,7 +557,7 @@ async def main():
     finally:
         print('Closing connections')
         # enable update_library_item_modtime trigger
-        await db_conn.execute('ALTER TABLE omnivore.library_item ENABLE TRIGGER update_library_item_modtime')
+        await db_conn.execute('ALTER TABLE ruminer.library_item ENABLE TRIGGER update_library_item_modtime')
         await db_conn.close()
         await es_client.close()
 

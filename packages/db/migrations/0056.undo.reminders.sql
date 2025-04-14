@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.reminders;
+DROP TABLE ruminer.reminders;
 
 COMMIT;

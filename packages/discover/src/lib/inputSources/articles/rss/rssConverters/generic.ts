@@ -2,14 +2,14 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-import { OmnivoreArticle } from '../../../../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../../../../types/RuminerArticle'
 import { XMLParser } from 'fast-xml-parser'
 import { Observable } from 'rxjs'
 import { parseRss } from './rss'
 import { parseHTML } from 'linkedom'
 import { JSDOM } from 'jsdom'
 import { convertAtomStream } from './atom'
-import { OmnivoreContentFeed } from '../../../../../types/Feeds'
+import { RuminerContentFeed } from '../../../../../types/Feeds'
 
 const parser = new XMLParser({
   ignoreAttributes: false,
@@ -90,7 +90,7 @@ export const streamHeadAndRetrieveOpenGraph = async (link: string) => {
   }
 }
 
-export const parseAtomOrRss = (contentFeed: OmnivoreContentFeed) => {
+export const parseAtomOrRss = (contentFeed: RuminerContentFeed) => {
   const parsedXml = parser.parse(contentFeed.content)
   return parsedXml.rss || parsedXml['rdf:RDF']
     ? parseRss(contentFeed.feed)(

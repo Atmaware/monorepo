@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-declare module '@omnivore/readability' {
+declare module '@ruminer/readability' {
   class Readability {
     constructor(doc: Document, options?: Readability.Options)
 

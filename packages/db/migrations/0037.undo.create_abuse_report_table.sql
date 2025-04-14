@@ -5,6 +5,6 @@
 BEGIN;
 
 DROP TYPE report_type CASCADE;
-DROP TABLE omnivore.abuse_reports CASCADE;
+DROP TABLE ruminer.abuse_reports CASCADE;
 
 COMMIT;

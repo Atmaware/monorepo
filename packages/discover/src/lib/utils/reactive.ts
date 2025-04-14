@@ -12,7 +12,7 @@ import {
   timer,
 } from 'rxjs'
 import { filter, retry } from 'rxjs/operators'
-import { OmnivoreArticle } from '../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../types/RuminerArticle'
 import { fromPromise } from 'rxjs/internal/observable/innerFrom'
 
 export const exponentialBackOff = <T>(
@@ -54,13 +54,13 @@ export const rateLimiter = <T>(params: {
   })
 }
 
-export function mapOrNull(project: (article: any) => Promise<OmnivoreArticle>) {
+export function mapOrNull(project: (article: any) => Promise<RuminerArticle>) {
   return pipe(
     concatMap((item: any, _value: number) => {
       try {
         return fromPromise(project(item).catch((_e) => null)).pipe(
           filter((it) => !!it)
-        ) as Observable<OmnivoreArticle>
+        ) as Observable<RuminerArticle>
       } catch (e) {
         return EMPTY
       }

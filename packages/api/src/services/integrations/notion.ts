@@ -65,7 +65,7 @@ interface NotionPage {
     'Original URL'?: {
       url: string
     }
-    'Omnivore URL': {
+    'Ruminer URL': {
       url: string
     }
     'Saved At'?: {
@@ -229,7 +229,7 @@ export class NotionClient implements IntegrationClient {
               url: item.originalUrl,
             }
           : undefined,
-        'Omnivore URL': {
+        'Ruminer URL': {
           url: getItemUrl(item.id),
         },
         'Saved At': item.savedAt
@@ -313,7 +313,7 @@ export class NotionClient implements IntegrationClient {
       database_id: databaseId,
       page_size: 1,
       filter: {
-        property: 'Omnivore URL',
+        property: 'Ruminer URL',
         url: {
           equals: url,
         },
@@ -382,7 +382,7 @@ export class NotionClient implements IntegrationClient {
             settings,
             this.integrationData?.syncedAt
           )
-          const url = notionPage.properties['Omnivore URL'].url
+          const url = notionPage.properties['Ruminer URL'].url
 
           const existingPage = await this.findPage(url, databaseId)
           if (existingPage) {
@@ -440,7 +440,7 @@ export class NotionClient implements IntegrationClient {
         'Original URL': {
           url: {},
         },
-        'Omnivore URL': {
+        'Ruminer URL': {
           url: {},
         },
         'Saved At': {

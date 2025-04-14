@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.received_emails ALTER COLUMN text SET DEFAULT '';
+ALTER TABLE ruminer.received_emails ALTER COLUMN text SET DEFAULT '';
 
 COMMIT;

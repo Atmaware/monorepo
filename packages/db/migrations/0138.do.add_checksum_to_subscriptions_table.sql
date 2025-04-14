@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions ADD COLUMN last_fetched_checksum TEXT ;
+ALTER TABLE ruminer.subscriptions ADD COLUMN last_fetched_checksum TEXT ;
 
 COMMIT;

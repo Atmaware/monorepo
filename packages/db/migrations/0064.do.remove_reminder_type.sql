@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.reminders DROP COLUMN type;
+ALTER TABLE ruminer.reminders DROP COLUMN type;
 
 DROP type reminder_type;
 

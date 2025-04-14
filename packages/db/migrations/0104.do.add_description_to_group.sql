@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore."group"
+ALTER TABLE ruminer."group"
     ADD COLUMN description text,
     ADD COLUMN topics text,
     ADD COLUMN only_admin_can_post boolean NOT NULL DEFAULT false,

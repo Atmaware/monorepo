@@ -27,4 +27,4 @@ COPY /packages/text-to-speech ./packages/text-to-speech
 COPY /packages/content-handler ./packages/content-handler
 COPY /packages/liqe ./packages/liqe
 
-CMD ["yarn", "workspace", "@omnivore/api", "test"]
+CMD ["yarn", "workspace", "@ruminer/api", "test"]

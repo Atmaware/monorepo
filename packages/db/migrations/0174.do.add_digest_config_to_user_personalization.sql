@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization ADD COLUMN digest_config jsonb;
+ALTER TABLE ruminer.user_personalization ADD COLUMN digest_config jsonb;
 
 COMMIT;

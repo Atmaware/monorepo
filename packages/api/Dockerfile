@@ -15,17 +15,17 @@ RUN find packages -mindepth 1 -type d \
     -exec rm -rf {} +
 
 RUN yarn install --pure-lockfile && \
-    yarn workspace @omnivore/utils build && \
-    yarn workspace @omnivore/text-to-speech-handler build && \
-    yarn workspace @omnivore/content-handler build && \
-    yarn workspace @omnivore/liqe build && \
-    yarn workspace @omnivore/api build && \
+    yarn workspace @ruminer/utils build && \
+    yarn workspace @ruminer/text-to-speech-handler build && \
+    yarn workspace @ruminer/content-handler build && \
+    yarn workspace @ruminer/liqe build && \
+    yarn workspace @ruminer/api build && \
     rm -rf /app/packages/api/node_modules /app/node_modules && \
     yarn install --pure-lockfile --production
 
 
 FROM node:22.12-alpine AS runner
-LABEL org.opencontainers.image.source="https://github.com/omnivore-app/omnivore"
+LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
 
 RUN apk update && apk add netcat-openbsd && rm -rf /var/cache/apk/*
 
@@ -48,4 +48,4 @@ COPY --from=builder /app/packages/utils/ /app/packages/utils/
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/api", "start"]
+CMD ["yarn", "workspace", "@ruminer/api", "start"]

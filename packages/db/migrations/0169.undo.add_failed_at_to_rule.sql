@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.rules DROP COLUMN failed_at;
+ALTER TABLE ruminer.rules DROP COLUMN failed_at;
 
 COMMIT;

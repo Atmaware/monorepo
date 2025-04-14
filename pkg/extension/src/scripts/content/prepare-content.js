@@ -70,7 +70,7 @@
       if (!frameHtml) return
 
       const containerEl = document.createElement('div')
-      containerEl.className = 'omnivore-instagram-embed'
+      containerEl.className = 'ruminer-instagram-embed'
       containerEl.innerHTML = frameHtml
 
       const parentEl = itemEl.parentNode
@@ -158,7 +158,7 @@
 
   function createBackdrop() {
     const backdropEl = document.createElement('div')
-    backdropEl.className = 'webext-omnivore-backdrop'
+    backdropEl.className = 'webext-ruminer-backdrop'
     backdropEl.style.cssText = `all: initial !important;
       position: fixed !important;
       top: 0 !important;
@@ -216,8 +216,8 @@
     // First remove any previous markers, this would only normally happen during debugging
     try {
       const markers = window.document.querySelectorAll(
-        `span[data-omnivore-highlight-start="true"],
-         span[data-omnivore-highlight-end="true"]`
+        `span[data-ruminer-highlight-start="true"],
+         span[data-ruminer-highlight-end="true"]`
       )
 
       for (let i = 0; i < markers.length; i++) {
@@ -233,8 +233,8 @@
         const range = sel.getRangeAt(0)
         const endMarker = document.createElement('span')
         const startMarker = document.createElement('span')
-        endMarker.setAttribute('data-omnivore-highlight-end', 'true')
-        startMarker.setAttribute('data-omnivore-highlight-start', 'true')
+        endMarker.setAttribute('data-ruminer-highlight-end', 'true')
+        startMarker.setAttribute('data-ruminer-highlight-start', 'true')
 
         var container = document.createElement('div')
         for (var i = 0, len = sel.rangeCount; i < len; ++i) {
@@ -259,7 +259,7 @@
   }
 
   function clearExistingBackdrops() {
-    const backdropCol = document.querySelectorAll('.webext-omnivore-backdrop')
+    const backdropCol = document.querySelectorAll('.webext-ruminer-backdrop')
     for (let i = 0; i < backdropCol.length; i++) {
       const backdropEl = backdropCol[i]
       backdropEl.style.setProperty('opacity', '0', 'important')

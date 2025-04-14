@@ -29,7 +29,7 @@ if (
 } else if (env.dev.isLocal && env.jaeger.host) {
   const jaeger_host = env.jaeger.host
   const options = {
-    serviceName: 'omnivore-backend',
+    serviceName: 'ruminer-backend',
     tags: [],
     // Use http as UDP has max 65kb limit and our spans at times can exceed this limit
     endpoint: `http://${env.jaeger.host}:14268/api/traces`,

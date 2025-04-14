@@ -4,6 +4,6 @@
 
 BEGIN;
 
-GRANT UPDATE ON omnivore.link_labels TO omnivore_user;
+GRANT UPDATE ON ruminer.link_labels TO ruminer_user;
 
 COMMIT;

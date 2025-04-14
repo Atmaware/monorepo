@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     ADD COLUMN created_at timestamptz NOT NULL default current_timestamp,
     ADD COLUMN updated_at timestamptz NOT NULL default current_timestamp;
 
-CREATE TRIGGER newsletter_emails_modtime BEFORE UPDATE ON omnivore.newsletter_emails FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER newsletter_emails_modtime BEFORE UPDATE ON ruminer.newsletter_emails FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 COMMIT;

@@ -5,9 +5,9 @@ import { v4 as uuidv4 } from 'uuid'
 import { interpolationSearch } from './interpolationSearch'
 import { logger } from './logger'
 
-const highlightTag = 'omnivore_highlight'
+const highlightTag = 'ruminer_highlight'
 export const maxHighlightLength = 2000
-export const highlightIdAttribute = 'omnivore-highlight-id'
+export const highlightIdAttribute = 'ruminer-highlight-id'
 
 const nonParagraphTagsRegEx =
   /^(a|b|basefont|bdo|big|em|font|i|s|small|span|strike|strong|su[bp]|tt|u|code|mark)$/i
@@ -112,9 +112,9 @@ export const findEmbeddedHighlight = (
   dom: Element
 ): EmbeddedHighlightData | undefined => {
   const startNode = dom.querySelector(
-    'span[data-omnivore-highlight-start="true"]'
+    'span[data-ruminer-highlight-start="true"]'
   )
-  const endNode = dom.querySelector('span[data-omnivore-highlight-end="true"]')
+  const endNode = dom.querySelector('span[data-ruminer-highlight-end="true"]')
 
   const articleContentElement = dom
   if (!articleContentElement || !startNode || !endNode) {

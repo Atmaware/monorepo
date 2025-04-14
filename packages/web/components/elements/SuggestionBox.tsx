@@ -35,7 +35,7 @@ const InternalOrExternalLink = (props: InternalOrExternalLinkProps) => {
       css={{
         cursor: 'pointer',
         a: {
-          color: '$omnivoreCtaYellow',
+          color: '$ruminerCtaYellow',
         },
       }}
     >
@@ -106,7 +106,7 @@ export const SuggestionBox = (props: SuggestionBoxProps) => {
                 css={{
                   display: 'flex',
                   alignItems: 'center',
-                  color: '$omnivoreCtaYellow',
+                  color: '$ruminerCtaYellow',
                   pt: '15px',
                   gap: '2px',
                   '&:hover': {
@@ -117,7 +117,7 @@ export const SuggestionBox = (props: SuggestionBoxProps) => {
                 <>{suggestion.text}</>
                 <ArrowRightIcon
                   size={25}
-                  color={theme.colors.omnivoreCtaYellow.toString()}
+                  color={theme.colors.ruminerCtaYellow.toString()}
                 />
               </SpanBox>
             </InternalOrExternalLink>

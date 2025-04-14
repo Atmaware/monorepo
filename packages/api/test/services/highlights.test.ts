@@ -10,11 +10,11 @@ describe('getHighlightLocation', () => {
     location = 109
     patch = `@@ -${location + 1},16 +${location + 1},36 @@
  . We're
-+%3Comnivore_highlight%3E
++%3Cruminer_highlight%3E
  humbled
 @@ -254,16 +254,37 @@
  h in the
-+%3C/omnivore_highlight%3E
++%3C/ruminer_highlight%3E
   coming`
   })
 

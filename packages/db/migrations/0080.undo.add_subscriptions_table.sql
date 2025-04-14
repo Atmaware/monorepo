@@ -4,7 +4,7 @@
 
 BEGIN;
 
-DROP TABLE omnivore.subscriptions;
+DROP TABLE ruminer.subscriptions;
 DROP TYPE subscription_status_type;
 
 COMMIT;

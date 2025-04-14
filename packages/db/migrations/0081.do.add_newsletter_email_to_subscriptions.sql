@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     ADD COLUMN newsletter_email TEXT NOT NULL DEFAULT '';
 
 COMMIT;

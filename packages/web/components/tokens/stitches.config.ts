@@ -143,11 +143,11 @@ export const { styled, css, theme, getCssText, globalCss, keyframes, config } =
         discover: '#7274d5',
 
         // Brand Colors
-        omnivoreRed: '#FA5E4A;',
-        omnivoreGray: '#3D3D3D',
-        omnivoreYellow: '#FFEAA0',
-        omnivoreLightGray: 'rgb(125, 125, 125)',
-        omnivoreCtaYellow: 'rgb(255, 210, 52)',
+        ruminerRed: '#FA5E4A;',
+        ruminerGray: '#3D3D3D',
+        ruminerYellow: '#FFEAA0',
+        ruminerLightGray: 'rgb(125, 125, 125)',
+        ruminerCtaYellow: 'rgb(255, 210, 52)',
         searchActiveOutline: 'rgb(255, 210, 52)',
 
         // Reader Colors

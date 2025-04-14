@@ -12,16 +12,16 @@ x-postgres:
 services:
   postgres:
     <<: *postgres-common
-    container_name: "omnivore-postgres"
+    container_name: "ruminer-postgres"
     volumes:
       - pgdata:/var/lib/postgresql/data
     env_file:
       - .env
 
   migrate:
-    image: "ghcr.io/omnivore-app/sh-migrate:latest"
-    container_name: "omnivore-migrate"
-    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@omnivore.app, password: demo_password
+    image: "ghcr.io/ruminer-app/sh-migrate:latest"
+    container_name: "ruminer-migrate"
+    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@ruminer.app, password: demo_password
     env_file:
       - .env
     depends_on:
@@ -29,8 +29,8 @@ services:
         condition: service_healthy
 
   api:
-    image: "ghcr.io/omnivore-app/sh-backend:latest"
-    container_name: "omnivore-api"
+    image: "ghcr.io/ruminer-app/sh-backend:latest"
+    container_name: "ruminer-api"
     ports:
       - "4000:8080"
     healthcheck:
@@ -45,8 +45,8 @@ services:
         condition: service_completed_successfully
 
   queue-processor:
-    image: "ghcr.io/omnivore-app/sh-queue-processor:latest"
-    container_name: "omnivore-queue-processor"
+    image: "ghcr.io/ruminer-app/sh-queue-processor:latest"
+    container_name: "ruminer-queue-processor"
     env_file:
       - .env
     depends_on:
@@ -54,8 +54,8 @@ services:
         condition: service_started
 
   web:
-    image: "ghcr.io/omnivore-app/sh-web:latest"
-    container_name: "omnivore-web"
+    image: "ghcr.io/ruminer-app/sh-web:latest"
+    container_name: "ruminer-web"
     ports:
       - "3000:8080"
     env_file:
@@ -65,16 +65,16 @@ services:
         condition: service_healthy
 
   image-proxy:
-    image: "ghcr.io/omnivore-app/sh-image-proxy:latest"
-    container_name: "omnivore-image-proxy"
+    image: "ghcr.io/ruminer-app/sh-image-proxy:latest"
+    container_name: "ruminer-image-proxy"
     ports:
       - "7070:8080"
     env_file:
       - .env
 
   content-fetch:
-    image: "ghcr.io/omnivore-app/sh-content-fetch:latest"
-    container_name: "omnivore-content-fetch"
+    image: "ghcr.io/ruminer-app/sh-content-fetch:latest"
+    container_name: "ruminer-content-fetch"
     ports:
       - "9090:8080"
     environment:
@@ -89,7 +89,7 @@ services:
 
   redis:
     image: "redis:7.2.4"
-    container_name: "omnivore-redis"
+    container_name: "ruminer-redis"
     expose:
       - 6379
     ports:
@@ -122,7 +122,7 @@ services:
     environment:
       - MINIO_ACCESS_KEY=minio
       - MINIO_SECRET_KEY=miniominio
-      - BUCKET_NAME=omnivore
+      - BUCKET_NAME=ruminer
       - ENDPOINT=http://minio:9000
       - AWS_S3_ENDPOINT_URL=http://minio:9000
     depends_on:
@@ -131,13 +131,13 @@ services:
       /bin/bash -c "
       sleep 5;
       until (/usr/bin/mc config host add myminio http://minio:9000 minio miniominio) do echo '...waiting...' && sleep 1; done;
-      /usr/bin/mc mb myminio/omnivore;
-      /usr/bin/mc anonymous set public myminio/omnivore;
+      /usr/bin/mc mb myminio/ruminer;
+      /usr/bin/mc anonymous set public myminio/ruminer;
       exit 0;
       "
   mail-watch-server:
-    image: "ghcr.io/omnivore-app/sh-local-mail-watcher:latest"
-    container_name: "omnivore-mail-watch-server"
+    image: "ghcr.io/ruminer-app/sh-local-mail-watcher:latest"
+    container_name: "ruminer-mail-watch-server"
     ports:
       - "4398:8080"
     env_file:

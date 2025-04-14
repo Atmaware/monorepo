@@ -129,7 +129,7 @@ export const ruleHandler = Sentry.GCPFunction.wrapHttpFunction(
         return
       }
 
-      // subscription: 'projects/omnivore-demo/subscriptions/entityUpdated-rule'
+      // subscription: 'projects/ruminer-demo/subscriptions/entityUpdated-rule'
       const eventType = subscription.match(/entity(.*)-rule/)?.[1]
       if (!eventType) {
         console.log('No event type found')

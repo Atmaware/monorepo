@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_device_tokens
+ALTER TABLE ruminer.user_device_tokens
     DROP COLUMN updated_at,
     DROP CONSTRAINT token_unique;
 
-DROP TRIGGER user_device_tokens_modtime ON omnivore.user_device_tokens;
+DROP TRIGGER user_device_tokens_modtime ON ruminer.user_device_tokens;
 
 COMMIT;

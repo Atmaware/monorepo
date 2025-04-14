@@ -22,7 +22,7 @@ env:
 jobs:
   run-code-tests:
     name: Run Codebase tests
-    runs-on: ${{ github.repository_owner == 'omnivore-app' && 'ubuntu-latest-m' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository_owner == 'ruminer-app' && 'ubuntu-latest-m' || 'ubuntu-latest' }}
     services:
       postgres:
         image: ankane/pgvector
@@ -51,7 +51,7 @@ jobs:
       - name: Initialize the database
         run: |
           cp ./packages/api/.env.test ./packages/api/.env
-          psql --host localhost --port ${{ job.services.postgres.ports[5432] }} --user postgres --password -c "CREATE DATABASE omnivore_test;"
+          psql --host localhost --port ${{ job.services.postgres.ports[5432] }} --user postgres --password -c "CREATE DATABASE ruminer_test;"
         env:
           PGPASSWORD: postgres
       - name: Use Node.js ${{ matrix.node-version }}
@@ -68,14 +68,14 @@ jobs:
       - name: Database Migration
         run: |
           psql -h localhost -p ${{ job.services.postgres.ports[5432] }} -U postgres -c "CREATE USER app_user WITH ENCRYPTED PASSWORD 'app_pass';"
-          yarn workspace @omnivore/db migrate
-          psql -h localhost -p ${{ job.services.postgres.ports[5432] }} -U postgres -c "GRANT omnivore_user to app_user;"
+          yarn workspace @ruminer/db migrate
+          psql -h localhost -p ${{ job.services.postgres.ports[5432] }} -U postgres -c "GRANT ruminer_user to app_user;"
         env:
           PG_HOST: localhost
           PG_PORT: ${{ job.services.postgres.ports[5432] }}
           PG_USER: postgres
           PG_PASSWORD: postgres
-          PG_DB: omnivore_test
+          PG_DB: ruminer_test
           PGPASSWORD: postgres # This is required for the psql command to work without a password prompt
           PG_EXTRA_OPTIONS: '-c lock_timeout=2000'
       - name: TypeScript Build and Lint
@@ -93,7 +93,7 @@ jobs:
           PG_PORT: ${{ job.services.postgres.ports[5432] }}
           PG_USER: app_user
           PG_PASSWORD: app_pass
-          PG_DB: omnivore_test
+          PG_DB: ruminer_test
           PG_LOGGER: debug
           REDIS_URL: redis://localhost:${{ job.services.redis.ports[6379] }}
           MQ_REDIS_URL: redis://localhost:${{ job.services.redis.ports[6379] }}

@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/content-fetch",
+  "name": "@ruminer/content-fetch",
   "version": "1.0.0",
   "description": "Service that fetches page content from a URL",
   "main": "build/src/index.js",
@@ -8,8 +8,8 @@
   ],
   "dependencies": {
     "@google-cloud/storage": "^7.0.1",
-    "@omnivore/puppeteer-parse": "^1.0.0",
-    "@omnivore/utils": "1.0.0",
+    "@ruminer/puppeteer-parse": "^1.0.0",
+    "@ruminer/utils": "1.0.0",
     "axios": "^0.27.2",
     "bullmq": "^5.1.1",
     "dotenv": "^8.2.0",

@@ -96,7 +96,7 @@ export default function IOSInstallHelp({
             },
           }}
         >
-          Install Omnivore for iOS and macOS
+          Install Ruminer for iOS and macOS
         </StyledText>
       </Box>
       <StyledText
@@ -121,7 +121,7 @@ export default function IOSInstallHelp({
           },
         }}
       >
-        With the native Omnivore for iOS and macOS app installed you can save
+        With the native Ruminer for iOS and macOS app installed you can save
         any link, read offline, and listen to your saved items using
         text-to-speech.
       </StyledText>
@@ -158,7 +158,7 @@ export default function IOSInstallHelp({
           }
         >
           <a
-            href="https://omnivore.app/install/ios"
+            href="https://ruminer.app/install/ios"
             target="_blank"
             rel="noreferrer"
             style={{ display: 'inlineBlock', overflow: 'hidden' }}

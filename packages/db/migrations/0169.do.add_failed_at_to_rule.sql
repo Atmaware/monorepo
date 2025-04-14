@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.rules ADD COLUMN failed_at timestamptz;
+ALTER TABLE ruminer.rules ADD COLUMN failed_at timestamptz;
 
 COMMIT;

@@ -36,7 +36,7 @@ const getEnv = (): DBEnv => {
   const config = {
     host: host || '127.0.0.1',
     port: port ? parseInt(port, 10) : 5432,
-    database: database || 'omnivore',
+    database: database || 'ruminer',
     username,
     password,
     options: process.env.PG_EXTRA_OPTIONS,

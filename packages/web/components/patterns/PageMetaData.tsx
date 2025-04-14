@@ -36,9 +36,9 @@ export function PageMetaData(props: PageMetaDataProps): JSX.Element {
       <meta name="twitter:site:id" content="1372981426199564288" />
 
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Omnivore" />
+      <meta property="og:site_name" content="Ruminer" />
 
-      <meta name="twitter:domain" content="omnivore.app" />
+      <meta name="twitter:domain" content="ruminer.app" />
 
       {props.ogImage && (
         <>

@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.post (
+CREATE TABLE ruminer.post (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id UUID NOT NULL REFERENCES omnivore.user(id) ON DELETE CASCADE,
+    user_id UUID NOT NULL REFERENCES ruminer.user(id) ON DELETE CASCADE,
     library_item_ids UUID[] NOT NULL,
 	highlight_ids UUID[],
     title TEXT NOT NULL,
@@ -17,26 +17,26 @@ CREATE TABLE omnivore.post (
     updated_at TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX post_user_id_idx ON omnivore.post(user_id);
+CREATE INDEX post_user_id_idx ON ruminer.post(user_id);
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.post TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.post TO ruminer_user;
 
-ALTER TABLE omnivore.post ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ruminer.post ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY read_post ON omnivore.post
-    FOR SELECT TO omnivore_user
+CREATE POLICY read_post ON ruminer.post
+    FOR SELECT TO ruminer_user
     USING (true);
 
-CREATE POLICY write_post ON omnivore.post
-    FOR INSERT TO omnivore_user
-    WITH CHECK (user_id = omnivore.get_current_user_id());
+CREATE POLICY write_post ON ruminer.post
+    FOR INSERT TO ruminer_user
+    WITH CHECK (user_id = ruminer.get_current_user_id());
 
-CREATE POLICY update_post ON omnivore.post
-    FOR UPDATE TO omnivore_user
-    USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY update_post ON ruminer.post
+    FOR UPDATE TO ruminer_user
+    USING (user_id = ruminer.get_current_user_id());
 
-CREATE POLICY delete_post ON omnivore.post
-    FOR DELETE TO omnivore_user
-    USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY delete_post ON ruminer.post
+    FOR DELETE TO ruminer_user
+    USING (user_id = ruminer.get_current_user_id());
 
 COMMIT;

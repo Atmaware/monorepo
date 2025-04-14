@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.content_display_report ALTER COLUMN page_id DROP NOT NULL;
-ALTER TABLE omnivore.abuse_report ALTER COLUMN page_id DROP NOT NULL;
+ALTER TABLE ruminer.content_display_report ALTER COLUMN page_id DROP NOT NULL;
+ALTER TABLE ruminer.abuse_report ALTER COLUMN page_id DROP NOT NULL;
 
 COMMIT;

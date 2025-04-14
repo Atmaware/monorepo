@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions DROP COLUMN IF EXISTS icon;
+ALTER TABLE ruminer.subscriptions DROP COLUMN IF EXISTS icon;
 
 COMMIT;

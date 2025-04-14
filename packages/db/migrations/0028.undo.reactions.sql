@@ -1,9 +1,9 @@
 -- Type: UNDO
 -- Name: reactions
--- Description: Remove omnivore.reaction table
+-- Description: Remove ruminer.reaction table
 
 BEGIN;
 
-DROP TABLE omnivore.reaction;
+DROP TABLE ruminer.reaction;
 
 COMMIT;

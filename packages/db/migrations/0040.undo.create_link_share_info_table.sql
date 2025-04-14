@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.link_share_info;
+DROP TABLE ruminer.link_share_info;
 
 COMMIT;

@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/queue-manager",
+  "name": "@ruminer/queue-manager",
   "version": "1.0.0",
   "main": "build/src/index.js",
   "files": [

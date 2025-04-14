@@ -1,7 +1,7 @@
 const ContentSecurityPolicy = `
   default-src 'self';
   base-uri 'self';
-  connect-src 'self' ${process.env.NEXT_PUBLIC_SERVER_BASE_URL} https://proxy-prod.omnivore-image-cache.app https://accounts.google.com https://proxy-demo.omnivore-image-cache.app https://storage.googleapis.com https://widget.intercom.io https://api-iam.intercom.io https://static.intercomassets.com https://downloads.intercomcdn.com https://platform.twitter.com wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io wss://nexus-europe-websocket.intercom.io wss://nexus-australia-websocket.intercom.io https://uploads.intercomcdn.com https://tools.applemediaservices.com wss://www.tiktok.com *.sentry.io 127.0.0.1 http://localhost:1010; 
+  connect-src 'self' ${process.env.NEXT_PUBLIC_SERVER_BASE_URL} https://proxy-prod.ruminer-image-cache.app https://accounts.google.com https://proxy-demo.ruminer-image-cache.app https://storage.googleapis.com https://widget.intercom.io https://api-iam.intercom.io https://static.intercomassets.com https://downloads.intercomcdn.com https://platform.twitter.com wss://nexus-websocket-a.intercom.io wss://nexus-websocket-b.intercom.io wss://nexus-europe-websocket.intercom.io wss://nexus-australia-websocket.intercom.io https://uploads.intercomcdn.com https://tools.applemediaservices.com wss://www.tiktok.com *.sentry.io 127.0.0.1 http://localhost:1010; 
   font-src 'self' data: https://cdn.jsdelivr.net https://js.intercomcdn.com https://fonts.intercomcdn.com;
   form-action 'self' ${process.env.NEXT_PUBLIC_SERVER_BASE_URL} https://getpocket.com/auth/authorize https://intercom.help https://api-iam.intercom.io https://api-iam.eu.intercom.io https://api-iam.au.intercom.io https://www.notion.so https://api.notion.com;
   frame-ancestors 'none';
@@ -18,9 +18,9 @@ const moduleExports = {
   images: {
     formats: ['image/avif', 'image/webp'],
     domains: [
-      'proxy-demo.omnivore-image-cache.app',
-      'proxy-dev.omnivore-image-cache.app',
-      'proxy.omnivore-image-cache.app',
+      'proxy-demo.ruminer-image-cache.app',
+      'proxy-dev.ruminer-image-cache.app',
+      'proxy.ruminer-image-cache.app',
     ],
   },
   rewrites: () => {
@@ -29,19 +29,19 @@ const moduleExports = {
       rewrites.push(
         {
           source: '/api/graphql',
-          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.omnivore.app/api/graphql`,
+          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.ruminer.app/api/graphql`,
         },
         {
           source: '/api/auth/:path*',
-          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.omnivore.app/api/auth/:path*`,
+          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.ruminer.app/api/auth/:path*`,
         },
         {
           source: '/api/article/save',
-          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.omnivore.app/api/article/save`,
+          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.ruminer.app/api/article/save`,
         },
         {
           source: '/api/mobile-auth/:path*',
-          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.omnivore.app/api/mobile-auth/:path*`,
+          destination: `https://api-${process.env.NEXT_PUBLIC_APP_ENV}.ruminer.app/api/mobile-auth/:path*`,
         }
       )
     }
@@ -181,60 +181,60 @@ const moduleExports = {
       },
       {
         source: '/privacy',
-        destination: 'https://docs.omnivore.app/about/privacy-policy',
+        destination: 'https://docs.ruminer.app/about/privacy-policy',
         permanent: true,
       },
       {
         source: '/install/chrome',
         destination:
-          'https://chromewebstore.google.com/detail/omnivore/blkggjdmcfjdbmmmlfcpplkchpeaiiab',
+          'https://chromewebstore.google.com/detail/ruminer/blkggjdmcfjdbmmmlfcpplkchpeaiiab',
         permanent: true,
       },
       {
         source: '/install/firefox',
-        destination: 'https://addons.mozilla.org/en-US/firefox/addon/omnivore/',
+        destination: 'https://addons.mozilla.org/en-US/firefox/addon/ruminer/',
         permanent: true,
       },
       {
         source: '/install/edge',
         destination:
-          'https://microsoftedge.microsoft.com/addons/detail/omnivore/ipebjboljeobckndaookadioffchlnih',
+          'https://microsoftedge.microsoft.com/addons/detail/ruminer/ipebjboljeobckndaookadioffchlnih',
         permanent: true,
       },
       {
         source: '/install/ios',
         destination:
-          'https://apps.apple.com/us/app/omnivore-read-highlight-share/id1564031042',
+          'https://apps.apple.com/us/app/ruminer-read-highlight-share/id1564031042',
         permanent: true,
       },
       {
         source: '/install/mac',
         destination:
-          'https://apps.apple.com/us/app/omnivore-read-highlight-share/id1564031042',
+          'https://apps.apple.com/us/app/ruminer-read-highlight-share/id1564031042',
         permanent: true,
       },
       {
         source: '/install/macos',
         destination:
-          'https://apps.apple.com/us/app/omnivore-read-highlight-share/id1564031042',
+          'https://apps.apple.com/us/app/ruminer-read-highlight-share/id1564031042',
         permanent: true,
       },
       {
         source: '/install/safari',
         destination:
-          'https://apps.apple.com/us/app/omnivore-read-highlight-share/id1564031042',
+          'https://apps.apple.com/us/app/ruminer-read-highlight-share/id1564031042',
         permanent: true,
       },
       {
         source: '/install/apple',
         destination:
-          'https://apps.apple.com/us/app/omnivore-read-highlight-share/id1564031042',
+          'https://apps.apple.com/us/app/ruminer-read-highlight-share/id1564031042',
         permanent: true,
       },
       {
         source: '/install/android',
         destination:
-          'https://play.google.com/store/apps/details?id=app.omnivore.omnivore&pli=1',
+          'https://play.google.com/store/apps/details?id=app.ruminer.ruminer&pli=1',
         permanent: true,
       },
     ]
@@ -254,7 +254,7 @@ module.exports = withSentryConfig(module.exports, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 
-  org: 'omnivore',
+  org: 'ruminer',
   project: process.env.SENTRY_PROJECT,
 
   // Only print logs for uploading source maps in CI

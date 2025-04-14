@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization 
+ALTER TABLE ruminer.user_personalization 
     ADD column library_layout_type text;
 
 COMMIT;

@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     DROP COLUMN created_at,
     DROP COLUMN updated_at;
 

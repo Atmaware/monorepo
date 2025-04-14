@@ -86,13 +86,13 @@ import { CACHED_READING_POSITION_PREFIX } from './services/cached_reading_positi
 import { getJobPriority } from './utils/createTask'
 import { logger } from './utils/logger'
 
-export const BACKEND_QUEUE_NAME = 'omnivore-backend-queue'
-export const CONTENT_FETCH_QUEUE = 'omnivore-content-fetch-queue'
+export const BACKEND_QUEUE_NAME = 'ruminer-backend-queue'
+export const CONTENT_FETCH_QUEUE = 'ruminer-content-fetch-queue'
 
 export const JOB_VERSION = 'v001'
 
 const jobLatency = new client.Histogram({
-  name: 'omnivore_job_latency',
+  name: 'ruminer_job_latency',
   help: 'Latency of jobs in the queue',
   labelNames: ['job_name'],
   buckets: [0, 1, 5, 10, 50, 100, 500],
@@ -316,8 +316,8 @@ const main = async () => {
     const counts = await queue.getJobCounts(...jobsTypes)
 
     jobsTypes.forEach((metric, idx) => {
-      output += `# TYPE omnivore_queue_messages_${metric} gauge\n`
-      output += `omnivore_queue_messages_${metric}{queue="${BACKEND_QUEUE_NAME}"} ${counts[metric]}\n`
+      output += `# TYPE ruminer_queue_messages_${metric} gauge\n`
+      output += `ruminer_queue_messages_${metric}{queue="${BACKEND_QUEUE_NAME}"} ${counts[metric]}\n`
     })
 
     if (redisDataSource.redisClient) {
@@ -332,11 +332,11 @@ const main = async () => {
         10_000
       )
       if (cursor != '0') {
-        output += `# TYPE omnivore_read_position_messages gauge\n`
-        output += `omnivore_read_position_messages{queue="${BACKEND_QUEUE_NAME}"} ${10_001}\n`
+        output += `# TYPE ruminer_read_position_messages gauge\n`
+        output += `ruminer_read_position_messages{queue="${BACKEND_QUEUE_NAME}"} ${10_001}\n`
       } else if (batch) {
-        output += `# TYPE omnivore_read_position_messages gauge\n`
-        output += `omnivore_read_position_messages{} ${batch.length}\n`
+        output += `# TYPE ruminer_read_position_messages gauge\n`
+        output += `ruminer_read_position_messages{} ${batch.length}\n`
       }
     }
 
@@ -345,11 +345,11 @@ const main = async () => {
     if (oldestJobs.length > 0) {
       const currentTime = Date.now()
       const ageInSeconds = (currentTime - oldestJobs[0].timestamp) / 1000
-      output += `# TYPE omnivore_queue_messages_oldest_job_age_seconds gauge\n`
-      output += `omnivore_queue_messages_oldest_job_age_seconds{queue="${BACKEND_QUEUE_NAME}"} ${ageInSeconds}\n`
+      output += `# TYPE ruminer_queue_messages_oldest_job_age_seconds gauge\n`
+      output += `ruminer_queue_messages_oldest_job_age_seconds{queue="${BACKEND_QUEUE_NAME}"} ${ageInSeconds}\n`
     } else {
-      output += `# TYPE omnivore_queue_messages_oldest_job_age_seconds gauge\n`
-      output += `omnivore_queue_messages_oldest_job_age_seconds{queue="${BACKEND_QUEUE_NAME}"} ${0}\n`
+      output += `# TYPE ruminer_queue_messages_oldest_job_age_seconds gauge\n`
+      output += `ruminer_queue_messages_oldest_job_age_seconds{queue="${BACKEND_QUEUE_NAME}"} ${0}\n`
     }
 
     const metrics = await getMetrics()

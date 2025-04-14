@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     DROP COLUMN saved_at;
 
 COMMIT;

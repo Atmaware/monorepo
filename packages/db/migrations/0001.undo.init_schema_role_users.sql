@@ -4,23 +4,23 @@
 
 BEGIN;
 
-DROP POLICY read_user on omnivore.user;
-DROP POLICY create_user on omnivore.user;
-DROP POLICY update_user on omnivore.user;
+DROP POLICY read_user on ruminer.user;
+DROP POLICY create_user on ruminer.user;
+DROP POLICY update_user on ruminer.user;
 
-DROP TRIGGER update_user_modtime ON omnivore.user;
+DROP TRIGGER update_user_modtime ON ruminer.user;
 
-REVOKE ALL PRIVILEGES on SCHEMA omnivore from omnivore_user;
-REVOKE ALL PRIVILEGES on omnivore.user from omnivore_user;
+REVOKE ALL PRIVILEGES on SCHEMA ruminer from ruminer_user;
+REVOKE ALL PRIVILEGES on ruminer.user from ruminer_user;
 
-DROP FUNCTION omnivore.set_claims(uuid,text);
-DROP FUNCTION omnivore.get_current_user_id();
+DROP FUNCTION ruminer.set_claims(uuid,text);
+DROP FUNCTION ruminer.get_current_user_id();
 
-DROP TABLE omnivore.user;
+DROP TABLE ruminer.user;
 DROP TYPE registration_type;
 
-DROP SCHEMA omnivore CASCADE;
-DROP ROLE omnivore_user;
+DROP SCHEMA ruminer CASCADE;
+DROP ROLE ruminer_user;
 DROP EXTENSION "pgcrypto";
 DROP EXTENSION "uuid-ossp" CASCADE;
 

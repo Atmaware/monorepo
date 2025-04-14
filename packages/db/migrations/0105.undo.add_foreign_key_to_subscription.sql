@@ -5,17 +5,17 @@
 BEGIN;
 
 -- remove old column
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     DROP CONSTRAINT subscriptions_user_id_name_key,
     ADD COLUMN newsletter_email text;
 
 -- migrate existing data
-UPDATE omnivore.subscriptions
-    SET newsletter_email = omnivore.newsletter_emails.address
-    FROM omnivore.newsletter_emails
-    WHERE omnivore.newsletter_emails.id = omnivore.subscriptions.newsletter_email_id;
+UPDATE ruminer.subscriptions
+    SET newsletter_email = ruminer.newsletter_emails.address
+    FROM ruminer.newsletter_emails
+    WHERE ruminer.newsletter_emails.id = ruminer.subscriptions.newsletter_email_id;
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     DROP COLUMN newsletter_email_id;
 
 COMMIT;

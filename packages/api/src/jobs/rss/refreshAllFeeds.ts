@@ -38,9 +38,9 @@ export const refreshAllFeeds = async (db: DataSource): Promise<boolean> => {
         JSON_AGG(s.fetch_content_type) AS "fetchContentTypes",
         ARRAY_AGG(coalesce(s.folder, $3)) AS folders
       FROM
-        omnivore.subscriptions s
+        ruminer.subscriptions s
       INNER JOIN
-        omnivore.user u ON u.id = s.user_id AND u.status = $4
+        ruminer.user u ON u.id = s.user_id AND u.status = $4
       WHERE
         s.type = $1
         AND s.status = $2

@@ -70,7 +70,7 @@ export const updateIntegration = async (
         headers: {
           Cookie: `auth=${token};`,
           'Content-Type': 'application/json',
-          'X-OmnivoreClient': 'integration-handler',
+          'X-RuminerClient': 'integration-handler',
         },
       }
     )

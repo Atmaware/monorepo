@@ -25,13 +25,13 @@ describe('parseMetadata', () => {
   it('gets author, title, image, description', () => {
     const html = load('./test/utils/data/substack-post.html')
     const metadata = parsePageMetadata(html)
-    expect(metadata?.author).to.deep.equal('Omnivore')
+    expect(metadata?.author).to.deep.equal('Ruminer')
     expect(metadata?.title).to.deep.equal('Code Block Syntax Highlighting')
     expect(metadata?.previewImage).to.deep.equal(
       'https://cdn.substack.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png'
     )
     expect(metadata?.description).to.deep.equal(
-      'Highlighted <code> in Omnivore'
+      'Highlighted <code> in Ruminer'
     )
   })
 })
@@ -44,7 +44,7 @@ describe('parsePreparedContent', () => {
       .reply(401)
 
     const html = load('./test/utils/data/stratechery-blog-post.html')
-    const result = await parsePreparedContent('https://blog.omnivore.app/', {
+    const result = await parsePreparedContent('https://blog.ruminer.app/', {
       document: html,
       pageInfo: {},
     })
@@ -60,14 +60,14 @@ describe('parsePreparedContent', () => {
           <div>
             <div id='article-container'>
               some prefix text
-              <span data-omnivore-highlight-start="true"></span>This is some text within the highlight markers<span data-omnivore-highlight-end="true"></span>
+              <span data-ruminer-highlight-start="true"></span>This is some text within the highlight markers<span data-ruminer-highlight-end="true"></span>
               some suffix text
             </div>
           </div>
         </body>
       </html>
     `
-    const result = await parsePreparedContent('https://blog.omnivore.app/', {
+    const result = await parsePreparedContent('https://blog.ruminer.app/', {
       document: html,
       pageInfo: {},
     })
@@ -95,7 +95,7 @@ describe('parsePreparedContent', () => {
 //                     </head>
 //                     <body>body</body>
 //                     </html>`
-//     const result = await parsePreparedContent('https://blog.omnivore.app/', {
+//     const result = await parsePreparedContent('https://blog.ruminer.app/', {
 //       document: html,
 //       pageInfo: {},
 //     })
@@ -121,8 +121,8 @@ describe('isProbablyArticle', () => {
     expect(await isProbablyArticle(email, 'test subject')).to.be.true
   })
 
-  it('returns true when subject has omnivore: prefix', async () => {
-    const subject = 'omnivore: test subject'
+  it('returns true when subject has ruminer: prefix', async () => {
+    const subject = 'ruminer: test subject'
     expect(await isProbablyArticle('test-email', subject)).to.be.true
   })
 })
@@ -130,7 +130,7 @@ describe('isProbablyArticle', () => {
 describe('getTitleFromEmailSubject', () => {
   it('returns the title from the email subject', () => {
     const title = 'test subject'
-    const subject = `omnivore: ${title}`
+    const subject = `ruminer: ${title}`
     expect(getTitleFromEmailSubject(subject)).to.eql(title)
   })
 })
@@ -138,14 +138,14 @@ describe('getTitleFromEmailSubject', () => {
 describe('parseEmailAddress', () => {
   it('returns the name and address when in name <address> format', () => {
     const name = 'test name'
-    const address = 'tester@omnivore.app'
+    const address = 'tester@ruminer.app'
     const parsed = parseEmailAddress(`${name} <${address}>`)
     expect(parsed.name).to.eql(name)
     expect(parsed.address).to.eql(address)
   })
 
   it('returns the address when in address format', () => {
-    const address = 'tester@omnivore.app'
+    const address = 'tester@ruminer.app'
     const parsed = parseEmailAddress(address)
     expect(parsed.name).to.eql('')
     expect(parsed.address).to.eql(address)

@@ -1,8 +1,8 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { Job, Queue, RedisClient, Worker } from 'bullmq'
 import { JobData, processFetchContentJob } from './request_handler'
 
-export const QUEUE = 'omnivore-content-fetch-queue'
+export const QUEUE = 'ruminer-content-fetch-queue'
 
 export const getQueue = async (
   connection: RedisClient,

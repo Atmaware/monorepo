@@ -10,7 +10,7 @@ PG_HOST = os.getenv('PG_HOST', 'localhost')
 PG_PORT = os.getenv('PG_PORT', 5432)
 PG_USER = os.getenv('PG_USER', 'app_user')
 PG_PASSWORD = os.getenv('PG_PASSWORD', 'app_pass')
-PG_DB = os.getenv('PG_DB', 'omnivore')
+PG_DB = os.getenv('PG_DB', 'ruminer')
 ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
 ES_USERNAME = os.getenv('ES_USERNAME', 'elastic')
 ES_PASSWORD = os.getenv('ES_PASSWORD', 'password')
@@ -43,18 +43,18 @@ QUERY = f'''
      to_char(saved_at, '{DATETIME_FORMAT}') as "savedAt",
      slug,
      to_char(archived_at, '{DATETIME_FORMAT}') as "archivedAt"
-   FROM omnivore.links l
-   INNER JOIN omnivore.pages p ON p.id = l.article_id
+   FROM ruminer.links l
+   INNER JOIN ruminer.pages p ON p.id = l.article_id
    WHERE l.updated_at > '{UPDATE_TIME}'
 '''
 
 UPDATE_ARTICLE_SAVING_REQUEST_SQL = f'''
     UPDATE
-        omnivore.article_saving_request a
+        ruminer.article_saving_request a
     SET
         elastic_page_id = l.id
     FROM
-        omnivore.links l
+        ruminer.links l
     WHERE
         a.article_id = l.article_id
         AND a.user_id = l.user_id
@@ -63,11 +63,11 @@ UPDATE_ARTICLE_SAVING_REQUEST_SQL = f'''
 
 UPDATE_HIGHLIGHT_SQL = f'''
     UPDATE
-        omnivore.highlight h
+        ruminer.highlight h
     SET
         elastic_page_id = l.id
     FROM
-        omnivore.links l
+        ruminer.links l
     WHERE
         h.article_id = l.article_id
         AND h.user_id = l.user_id
@@ -81,12 +81,12 @@ def assertData(conn, client):
         success = 0
         failure = 0
         cursor = conn.cursor(cursor_factory=RealDictCursor)
-        cursor.execute('''SELECT id FROM omnivore.user''')
+        cursor.execute('''SELECT id FROM ruminer.user''')
         result = cursor.fetchall()
         for row in result:
             userId = row['id']
             cursor.execute(
-                f'SELECT COUNT(*) FROM omnivore.links WHERE user_id = \'{userId}\'''')
+                f'SELECT COUNT(*) FROM ruminer.links WHERE user_id = \'{userId}\'''')
             countInPostgres = cursor.fetchone()['count']
             countInElastic = client.count(
                 index='pages_alias', body={'query': {'term': {'userId': userId}}})['count']

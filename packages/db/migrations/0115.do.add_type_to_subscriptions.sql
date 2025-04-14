@@ -6,7 +6,7 @@ BEGIN;
 
 CREATE TYPE subscription_type AS ENUM ('NEWSLETTER', 'RSS');
 
-ALTER TABLE omnivore.subscriptions
+ALTER TABLE ruminer.subscriptions
     ADD COLUMN "type" subscription_type NOT NULL DEFAULT 'NEWSLETTER',
     ADD COLUMN count INTEGER NOT NULL DEFAULT 0,
     ADD COLUMN last_fetched_at timestamptz,

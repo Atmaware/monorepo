@@ -183,7 +183,7 @@ function RemoveReadwiseForm(props: RemoveReadwiseFormProps): JSX.Element {
         }}
       >
         <SpanBox>
-          Omnivore is configured to send all your highlights to Readwise.
+          Ruminer is configured to send all your highlights to Readwise.
         </SpanBox>
       </HStack>
 

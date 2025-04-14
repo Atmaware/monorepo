@@ -1,5 +1,5 @@
-import { Readability } from '@omnivore/readability'
-import { RedisDataSource } from '@omnivore/utils'
+import { Readability } from '@ruminer/readability'
+import { RedisDataSource } from '@ruminer/utils'
 import { ArticleSavingRequestStatus, ImportContext } from '../src'
 
 export const stubImportCtx = (

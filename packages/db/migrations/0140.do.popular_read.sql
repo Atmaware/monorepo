@@ -1,10 +1,10 @@
 -- Type: DO
 -- Name: popular_read
--- Description: Create omnivore.popular_read table
+-- Description: Create ruminer.popular_read table
 
 BEGIN;
 
-CREATE TABLE omnivore.popular_read (
+CREATE TABLE ruminer.popular_read (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
     key text NOT NULL,
     original_url text NOT NULL,
@@ -23,19 +23,19 @@ CREATE TABLE omnivore.popular_read (
     UNIQUE (key)
 );
 
-CREATE TRIGGER update_popular_read_modtime BEFORE UPDATE ON omnivore.popular_read FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+CREATE TRIGGER update_popular_read_modtime BEFORE UPDATE ON ruminer.popular_read FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-GRANT SELECT ON omnivore.popular_read TO omnivore_user;
+GRANT SELECT ON ruminer.popular_read TO ruminer_user;
 
-INSERT INTO omnivore.popular_read (key, original_url, title, author, description, thumbnail, published_at, site_name, slug, readable_content, original_content, word_count)
+INSERT INTO ruminer.popular_read (key, original_url, title, author, description, thumbnail, published_at, site_name, slug, readable_content, original_content, word_count)
 VALUES
-  ('omnivore_get_started', 'https://blog.omnivore.app/p/getting-started-with-omnivore', 'Getting Started with Omnivore', 'The Omnivore Team', 'Get the most out of Omnivore by learning how to use it.', 'https://proxy-prod.omnivore-image-cache.app/320x320,sxQnqya1QNApB7ZAGPj9K20AU6sw0UAnjmAIy2ub8hUU/https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif', '2021-10-13', 'Omnivore Blog', 'getting-started-with-omnivore', '<DIV class="page" id="readability-page-1">
+  ('ruminer_get_started', 'https://blog.ruminer.app/p/getting-started-with-ruminer', 'Getting Started with Ruminer', 'The Ruminer Team', 'Get the most out of Ruminer by learning how to use it.', 'https://proxy-prod.ruminer-image-cache.app/320x320,sxQnqya1QNApB7ZAGPj9K20AU6sw0UAnjmAIy2ub8hUU/https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif', '2021-10-13', 'Ruminer Blog', 'getting-started-with-ruminer', '<DIV class="page" id="readability-page-1">
     <article>
         <div>
-            <h3> Omnivore is a read-it-later app that lets you save and organize everything you read online. </h3>
+            <h3> Ruminer is a read-it-later app that lets you save and organize everything you read online. </h3>
         </div>
         <div dir="auto">
-            <p> This guide will show you how to use Omnivore’s basic functions and advanced features, divided into four main activities: </p>
+            <p> This guide will show you how to use Ruminer’s basic functions and advanced features, divided into four main activities: </p>
             <ul>
                 <li>
                     <p> Saving </p>
@@ -51,12 +51,12 @@ VALUES
                 </li>
             </ul>
             <p>
-                <span>The</span> <strong>Library</strong> <span>is the center of your Omnivore experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.</span>
+                <span>The</span> <strong>Library</strong> <span>is the center of your Ruminer experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.</span>
             </p>
             <p> There are five ways to save links to pages or articles that you wish to read later: </p>
             <ul>
                 <li>
-                    <p> Saving from Your Omnivore Library </p>
+                    <p> Saving from Your Ruminer Library </p>
                 </li>
                 <li>
                     <p> Saving from a Browser&nbsp; </p>
@@ -73,52 +73,52 @@ VALUES
                     </p>
                 </li>
             </ul>
-            <h3> Saving from Your Omnivore Library </h3>
+            <h3> Saving from Your Ruminer Library </h3>
             <p>
                 <span>1. In the upper right corner of your Library, tap the</span> <strong>Add Link</strong> <span>button.</span><br>
                 <span>2. Enter the URL you wish to save and tap</span> <strong>Add Link</strong><span>.</span><br>
                 <span>3. The link will appear in your Library the next time you refresh it.</span><br>
             </p>
             <h3> Saving from a Browser </h3>
-            <p> 1. Download and install the Omnivore extension for your browser: </p>
+            <p> 1. Download and install the Ruminer extension for your browser: </p>
             <ul>
                 <li>
                     <p>
-                        <a href="https://omnivore.app/install/chrome" rel="">Chrome&nbsp;</a>
+                        <a href="https://ruminer.app/install/chrome" rel="">Chrome&nbsp;</a>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <a href="https://omnivore.app/install/edge" rel="">Edge</a>
+                        <a href="https://ruminer.app/install/edge" rel="">Edge</a>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <a href="https://omnivore.app/install/firefox" rel="">Firefox</a>
+                        <a href="https://ruminer.app/install/firefox" rel="">Firefox</a>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <a href="https://omnivore.app/install/safari" rel="">Safari</a>
+                        <a href="https://ruminer.app/install/safari" rel="">Safari</a>
                     </p>
                 </li>
             </ul>
             <p>
-                <span>2. Navigate to the page you wish to save and tap the Omnivore button in your browser’s toolbar or Extensions menu.</span><br>
-                <span>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select</span> <strong>Save to Omnivore</strong> <span>from the menu.</span><br>
+                <span>2. Navigate to the page you wish to save and tap the Ruminer button in your browser’s toolbar or Extensions menu.</span><br>
+                <span>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select</span> <strong>Save to Ruminer</strong> <span>from the menu.</span><br>
                 <span>4. The link will appear in your Library the next time you refresh it.</span><br>
             </p>
             <h3> Saving from a Phone or Tablet </h3>
-            <p> The best way to save links from your mobile device is via the Omnivore app. You can download the app here: </p>
+            <p> The best way to save links from your mobile device is via the Ruminer app. You can download the app here: </p>
             <ul>
                 <li>
                     <p>
-                        <a href="https://omnivore.app/install/ios" rel="">iOS (iPhone or iPad)</a>
+                        <a href="https://ruminer.app/install/ios" rel="">iOS (iPhone or iPad)</a>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <a href="https://play.google.com/store/apps/details?id=app.omnivore.omnivore" rel="">Android (Currently in pre-release)</a>
+                        <a href="https://play.google.com/store/apps/details?id=app.ruminer.ruminer" rel="">Android (Currently in pre-release)</a>
                     </p>
                 </li>
             </ul>
@@ -131,7 +131,7 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <span>Tap the</span> <strong>Omnivore</strong> <span>icon in the Share menu.</span>
+                        <span>Tap the</span> <strong>Ruminer</strong> <span>icon in the Share menu.</span>
                     </p>
                 </li>
                 <li>
@@ -140,23 +140,23 @@ VALUES
             </ol>
             <h3> Newsletter Subscriptions via Email </h3>
             <p>
-                <span>1. On the Omnivore website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select</span> <strong>Emails</strong> <span>from the menu.</span>
+                <span>1. On the Ruminer website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select</span> <strong>Emails</strong> <span>from the menu.</span>
             </p>
             <p>
-                <span>2. Tap</span> <strong>Create a New Email Address</strong> <span>to add a new email address (ex: username-123abc@inbox.omnivore.app) to the list.</span>
+                <span>2. Tap</span> <strong>Create a New Email Address</strong> <span>to add a new email address (ex: username-123abc@inbox.ruminer.app) to the list.</span>
             </p>
             <p> 3. Click the Copy icon next to the email address. </p>
             <p>
                 <span>4. Navigate to the signup page for the newsletter you wish to subscribe to.</span><br>
-                <span>5. Paste the Omnivore email address into the signup form.</span>
+                <span>5. Paste the Ruminer email address into the signup form.</span>
             </p>
-            <p> 6. New newsletters will be automatically delivered to your Omnivore inbox. </p>
-            <p> NOTE: If Omnivore receive&apos;s an email that does not look like an article, such as a welcome message, or note from the author, it will be forwarded to your Omnivore account email address (the email you registered with). </p>
+            <p> 6. New newsletters will be automatically delivered to your Ruminer inbox. </p>
+            <p> NOTE: If Ruminer receive&apos;s an email that does not look like an article, such as a welcome message, or note from the author, it will be forwarded to your Ruminer account email address (the email you registered with). </p>
             <h3> Saving PDFs from a Mac&nbsp; </h3>
             <ol>
                 <li>
                     <p>
-                        <span>Install the</span> <a href="https://omnivore.app/install/mac" rel="">Mac App</a><span>.&nbsp;</span>
+                        <span>Install the</span> <a href="https://ruminer.app/install/mac" rel="">Mac App</a><span>.&nbsp;</span>
                     </p>
                 </li>
                 <li>
@@ -164,7 +164,7 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <span>Select</span> <strong>Share</strong> <span>from the menu and choose</span> <strong>Omnivore</strong><span>.</span>
+                        <span>Select</span> <strong>Share</strong> <span>from the menu and choose</span> <strong>Ruminer</strong><span>.</span>
                     </p>
                 </li>
                 <li>
@@ -173,7 +173,7 @@ VALUES
             </ol>
             <h2> Reading </h2>
             <p> Click any link saved in your Library to enter the Reader view.&nbsp; </p>
-            <p> Omnivore formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load. </p>
+            <p> Ruminer formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load. </p>
             <p> While reading, you can: </p>
             <ul>
                 <li>
@@ -243,9 +243,9 @@ VALUES
                 </li>
             </ol>
             <h3> Track Reading Progress </h3>
-            <p> Omnivore automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading. </p>
+            <p> Ruminer automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading. </p>
             <h2> Organizing </h2>
-            <p> By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Omnivore provides the following actions:&nbsp; </p>
+            <p> By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Ruminer provides the following actions:&nbsp; </p>
             <ul>
                 <li>
                     <p> Archiving </p>
@@ -293,11 +293,11 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <em>Omnivore mobile app only</em><span>: tap</span> <strong>Labels</strong> <span>to see a complete list of all labels you have used; tap one to view all links with the same label</span>
+                        <em>Ruminer mobile app only</em><span>: tap</span> <strong>Labels</strong> <span>to see a complete list of all labels you have used; tap one to view all links with the same label</span>
                     </p>
                 </li>
                 <li>
-                    <p> Note: Omnivore will automatically assign some labels, such as “Newsletters.” </p>
+                    <p> Note: Ruminer will automatically assign some labels, such as “Newsletters.” </p>
                 </li>
             </ol>
             <h3> Search </h3>
@@ -307,7 +307,7 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <span>You can combine keywords with labels and filters to focus your search even further.</span> <a href="https://docs.omnivore.app/using/search.html" rel="">Learn more about advanced search</a><span>.</span>
+                        <span>You can combine keywords with labels and filters to focus your search even further.</span> <a href="https://docs.ruminer.app/using/search.html" rel="">Learn more about advanced search</a><span>.</span>
                     </p>
                 </li>
             </ol>
@@ -340,7 +340,7 @@ VALUES
                 </li>
             </ol>
             <h2> Integrations </h2>
-            <p> Omnivore allows integrations with knowledge bases and note-taking apps including: </p>
+            <p> Ruminer allows integrations with knowledge bases and note-taking apps including: </p>
             <ul>
                 <li>
                     <p> Logseq </p>
@@ -351,11 +351,11 @@ VALUES
             </ul>
             <h3> Logseq </h3>
             <p>
-                <span>With Omnivore''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful</span> <a href="https://briansunter.com/graph/#/page/omnivore-logseq-guide" rel="">Omnivore for Logseq Plugin Guide</a><span>.</span>
+                <span>With Ruminer''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful</span> <a href="https://briansunter.com/graph/#/page/ruminer-logseq-guide" rel="">Ruminer for Logseq Plugin Guide</a><span>.</span>
             </p>
             <h3> Webhooks </h3>
             <p>
-                <span>Omnivore can trigger webhooks when you save a link or add highlights to a page you are reading.</span> <a href="https://blog.omnivore.app/p/syncing-all-your-notes-to-google" rel="">This example</a> <span>shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.</span>
+                <span>Ruminer can trigger webhooks when you save a link or add highlights to a page you are reading.</span> <a href="https://blog.ruminer.app/p/syncing-all-your-notes-to-google" rel="">This example</a> <span>shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.</span>
             </p>
         </div>
     </article>
@@ -366,9 +366,9 @@ VALUES
         <meta charset="utf-8" />
         <meta name="norton-safeweb-site-verification" content="24usqpep0ejc5w6hod3dulxwciwp0djs6c6ufp96av3t4whuxovj72wfkdjxu82yacb7430qjm8adbd5ezlt4592dq4zrvadcn9j9n-0btgdzpiojfzno16-fnsnu7xd" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="author" content="Omnivore" />
-        <meta property="og:url" content="https://blog.omnivore.app/p/getting-started-with-omnivore-382" />
-        <link rel="canonical" href="https://blog.omnivore.app/p/getting-started-with-omnivore-382" />
+        <meta name="author" content="Ruminer" />
+        <meta property="og:url" content="https://blog.ruminer.app/p/getting-started-with-ruminer-382" />
+        <link rel="canonical" href="https://blog.ruminer.app/p/getting-started-with-ruminer-382" />
         <link rel="shortcut icon" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-32x32.png" />
@@ -384,9 +384,9 @@ VALUES
         <link rel="apple-touch-icon" sizes="180x180" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-180x180.png" />
         <link rel="apple-touch-icon" sizes="1024x1024" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-1024x1024.png" />
         <title>
-            Getting Started with Omnivore - Omnivore
+            Getting Started with Ruminer - Ruminer
         </title>
-        <link rel="alternate" type="application/rss+xml" href="/feed" title="Omnivore" />
+        <link rel="alternate" type="application/rss+xml" href="/feed" title="Ruminer" />
         <style>
         <![CDATA[
         /*https://fonts.googleapis.com/css?family=Spectral:400,400i,600,600i*/
@@ -545,11 +545,11 @@ VALUES
         <link rel="stylesheet" type="text/css" href="https://substackcdn.com/min/main.css?v=1a089-183d8968e28" />
         <meta property="og:type" content="article" data-preact-helmet="true" />
         <meta name="theme-color" content="#ffffff" data-preact-helmet="true" />
-        <meta name="description" content="Omnivore is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
-        <meta property="og:description" content="Omnivore is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
-        <meta property="twitter:description" content="Omnivore is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
-        <meta property="og:title" content="Getting Started with Omnivore" data-preact-helmet="true" />
-        <meta property="twitter:title" content="Getting Started with Omnivore" data-preact-helmet="true" />
+        <meta name="description" content="Ruminer is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
+        <meta property="og:description" content="Ruminer is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
+        <meta property="twitter:description" content="Ruminer is a read-it-later app that lets you save and organize everything you read online." data-preact-helmet="true" />
+        <meta property="og:title" content="Getting Started with Ruminer" data-preact-helmet="true" />
+        <meta property="twitter:title" content="Getting Started with Ruminer" data-preact-helmet="true" />
         <meta property="og:image" content="https://substackcdn.com/image/fetch/w_1200,h_600,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg" data-preact-helmet="true" />
         <meta property="twitter:image" content="https://substackcdn.com/image/fetch/w_1200,h_600,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg" data-preact-helmet="true" />
         <meta property="twitter:card" content="summary_large_image" data-preact-helmet="true" />
@@ -586,10 +586,10 @@ VALUES
                         <div class="topbar">
                             <div class="topbar-content">
                                 <div class="navbar-logo-container" style="width: 183.125px;">
-                                    <a href="https://blog.omnivore.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="navbar-logo" /></a>
+                                    <a href="https://blog.ruminer.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="navbar-logo" /></a>
                                 </div>
                                 <h1 class="navbar-title">
-                                    <a class="navbar-title-link" href="https://blog.omnivore.app">Omnivore</a>
+                                    <a class="navbar-title-link" href="https://blog.ruminer.app">Ruminer</a>
                                 </h1>
                                 <div class="navbar-buttons">
                                     <button data-testid="noncontributor-cta-button" class="button primary subscribe-cta subscribe-btn" type="button" tabindex="0">Subscribe</button><button native="true" class="button sign-in-link outline-grayscale" type="button" tabindex="0">Sign in</button>
@@ -602,7 +602,7 @@ VALUES
                 <div>
                     <script type="application/ld+json">
                     <![CDATA[
-                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.omnivore.app/p/getting-started-with-omnivore-382","mainEntityOfPage":"https://blog.omnivore.app/p/getting-started-with-omnivore-382","headline":"Getting Started with Omnivore","description":"Omnivore is a read-it-later app that lets you save and organize everything you read online.","image":[{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg"}],"datePublished":"2022-10-17T16:48:56+08:00","dateModified":"2022-10-17T16:48:56+08:00","isAccessibleForFree":true,"author":[{"@type":"Person","name":"Omnivore","url":"https://substack.com/profile/49669396-omnivore","description":"Omnivore is the home for everything you read; automatically organized and easy to share","identifier":"user:49669396"}],"publisher":{"@type":"Organization","name":"Omnivore","url":"https://blog.omnivore.app","description":"Updates from the Omnivore team","identifier":"pub:509268","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"},"image":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
+                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.ruminer.app/p/getting-started-with-ruminer-382","mainEntityOfPage":"https://blog.ruminer.app/p/getting-started-with-ruminer-382","headline":"Getting Started with Ruminer","description":"Ruminer is a read-it-later app that lets you save and organize everything you read online.","image":[{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg"}],"datePublished":"2022-10-17T16:48:56+08:00","dateModified":"2022-10-17T16:48:56+08:00","isAccessibleForFree":true,"author":[{"@type":"Person","name":"Ruminer","url":"https://substack.com/profile/49669396-ruminer","description":"Ruminer is the home for everything you read; automatically organized and easy to share","identifier":"user:49669396"}],"publisher":{"@type":"Organization","name":"Ruminer","url":"https://blog.ruminer.app","description":"Updates from the Ruminer team","identifier":"pub:509268","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"},"image":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
                     ]]>
                     </script>
                     <script type="text/javascript" async="async" src="https://www.googleadservices.com/pagead/conversion_async.js"></script>
@@ -632,10 +632,10 @@ VALUES
                                                             </div>
                                                             <div class="social-labels">
                                                                 <div class="social-title">
-                                                                    Getting Started with Omnivore
+                                                                    Getting Started with Ruminer
                                                                 </div>
                                                                 <div class="social-subtitle">
-                                                                    blog.omnivore.app
+                                                                    blog.ruminer.app
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -688,13 +688,13 @@ VALUES
                                     </div>
                                     <div class="subscribe-dialog" style="bottom: 360px; left: 740px;">
                                         <div class="pub-icon pub-icon-margin subscribe-dialog-publication-icon">
-                                            <a href="https://blog.omnivore.app" native="true"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" /><img class="frontend-components-responsive_img-module__img--1l4UG custom" src="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" sizes="100vw" alt="Omnivore" srcset="" width="54" height="54" /></picture></a>
+                                            <a href="https://blog.ruminer.app" native="true"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" /><img class="frontend-components-responsive_img-module__img--1l4UG custom" src="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" sizes="100vw" alt="Ruminer" srcset="" width="54" height="54" /></picture></a>
                                         </div>
                                         <div class="subscribe-dialog-publication-title subscribe-dialog-header-text">
-                                            Omnivore
+                                            Ruminer
                                         </div>
                                         <div class="subscribe-dialog-publication-subtitle subscribe-dialog-body-text">
-                                            Updates from the Omnivore team
+                                            Updates from the Ruminer team
                                         </div>
                                         <form>
                                             <input class="subscribe-dialog-publication-email-input" placeholder="Type your email..." /><button class="subscribe-dialog-submit-button" type="submit">Subscribe</button>
@@ -704,23 +704,23 @@ VALUES
                                             <polyline points="9 18 15 12 9 6"></polyline></svg>
                                         </div>
                                         <div class="subscribe-dialog-body-text">
-                                            <span>Already a subscriber?</span> <span class="subscribe-dialog-sign-in-link"><a href="https://substack.com/sign-in?redirect=https%3A%2F%2Fblog.omnivore.app%2Fp%2Fgetting-started-with-omnivore-382&amp;for_pub=omnivoreapp">Sign in</a></span>
+                                            <span>Already a subscriber?</span> <span class="subscribe-dialog-sign-in-link"><a href="https://substack.com/sign-in?redirect=https%3A%2F%2Fblog.ruminer.app%2Fp%2Fgetting-started-with-ruminer-382&amp;for_pub=ruminerapp">Sign in</a></span>
                                         </div>
                                     </div>
                                     <div class="subscribe-dialog-scroll-modal-scroll-capture" style="opacity: 0.6;"></div>
                                     <div class="post-header">
                                         <h1 class="post-title short unpublished">
-                                            Getting Started with Omnivore
+                                            Getting Started with Ruminer
                                         </h1>
                                         <h3 class="subtitle">
-                                            Omnivore is a read-it-later app that lets you save and organize everything you read online.
+                                            Ruminer is a read-it-later app that lets you save and organize everything you read online.
                                         </h3>
                                         <div class="post-subheader meta-subheader">
                                             <div class="left">
                                                 <div class="label-stack">
                                                     <div class="bylines">
                                                         <div class="profile-hover-wrapper">
-                                                            <span class="byline-names"><a class="byline-profile-link" href="https://substack.com/profile/49669396-omnivore">Omnivore</a></span>
+                                                            <span class="byline-names"><a class="byline-profile-link" href="https://substack.com/profile/49669396-ruminer">Ruminer</a></span>
                                                         </div>
                                                     </div>
                                                     <div class="publish-context">
@@ -759,10 +759,10 @@ VALUES
                                                                             </div>
                                                                             <div class="social-labels">
                                                                                 <div class="social-title">
-                                                                                    Getting Started with Omnivore
+                                                                                    Getting Started with Ruminer
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -822,7 +822,7 @@ VALUES
                                         <div class="available-content">
                                             <div class="body markup" dir="auto">
                                                 <p>
-                                                    This guide will show you how to use Omnivore’s basic functions and advanced features, divided into four main activities:
+                                                    This guide will show you how to use Ruminer’s basic functions and advanced features, divided into four main activities:
                                                 </p>
                                                 <ul>
                                                     <li>
@@ -847,14 +847,14 @@ VALUES
                                                     </li>
                                                 </ul>
                                                 <p>
-                                                    <span>The</span> <strong>Library</strong> <span>is the center of your Omnivore experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.</span>
+                                                    <span>The</span> <strong>Library</strong> <span>is the center of your Ruminer experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.</span>
                                                 </p>
                                                 <h2 class="header-with-anchor-widget">
                                                     Saving
                                                 </h2>
                                                 <div id="§saving" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/saving">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/saving">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -869,7 +869,7 @@ VALUES
                                                 <ul>
                                                     <li>
                                                         <p>
-                                                            Saving from Your Omnivore Library
+                                                            Saving from Your Ruminer Library
                                                         </p>
                                                     </li>
                                                     <li>
@@ -894,11 +894,11 @@ VALUES
                                                     </li>
                                                 </ul>
                                                 <h3 class="header-with-anchor-widget">
-                                                    Saving from Your Omnivore Library
+                                                    Saving from Your Ruminer Library
                                                 </h3>
-                                                <div id="§saving-from-your-omnivore-library" class="header-anchor-widget">
+                                                <div id="§saving-from-your-ruminer-library" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/saving-from-your-omnivore-library">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/saving-from-your-ruminer-library">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -917,7 +917,7 @@ VALUES
                                                 </h3>
                                                 <div id="§saving-from-a-browser" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/saving-from-a-browser">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/saving-from-a-browser">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -927,33 +927,33 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    1. Download and install the Omnivore extension for your browser:
+                                                    1. Download and install the Ruminer extension for your browser:
                                                 </p>
                                                 <ul>
                                                     <li>
                                                         <p>
-                                                            <a href="https://omnivore.app/install/chrome" rel="">Chrome&#160;</a>
+                                                            <a href="https://ruminer.app/install/chrome" rel="">Chrome&#160;</a>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <a href="https://omnivore.app/install/edge" rel="">Edge</a>
+                                                            <a href="https://ruminer.app/install/edge" rel="">Edge</a>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <a href="https://omnivore.app/install/firefox" rel="">Firefox</a>
+                                                            <a href="https://ruminer.app/install/firefox" rel="">Firefox</a>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <a href="https://omnivore.app/install/safari" rel="">Safari</a>
+                                                            <a href="https://ruminer.app/install/safari" rel="">Safari</a>
                                                         </p>
                                                     </li>
                                                 </ul>
                                                 <p>
-                                                    <span>2. Navigate to the page you wish to save and tap the Omnivore button in your browser’s toolbar or Extensions menu.</span><br />
-                                                    <span>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select</span> <strong>Save to Omnivore</strong> <span>from the menu.</span><br />
+                                                    <span>2. Navigate to the page you wish to save and tap the Ruminer button in your browser’s toolbar or Extensions menu.</span><br />
+                                                    <span>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select</span> <strong>Save to Ruminer</strong> <span>from the menu.</span><br />
                                                     <span>4. The link will appear in your Library the next time you refresh it.</span><br />
                                                 </p>
                                                 <h3 class="header-with-anchor-widget">
@@ -961,7 +961,7 @@ VALUES
                                                 </h3>
                                                 <div id="§saving-from-a-phone-or-tablet" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/saving-from-a-phone-or-tablet">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/saving-from-a-phone-or-tablet">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -971,17 +971,17 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    The best way to save links from your mobile device is via the Omnivore app. You can download the app here:
+                                                    The best way to save links from your mobile device is via the Ruminer app. You can download the app here:
                                                 </p>
                                                 <ul>
                                                     <li>
                                                         <p>
-                                                            <a href="https://omnivore.app/install/ios" rel="">iOS (iPhone or iPad)</a>
+                                                            <a href="https://ruminer.app/install/ios" rel="">iOS (iPhone or iPad)</a>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <a href="https://play.google.com/store/apps/details?id=app.omnivore.omnivore" rel="">Android (Currently in pre-release)</a>
+                                                            <a href="https://play.google.com/store/apps/details?id=app.ruminer.ruminer" rel="">Android (Currently in pre-release)</a>
                                                         </p>
                                                     </li>
                                                 </ul>
@@ -996,7 +996,7 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>Tap the</span> <strong>Omnivore</strong> <span>icon in the Share menu.</span>
+                                                            <span>Tap the</span> <strong>Ruminer</strong> <span>icon in the Share menu.</span>
                                                         </p>
                                                     </li>
                                                     <li>
@@ -1010,7 +1010,7 @@ VALUES
                                                 </h3>
                                                 <div id="§newsletter-subscriptions-via-email" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/newsletter-subscriptions-via-email">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/newsletter-subscriptions-via-email">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1020,30 +1020,30 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <span>1. On the Omnivore website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select</span> <strong>Emails</strong> <span>from the menu.</span>
+                                                    <span>1. On the Ruminer website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select</span> <strong>Emails</strong> <span>from the menu.</span>
                                                 </p>
                                                 <p>
-                                                    <span>2. Tap</span> <strong>Create a New Email Address</strong> <span>to add a new email address (ex: username-123abc@inbox.omnivore.app) to the list.</span>
+                                                    <span>2. Tap</span> <strong>Create a New Email Address</strong> <span>to add a new email address (ex: username-123abc@inbox.ruminer.app) to the list.</span>
                                                 </p>
                                                 <p>
                                                     3. Click the Copy icon next to the email address.
                                                 </p>
                                                 <p>
                                                     <span>4. Navigate to the signup page for the newsletter you wish to subscribe to.</span><br />
-                                                    <span>5. Paste the Omnivore email address into the signup form.</span>
+                                                    <span>5. Paste the Ruminer email address into the signup form.</span>
                                                 </p>
                                                 <p>
-                                                    6. New newsletters will be automatically delivered to your Omnivore inbox.
+                                                    6. New newsletters will be automatically delivered to your Ruminer inbox.
                                                 </p>
                                                 <p>
-                                                    NOTE: If Omnivore receive’s an email that does not look like an article, such as a welcome message, or note from the author, it will be forwarded to your Omnivore account email address (the email you registered with).
+                                                    NOTE: If Ruminer receive’s an email that does not look like an article, such as a welcome message, or note from the author, it will be forwarded to your Ruminer account email address (the email you registered with).
                                                 </p>
                                                 <h3 class="header-with-anchor-widget">
                                                     Saving PDFs from a Mac&#160;
                                                 </h3>
                                                 <div id="§saving-pdfs-from-a-mac" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/saving-pdfs-from-a-mac">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/saving-pdfs-from-a-mac">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1055,7 +1055,7 @@ VALUES
                                                 <ol>
                                                     <li>
                                                         <p>
-                                                            <span>Install the</span> <a href="https://omnivore.app/install/mac" rel="">Mac App</a><span>.&#160;</span>
+                                                            <span>Install the</span> <a href="https://ruminer.app/install/mac" rel="">Mac App</a><span>.&#160;</span>
                                                         </p>
                                                     </li>
                                                     <li>
@@ -1065,7 +1065,7 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>Select</span> <strong>Share</strong> <span>from the menu and choose</span> <strong>Omnivore</strong><span>.</span>
+                                                            <span>Select</span> <strong>Share</strong> <span>from the menu and choose</span> <strong>Ruminer</strong><span>.</span>
                                                         </p>
                                                     </li>
                                                     <li>
@@ -1079,7 +1079,7 @@ VALUES
                                                 </h2>
                                                 <div id="§reading" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/reading">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/reading">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1092,7 +1092,7 @@ VALUES
                                                     Click any link saved in your Library to enter the Reader view.&#160;
                                                 </p>
                                                 <p>
-                                                    Omnivore formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load.
+                                                    Ruminer formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load.
                                                 </p>
                                                 <p>
                                                     While reading, you can:
@@ -1129,7 +1129,7 @@ VALUES
                                                 </h3>
                                                 <div id="§change-formatting" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/change-formatting">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/change-formatting">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1155,7 +1155,7 @@ VALUES
                                                 </h3>
                                                 <div id="§highlight-text" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/highlight-text">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/highlight-text">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1186,7 +1186,7 @@ VALUES
                                                 </h3>
                                                 <div id="§add-notes" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/add-notes">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/add-notes">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1217,7 +1217,7 @@ VALUES
                                                 </h3>
                                                 <div id="§view-all-saved-highlights-and-notes" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/view-all-saved-highlights-and-notes">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/view-all-saved-highlights-and-notes">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1243,7 +1243,7 @@ VALUES
                                                 </h3>
                                                 <div id="§track-reading-progress" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/track-reading-progress">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/track-reading-progress">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1253,14 +1253,14 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    Omnivore automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading.
+                                                    Ruminer automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading.
                                                 </p>
                                                 <h2 class="header-with-anchor-widget">
                                                     Organizing
                                                 </h2>
                                                 <div id="§organizing" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/organizing">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/organizing">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1270,7 +1270,7 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Omnivore provides the following actions:&#160;
+                                                    By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Ruminer provides the following actions:&#160;
                                                 </p>
                                                 <ul>
                                                     <li>
@@ -1299,7 +1299,7 @@ VALUES
                                                 </h2>
                                                 <div id="§archiving" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/archiving">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/archiving">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1330,7 +1330,7 @@ VALUES
                                                 </h3>
                                                 <div id="§labels" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/labels">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/labels">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1357,12 +1357,12 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <em>Omnivore mobile app only</em><span>: tap</span> <strong>Labels</strong> <span>to see a complete list of all labels you have used; tap one to view all links with the same label</span>
+                                                            <em>Ruminer mobile app only</em><span>: tap</span> <strong>Labels</strong> <span>to see a complete list of all labels you have used; tap one to view all links with the same label</span>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            Note: Omnivore will automatically assign some labels, such as “Newsletters.”
+                                                            Note: Ruminer will automatically assign some labels, such as “Newsletters.”
                                                         </p>
                                                     </li>
                                                 </ol>
@@ -1371,7 +1371,7 @@ VALUES
                                                 </h3>
                                                 <div id="§search" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/search">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/search">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1388,7 +1388,7 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>You can combine keywords with labels and filters to focus your search even further.</span> <a href="https://docs.omnivore.app/using/search.html" rel="">Learn more about advanced search</a><span>.</span>
+                                                            <span>You can combine keywords with labels and filters to focus your search even further.</span> <a href="https://docs.ruminer.app/using/search.html" rel="">Learn more about advanced search</a><span>.</span>
                                                         </p>
                                                     </li>
                                                 </ol>
@@ -1397,7 +1397,7 @@ VALUES
                                                 </h3>
                                                 <div id="§filters" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/filters">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/filters">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1438,7 +1438,7 @@ VALUES
                                                 </h2>
                                                 <div id="§integrations" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/integrations">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/integrations">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1448,7 +1448,7 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    Omnivore allows integrations with knowledge bases and note-taking apps including:
+                                                    Ruminer allows integrations with knowledge bases and note-taking apps including:
                                                 </p>
                                                 <ul>
                                                     <li>
@@ -1467,7 +1467,7 @@ VALUES
                                                 </h3>
                                                 <div id="§logseq" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/logseq">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/logseq">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1477,14 +1477,14 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <span>With Omnivore''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful</span> <a href="https://briansunter.com/graph/#/page/omnivore-logseq-guide" rel="">Omnivore for Logseq Plugin Guide</a><span>.</span>
+                                                    <span>With Ruminer''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful</span> <a href="https://briansunter.com/graph/#/page/ruminer-logseq-guide" rel="">Ruminer for Logseq Plugin Guide</a><span>.</span>
                                                 </p>
                                                 <h3 class="header-with-anchor-widget">
                                                     Webhooks
                                                 </h3>
                                                 <div id="§webhooks" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/77907284/webhooks">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/77907284/webhooks">
                                                             <h3 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -1494,7 +1494,7 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <span>Omnivore can trigger webhooks when you save a link or add highlights to a page you are reading.</span> <a href="https://blog.omnivore.app/p/syncing-all-your-notes-to-google" rel="">This example</a> <span>shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.</span>
+                                                    <span>Ruminer can trigger webhooks when you save a link or add highlights to a page you are reading.</span> <a href="https://blog.ruminer.app/p/syncing-all-your-notes-to-google" rel="">This example</a> <span>shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.</span>
                                                 </p>
                                             </div>
                                         </div>
@@ -1502,17 +1502,17 @@ VALUES
                                         <div class="post-end-cta-full">
                                             <div class="visibility-check"></div>
                                             <h3>
-                                                Subscribe to <b>Omnivore</b>
+                                                Subscribe to <b>Ruminer</b>
                                             </h3>
                                             <p class="end-cta-author-subs">
                                                 Launched a year ago
                                             </p>
                                             <p class="end-cta-hero-text">
-                                                Updates from the Omnivore team
+                                                Updates from the Ruminer team
                                             </p>
                                             <div class="subscribe-widget">
                                                 <form class="form" action="/api/v1/free?nojs=true" method="post" novalidate="">
-                                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/getting-started-with-omnivore-382" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/getting-started-with-omnivore-382" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
+                                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/getting-started-with-ruminer-382" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/getting-started-with-ruminer-382" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
                                                     <div class="sideBySideWrap">
                                                         <input type="email" name="email" placeholder="Type your email…" /><button tabindex="0" class="button rightButton primary subscribe-btn" type="submit"><b class="button-text">Subscribe</b></button>
                                                     </div>
@@ -1561,10 +1561,10 @@ VALUES
                                                                         </div>
                                                                         <div class="social-labels">
                                                                             <div class="social-title">
-                                                                                Getting Started with Omnivore
+                                                                                Getting Started with Ruminer
                                                                             </div>
                                                                             <div class="social-subtitle">
-                                                                                blog.omnivore.app
+                                                                                blog.ruminer.app
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -1640,12 +1640,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-title newsletter">Getting Started with Omnivore</a><a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-description">Learn the best ways to save links with Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-title newsletter">Getting Started with Ruminer</a><a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-description">Learn the best ways to save links with Ruminer</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2021-10-13T19:39:10.254Z">
@@ -1683,10 +1683,10 @@ VALUES
                                                                             </div>
                                                                             <div class="social-labels">
                                                                                 <div class="social-title">
-                                                                                    Getting Started with Omnivore
+                                                                                    Getting Started with Ruminer
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1745,12 +1745,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Ruminer</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2022-02-28T19:40:04.793Z">
@@ -1791,7 +1791,7 @@ VALUES
                                                                                     Code Block Syntax Highlighting
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1850,12 +1850,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd4b0ce7-fe29-4055-b5c6-8ff1cbbfda6b_800x537.gif" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd4b0ce7-fe29-4055-b5c6-8ff1cbbfda6b_800x537.gif" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-title newsletter">Send PDFs and subscribe to newsletters with your Omnivore email address</a><a href="https://blog.omnivore.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-description">Add to your library with your Omnivore email address</a>
+                                                <a href="https://blog.ruminer.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-title newsletter">Send PDFs and subscribe to newsletters with your Ruminer email address</a><a href="https://blog.ruminer.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-description">Add to your library with your Ruminer email address</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2022-04-04T21:18:47.694Z">
@@ -1893,10 +1893,10 @@ VALUES
                                                                             </div>
                                                                             <div class="social-labels">
                                                                                 <div class="social-title">
-                                                                                    Send PDFs and subscribe to newsletters with your Omnivore email address
+                                                                                    Send PDFs and subscribe to newsletters with your Ruminer email address
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1965,7 +1965,7 @@ VALUES
                                     Ready for more?
                                 </h1>
                                 <form action="/api/v1/free?nojs=true" method="post" class="form" novalidate="">
-                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/getting-started-with-omnivore-382" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/getting-started-with-omnivore-382" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
+                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/getting-started-with-ruminer-382" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/getting-started-with-ruminer-382" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
                                     <div class="sideBySideWrap">
                                         <input type="email" name="email" placeholder="Type your email…" /><button class="button rightButton primary subscribe-btn" type="submit" tabindex="0"><b class="button-text">Subscribe</b></button>
                                     </div>
@@ -1976,17 +1976,17 @@ VALUES
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript" async="async" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/316245675/?random=1665996995177&amp;cv=9&amp;fst=1665996995177&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1117&amp;u_w=1728&amp;u_ah=1117&amp;u_aw=1728&amp;u_cd=30&amp;u_his=2&amp;u_tz=480&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2oaaa0&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fblog.omnivore.app%2Fp%2Fgetting-started-with-omnivore-382&amp;tiba=Getting%20Started%20with%20Omnivore%20-%20Omnivore&amp;auid=2141076709.1665996995&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+                    <script type="text/javascript" async="async" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/316245675/?random=1665996995177&amp;cv=9&amp;fst=1665996995177&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1117&amp;u_w=1728&amp;u_ah=1117&amp;u_aw=1728&amp;u_cd=30&amp;u_his=2&amp;u_tz=480&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2oaaa0&amp;sendb=1&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fblog.ruminer.app%2Fp%2Fgetting-started-with-ruminer-382&amp;tiba=Getting%20Started%20with%20Ruminer%20-%20Ruminer&amp;auid=2141076709.1665996995&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
                 </div>
                 <div class="footer-wrap publication-footer">
                     <div class="footer themed-background">
                         <div class="container">
                             <div class="footer-blurbs">
                                 <div class="footer-copyright-blurb">
-                                    © 2022 Omnivore
+                                    © 2022 Ruminer
                                 </div>
                                 <div class="footer-terms-blurb">
-                                    <a href="https://blog.omnivore.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
+                                    <a href="https://blog.ruminer.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
                                 </div>
                             </div>
                             <div class="footer-buttons">
@@ -2015,12 +2015,12 @@ VALUES
         <script src="https://js.sentry-cdn.com/c41771aeccbb43fbbffbc4755e65c9be.min.js" crossorigin="anonymous"></script> 
         <script>
         <![CDATA[
-        window._preloads        = {"isEU":false,"language":"en","country":"SG","base_url":"https://blog.omnivore.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Omnivore","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.omnivore.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Omnivore","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Omnivore team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Omnivore","paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"paid_podcast_episode_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"omnivoreapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Omnivore","author_photo_url":null,"author_bio":"Omnivore is the home for everything you read; automatically organized and easy to share","default_group_coupon_percent_off":null,"has_child_publications":false,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_free_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":"none","rankingDetail":"Launched a year ago","rankingDetailFreeIncluded":"Launched a year ago","navigationBarItems":[],"contributors":[{"name":"Omnivore","role":"admin","owner":true,"user_id":49669396,"photo_url":null}],"threads_v2_enabled":false,"threads_v2_settings":{},"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"hide_intro_popup_for_crawlers":false,"can_have_sitemap_page":false,"bitcoin_plan":null,"draft_plans":null,"base_url":"https://blog.omnivore.app","hostname":"blog.omnivore.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"subscribeCardVersionHash":"e03aaf5cd51e4035f38f2aa621f6a29c","section":null},"user":null,"confirmedLogin":false,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"inviteOnly":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"block_auto_login":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.omnivore.app"},"experimentFeatures":{"email_typo_corrections":"treatment","translate_choose_subscription_plan":"control","paywall_the_archives":null,"precancellation_free_month":null,"use_new_subscribe_page_new_styles":"treatment","bundles_v2":"control"},"experimentExposures":{},"siteConfigs":{"score_upsell_email":"control","free_signup_confirmation_behavior":"with_email_validation","reader-onboarding-promoted-pub":737237,"pub_creation_captcha_behavior":"risky_pubs","continue_support_cta_emails_15d_after_expiry":false,"pub_update_opennode_api_key":false,"selection_sharing":"NONE","guest_posts_revamp":"NONE","trending_posts_enabled":false,"activity_emails_v3":false,"cashtags_enabled":true,"reader_post_viewer_enabled":true,"thread_photo_replies":false,"no_contest_charge_disputes":false,"use_new_homepage":true,"recommendations_announcement_url":"https://on.substack.com/p/recommendations","comp_expiry_email_new_copy":"NONE","free_unlock_required":false,"traffic_rule_check_enabled":false,"amp_emails_enabled":false,"minimum_ios_version":null,"image_deep_link_enabled":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"publication_author_display_override":"","reader_onboarding_after_subscription_flow":"NONE","generate_pdf_tax_report":false,"threads_v2_visible":false,"enable_restacking":false,"include_pdf_invoice":false,"hide_pub_from_subscription_recommendation":false,"enable_prev_next_post_link":true,"tax_integration_enabled":false,"meetings_v1":false,"custom_target_origin":"","exempt_from_gtm_filter":false,"syndicate_voiceover_to_rss":true,"boost_optin_modal_enabled":true,"pub_tts_override":"default","disable_monthly_subscriptions":false,"skip_welcome_email":false,"group_subscriptions_crm":false,"scheduled_pinned_posts":false,"disable_redirect_outbound_utm_params":false,"reader_gift_referrals_enabled":true,"ios_pause_email_default":false,"auto_paywall_archives":true,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"extended_podcast_episode_metadata":false,"use_richer_html_for_editing_podcast_description":false,"email_ufi_enabled":true,"activity_feed_enabled":false,"enable_new_discover_page":false,"no_auto_renewal_notice":false,"minimum_android_version":null,"disallow_spammy_comment_edits":false,"welcome_screen_blurb_override":"","show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"audio_edu_modal":false,"history_max_iterations":10,"history_paging_enabled":true,"generated_database_maintenance_mode":false,"max_image_upload_mb":32,"extract_stripe_receipt_url":false,"post_recipients_batch_limit":5000,"bulk_subscribe_upsell_email":"experiment","trending_sidebar":false,"threads_suggested_ios_version":null,"precancellation_free_month":"control","threads_minimum_ios_version":812,"hide_podcast_email_setup_link":false,"subscribe_captcha_behavior":"default","publication_ban_sample_rate":0,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"continue_support_cta_in_newsletter_emails":false,"end_of_post_publication_recommendation":"control","bundles_v2":"NONE","publisher_banner":"","allow_document_freeze":false,"chat_marketing_launched":false,"subscribe_pledge_screen":"control","podcast_main_feed_is_firehose":false,"zendesk_automation_cancellations":false},"publicationSettings":{"enable_prev_next_nav":false,"enable_restacking":true,"seen_coming_soon_explainer":false,"enable_post_page_conversion":true,"enable_archive_paywall":null,"enable_meetings":false},"subscriberCountDetails":null,"noIndex":false,"post":{"id":77907284,"publication_id":509268,"type":"newsletter","title":"Getting Started with Omnivore","social_title":"Getting Started with Omnivore","section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"Omnivore is a read-it-later app that lets you save and organize everything you read online.","slug":"getting-started-with-omnivore-382","post_date":"2022-10-17T08:48:56.922Z","podcast_url":"","podcast_art_url":null,"podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"podcast_preview_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"none","show_guest_bios":true,"free_unlock_required":false,"default_comment_sort":null,"canonical_url":"https://blog.omnivore.app/p/getting-started-with-omnivore-382","audience_before_archived":null,"reactions":{"\u2764":0},"top_exclusions":[],"pins":[],"section_pins":[],"previous_post_slug":"syncing-all-your-notes-to-google","next_post_slug":null,"cover_image":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg","cover_image_is_square":true,"videoUpload":null,"podcastUpload":null,"podcastPreviewUpload":null,"voiceover_upload_id":null,"voiceoverUpload":null,"has_voiceover":false,"description":"Omnivore is a read-it-later app that lets you save and organize everything you read online.","body_html":"<p>This guide will show you how to use Omnivore\u2019s basic functions and advanced features, divided into four main activities:<\/p><ul><li><p>Saving<\/p><\/li><li><p>Reading<\/p><\/li><li><p>Organizing<\/p><\/li><li><p>Integrations<\/p><\/li><\/ul><p>The <strong>Library <\/strong>is the center of your Omnivore experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.<\/p><h2>Saving<\/h2><p>There are five ways to save links to pages or articles that you wish to read later:<\/p><ul><li><p>Saving from Your Omnivore Library<\/p><\/li><li><p>Saving from a Browser&nbsp;<\/p><\/li><li><p>Saving from a Phone or Tablet (iOS or Android)<\/p><\/li><li><p>Newsletter Subscriptions via Email<\/p><\/li><li><p>Saving PDFs from a Mac <br><\/p><\/li><\/ul><h3>Saving from Your Omnivore Library<\/h3><p>1. In the upper right corner of your Library, tap the <strong>Add Link<\/strong> button. <br>2. Enter the URL you wish to save and tap <strong>Add Link<\/strong>.<br>3. The link will appear in your Library the next time you refresh it.<br><\/p><h3>Saving from a Browser<\/h3><p>1. Download and install the Omnivore extension for your browser:<\/p><ul><li><p><a href=\"https://omnivore.app/install/chrome\">Chrome&nbsp;<\/a><\/p><\/li><li><p><a href=\"https://omnivore.app/install/edge\">Edge<\/a><\/p><\/li><li><p><a href=\"https://omnivore.app/install/firefox\">Firefox<\/a><\/p><\/li><li><p><a href=\"https://omnivore.app/install/safari\">Safari<\/a><\/p><\/li><\/ul><p>2. Navigate to the page you wish to save and tap the Omnivore button in your browser\u2019s toolbar or Extensions menu.<br>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select <strong>Save to Omnivore<\/strong> from the menu.<br>4. The link will appear in your Library the next time you refresh it.<br><\/p><p><\/p><h3>Saving from a Phone or Tablet<\/h3><p>The best way to save links from your mobile device is via the Omnivore app. You can download the app here:<\/p><ul><li><p><a href=\"https://omnivore.app/install/ios\">iOS (iPhone or iPad)<\/a><\/p><\/li><li><p><a href=\"https://play.google.com/store/apps/details?id=app.omnivore.omnivore\">Android (Currently in pre-release)<\/a><\/p><\/li><\/ul><p>Once the mobile app is installed:<\/p><ol><li><p>In your browser, navigate to the page you wish to save and tap the <strong>Share<\/strong> button.<\/p><\/li><li><p>Tap the <strong>Omnivore<\/strong> icon in the Share menu.<\/p><\/li><li><p>The link will appear in your Library the next time you refresh it.<\/p><\/li><\/ol><p><\/p><h3>Newsletter Subscriptions via Email<\/h3><p>1. On the Omnivore website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select <strong>Emails<\/strong> from the menu.<\/p><p>2. Tap <strong>Create a New Email Address<\/strong> to add a new email address (ex: username-123abc@inbox.omnivore.app) to the list.<\/p><p>3. Click the Copy icon next to the email address.<\/p><p>4. Navigate to the signup page for the newsletter you wish to subscribe to.<br>5. Paste the Omnivore email address into the signup form.<\/p><p>6. New newsletters will be automatically delivered to your Omnivore inbox.<\/p><p><\/p><h3>Saving PDFs from a Mac&nbsp;<\/h3><ol><li><p>Install the <a href=\"https://omnivore.app/install/mac\">Mac App<\/a>.&nbsp;<\/p><\/li><li><p>On your Mac, locate the PDF you wish to save and right-click or ctrl+click on the file name.<\/p><\/li><li><p>Select <strong>Share<\/strong> from the menu and choose <strong>Omnivore<\/strong>.<\/p><\/li><li><p>The link will appear in your Library the next time you refresh it.<\/p><\/li><\/ol><p><\/p><h2>Reading<\/h2><p>Click any link saved in your Library to enter the Reader view.&nbsp;<\/p><p>Omnivore formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load.<\/p><p>While reading, you can:<\/p><ul><li><p>Change Formatting<\/p><\/li><li><p>Highlight Text<\/p><\/li><li><p>Add Notes<\/p><\/li><li><p>View All Saved Highlights and Notes<\/p><\/li><li><p>Track Reading Progress<\/p><\/li><\/ul><p><\/p><h3>Change Formatting&nbsp;<\/h3><ol><li><p><em><strong>Theme:<\/strong><\/em> Tap your photo, initial, or avatar&nbsp; in the top right corner to access the profile menu. Select the white or black thumbnail to choose the Light or Dark theme.<\/p><\/li><li><p><em><strong>Text Formatting:<\/strong><\/em> Tap the Aa icon to adjust the text size, font, margins, and line spacing.<\/p><\/li><\/ol><p><\/p><h3>Highlight Text<\/h3><ol><li><p>Select the text you wish to highlight.<\/p><\/li><li><p>Tap the <strong>Highlight <\/strong>button.<\/p><\/li><li><p>The text will appear highlighted next time you view the article.<\/p><\/li><\/ol><p><\/p><h3>Add Notes<\/h3><ol><li><p>Highlight a section of text where you wish to add a note.<\/p><\/li><li><p>Tap the <strong>Note<\/strong> button, type your note, and tap <strong>Save<\/strong>.<\/p><\/li><li><p>The Note icon will appear next time you view this article.<\/p><\/li><\/ol><p><\/p><h3>View All Saved Highlights and Notes<\/h3><ol><li><p>Tap the Highlight/Note icon to see a list of all the highlighted text and notes you have added to this page.<\/p><\/li><li><p>To remove a note or highlight, select it from the list and tap the Trash icon.<\/p><\/li><\/ol><p><\/p><h3>Track Reading Progress<\/h3><p>Omnivore automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading.<\/p><p><\/p><h2>Organizing<\/h2><p>By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Omnivore provides the following actions:&nbsp;<\/p><ul><li><p>Archiving<\/p><\/li><li><p>Labels<\/p><\/li><li><p>Search<\/p><\/li><li><p>Filters<\/p><\/li><\/ul><p><\/p><h2>Archiving<\/h2><ol><li><p>Tap the Menu icon next to the link you wish to archive (on the mobile app, long press the link to open the menu).<\/p><\/li><li><p>Select <strong>Archive<\/strong>.<\/p><\/li><li><p>The link will disappear from the default Library view, but will show up if you select the Archived filter (see Filters below).<\/p><\/li><\/ol><p><\/p><h3><strong>Labels<\/strong><\/h3><ol><li><p>Tap the Menu icon next to any link and select <strong>Set Label<\/strong>s.<\/p><\/li><li><p>Select an existing label from the list or tap <strong>Edit Labels<\/strong> to create a new one.<\/p><\/li><li><p>The label will appear next to the link in your Library. Tap it to view all links with the same label.<\/p><\/li><li><p><em>Omnivore mobile app only<\/em>: tap <strong>Labels <\/strong>to see a complete list of all labels you have used; tap one to view all links with the same label<\/p><\/li><li><p>Note: Omnivore will automatically assign some labels, such as \u201CNewsletters.\u201D<\/p><\/li><\/ol><p><\/p><h3>Search<\/h3><ol><li><p>To search through all your saved links, enter a keyword or phrase in the search bar.&nbsp;<\/p><\/li><li><p>You can combine keywords with labels and filters to focus your search even further. <a href=\"https://docs.omnivore.app/using/search.html\">Learn more about advanced search<\/a>.<\/p><\/li><\/ol><p><\/p><h3>Filters<\/h3><ol><li><p>Use the <strong>Filters <\/strong>menu to refine your Library view (some filters may be visible by default).<\/p><\/li><li><p>Select <strong>Read Later<\/strong> to view a list of all your non-archived links except Newsletters.<\/p><\/li><li><p>Select <strong>Highlights<\/strong> to view the text selections you have highlighted in all your saved pages.&nbsp;<\/p><\/li><li><p>Select <strong>Today<\/strong> to view a list of links you saved today.<\/p><\/li><li><p>Select <strong>Newsletters<\/strong> to view links saved via your newsletter subscriptions.<\/p><\/li><\/ol><p><\/p><h2>Integrations<\/h2><p>Omnivore allows integrations with knowledge bases and note-taking apps including:<\/p><ul><li><p>Logseq<\/p><\/li><li><p>Webhooks<\/p><\/li><\/ul><p><\/p><h3>Logseq<\/h3><p>With Omnivore''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful <a href=\"https://briansunter.com/graph/%23/page/omnivore-logseq-guide\">Omnivore for Logseq Plugin Guide<\/a>.<\/p><p><\/p><h3>Webhooks<\/h3><p>Omnivore can trigger webhooks when you save a link or add highlights to a page you are reading. <a href=\"https://blog.omnivore.app/p/syncing-all-your-notes-to-google\">This example<\/a> shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.<\/p>","longer_truncated_body_json":null,"longer_truncated_body_html":null,"truncated_body_text":"This guide will show you how to use Omnivore\u2019s basic functions and advanced features, divided into four main activities: Saving Reading Organizing Integrations The Library is the center of your Omnivore experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.","wordcount":1051,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Omnivore","previous_name":null,"photo_url":null,"bio":"Omnivore is the home for everything you read; automatically organized and easy to share","email":"welcome@omnivore.app","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Omnivore","subdomain":"omnivoreapp","custom_domain":"blog.omnivore.app","custom_domain_optional":false,"hero_text":"Updates from the Omnivore team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Omnivore","copyright":"Omnivore","founding_plan_name":null,"community_enabled":true,"invite_only":false,"payments_state":"disabled"}}],"is_guest":false}],"reaction":null,"audio_items":null,"truncated_description":null,"hasCashtag":false,"truncated_body_html":null,"post_paywall_content_for_google":null},"truncatedPost":null,"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.omnivore.app/p/getting-started-with-omnivore-382","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.omnivore.app/p/getting-started-with-omnivore-382","freeTrialCoupon":null,"isChatActive":false,"features":{}}
+        window._preloads        = {"isEU":false,"language":"en","country":"SG","base_url":"https://blog.ruminer.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Ruminer","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.ruminer.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Ruminer","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Ruminer team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Ruminer","paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"paid_podcast_episode_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"ruminerapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Ruminer","author_photo_url":null,"author_bio":"Ruminer is the home for everything you read; automatically organized and easy to share","default_group_coupon_percent_off":null,"has_child_publications":false,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_free_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":"none","rankingDetail":"Launched a year ago","rankingDetailFreeIncluded":"Launched a year ago","navigationBarItems":[],"contributors":[{"name":"Ruminer","role":"admin","owner":true,"user_id":49669396,"photo_url":null}],"threads_v2_enabled":false,"threads_v2_settings":{},"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"hide_intro_popup_for_crawlers":false,"can_have_sitemap_page":false,"bitcoin_plan":null,"draft_plans":null,"base_url":"https://blog.ruminer.app","hostname":"blog.ruminer.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"subscribeCardVersionHash":"e03aaf5cd51e4035f38f2aa621f6a29c","section":null},"user":null,"confirmedLogin":false,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"inviteOnly":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"block_auto_login":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.ruminer.app"},"experimentFeatures":{"email_typo_corrections":"treatment","translate_choose_subscription_plan":"control","paywall_the_archives":null,"precancellation_free_month":null,"use_new_subscribe_page_new_styles":"treatment","bundles_v2":"control"},"experimentExposures":{},"siteConfigs":{"score_upsell_email":"control","free_signup_confirmation_behavior":"with_email_validation","reader-onboarding-promoted-pub":737237,"pub_creation_captcha_behavior":"risky_pubs","continue_support_cta_emails_15d_after_expiry":false,"pub_update_opennode_api_key":false,"selection_sharing":"NONE","guest_posts_revamp":"NONE","trending_posts_enabled":false,"activity_emails_v3":false,"cashtags_enabled":true,"reader_post_viewer_enabled":true,"thread_photo_replies":false,"no_contest_charge_disputes":false,"use_new_homepage":true,"recommendations_announcement_url":"https://on.substack.com/p/recommendations","comp_expiry_email_new_copy":"NONE","free_unlock_required":false,"traffic_rule_check_enabled":false,"amp_emails_enabled":false,"minimum_ios_version":null,"image_deep_link_enabled":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"publication_author_display_override":"","reader_onboarding_after_subscription_flow":"NONE","generate_pdf_tax_report":false,"threads_v2_visible":false,"enable_restacking":false,"include_pdf_invoice":false,"hide_pub_from_subscription_recommendation":false,"enable_prev_next_post_link":true,"tax_integration_enabled":false,"meetings_v1":false,"custom_target_origin":"","exempt_from_gtm_filter":false,"syndicate_voiceover_to_rss":true,"boost_optin_modal_enabled":true,"pub_tts_override":"default","disable_monthly_subscriptions":false,"skip_welcome_email":false,"group_subscriptions_crm":false,"scheduled_pinned_posts":false,"disable_redirect_outbound_utm_params":false,"reader_gift_referrals_enabled":true,"ios_pause_email_default":false,"auto_paywall_archives":true,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"extended_podcast_episode_metadata":false,"use_richer_html_for_editing_podcast_description":false,"email_ufi_enabled":true,"activity_feed_enabled":false,"enable_new_discover_page":false,"no_auto_renewal_notice":false,"minimum_android_version":null,"disallow_spammy_comment_edits":false,"welcome_screen_blurb_override":"","show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"audio_edu_modal":false,"history_max_iterations":10,"history_paging_enabled":true,"generated_database_maintenance_mode":false,"max_image_upload_mb":32,"extract_stripe_receipt_url":false,"post_recipients_batch_limit":5000,"bulk_subscribe_upsell_email":"experiment","trending_sidebar":false,"threads_suggested_ios_version":null,"precancellation_free_month":"control","threads_minimum_ios_version":812,"hide_podcast_email_setup_link":false,"subscribe_captcha_behavior":"default","publication_ban_sample_rate":0,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"continue_support_cta_in_newsletter_emails":false,"end_of_post_publication_recommendation":"control","bundles_v2":"NONE","publisher_banner":"","allow_document_freeze":false,"chat_marketing_launched":false,"subscribe_pledge_screen":"control","podcast_main_feed_is_firehose":false,"zendesk_automation_cancellations":false},"publicationSettings":{"enable_prev_next_nav":false,"enable_restacking":true,"seen_coming_soon_explainer":false,"enable_post_page_conversion":true,"enable_archive_paywall":null,"enable_meetings":false},"subscriberCountDetails":null,"noIndex":false,"post":{"id":77907284,"publication_id":509268,"type":"newsletter","title":"Getting Started with Ruminer","social_title":"Getting Started with Ruminer","section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"Ruminer is a read-it-later app that lets you save and organize everything you read online.","slug":"getting-started-with-ruminer-382","post_date":"2022-10-17T08:48:56.922Z","podcast_url":"","podcast_art_url":null,"podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"podcast_preview_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"none","show_guest_bios":true,"free_unlock_required":false,"default_comment_sort":null,"canonical_url":"https://blog.ruminer.app/p/getting-started-with-ruminer-382","audience_before_archived":null,"reactions":{"\u2764":0},"top_exclusions":[],"pins":[],"section_pins":[],"previous_post_slug":"syncing-all-your-notes-to-google","next_post_slug":null,"cover_image":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/4e9ae3f6-53b2-495d-9794-a9a1661c5a51_964x964.jpeg","cover_image_is_square":true,"videoUpload":null,"podcastUpload":null,"podcastPreviewUpload":null,"voiceover_upload_id":null,"voiceoverUpload":null,"has_voiceover":false,"description":"Ruminer is a read-it-later app that lets you save and organize everything you read online.","body_html":"<p>This guide will show you how to use Ruminer\u2019s basic functions and advanced features, divided into four main activities:<\/p><ul><li><p>Saving<\/p><\/li><li><p>Reading<\/p><\/li><li><p>Organizing<\/p><\/li><li><p>Integrations<\/p><\/li><\/ul><p>The <strong>Library <\/strong>is the center of your Ruminer experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.<\/p><h2>Saving<\/h2><p>There are five ways to save links to pages or articles that you wish to read later:<\/p><ul><li><p>Saving from Your Ruminer Library<\/p><\/li><li><p>Saving from a Browser&nbsp;<\/p><\/li><li><p>Saving from a Phone or Tablet (iOS or Android)<\/p><\/li><li><p>Newsletter Subscriptions via Email<\/p><\/li><li><p>Saving PDFs from a Mac <br><\/p><\/li><\/ul><h3>Saving from Your Ruminer Library<\/h3><p>1. In the upper right corner of your Library, tap the <strong>Add Link<\/strong> button. <br>2. Enter the URL you wish to save and tap <strong>Add Link<\/strong>.<br>3. The link will appear in your Library the next time you refresh it.<br><\/p><h3>Saving from a Browser<\/h3><p>1. Download and install the Ruminer extension for your browser:<\/p><ul><li><p><a href=\"https://ruminer.app/install/chrome\">Chrome&nbsp;<\/a><\/p><\/li><li><p><a href=\"https://ruminer.app/install/edge\">Edge<\/a><\/p><\/li><li><p><a href=\"https://ruminer.app/install/firefox\">Firefox<\/a><\/p><\/li><li><p><a href=\"https://ruminer.app/install/safari\">Safari<\/a><\/p><\/li><\/ul><p>2. Navigate to the page you wish to save and tap the Ruminer button in your browser\u2019s toolbar or Extensions menu.<br>3. Alternatively, you can right-click (command+click on Mac) on any hyperlink and select <strong>Save to Ruminer<\/strong> from the menu.<br>4. The link will appear in your Library the next time you refresh it.<br><\/p><p><\/p><h3>Saving from a Phone or Tablet<\/h3><p>The best way to save links from your mobile device is via the Ruminer app. You can download the app here:<\/p><ul><li><p><a href=\"https://ruminer.app/install/ios\">iOS (iPhone or iPad)<\/a><\/p><\/li><li><p><a href=\"https://play.google.com/store/apps/details?id=app.ruminer.ruminer\">Android (Currently in pre-release)<\/a><\/p><\/li><\/ul><p>Once the mobile app is installed:<\/p><ol><li><p>In your browser, navigate to the page you wish to save and tap the <strong>Share<\/strong> button.<\/p><\/li><li><p>Tap the <strong>Ruminer<\/strong> icon in the Share menu.<\/p><\/li><li><p>The link will appear in your Library the next time you refresh it.<\/p><\/li><\/ol><p><\/p><h3>Newsletter Subscriptions via Email<\/h3><p>1. On the Ruminer website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select <strong>Emails<\/strong> from the menu.<\/p><p>2. Tap <strong>Create a New Email Address<\/strong> to add a new email address (ex: username-123abc@inbox.ruminer.app) to the list.<\/p><p>3. Click the Copy icon next to the email address.<\/p><p>4. Navigate to the signup page for the newsletter you wish to subscribe to.<br>5. Paste the Ruminer email address into the signup form.<\/p><p>6. New newsletters will be automatically delivered to your Ruminer inbox.<\/p><p><\/p><h3>Saving PDFs from a Mac&nbsp;<\/h3><ol><li><p>Install the <a href=\"https://ruminer.app/install/mac\">Mac App<\/a>.&nbsp;<\/p><\/li><li><p>On your Mac, locate the PDF you wish to save and right-click or ctrl+click on the file name.<\/p><\/li><li><p>Select <strong>Share<\/strong> from the menu and choose <strong>Ruminer<\/strong>.<\/p><\/li><li><p>The link will appear in your Library the next time you refresh it.<\/p><\/li><\/ol><p><\/p><h2>Reading<\/h2><p>Click any link saved in your Library to enter the Reader view.&nbsp;<\/p><p>Ruminer formats pages for easy reading and highlighting, removing ads and clutter for distraction-free reading. The text-focused view also makes articles smaller and quicker to load.<\/p><p>While reading, you can:<\/p><ul><li><p>Change Formatting<\/p><\/li><li><p>Highlight Text<\/p><\/li><li><p>Add Notes<\/p><\/li><li><p>View All Saved Highlights and Notes<\/p><\/li><li><p>Track Reading Progress<\/p><\/li><\/ul><p><\/p><h3>Change Formatting&nbsp;<\/h3><ol><li><p><em><strong>Theme:<\/strong><\/em> Tap your photo, initial, or avatar&nbsp; in the top right corner to access the profile menu. Select the white or black thumbnail to choose the Light or Dark theme.<\/p><\/li><li><p><em><strong>Text Formatting:<\/strong><\/em> Tap the Aa icon to adjust the text size, font, margins, and line spacing.<\/p><\/li><\/ol><p><\/p><h3>Highlight Text<\/h3><ol><li><p>Select the text you wish to highlight.<\/p><\/li><li><p>Tap the <strong>Highlight <\/strong>button.<\/p><\/li><li><p>The text will appear highlighted next time you view the article.<\/p><\/li><\/ol><p><\/p><h3>Add Notes<\/h3><ol><li><p>Highlight a section of text where you wish to add a note.<\/p><\/li><li><p>Tap the <strong>Note<\/strong> button, type your note, and tap <strong>Save<\/strong>.<\/p><\/li><li><p>The Note icon will appear next time you view this article.<\/p><\/li><\/ol><p><\/p><h3>View All Saved Highlights and Notes<\/h3><ol><li><p>Tap the Highlight/Note icon to see a list of all the highlighted text and notes you have added to this page.<\/p><\/li><li><p>To remove a note or highlight, select it from the list and tap the Trash icon.<\/p><\/li><\/ol><p><\/p><h3>Track Reading Progress<\/h3><p>Ruminer automatically keeps track of your reading progress across your different devices so you can easily pick up where you left off. A progress bar will appear at the top of each link in your Library after you have started reading.<\/p><p><\/p><h2>Organizing<\/h2><p>By default, the Library inbox displays all links you have saved. To manage your list and keep your reading organized, Ruminer provides the following actions:&nbsp;<\/p><ul><li><p>Archiving<\/p><\/li><li><p>Labels<\/p><\/li><li><p>Search<\/p><\/li><li><p>Filters<\/p><\/li><\/ul><p><\/p><h2>Archiving<\/h2><ol><li><p>Tap the Menu icon next to the link you wish to archive (on the mobile app, long press the link to open the menu).<\/p><\/li><li><p>Select <strong>Archive<\/strong>.<\/p><\/li><li><p>The link will disappear from the default Library view, but will show up if you select the Archived filter (see Filters below).<\/p><\/li><\/ol><p><\/p><h3><strong>Labels<\/strong><\/h3><ol><li><p>Tap the Menu icon next to any link and select <strong>Set Label<\/strong>s.<\/p><\/li><li><p>Select an existing label from the list or tap <strong>Edit Labels<\/strong> to create a new one.<\/p><\/li><li><p>The label will appear next to the link in your Library. Tap it to view all links with the same label.<\/p><\/li><li><p><em>Ruminer mobile app only<\/em>: tap <strong>Labels <\/strong>to see a complete list of all labels you have used; tap one to view all links with the same label<\/p><\/li><li><p>Note: Ruminer will automatically assign some labels, such as \u201CNewsletters.\u201D<\/p><\/li><\/ol><p><\/p><h3>Search<\/h3><ol><li><p>To search through all your saved links, enter a keyword or phrase in the search bar.&nbsp;<\/p><\/li><li><p>You can combine keywords with labels and filters to focus your search even further. <a href=\"https://docs.ruminer.app/using/search.html\">Learn more about advanced search<\/a>.<\/p><\/li><\/ol><p><\/p><h3>Filters<\/h3><ol><li><p>Use the <strong>Filters <\/strong>menu to refine your Library view (some filters may be visible by default).<\/p><\/li><li><p>Select <strong>Read Later<\/strong> to view a list of all your non-archived links except Newsletters.<\/p><\/li><li><p>Select <strong>Highlights<\/strong> to view the text selections you have highlighted in all your saved pages.&nbsp;<\/p><\/li><li><p>Select <strong>Today<\/strong> to view a list of links you saved today.<\/p><\/li><li><p>Select <strong>Newsletters<\/strong> to view links saved via your newsletter subscriptions.<\/p><\/li><\/ol><p><\/p><h2>Integrations<\/h2><p>Ruminer allows integrations with knowledge bases and note-taking apps including:<\/p><ul><li><p>Logseq<\/p><\/li><li><p>Webhooks<\/p><\/li><\/ul><p><\/p><h3>Logseq<\/h3><p>With Ruminer''s Logseq plugin you can sync all your saved articles, highlights, and notes into Logseq, a popular knowledge base. For information on setting up and using the Logseq plugin, please refer to this helpful <a href=\"https://briansunter.com/graph/%23/page/ruminer-logseq-guide\">Ruminer for Logseq Plugin Guide<\/a>.<\/p><p><\/p><h3>Webhooks<\/h3><p>Ruminer can trigger webhooks when you save a link or add highlights to a page you are reading. <a href=\"https://blog.ruminer.app/p/syncing-all-your-notes-to-google\">This example<\/a> shows webhooks being used to write all saved links to a Google Sheets spreadsheet stored on a Google Drive.<\/p>","longer_truncated_body_json":null,"longer_truncated_body_html":null,"truncated_body_text":"This guide will show you how to use Ruminer\u2019s basic functions and advanced features, divided into four main activities: Saving Reading Organizing Integrations The Library is the center of your Ruminer experience, where you can quickly access any links you have saved. Saved links remain in your Library forever unless you delete them.","wordcount":1051,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Ruminer","previous_name":null,"photo_url":null,"bio":"Ruminer is the home for everything you read; automatically organized and easy to share","email":"welcome@ruminer.app","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Ruminer","subdomain":"ruminerapp","custom_domain":"blog.ruminer.app","custom_domain_optional":false,"hero_text":"Updates from the Ruminer team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Ruminer","copyright":"Ruminer","founding_plan_name":null,"community_enabled":true,"invite_only":false,"payments_state":"disabled"}}],"is_guest":false}],"reaction":null,"audio_items":null,"truncated_description":null,"hasCashtag":false,"truncated_body_html":null,"post_paywall_content_for_google":null},"truncatedPost":null,"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.ruminer.app/p/getting-started-with-ruminer-382","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.ruminer.app/p/getting-started-with-ruminer-382","freeTrialCoupon":null,"isChatActive":false,"features":{}}
         ]]>
         </script> 
         <script>
         <![CDATA[
-        window._analyticsConfig = {"user":null,"properties":{"subdomain":"omnivoreapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false,"is_founding":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
+        window._analyticsConfig = {"user":null,"properties":{"subdomain":"ruminerapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false,"is_founding":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
         ]]>
         </script> 
         <script src="https://substackcdn.com/min/main.bundle.js?v=1c396e-183d8968e28" charset="utf-8"></script> <!-- Fallback tracking pixels -->
@@ -2031,24 +2031,24 @@ VALUES
     </body>
 </html>
 ', 1155),
-  ('omnivore_ios', 'https://blog.omnivore.app/p/saving-links-from-your-iphone-or', 'Saving Links from Your iPhone or iPad', 'Omnivore', 'Learn how to save articles on iOS.', 'https://proxy-prod.omnivore-image-cache.app/320x320,sWDfv7sARTIdAlx6Rw_6t-QwL3T9aniEJRa1-jVaglNg/https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig', '2021-10-19', 'Omnivore Blog', 'saving-links-from-your-i-phone-or-i-pad', '<DIV class="page" id="readability-page-1">
+  ('ruminer_ios', 'https://blog.ruminer.app/p/saving-links-from-your-iphone-or', 'Saving Links from Your iPhone or iPad', 'Ruminer', 'Learn how to save articles on iOS.', 'https://proxy-prod.ruminer-image-cache.app/320x320,sWDfv7sARTIdAlx6Rw_6t-QwL3T9aniEJRa1-jVaglNg/https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig', '2021-10-19', 'Ruminer Blog', 'saving-links-from-your-i-phone-or-i-pad', '<DIV class="page" id="readability-page-1">
     <article>
         <div dir="auto">
             <p>
-                <span>With the</span> <a href="https://omnivore.app/install/ios" rel="">Omnivore app for iOS</a><span>, it’s easy to save web pages and articles or archive web content to read later.</span>
+                <span>With the</span> <a href="https://ruminer.app/install/ios" rel="">Ruminer app for iOS</a><span>, it’s easy to save web pages and articles or archive web content to read later.</span>
             </p>
             <p>
-                <span>The Omnivore app uses the</span> <em>iOS Share System</em><span>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&nbsp;</span>
+                <span>The Ruminer app uses the</span> <em>iOS Share System</em><span>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&nbsp;</span>
             </p>
             <ul>
                 <li>
-                    <p> Step 1: Log in to the Omnivore app. </p>
+                    <p> Step 1: Log in to the Ruminer app. </p>
                 </li>
                 <li>
-                    <p> Step 2: Add Omnivore to your Share menu favorites. </p>
+                    <p> Step 2: Add Ruminer to your Share menu favorites. </p>
                 </li>
                 <li>
-                    <p> Step 3: Save links to your Omnivore Library. </p>
+                    <p> Step 3: Save links to your Ruminer Library. </p>
                 </li>
             </ul>
             <div id="youtube2-k6RkIqepAig" data-attrs="{&quot;videoId&quot;:&quot;k6RkIqepAig&quot;,&quot;startTime&quot;:null,&quot;endTime&quot;:null}">
@@ -2056,12 +2056,12 @@ VALUES
                     <iframe src="https://www.youtube-nocookie.com/embed/k6RkIqepAig?rel=0&autoplay=0&showinfo=0&enablejsapi=0" frameborder="0" loading="lazy" gesture="media" allow="autoplay; fullscreen" allowautoplay="true" allowfullscreen="true" width="728" height="409"></iframe>
                 </P>
             </div>
-            <p> You must be logged in before you can save links via the Share menu. If you don’t already have an Omnivore account, you can sign up for free from the login screen. </p>
+            <p> You must be logged in before you can save links via the Share menu. If you don’t already have an Ruminer account, you can sign up for free from the login screen. </p>
             <p>
-                <em>Note:</em> <span>If you haven’t installed the iOS app, download it here:</span> <a href="https://omnivore.app/install/ios" rel="">https://omnivore.app/install/ios</a>
+                <em>Note:</em> <span>If you haven’t installed the iOS app, download it here:</span> <a href="https://ruminer.app/install/ios" rel="">https://ruminer.app/install/ios</a>
             </p>
             <h2>
-                <strong>Step 2: Add Omnivore to your Share menu favorites.</strong>
+                <strong>Step 2: Add Ruminer to your Share menu favorites.</strong>
             </h2>
             <p> Start by viewing the Share menu from within any supported iOS app (we’ve used Safari for this example). </p>
             <ol>
@@ -2082,25 +2082,25 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <span>Scroll down until you see the</span> <strong>Omnivore</strong> <span>icon and tap the</span> <strong>+</strong> <span>icon next to it.&nbsp;</span>
+                        <span>Scroll down until you see the</span> <strong>Ruminer</strong> <span>icon and tap the</span> <strong>+</strong> <span>icon next to it.&nbsp;</span>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <span>Press and hold the three-bar icon and drag Omnivore to one of the top positions under Favorites. Tap</span> <strong>Done</strong> <span>to close the menu.</span>
+                        <span>Press and hold the three-bar icon and drag Ruminer to one of the top positions under Favorites. Tap</span> <strong>Done</strong> <span>to close the menu.</span>
                     </p>
                 </li>
                 <li>
                     <p>
-                        <strong>Omnivore</strong> <span>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).</span>
+                        <strong>Ruminer</strong> <span>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).</span>
                     </p>
                 </li>
             </ol>
             <h2>
-                <strong>Step 3: Save links to your Omnivore Library</strong>
+                <strong>Step 3: Save links to your Ruminer Library</strong>
             </h2>
             <p>
-                <span>Start by navigating to the page or article you wish to save. Please note that Omnivore will save the content that appears on your screen (not just a link), so</span> <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.</em><span>&nbsp;</span>
+                <span>Start by navigating to the page or article you wish to save. Please note that Ruminer will save the content that appears on your screen (not just a link), so</span> <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.</em><span>&nbsp;</span>
             </p>
             <ol>
                 <li>
@@ -2110,7 +2110,7 @@ VALUES
                 </li>
                 <li>
                     <p>
-                        <span>Tap the</span> <strong>Omnivore</strong> <span>icon in the Share menu.</span>
+                        <span>Tap the</span> <strong>Ruminer</strong> <span>icon in the Share menu.</span>
                     </p>
                 </li>
                 <li>
@@ -2119,7 +2119,7 @@ VALUES
                     </p>
                 </li>
                 <li>
-                    <p> If you choose Read Later, the link will appear in your Library the next time you open the Omnivore app. </p>
+                    <p> If you choose Read Later, the link will appear in your Library the next time you open the Ruminer app. </p>
                 </li>
             </ol>
         </div>
@@ -2130,9 +2130,9 @@ VALUES
         <meta charset="utf-8" />
         <meta name="norton-safeweb-site-verification" content="24usqpep0ejc5w6hod3dulxwciwp0djs6c6ufp96av3t4whuxovj72wfkdjxu82yacb7430qjm8adbd5ezlt4592dq4zrvadcn9j9n-0btgdzpiojfzno16-fnsnu7xd" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="author" content="Omnivore" />
-        <meta property="og:url" content="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" />
-        <link rel="canonical" href="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" />
+        <meta name="author" content="Ruminer" />
+        <meta property="og:url" content="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" />
+        <link rel="canonical" href="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" />
         <link rel="shortcut icon" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-32x32.png" />
@@ -2148,9 +2148,9 @@ VALUES
         <link rel="apple-touch-icon" sizes="180x180" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-180x180.png" />
         <link rel="apple-touch-icon" sizes="1024x1024" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-1024x1024.png" />
         <title>
-            Saving Links from Your iPhone or iPad - Omnivore
+            Saving Links from Your iPhone or iPad - Ruminer
         </title>
-        <link rel="alternate" type="application/rss+xml" href="/feed" title="Omnivore" />
+        <link rel="alternate" type="application/rss+xml" href="/feed" title="Ruminer" />
         <style>
         <![CDATA[
         /*https://fonts.googleapis.com/css?family=Spectral:400,400i,600,600i*/
@@ -2506,9 +2506,9 @@ VALUES
         </style>
         <meta property="og:type" content="article" data-preact-helmet="true" />
         <meta name="theme-color" content="#ffffff" data-preact-helmet="true" />
-        <meta name="description" content="With the Omnivore app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
-        <meta property="og:description" content="With the Omnivore app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
-        <meta property="twitter:description" content="With the Omnivore app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
+        <meta name="description" content="With the Ruminer app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
+        <meta property="og:description" content="With the Ruminer app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
+        <meta property="twitter:description" content="With the Ruminer app for iOS, it’s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail)." data-preact-helmet="true" />
         <meta property="og:title" content="Saving Links from Your iPhone or iPad" data-preact-helmet="true" />
         <meta property="twitter:title" content="Saving Links from Your iPhone or iPad" data-preact-helmet="true" />
         <meta property="og:image" content="https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig" data-preact-helmet="true" />
@@ -2547,10 +2547,10 @@ VALUES
                         <div class="topbar">
                             <div class="topbar-content">
                                 <div class="navbar-logo-container" style="width: 183.125px;">
-                                    <a href="https://blog.omnivore.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="navbar-logo" /></a>
+                                    <a href="https://blog.ruminer.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="navbar-logo" /></a>
                                 </div>
                                 <h1 class="navbar-title">
-                                    <a class="navbar-title-link" href="https://blog.omnivore.app">Omnivore</a>
+                                    <a class="navbar-title-link" href="https://blog.ruminer.app">Ruminer</a>
                                 </h1>
                                 <div class="navbar-buttons">
                                     <button data-testid="noncontributor-cta-button" class="button primary subscribe-cta subscribe-btn" type="button" tabindex="0">Subscribe</button><button native="true" class="button sign-in-link outline-grayscale" type="button" tabindex="0">Sign in</button>
@@ -2563,7 +2563,7 @@ VALUES
                 <div>
                     <script type="application/ld+json">
                     <![CDATA[
-                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.omnivore.app/p/saving-links-from-your-iphone-or","mainEntityOfPage":"https://blog.omnivore.app/p/saving-links-from-your-iphone-or","headline":"Saving Links from Your iPhone or iPad ","description":"With the Omnivore app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","image":[{"@type":"ImageObject","url":"https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig"}],"datePublished":"2022-10-19T15:42:04+08:00","dateModified":"2022-10-19T15:42:04+08:00","isAccessibleForFree":true,"author":[{"@type":"Person","name":"Omnivore","url":"https://substack.com/profile/49669396-omnivore","description":"Omnivore is the home for everything you read; automatically organized and easy to share","identifier":"user:49669396"}],"publisher":{"@type":"Organization","name":"Omnivore","url":"https://blog.omnivore.app","description":"Updates from the Omnivore team","identifier":"pub:509268","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"},"image":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
+                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.ruminer.app/p/saving-links-from-your-iphone-or","mainEntityOfPage":"https://blog.ruminer.app/p/saving-links-from-your-iphone-or","headline":"Saving Links from Your iPhone or iPad ","description":"With the Ruminer app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","image":[{"@type":"ImageObject","url":"https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig"}],"datePublished":"2022-10-19T15:42:04+08:00","dateModified":"2022-10-19T15:42:04+08:00","isAccessibleForFree":true,"author":[{"@type":"Person","name":"Ruminer","url":"https://substack.com/profile/49669396-ruminer","description":"Ruminer is the home for everything you read; automatically organized and easy to share","identifier":"user:49669396"}],"publisher":{"@type":"Organization","name":"Ruminer","url":"https://blog.ruminer.app","description":"Updates from the Ruminer team","identifier":"pub:509268","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"},"image":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","contentUrl":"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","thumbnailUrl":"https://substackcdn.com/image/fetch/w_128,h_128,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
                     ]]>
                     </script>
                     <script type="text/javascript" async="async" src="https://www.google.com/pagead/conversion_async.js"></script>
@@ -2596,7 +2596,7 @@ VALUES
                                                                     Saving Links from Your iPhone or iPad
                                                                 </div>
                                                                 <div class="social-subtitle">
-                                                                    blog.omnivore.app
+                                                                    blog.ruminer.app
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2649,13 +2649,13 @@ VALUES
                                     </div>
                                     <div class="subscribe-dialog" style="bottom: 360px; left: 740px;">
                                         <div class="pub-icon pub-icon-margin subscribe-dialog-publication-icon">
-                                            <a href="https://blog.omnivore.app" native="true"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" /><img class="frontend-components-responsive_img-module__img--1l4UG custom" src="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" sizes="100vw" alt="Omnivore" srcset="" width="54" height="54" /></picture></a>
+                                            <a href="https://blog.ruminer.app" native="true"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" /><img class="frontend-components-responsive_img-module__img--1l4UG custom" src="https://substackcdn.com/image/fetch/w_108,h_108,c_fill,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" sizes="100vw" alt="Ruminer" srcset="" width="54" height="54" /></picture></a>
                                         </div>
                                         <div class="subscribe-dialog-publication-title subscribe-dialog-header-text">
-                                            Omnivore
+                                            Ruminer
                                         </div>
                                         <div class="subscribe-dialog-publication-subtitle subscribe-dialog-body-text">
-                                            Updates from the Omnivore team
+                                            Updates from the Ruminer team
                                         </div>
                                         <form>
                                             <input class="subscribe-dialog-publication-email-input" placeholder="Type your email..." /><button class="subscribe-dialog-submit-button" type="submit">Subscribe</button>
@@ -2665,7 +2665,7 @@ VALUES
                                             <polyline points="9 18 15 12 9 6"></polyline></svg>
                                         </div>
                                         <div class="subscribe-dialog-body-text">
-                                            <span>Already a subscriber?</span> <span class="subscribe-dialog-sign-in-link"><a href="https://substack.com/sign-in?redirect=https%3A%2F%2Fblog.omnivore.app%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=omnivoreapp">Sign in</a></span>
+                                            <span>Already a subscriber?</span> <span class="subscribe-dialog-sign-in-link"><a href="https://substack.com/sign-in?redirect=https%3A%2F%2Fblog.ruminer.app%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=ruminerapp">Sign in</a></span>
                                         </div>
                                     </div>
                                     <div class="subscribe-dialog-scroll-modal-scroll-capture" style="opacity: 0.6;"></div>
@@ -2678,7 +2678,7 @@ VALUES
                                                 <div class="label-stack">
                                                     <div class="bylines">
                                                         <div class="profile-hover-wrapper">
-                                                            <span class="byline-names"><a class="byline-profile-link" href="https://substack.com/profile/49669396-omnivore">Omnivore</a></span>
+                                                            <span class="byline-names"><a class="byline-profile-link" href="https://substack.com/profile/49669396-ruminer">Ruminer</a></span>
                                                         </div>
                                                     </div>
                                                     <div class="publish-context">
@@ -2692,7 +2692,7 @@ VALUES
                                                     <g>
                                                         <title></title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                                         <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
-                                                    </g></svg></a><a role="button" class="post-ufi-button style-button post-ufi-comment-button no-label with-border" href="https://blog.omnivore.app/p/saving-links-from-your-iphone-or/comments"><svg role="img" width="20" height="20" viewbox="0 0 24 24" fill="#000000" stroke-width="1.5" stroke="#000" xmlns="http://www.w3.org/2000/svg" class="icon" style="height: 20px; width: 20px;">
+                                                    </g></svg></a><a role="button" class="post-ufi-button style-button post-ufi-comment-button no-label with-border" href="https://blog.ruminer.app/p/saving-links-from-your-iphone-or/comments"><svg role="img" width="20" height="20" viewbox="0 0 24 24" fill="#000000" stroke-width="1.5" stroke="#000" xmlns="http://www.w3.org/2000/svg" class="icon" style="height: 20px; width: 20px;">
                                                     <g>
                                                         <title></title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
                                                         <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -2724,7 +2724,7 @@ VALUES
                                                                                     Saving Links from Your iPhone or iPad
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -2784,25 +2784,25 @@ VALUES
                                         <div class="available-content">
                                             <div class="body markup" dir="auto">
                                                 <p>
-                                                    <span>With the</span> <a href="https://omnivore.app/install/ios" rel="">Omnivore app for iOS</a><span>, it’s easy to save web pages and articles or archive web content to read later.</span>
+                                                    <span>With the</span> <a href="https://ruminer.app/install/ios" rel="">Ruminer app for iOS</a><span>, it’s easy to save web pages and articles or archive web content to read later.</span>
                                                 </p>
                                                 <p>
-                                                    <span>The Omnivore app uses the</span> <em>iOS Share System</em><span>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&#160;</span>
+                                                    <span>The Ruminer app uses the</span> <em>iOS Share System</em><span>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&#160;</span>
                                                 </p>
                                                 <ul>
                                                     <li>
                                                         <p>
-                                                            Step 1: Log in to the Omnivore app.
+                                                            Step 1: Log in to the Ruminer app.
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            Step 2: Add Omnivore to your Share menu favorites.
+                                                            Step 2: Add Ruminer to your Share menu favorites.
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            Step 3: Save links to your Omnivore Library.
+                                                            Step 3: Save links to your Ruminer Library.
                                                         </p>
                                                     </li>
                                                 </ul>
@@ -2812,11 +2812,11 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <h2 class="header-with-anchor-widget">
-                                                    <strong>Step 1: Log in to the Omnivore app.</strong>
+                                                    <strong>Step 1: Log in to the Ruminer app.</strong>
                                                 </h2>
-                                                <div id="§step-log-in-to-the-omnivore-app" class="header-anchor-widget">
+                                                <div id="§step-log-in-to-the-ruminer-app" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/79321629/step-log-in-to-the-omnivore-app">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/79321629/step-log-in-to-the-ruminer-app">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -2826,17 +2826,17 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    You must be logged in before you can save links via the Share menu. If you don’t already have an Omnivore account, you can sign up for free from the login screen.
+                                                    You must be logged in before you can save links via the Share menu. If you don’t already have an Ruminer account, you can sign up for free from the login screen.
                                                 </p>
                                                 <p>
-                                                    <em>Note:</em> <span>If you haven’t installed the iOS app, download it here:</span> <a href="https://omnivore.app/install/ios" rel="">https://omnivore.app/install/ios</a>
+                                                    <em>Note:</em> <span>If you haven’t installed the iOS app, download it here:</span> <a href="https://ruminer.app/install/ios" rel="">https://ruminer.app/install/ios</a>
                                                 </p>
                                                 <h2 class="header-with-anchor-widget">
-                                                    <strong>Step 2: Add Omnivore to your Share menu favorites.</strong>
+                                                    <strong>Step 2: Add Ruminer to your Share menu favorites.</strong>
                                                 </h2>
-                                                <div id="§step-add-omnivore-to-your-share-menu-favorites" class="header-anchor-widget">
+                                                <div id="§step-add-ruminer-to-your-share-menu-favorites" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/79321629/step-add-omnivore-to-your-share-menu-favorites">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/79321629/step-add-ruminer-to-your-share-menu-favorites">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -2866,26 +2866,26 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>Scroll down until you see the</span> <strong>Omnivore</strong> <span>icon and tap the</span> <strong>+</strong> <span>icon next to it.&#160;</span>
+                                                            <span>Scroll down until you see the</span> <strong>Ruminer</strong> <span>icon and tap the</span> <strong>+</strong> <span>icon next to it.&#160;</span>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>Press and hold the three-bar icon and drag Omnivore to one of the top positions under Favorites. Tap</span> <strong>Done</strong> <span>to close the menu.</span>
+                                                            <span>Press and hold the three-bar icon and drag Ruminer to one of the top positions under Favorites. Tap</span> <strong>Done</strong> <span>to close the menu.</span>
                                                         </p>
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <strong>Omnivore</strong> <span>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).</span>
+                                                            <strong>Ruminer</strong> <span>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).</span>
                                                         </p>
                                                     </li>
                                                 </ol>
                                                 <h2 class="header-with-anchor-widget">
-                                                    <strong>Step 3: Save links to your Omnivore Library</strong>
+                                                    <strong>Step 3: Save links to your Ruminer Library</strong>
                                                 </h2>
-                                                <div id="§step-save-links-to-your-omnivore-library" class="header-anchor-widget">
+                                                <div id="§step-save-links-to-your-ruminer-library" class="header-anchor-widget">
                                                     <div class="header-anchor-widget-button-container">
-                                                        <div class="header-anchor-widget-button" href="https://blog.omnivore.app/i/79321629/step-save-links-to-your-omnivore-library">
+                                                        <div class="header-anchor-widget-button" href="https://blog.ruminer.app/i/79321629/step-save-links-to-your-ruminer-library">
                                                             <h2 class="header-with-anchor-widget">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="header-anchor-widget-icon">
                                                                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -2895,7 +2895,7 @@ VALUES
                                                     </div>
                                                 </div>
                                                 <p>
-                                                    <span>Start by navigating to the page or article you wish to save. Please note that Omnivore will save the content that appears on your screen (not just a link), so</span> <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.</em><span>&#160;</span>
+                                                    <span>Start by navigating to the page or article you wish to save. Please note that Ruminer will save the content that appears on your screen (not just a link), so</span> <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.</em><span>&#160;</span>
                                                 </p>
                                                 <ol>
                                                     <li>
@@ -2905,7 +2905,7 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            <span>Tap the</span> <strong>Omnivore</strong> <span>icon in the Share menu.</span>
+                                                            <span>Tap the</span> <strong>Ruminer</strong> <span>icon in the Share menu.</span>
                                                         </p>
                                                     </li>
                                                     <li>
@@ -2915,7 +2915,7 @@ VALUES
                                                     </li>
                                                     <li>
                                                         <p>
-                                                            If you choose Read Later, the link will appear in your Library the next time you open the Omnivore app.
+                                                            If you choose Read Later, the link will appear in your Library the next time you open the Ruminer app.
                                                         </p>
                                                     </li>
                                                 </ol>
@@ -2925,17 +2925,17 @@ VALUES
                                         <div class="post-end-cta-full">
                                             <div class="visibility-check"></div>
                                             <h3>
-                                                Subscribe to <b>Omnivore</b>
+                                                Subscribe to <b>Ruminer</b>
                                             </h3>
                                             <p class="end-cta-author-subs">
                                                 Launched a year ago
                                             </p>
                                             <p class="end-cta-hero-text">
-                                                Updates from the Omnivore team
+                                                Updates from the Ruminer team
                                             </p>
                                             <div class="subscribe-widget">
                                                 <form class="form" action="/api/v1/free?nojs=true" method="post" novalidate="">
-                                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
+                                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
                                                     <div class="sideBySideWrap">
                                                         <input type="email" name="email" placeholder="Type your email…" /><button tabindex="0" class="button rightButton primary subscribe-btn" type="submit"><b class="button-text">Subscribe</b></button>
                                                     </div>
@@ -2959,7 +2959,7 @@ VALUES
                                                 <g>
                                                     <title></title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart">
                                                     <path d="M20.42 4.58a5.4 5.4 0 0 0-7.65 0l-.77.78-.77-.78a5.4 5.4 0 0 0-7.65 0C1.46 6.7 1.33 10.28 4 13l8 8 8-8c2.67-2.72 2.54-6.3.42-8.42z"></path></svg>
-                                                </g></svg></a><a role="button" class="post-ufi-button style-button post-ufi-comment-button no-label with-border" href="https://blog.omnivore.app/p/saving-links-from-your-iphone-or/comments"><svg role="img" width="20" height="20" viewbox="0 0 24 24" fill="#000000" stroke-width="1.5" stroke="#000" xmlns="http://www.w3.org/2000/svg" class="icon" style="height: 20px; width: 20px;">
+                                                </g></svg></a><a role="button" class="post-ufi-button style-button post-ufi-comment-button no-label with-border" href="https://blog.ruminer.app/p/saving-links-from-your-iphone-or/comments"><svg role="img" width="20" height="20" viewbox="0 0 24 24" fill="#000000" stroke-width="1.5" stroke="#000" xmlns="http://www.w3.org/2000/svg" class="icon" style="height: 20px; width: 20px;">
                                                 <g>
                                                     <title></title><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle">
                                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
@@ -2991,7 +2991,7 @@ VALUES
                                                                                 Saving Links from Your iPhone or iPad
                                                                             </div>
                                                                             <div class="social-subtitle">
-                                                                                blog.omnivore.app
+                                                                                blog.ruminer.app
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -3135,7 +3135,7 @@ VALUES
                                                                 Only paid subscribers can comment on this post
                                                             </h2>
                                                             <div class="paywall-login">
-                                                                <a href="https://substack.com/sign-in?redirect=%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=omnivoreapp&amp;change_user=false" native="true">Already a paid subscriber? <b>Sign in</b></a>
+                                                                <a href="https://substack.com/sign-in?redirect=%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=ruminerapp&amp;change_user=false" native="true">Already a paid subscriber? <b>Sign in</b></a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -3161,7 +3161,7 @@ VALUES
                                                             For your security, we need to re-authenticate you.
                                                         </p>
                                                         <p>
-                                                            Click the link we sent to , or <a href="https://substack.com/sign-in?redirect=%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=omnivoreapp&amp;with_password=true" native="true">click here to sign in</a>.
+                                                            Click the link we sent to , or <a href="https://substack.com/sign-in?redirect=%2Fp%2Fsaving-links-from-your-iphone-or&amp;for_pub=ruminerapp&amp;with_password=true" native="true">click here to sign in</a>.
                                                         </p>
                                                     </div>
                                                 </div>
@@ -3190,12 +3190,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-title newsletter">Getting Started with Omnivore</a><a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-description">Learn the best ways to save links with Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-title newsletter">Getting Started with Ruminer</a><a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-description">Learn the best ways to save links with Ruminer</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2021-10-13T19:39:10.254Z">
@@ -3233,10 +3233,10 @@ VALUES
                                                                             </div>
                                                                             <div class="social-labels">
                                                                                 <div class="social-title">
-                                                                                    Getting Started with Omnivore
+                                                                                    Getting Started with Ruminer
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -3295,12 +3295,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_auto,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Ruminer</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2022-02-28T19:40:04.793Z">
@@ -3341,7 +3341,7 @@ VALUES
                                                                                     Code Block Syntax Highlighting
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -3400,12 +3400,12 @@ VALUES
                                                 <picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd4b0ce7-fe29-4055-b5c6-8ff1cbbfda6b_800x537.gif" /><img class="frontend-components-responsive_img-module__img--1l4UG post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Ffd4b0ce7-fe29-4055-b5c6-8ff1cbbfda6b_800x537.gif" sizes="100vw" alt="" srcset="" loading="lazy" /></picture>
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-title newsletter">Send PDFs and subscribe to newsletters with your Omnivore email address</a><a href="https://blog.omnivore.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-description">Add to your library with your Omnivore email address</a>
+                                                <a href="https://blog.ruminer.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-title newsletter">Send PDFs and subscribe to newsletters with your Ruminer email address</a><a href="https://blog.ruminer.app/p/send-pdfs-and-subscribe-to-newsletters" class="post-preview-description">Add to your library with your Ruminer email address</a>
                                                 <div class="post-ufi style-compressed themed">
                                                     <div class="ufi-preamble themed">
                                                         <div class="ufi-preamble-label author">
                                                             <div class="profile-hover-wrapper">
-                                                                <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                                <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                             </div>
                                                         </div>
                                                         <div class="ufi-preamble-label post-date" title="2022-04-04T21:18:47.694Z">
@@ -3443,10 +3443,10 @@ VALUES
                                                                             </div>
                                                                             <div class="social-labels">
                                                                                 <div class="social-title">
-                                                                                    Send PDFs and subscribe to newsletters with your Omnivore email address
+                                                                                    Send PDFs and subscribe to newsletters with your Ruminer email address
                                                                                 </div>
                                                                                 <div class="social-subtitle">
-                                                                                    blog.omnivore.app
+                                                                                    blog.ruminer.app
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -3515,7 +3515,7 @@ VALUES
                                     Ready for more?
                                 </h1>
                                 <form action="/api/v1/free?nojs=true" method="post" class="form" novalidate="">
-                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
+                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/saving-links-from-your-iphone-or" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" /><input type="hidden" name="referring_pub_id" /><input type="hidden" name="additional_referring_pub_ids" />
                                     <div class="sideBySideWrap">
                                         <input type="email" name="email" placeholder="Type your email…" /><button class="button rightButton primary subscribe-btn" type="submit" tabindex="0"><b class="button-text">Subscribe</b></button>
                                     </div>
@@ -3526,17 +3526,17 @@ VALUES
                             </div>
                         </div>
                     </div>
-                    <script type="text/javascript" async="async" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/316245675/?random=1666167209386&amp;cv=9&amp;fst=1666167209386&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1117&amp;u_w=1728&amp;u_ah=1117&amp;u_aw=1728&amp;u_cd=30&amp;u_his=2&amp;u_tz=480&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2oaah0&amp;sendb=1&amp;ig=0&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fblog.omnivore.app%2Fp%2Fsaving-links-from-your-iphone-or&amp;tiba=Saving%20Links%20from%20Your%20iPhone%20or%20iPad%20-%20Omnivore&amp;auid=801928459.1666167209&amp;hn=www.google.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
+                    <script type="text/javascript" async="async" src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/316245675/?random=1666167209386&amp;cv=9&amp;fst=1666167209386&amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCsO&amp;u_h=1117&amp;u_w=1728&amp;u_ah=1117&amp;u_aw=1728&amp;u_cd=30&amp;u_his=2&amp;u_tz=480&amp;u_java=false&amp;u_nplug=0&amp;u_nmime=0&amp;gtm=2oaah0&amp;sendb=1&amp;ig=0&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%3A%2F%2Fblog.ruminer.app%2Fp%2Fsaving-links-from-your-iphone-or&amp;tiba=Saving%20Links%20from%20Your%20iPhone%20or%20iPad%20-%20Ruminer&amp;auid=801928459.1666167209&amp;hn=www.google.com&amp;async=1&amp;rfmt=3&amp;fmt=4"></script>
                 </div>
                 <div class="footer-wrap publication-footer">
                     <div class="footer themed-background">
                         <div class="container">
                             <div class="footer-blurbs">
                                 <div class="footer-copyright-blurb">
-                                    © 2022 Omnivore
+                                    © 2022 Ruminer
                                 </div>
                                 <div class="footer-terms-blurb">
-                                    <a href="https://blog.omnivore.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
+                                    <a href="https://blog.ruminer.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
                                 </div>
                             </div>
                             <div class="footer-buttons">
@@ -3565,12 +3565,12 @@ VALUES
         <script src="https://js.sentry-cdn.com/c41771aeccbb43fbbffbc4755e65c9be.min.js" crossorigin="anonymous"></script> 
         <script>
         <![CDATA[
-        window._preloads        = {"isEU":false,"language":"en","country":"SG","base_url":"https://blog.omnivore.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Omnivore","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.omnivore.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Omnivore","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Omnivore team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Omnivore","paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"paid_podcast_episode_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"omnivoreapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Omnivore","author_photo_url":null,"author_bio":"Omnivore is the home for everything you read; automatically organized and easy to share","default_group_coupon_percent_off":null,"has_child_publications":false,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_free_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":"none","rankingDetail":"Launched a year ago","rankingDetailFreeIncluded":"Launched a year ago","navigationBarItems":[],"contributors":[{"name":"Omnivore","role":"admin","owner":true,"user_id":49669396,"photo_url":null}],"threads_v2_enabled":false,"threads_v2_settings":null,"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"hide_intro_popup_for_crawlers":false,"can_have_sitemap_page":false,"bitcoin_plan":null,"draft_plans":null,"base_url":"https://blog.omnivore.app","hostname":"blog.omnivore.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"subscribeCardVersionHash":"e03aaf5cd51e4035f38f2aa621f6a29c","section":null},"user":null,"confirmedLogin":false,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"inviteOnly":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"block_auto_login":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.omnivore.app"},"experimentFeatures":{"email_typo_corrections":"control","translate_choose_subscription_plan":"treatment","paywall_the_archives":null,"precancellation_free_month":null,"bundles_v2":"control","twitter_graph_activity_email":null,"disable_monthly_subscriptions":"control","use_new_subscribe_page_new_styles":"treatment","subscribe_flow_blurb_adoption":null,"subscribe_pledge_screen":"control"},"experimentExposures":{},"siteConfigs":{"score_upsell_email":"control","free_signup_confirmation_behavior":"with_email_validation","reader-onboarding-promoted-pub":737237,"pub_creation_captcha_behavior":"risky_pubs","continue_support_cta_emails_15d_after_expiry":false,"pub_update_opennode_api_key":false,"selection_sharing":"NONE","guest_posts_revamp":"NONE","trending_posts_enabled":false,"activity_emails_v3":false,"cashtags_enabled":true,"reader_post_viewer_enabled":true,"thread_photo_replies":false,"no_contest_charge_disputes":false,"use_new_homepage":true,"recommendations_announcement_url":"https://on.substack.com/p/recommendations","comp_expiry_email_new_copy":"NONE","free_unlock_required":false,"traffic_rule_check_enabled":false,"amp_emails_enabled":false,"minimum_ios_version":null,"image_deep_link_enabled":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"publication_author_display_override":"","reader_onboarding_after_subscription_flow":"NONE","generate_pdf_tax_report":false,"threads_v2_visible":false,"enable_restacking":false,"include_pdf_invoice":false,"hide_pub_from_subscription_recommendation":false,"enable_prev_next_post_link":true,"tax_integration_enabled":false,"meetings_v1":false,"custom_target_origin":"","exempt_from_gtm_filter":false,"syndicate_voiceover_to_rss":true,"boost_optin_modal_enabled":true,"pub_tts_override":"default","disable_monthly_subscriptions":false,"skip_welcome_email":false,"group_subscriptions_crm":false,"scheduled_pinned_posts":false,"disable_redirect_outbound_utm_params":false,"reader_gift_referrals_enabled":true,"ios_pause_email_default":false,"auto_paywall_archives":true,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"extended_podcast_episode_metadata":false,"use_richer_html_for_editing_podcast_description":false,"email_ufi_enabled":true,"activity_feed_enabled":false,"enable_new_discover_page":false,"no_auto_renewal_notice":false,"minimum_android_version":null,"welcome_screen_blurb_override":"","show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"audio_edu_modal":false,"history_max_iterations":10,"history_paging_enabled":true,"generated_database_maintenance_mode":false,"max_image_upload_mb":32,"extract_stripe_receipt_url":false,"post_recipients_batch_limit":5000,"bulk_subscribe_upsell_email":"experiment","trending_sidebar":false,"threads_suggested_ios_version":null,"precancellation_free_month":"control","threads_minimum_ios_version":812,"hide_podcast_email_setup_link":false,"subscribe_captcha_behavior":"default","publication_ban_sample_rate":0,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"continue_support_cta_in_newsletter_emails":false,"end_of_post_publication_recommendation":"control","bundles_v2":"NONE","publisher_banner":"","allow_document_freeze":false,"chat_marketing_launched":false,"podcast_main_feed_is_firehose":false,"zendesk_automation_cancellations":false,"pub_launch_checklist":false,"subscribe_flow_blurb_adoption":"experiment","chat_beta_access":false,"should_send_payment_pledge_emails":true,"subscribe_pledge_screen":"NONE"},"publicationSettings":{"enable_prev_next_nav":false,"enable_restacking":true,"seen_coming_soon_explainer":false,"enable_post_page_conversion":true,"enable_meetings":false},"subscriberCountDetails":null,"noIndex":false,"post":{"id":79321629,"publication_id":509268,"type":"newsletter","title":"Saving Links from Your iPhone or iPad ","social_title":null,"section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"","slug":"saving-links-from-your-iphone-or","post_date":"2022-10-19T07:42:04.670Z","podcast_url":"","podcast_art_url":null,"podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"podcast_preview_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"everyone","show_guest_bios":true,"free_unlock_required":false,"default_comment_sort":null,"canonical_url":"https://blog.omnivore.app/p/saving-links-from-your-iphone-or","audience_before_archived":null,"reactions":{"\u2764":0},"top_exclusions":[],"pins":[],"section_pins":[],"previous_post_slug":"getting-started-with-omnivore-382","next_post_slug":null,"cover_image":"https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig","cover_image_is_square":false,"videoUpload":null,"podcastUpload":null,"podcastPreviewUpload":null,"voiceover_upload_id":null,"voiceoverUpload":null,"has_voiceover":false,"description":"With the Omnivore app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","body_html":"<p>With the <a href=\"https://omnivore.app/install/ios\">Omnivore app for iOS<\/a>, it\u2019s easy to save web pages and articles or archive web content to read later.<\/p><p>The Omnivore app uses the<em> iOS Share System<\/em>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&nbsp;<\/p><ul><li><p>Step 1: Log in to the Omnivore app.<\/p><\/li><li><p>Step 2: Add Omnivore to your Share menu favorites.<\/p><\/li><li><p>Step 3: Save links to your Omnivore Library.<\/p><\/li><\/ul><div id=\"youtube2-k6RkIqepAig\" class=\"youtube-wrap\" data-attrs=\"{&quot;videoId&quot;:&quot;k6RkIqepAig&quot;,&quot;startTime&quot;:null,&quot;endTime&quot;:null}\"><div class=\"youtube-inner\"><iframe src=\"https://www.youtube-nocookie.com/embed/k6RkIqepAig?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0\" frameborder=\"0\" loading=\"lazy\" gesture=\"media\" allow=\"autoplay; fullscreen\" allowautoplay=\"true\" allowfullscreen=\"true\" width=\"728\" height=\"409\"><\/iframe><\/div><\/div><p><\/p><h2><strong>Step 1: Log in to the Omnivore app.<\/strong><\/h2><p>You must be logged in before you can save links via the Share menu. If you don\u2019t already have an Omnivore account, you can sign up for free from the login screen.<\/p><p><em>Note: <\/em>If you haven\u2019t installed the iOS app, download it here: <a href=\"https://omnivore.app/install/ios\">https://omnivore.app/install/ios<\/a><\/p><h2><strong>Step 2: Add Omnivore to your Share menu favorites.<\/strong><\/h2><p>Start by viewing the Share menu from within any supported iOS app (we\u2019ve used Safari for this example).<\/p><ol><li><p>Tap the <strong>Share <\/strong>icon at the bottom of the screen.<\/p><\/li><li><p>Swipe left to the end of the list of app icons and tap <strong>More<\/strong>.<\/p><\/li><li><p>Tap <strong>Edit <\/strong>at the top of the screen.<\/p><\/li><li><p>Scroll down until you see the <strong>Omnivore <\/strong>icon and tap the <strong>+ <\/strong>icon next to it.&nbsp;<\/p><\/li><li><p>Press and hold the three-bar icon and drag Omnivore to one of the top positions under Favorites. Tap <strong>Done <\/strong>to close the menu.<\/p><\/li><li><p><strong>Omnivore <\/strong>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).<\/p><\/li><\/ol><h2><strong>Step 3: Save links to your Omnivore Library<\/strong><\/h2><p>Start by navigating to the page or article you wish to save. Please note that Omnivore will save the content that appears on your screen (not just a link), so <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.<\/em>&nbsp;<\/p><ol><li><p>While viewing the page you\u2019d like to save, tap the <strong>Share<\/strong> icon.<\/p><\/li><li><p>Tap the <strong>Omnivore<\/strong> icon in the Share menu.<\/p><\/li><li><p>Tag the article with one or more labels (optional) and tap <strong>Read Now<\/strong> or <strong>Read Later<\/strong>.&nbsp;<\/p><\/li><li><p>If you choose Read Later, the link will appear in your Library the next time you open the Omnivore app.<\/p><\/li><\/ol>","longer_truncated_body_json":null,"longer_truncated_body_html":null,"truncated_body_text":"With the Omnivore app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Omnivore app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","wordcount":360,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Omnivore","previous_name":null,"photo_url":null,"bio":"Omnivore is the home for everything you read; automatically organized and easy to share","email":"welcome@omnivore.app","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Omnivore","subdomain":"omnivoreapp","custom_domain":"blog.omnivore.app","custom_domain_optional":false,"hero_text":"Updates from the Omnivore team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Omnivore","copyright":"Omnivore","founding_plan_name":null,"community_enabled":true,"invite_only":false,"payments_state":"disabled"}}],"is_guest":false}],"reaction":null,"audio_items":null,"truncated_description":null,"hasCashtag":false,"truncated_body_html":null,"post_paywall_content_for_google":null},"truncatedPost":null,"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.omnivore.app/p/saving-links-from-your-iphone-or","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.omnivore.app/p/saving-links-from-your-iphone-or","freeTrialCoupon":null,"isChatActive":false,"features":{}}
+        window._preloads        = {"isEU":false,"language":"en","country":"SG","base_url":"https://blog.ruminer.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Ruminer","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.ruminer.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Ruminer","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Ruminer team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Ruminer","paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"paid_podcast_episode_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"ruminerapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Ruminer","author_photo_url":null,"author_bio":"Ruminer is the home for everything you read; automatically organized and easy to share","default_group_coupon_percent_off":null,"has_child_publications":false,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_free_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":"none","rankingDetail":"Launched a year ago","rankingDetailFreeIncluded":"Launched a year ago","navigationBarItems":[],"contributors":[{"name":"Ruminer","role":"admin","owner":true,"user_id":49669396,"photo_url":null}],"threads_v2_enabled":false,"threads_v2_settings":null,"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"hide_intro_popup_for_crawlers":false,"can_have_sitemap_page":false,"bitcoin_plan":null,"draft_plans":null,"base_url":"https://blog.ruminer.app","hostname":"blog.ruminer.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"subscribeCardVersionHash":"e03aaf5cd51e4035f38f2aa621f6a29c","section":null},"user":null,"confirmedLogin":false,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"inviteOnly":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"block_auto_login":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.ruminer.app"},"experimentFeatures":{"email_typo_corrections":"control","translate_choose_subscription_plan":"treatment","paywall_the_archives":null,"precancellation_free_month":null,"bundles_v2":"control","twitter_graph_activity_email":null,"disable_monthly_subscriptions":"control","use_new_subscribe_page_new_styles":"treatment","subscribe_flow_blurb_adoption":null,"subscribe_pledge_screen":"control"},"experimentExposures":{},"siteConfigs":{"score_upsell_email":"control","free_signup_confirmation_behavior":"with_email_validation","reader-onboarding-promoted-pub":737237,"pub_creation_captcha_behavior":"risky_pubs","continue_support_cta_emails_15d_after_expiry":false,"pub_update_opennode_api_key":false,"selection_sharing":"NONE","guest_posts_revamp":"NONE","trending_posts_enabled":false,"activity_emails_v3":false,"cashtags_enabled":true,"reader_post_viewer_enabled":true,"thread_photo_replies":false,"no_contest_charge_disputes":false,"use_new_homepage":true,"recommendations_announcement_url":"https://on.substack.com/p/recommendations","comp_expiry_email_new_copy":"NONE","free_unlock_required":false,"traffic_rule_check_enabled":false,"amp_emails_enabled":false,"minimum_ios_version":null,"image_deep_link_enabled":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"publication_author_display_override":"","reader_onboarding_after_subscription_flow":"NONE","generate_pdf_tax_report":false,"threads_v2_visible":false,"enable_restacking":false,"include_pdf_invoice":false,"hide_pub_from_subscription_recommendation":false,"enable_prev_next_post_link":true,"tax_integration_enabled":false,"meetings_v1":false,"custom_target_origin":"","exempt_from_gtm_filter":false,"syndicate_voiceover_to_rss":true,"boost_optin_modal_enabled":true,"pub_tts_override":"default","disable_monthly_subscriptions":false,"skip_welcome_email":false,"group_subscriptions_crm":false,"scheduled_pinned_posts":false,"disable_redirect_outbound_utm_params":false,"reader_gift_referrals_enabled":true,"ios_pause_email_default":false,"auto_paywall_archives":true,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"extended_podcast_episode_metadata":false,"use_richer_html_for_editing_podcast_description":false,"email_ufi_enabled":true,"activity_feed_enabled":false,"enable_new_discover_page":false,"no_auto_renewal_notice":false,"minimum_android_version":null,"welcome_screen_blurb_override":"","show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"audio_edu_modal":false,"history_max_iterations":10,"history_paging_enabled":true,"generated_database_maintenance_mode":false,"max_image_upload_mb":32,"extract_stripe_receipt_url":false,"post_recipients_batch_limit":5000,"bulk_subscribe_upsell_email":"experiment","trending_sidebar":false,"threads_suggested_ios_version":null,"precancellation_free_month":"control","threads_minimum_ios_version":812,"hide_podcast_email_setup_link":false,"subscribe_captcha_behavior":"default","publication_ban_sample_rate":0,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"continue_support_cta_in_newsletter_emails":false,"end_of_post_publication_recommendation":"control","bundles_v2":"NONE","publisher_banner":"","allow_document_freeze":false,"chat_marketing_launched":false,"podcast_main_feed_is_firehose":false,"zendesk_automation_cancellations":false,"pub_launch_checklist":false,"subscribe_flow_blurb_adoption":"experiment","chat_beta_access":false,"should_send_payment_pledge_emails":true,"subscribe_pledge_screen":"NONE"},"publicationSettings":{"enable_prev_next_nav":false,"enable_restacking":true,"seen_coming_soon_explainer":false,"enable_post_page_conversion":true,"enable_meetings":false},"subscriberCountDetails":null,"noIndex":false,"post":{"id":79321629,"publication_id":509268,"type":"newsletter","title":"Saving Links from Your iPhone or iPad ","social_title":null,"section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"","slug":"saving-links-from-your-iphone-or","post_date":"2022-10-19T07:42:04.670Z","podcast_url":"","podcast_art_url":null,"podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"podcast_preview_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"everyone","show_guest_bios":true,"free_unlock_required":false,"default_comment_sort":null,"canonical_url":"https://blog.ruminer.app/p/saving-links-from-your-iphone-or","audience_before_archived":null,"reactions":{"\u2764":0},"top_exclusions":[],"pins":[],"section_pins":[],"previous_post_slug":"getting-started-with-ruminer-382","next_post_slug":null,"cover_image":"https://substackcdn.com/image/youtube/w_728,c_limit/k6RkIqepAig","cover_image_is_square":false,"videoUpload":null,"podcastUpload":null,"podcastPreviewUpload":null,"voiceover_upload_id":null,"voiceoverUpload":null,"has_voiceover":false,"description":"With the Ruminer app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","body_html":"<p>With the <a href=\"https://ruminer.app/install/ios\">Ruminer app for iOS<\/a>, it\u2019s easy to save web pages and articles or archive web content to read later.<\/p><p>The Ruminer app uses the<em> iOS Share System<\/em>, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).&nbsp;<\/p><ul><li><p>Step 1: Log in to the Ruminer app.<\/p><\/li><li><p>Step 2: Add Ruminer to your Share menu favorites.<\/p><\/li><li><p>Step 3: Save links to your Ruminer Library.<\/p><\/li><\/ul><div id=\"youtube2-k6RkIqepAig\" class=\"youtube-wrap\" data-attrs=\"{&quot;videoId&quot;:&quot;k6RkIqepAig&quot;,&quot;startTime&quot;:null,&quot;endTime&quot;:null}\"><div class=\"youtube-inner\"><iframe src=\"https://www.youtube-nocookie.com/embed/k6RkIqepAig?rel=0&amp;autoplay=0&amp;showinfo=0&amp;enablejsapi=0\" frameborder=\"0\" loading=\"lazy\" gesture=\"media\" allow=\"autoplay; fullscreen\" allowautoplay=\"true\" allowfullscreen=\"true\" width=\"728\" height=\"409\"><\/iframe><\/div><\/div><p><\/p><h2><strong>Step 1: Log in to the Ruminer app.<\/strong><\/h2><p>You must be logged in before you can save links via the Share menu. If you don\u2019t already have an Ruminer account, you can sign up for free from the login screen.<\/p><p><em>Note: <\/em>If you haven\u2019t installed the iOS app, download it here: <a href=\"https://ruminer.app/install/ios\">https://ruminer.app/install/ios<\/a><\/p><h2><strong>Step 2: Add Ruminer to your Share menu favorites.<\/strong><\/h2><p>Start by viewing the Share menu from within any supported iOS app (we\u2019ve used Safari for this example).<\/p><ol><li><p>Tap the <strong>Share <\/strong>icon at the bottom of the screen.<\/p><\/li><li><p>Swipe left to the end of the list of app icons and tap <strong>More<\/strong>.<\/p><\/li><li><p>Tap <strong>Edit <\/strong>at the top of the screen.<\/p><\/li><li><p>Scroll down until you see the <strong>Ruminer <\/strong>icon and tap the <strong>+ <\/strong>icon next to it.&nbsp;<\/p><\/li><li><p>Press and hold the three-bar icon and drag Ruminer to one of the top positions under Favorites. Tap <strong>Done <\/strong>to close the menu.<\/p><\/li><li><p><strong>Ruminer <\/strong>will appear as one of the first options the next time you use the Share feature (you may need to restart Safari).<\/p><\/li><\/ol><h2><strong>Step 3: Save links to your Ruminer Library<\/strong><\/h2><p>Start by navigating to the page or article you wish to save. Please note that Ruminer will save the content that appears on your screen (not just a link), so <em>if the page is behind a paywall and you are logged into the paywalled site, you will save the paid content.<\/em>&nbsp;<\/p><ol><li><p>While viewing the page you\u2019d like to save, tap the <strong>Share<\/strong> icon.<\/p><\/li><li><p>Tap the <strong>Ruminer<\/strong> icon in the Share menu.<\/p><\/li><li><p>Tag the article with one or more labels (optional) and tap <strong>Read Now<\/strong> or <strong>Read Later<\/strong>.&nbsp;<\/p><\/li><li><p>If you choose Read Later, the link will appear in your Library the next time you open the Ruminer app.<\/p><\/li><\/ol>","longer_truncated_body_json":null,"longer_truncated_body_html":null,"truncated_body_text":"With the Ruminer app for iOS, it\u2019s easy to save web pages and articles or archive web content to read later. The Ruminer app uses the iOS Share System, which lets you send items from one app (such as Safari) to another (such as Messages or Mail).","wordcount":360,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Ruminer","previous_name":null,"photo_url":null,"bio":"Ruminer is the home for everything you read; automatically organized and easy to share","email":"welcome@ruminer.app","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Ruminer","subdomain":"ruminerapp","custom_domain":"blog.ruminer.app","custom_domain_optional":false,"hero_text":"Updates from the Ruminer team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Ruminer","copyright":"Ruminer","founding_plan_name":null,"community_enabled":true,"invite_only":false,"payments_state":"disabled"}}],"is_guest":false}],"reaction":null,"audio_items":null,"truncated_description":null,"hasCashtag":false,"truncated_body_html":null,"post_paywall_content_for_google":null},"truncatedPost":null,"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.ruminer.app/p/saving-links-from-your-iphone-or","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.ruminer.app/p/saving-links-from-your-iphone-or","freeTrialCoupon":null,"isChatActive":false,"features":{}}
         ]]>
         </script> 
         <script>
         <![CDATA[
-        window._analyticsConfig = {"user":null,"properties":{"subdomain":"omnivoreapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false,"is_founding":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
+        window._analyticsConfig = {"user":null,"properties":{"subdomain":"ruminerapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false,"is_founding":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
         ]]>
         </script> 
         <script src="https://substackcdn.com/min/main.bundle.js?v=1c7d20-183edb5c440" charset="utf-8"></script> <!-- Fallback tracking pixels -->
@@ -3581,15 +3581,15 @@ VALUES
     </body>
 </html>
 ', 371),
-  ('omnivore_organize', 'https://blog.omnivore.app/p/organize-your-omnivore-library-with', 'Organize your Omnivore library with labels', 'The Omnivore Team', 'Use labels to organize your Omnivore library.', 'https://proxy-prod.omnivore-image-cache.app/320x320,sTgJ5Q0XIg_EHdmPWcxtXFmkjn8T6hkJt7S9ziClagYo/https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdaf07af7-5cdb-4ecc-aace-1a46de3e9c58_1827x1090.png', '2022-04-18', 'Omnivore Blog', 'organize-your-omnivore-library-with-labels', '<DIV class="page" id="readability-page-1">
+  ('ruminer_organize', 'https://blog.ruminer.app/p/organize-your-ruminer-library-with', 'Organize your Ruminer library with labels', 'The Ruminer Team', 'Use labels to organize your Ruminer library.', 'https://proxy-prod.ruminer-image-cache.app/320x320,sTgJ5Q0XIg_EHdmPWcxtXFmkjn8T6hkJt7S9ziClagYo/https://substackcdn.com/image/fetch/w_1200,h_600,c_fill,f_jpg,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fdaf07af7-5cdb-4ecc-aace-1a46de3e9c58_1827x1090.png', '2022-04-18', 'Ruminer Blog', 'organize-your-ruminer-library-with-labels', '<DIV class="page" id="readability-page-1">
     <div dir="auto">
-        <p> Omnivore provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels. </p>
+        <p> Ruminer provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels. </p>
         <p> On the web if you have a larger screen you can find the labels tool on the left side of the screen. </p>
         <div>
             <figure>
                 <a target="_blank" rel="nofollow" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif">
                     <picture>
-                        <source type="image/webp" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sHA-61cUdkLlHqhkwMKyEDZdKy0cdmA2AQHShDwn761k/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w,https://proxy-prod.omnivore-image-cache.app/848x0,s60VrDRMEQMlt5zjgbNRvym69tgnvRY514EPKosaYDrk/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sTfg8_L2SP4WVwA-v8Dc-bUKS6RL9YGywx005YIoG9wg/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,sPzsSZLI6hpp27vb6f9gV3gBB58eHm0aTD83jTtC1dsE/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w," sizes="100vw"><img src="https://proxy-prod.omnivore-image-cache.app/960x711,sd_iEqPoEHqI7WkOUFPZl1axCkvtYhw5KBmUIne0oSQ0/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif" width="960" height="711" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:711,&quot;width&quot;:960,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1016443,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/gif&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,slvsfWZoZ_A1TVQ8QpH3LN5w1dC3Jy1uie5cndrE-tZs/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w,https://proxy-prod.omnivore-image-cache.app/848x0,suUUNJbyMdnIvw4q5fxErvaYXNzSEe0yA2y7wHIrEnQo/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sln31AgX1WGwUsWgWsbFrbUqK1VIVdfg-MTQQpiwkjuI/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,sflw_h96rXO4g7QF0vV59_KC2NngelRez7G4Ixrkj2zk/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w," sizes="100vw">
+                        <source type="image/webp" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sHA-61cUdkLlHqhkwMKyEDZdKy0cdmA2AQHShDwn761k/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w,https://proxy-prod.ruminer-image-cache.app/848x0,s60VrDRMEQMlt5zjgbNRvym69tgnvRY514EPKosaYDrk/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sTfg8_L2SP4WVwA-v8Dc-bUKS6RL9YGywx005YIoG9wg/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,sPzsSZLI6hpp27vb6f9gV3gBB58eHm0aTD83jTtC1dsE/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w," sizes="100vw"><img src="https://proxy-prod.ruminer-image-cache.app/960x711,sd_iEqPoEHqI7WkOUFPZl1axCkvtYhw5KBmUIne0oSQ0/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif" width="960" height="711" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:711,&quot;width&quot;:960,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1016443,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/gif&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,slvsfWZoZ_A1TVQ8QpH3LN5w1dC3Jy1uie5cndrE-tZs/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w,https://proxy-prod.ruminer-image-cache.app/848x0,suUUNJbyMdnIvw4q5fxErvaYXNzSEe0yA2y7wHIrEnQo/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sln31AgX1WGwUsWgWsbFrbUqK1VIVdfg-MTQQpiwkjuI/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,sflw_h96rXO4g7QF0vV59_KC2NngelRez7G4Ixrkj2zk/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w," sizes="100vw">
                     </picture>
                 </a>
                 <figcaption> Adding a label from the left menu </figcaption>
@@ -3600,10 +3600,10 @@ VALUES
             <figure>
                 <a target="_blank" rel="nofollow" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png">
                     <picture>
-                        <source type="image/webp" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sEBY7cmBWHxBJXMYeEwU1FW_NcHsar4QFeoAz9A-_Yyk/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,ssBFps48H1M84P8FVsw-_eaI1meXYr42JVhIVSly3boE/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,skoJXcjZwXg6BA_gwVJbujU7kHNxtsC476mN7PketakA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,sjnylsSWwxUxve3xSanOtnsQEY3f2WzhzhwGWZ57BCvc/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w," sizes="100vw"><img src="https://proxy-prod.omnivore-image-cache.app/1456x1315,sdpGYdxa-cZ3SZWswOh__3ynxRP98SMiWWeOJz6juAzY/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png" width="1456" height="1315" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1315,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1313051,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sw_MAvuT8u_Trc6iAYYP5KtjtvdfktPQEHSvcPROssoE/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,sTfeJVoCai2yu951PbfyyLugk83O1UvFF_XfBVXUdYNY/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sFjPEAFWZC54Sd4GmV-0B0V2cW4rpq4G8md31PemR6SY/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,sVydjWZiwAEf8wvbGePbjy7Yb7UAppypLR3hbNY2g35M/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w," sizes="100vw">
+                        <source type="image/webp" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sEBY7cmBWHxBJXMYeEwU1FW_NcHsar4QFeoAz9A-_Yyk/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,ssBFps48H1M84P8FVsw-_eaI1meXYr42JVhIVSly3boE/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,skoJXcjZwXg6BA_gwVJbujU7kHNxtsC476mN7PketakA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,sjnylsSWwxUxve3xSanOtnsQEY3f2WzhzhwGWZ57BCvc/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w," sizes="100vw"><img src="https://proxy-prod.ruminer-image-cache.app/1456x1315,sdpGYdxa-cZ3SZWswOh__3ynxRP98SMiWWeOJz6juAzY/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png" width="1456" height="1315" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1315,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1313051,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sw_MAvuT8u_Trc6iAYYP5KtjtvdfktPQEHSvcPROssoE/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,sTfeJVoCai2yu951PbfyyLugk83O1UvFF_XfBVXUdYNY/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sFjPEAFWZC54Sd4GmV-0B0V2cW4rpq4G8md31PemR6SY/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,sVydjWZiwAEf8wvbGePbjy7Yb7UAppypLR3hbNY2g35M/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w," sizes="100vw">
                     </picture>
                 </a>
-                <figcaption> Article Actions at the top of the Omnivore Reader for smaller screens </figcaption>
+                <figcaption> Article Actions at the top of the Ruminer Reader for smaller screens </figcaption>
             </figure>
         </div>
         <p> iOS users can long press on an item in the library or access the labels modal from the menu in the top right of the reader page. </p>
@@ -3611,7 +3611,7 @@ VALUES
             <figure>
                 <a target="_blank" rel="nofollow" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png">
                     <picture>
-                        <source type="image/webp" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sOt9noZCunVuBpROAtiZQBkDOwdgE1CRHmpNW3x27aRs/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,shW-fLBzfrQUqwHnKJXNJcAuS_cw78YvCHnVc8pYJXO4/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,s7DNDbmEIOMT97yq6ImsWwUlDB_jja7BwgNHsiSqcXAM/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,s7R1UrwH6NIGCBZd4oF49oYePNjCL_CdIbjmlf9jUUVA/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w," sizes="100vw"><img src="https://proxy-prod.omnivore-image-cache.app/470x0,sOUHLFwk4mORdkuStr6Jl719evRUX-XTauXEp85h4iL4/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png" width="470" height="808.7817258883249" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2034,&quot;width&quot;:1182,&quot;resizeWidth&quot;:470,&quot;bytes&quot;:836469,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sZRuDIW1FiuuxbCgU4gRD1lqwX2C_EBAeceK04lfo4co/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,smxwuOxWWEVnK762GvMxZvF2CMZwxzu7OVvk3n-jtoo0/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sSscWQnF-7-LlII4iPCbGvCcM_-tuP16Zv4IgexFir8g/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,s5atcn3L9YanOBtMmNoF5zPalnJkUs4iq4LqYqjz88t0/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w," sizes="100vw">
+                        <source type="image/webp" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sOt9noZCunVuBpROAtiZQBkDOwdgE1CRHmpNW3x27aRs/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,shW-fLBzfrQUqwHnKJXNJcAuS_cw78YvCHnVc8pYJXO4/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,s7DNDbmEIOMT97yq6ImsWwUlDB_jja7BwgNHsiSqcXAM/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,s7R1UrwH6NIGCBZd4oF49oYePNjCL_CdIbjmlf9jUUVA/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w," sizes="100vw"><img src="https://proxy-prod.ruminer-image-cache.app/470x0,sOUHLFwk4mORdkuStr6Jl719evRUX-XTauXEp85h4iL4/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png" width="470" height="808.7817258883249" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2034,&quot;width&quot;:1182,&quot;resizeWidth&quot;:470,&quot;bytes&quot;:836469,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sZRuDIW1FiuuxbCgU4gRD1lqwX2C_EBAeceK04lfo4co/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,smxwuOxWWEVnK762GvMxZvF2CMZwxzu7OVvk3n-jtoo0/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sSscWQnF-7-LlII4iPCbGvCcM_-tuP16Zv4IgexFir8g/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,s5atcn3L9YanOBtMmNoF5zPalnJkUs4iq4LqYqjz88t0/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w," sizes="100vw">
                     </picture>
                 </a>
                 <figcaption> Editing labels from the library view on iOS </figcaption>
@@ -3623,14 +3623,14 @@ VALUES
             <figure>
                 <a target="_blank" rel="nofollow" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png">
                     <picture>
-                        <source type="image/webp" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,sJ4jGTXC-nT5NowjH9tcUMbLKEadv6f9J4rj7ds5KPjk/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,spOjwvJF4WpKglp5DszrOTjDtlEXHJvkdDuhbmkW5ZKY/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sBBCweb8OKEbOEI0GJSKPBGGqphmj1JbHuSybjvQ70AA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,sgkAtI4pFKSY6tAGGLqzvMT-oHKgi2S0cf1xmEhR2qBA/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w," sizes="100vw"><img src="https://proxy-prod.omnivore-image-cache.app/418x0,s3ZzvKJlkfrGLNHHjmS1HkMp6toHMoHzZXkpZaap0C84/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png" width="418" height="773.5313653136532" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2006,&quot;width&quot;:1084,&quot;resizeWidth&quot;:418,&quot;bytes&quot;:309638,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.omnivore-image-cache.app/424x0,svy8R8AOum-yggFgfrZEh2FRk2CGCkGer5IO5adBkPuQ/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w,https://proxy-prod.omnivore-image-cache.app/848x0,swYr1SKvE17RcuizxoLgLqxglb77debxcFXMjH4laJi0/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w,https://proxy-prod.omnivore-image-cache.app/1272x0,sDGcsXD48VD9cEICF2Yl3IB5JBVU_Y0uIDhJxwKI9xXA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w,https://proxy-prod.omnivore-image-cache.app/1456x0,shlO3HLXoijZf7dhYb3NRfh5nsAMuJM_W4Smhlb9BsYw/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w," sizes="100vw">
+                        <source type="image/webp" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,sJ4jGTXC-nT5NowjH9tcUMbLKEadv6f9J4rj7ds5KPjk/https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,spOjwvJF4WpKglp5DszrOTjDtlEXHJvkdDuhbmkW5ZKY/https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sBBCweb8OKEbOEI0GJSKPBGGqphmj1JbHuSybjvQ70AA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,sgkAtI4pFKSY6tAGGLqzvMT-oHKgi2S0cf1xmEhR2qBA/https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w," sizes="100vw"><img src="https://proxy-prod.ruminer-image-cache.app/418x0,s3ZzvKJlkfrGLNHHjmS1HkMp6toHMoHzZXkpZaap0C84/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png" width="418" height="773.5313653136532" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2006,&quot;width&quot;:1084,&quot;resizeWidth&quot;:418,&quot;bytes&quot;:309638,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" alt="" srcset="https://proxy-prod.ruminer-image-cache.app/424x0,svy8R8AOum-yggFgfrZEh2FRk2CGCkGer5IO5adBkPuQ/https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w,https://proxy-prod.ruminer-image-cache.app/848x0,swYr1SKvE17RcuizxoLgLqxglb77debxcFXMjH4laJi0/https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w,https://proxy-prod.ruminer-image-cache.app/1272x0,sDGcsXD48VD9cEICF2Yl3IB5JBVU_Y0uIDhJxwKI9xXA/https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w,https://proxy-prod.ruminer-image-cache.app/1456x0,shlO3HLXoijZf7dhYb3NRfh5nsAMuJM_W4Smhlb9BsYw/https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w," sizes="100vw">
                     </picture>
                 </a>
                 <figcaption> Using labels to filter your search </figcaption>
             </figure>
         </div>
         <h2> Using Advanced Search to filter your library with labels </h2>
-        <p> Omnivore''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label. </p>
+        <p> Ruminer''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label. </p>
         <p> Some examples: </p>
         <ul>
             <li>
@@ -3660,9 +3660,9 @@ VALUES
         <meta charset="utf-8" />
         <meta name="norton-safeweb-site-verification" content="24usqpep0ejc5w6hod3dulxwciwp0djs6c6ufp96av3t4whuxovj72wfkdjxu82yacb7430qjm8adbd5ezlt4592dq4zrvadcn9j9n-0btgdzpiojfzno16-fnsnu7xd" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-        <meta name="author" content="Omnivore" />
-        <meta property="og:url" content="https://blog.omnivore.app/p/organize-your-omnivore-library-with" />
-        <link rel="canonical" href="https://blog.omnivore.app/p/organize-your-omnivore-library-with" />
+        <meta name="author" content="Ruminer" />
+        <meta property="og:url" content="https://blog.ruminer.app/p/organize-your-ruminer-library-with" />
+        <link rel="canonical" href="https://blog.ruminer.app/p/organize-your-ruminer-library-with" />
         <link rel="shortcut icon" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-16x16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/favicon-32x32.png" />
@@ -3678,9 +3678,9 @@ VALUES
         <link rel="apple-touch-icon" sizes="180x180" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-180x180.png" />
         <link rel="apple-touch-icon" sizes="1024x1024" href="https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/8f6c575c-355b-44a6-a8e6-67a1c3745b59/apple-touch-icon-1024x1024.png" />
         <title>
-            Organize your Omnivore library with labels - Omnivore
+            Organize your Ruminer library with labels - Ruminer
         </title>
-        <link rel="alternate" type="application/rss+xml" href="/feed" title="Omnivore" />
+        <link rel="alternate" type="application/rss+xml" href="/feed" title="Ruminer" />
         <style>
         <![CDATA[
         /*https://fonts.googleapis.com/css?family=Spectral:400,400i,600,600i*/
@@ -3837,11 +3837,11 @@ VALUES
         </style>
         <link rel="stylesheet" href="https://substackcdn.com/theme/main.css?v=3792f0aceafc6656116e67d83524ed91" />
         <meta property="og:type" content="article" data-preact-helmet="true" />
-        <meta name="description" content="Use labels to organize your Omnivore library" data-preact-helmet="true" />
-        <meta property="og:description" content="Use labels to organize your Omnivore library" data-preact-helmet="true" />
-        <meta property="twitter:description" content="Use labels to organize your Omnivore library" data-preact-helmet="true" />
-        <meta property="og:title" content="Organize your Omnivore library with labels" data-preact-helmet="true" />
-        <meta property="twitter:title" content="Organize your Omnivore library with labels" data-preact-helmet="true" />
+        <meta name="description" content="Use labels to organize your Ruminer library" data-preact-helmet="true" />
+        <meta property="og:description" content="Use labels to organize your Ruminer library" data-preact-helmet="true" />
+        <meta property="twitter:description" content="Use labels to organize your Ruminer library" data-preact-helmet="true" />
+        <meta property="og:title" content="Organize your Ruminer library with labels" data-preact-helmet="true" />
+        <meta property="twitter:title" content="Organize your Ruminer library with labels" data-preact-helmet="true" />
         <meta property="og:image" content="https://substackcdn.com/image/fetch/w_1200,h_600,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif" data-preact-helmet="true" />
         <meta property="twitter:image" content="https://substackcdn.com/image/fetch/w_1200,h_600,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif" data-preact-helmet="true" />
         <meta property="twitter:card" content="summary_large_image" data-preact-helmet="true" />
@@ -3877,10 +3877,10 @@ VALUES
                         <div class="topbar">
                             <div class="container">
                                 <div class="large-menu-logo-container" style="width: 219.531px;">
-                                    <a href="https://blog.omnivore.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="large-menu-logo" /></a>
+                                    <a href="https://blog.ruminer.app"><img src="https://substackcdn.com/image/fetch/w_96,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png" class="large-menu-logo" /></a>
                                 </div>
                                 <h1 class="large-menu-name">
-                                    <a class="large-menu-home-link" href="https://blog.omnivore.app">Omnivore</a>
+                                    <a class="large-menu-home-link" href="https://blog.ruminer.app">Ruminer</a>
                                 </h1>
                                 <div class="buttons notification-container">
                                     <button data-testid="noncontributor-cta-button" class="button primary subscribe-cta subscribe-btn" type="button" tabindex="0">Subscribe</button><button native="true" class="button homepage-nav-user-indicator sign-in-link outline-grayscale desktop-button" type="button" tabindex="0">Sign in</button><button native="true" class="button homepage-nav-user-indicator sign-in-link outline-grayscale mobile-icon" type="button" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
@@ -3895,7 +3895,7 @@ VALUES
                 <div>
                     <script type="application/ld+json">
                     <![CDATA[
-                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.omnivore.app/p/organize-your-omnivore-library-with","mainEntityOfPage":"https://blog.omnivore.app/p/organize-your-omnivore-library-with","headline":"Organize your Omnivore library with labels","description":"Use labels to organize your Omnivore library","image":[{"@type":"ImageObject","url":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif"}],"datePublished":"2022-04-18T11:06:20-07:00","dateModified":"2022-04-18T11:06:20-07:00","isAccessibleForFree":true,"hasPart":{},"author":{"@type":"Person","name":"Omnivore","url":"https://substack.com/profile/49669396-omnivore"},"publisher":{"@type":"Organization","name":"Omnivore","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
+                    {"@context":"http://schema.org","@type":"NewsArticle","url":"https://blog.ruminer.app/p/organize-your-ruminer-library-with","mainEntityOfPage":"https://blog.ruminer.app/p/organize-your-ruminer-library-with","headline":"Organize your Ruminer library with labels","description":"Use labels to organize your Ruminer library","image":[{"@type":"ImageObject","url":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif"}],"datePublished":"2022-04-18T11:06:20-07:00","dateModified":"2022-04-18T11:06:20-07:00","isAccessibleForFree":true,"hasPart":{},"author":{"@type":"Person","name":"Ruminer","url":"https://substack.com/profile/49669396-ruminer"},"publisher":{"@type":"Organization","name":"Ruminer","logo":{"@type":"ImageObject","url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png"}}}
                     ]]>
                     </script>
                     <div class="single-post-container">
@@ -3922,10 +3922,10 @@ VALUES
                                                             </div>
                                                             <div class="social-labels">
                                                                 <div class="social-title">
-                                                                    Organize your Omnivore library with labels
+                                                                    Organize your Ruminer library with labels
                                                                 </div>
                                                                 <div class="social-subtitle">
-                                                                    blog.omnivore.app
+                                                                    blog.ruminer.app
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3978,15 +3978,15 @@ VALUES
                                     </div>
                                     <div class="post-header">
                                         <h1 class="post-title short unpublished">
-                                            Organize your Omnivore library with labels
+                                            Organize your Ruminer library with labels
                                         </h1>
                                         <h3 class="subtitle">
-                                            Use labels to organize your Omnivore library
+                                            Use labels to organize your Ruminer library
                                         </h3>
                                         <div class="post-meta post-meta-actions-web custom alternative-meta">
                                             <div class="post-meta-item author">
                                                 <div class="account-hover-wrapper">
-                                                    <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                    <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                 </div>
                                             </div>
                                             <div title="2022-04-18T18:06:20.131Z" class="post-meta-item post-date">
@@ -4023,7 +4023,7 @@ VALUES
                                         <div class="available-content">
                                             <div dir="auto" class="body markup">
                                                 <p>
-                                                    Omnivore provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels.
+                                                    Ruminer provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels.
                                                 </p>
                                                 <p>
                                                     On the web if you have a larger screen you can find the labels tool on the left side of the screen.
@@ -4043,7 +4043,7 @@ VALUES
                                                     <figure>
                                                         <a class="image-link image2" target="_blank" rel="nofollow" href="https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w" sizes="100vw" /><img src="https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png" width="1456" height="1315" data-attrs="{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1315,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1313051,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w" sizes="100vw" /></picture></a>
                                                         <figcaption class="image-caption">
-                                                            Article Actions at the top of the Omnivore Reader for smaller screens
+                                                            Article Actions at the top of the Ruminer Reader for smaller screens
                                                         </figcaption>
                                                     </figure>
                                                 </div>
@@ -4076,7 +4076,7 @@ VALUES
                                                     Using Advanced Search to filter your library with labels
                                                 </h2>
                                                 <p>
-                                                    Omnivore''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label.
+                                                    Ruminer''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label.
                                                 </p>
                                                 <p>
                                                     Some examples:
@@ -4107,17 +4107,17 @@ VALUES
                                         </div>
                                         <div class="post-end-cta-full">
                                             <h3>
-                                                Subscribe to <b>Omnivore</b>
+                                                Subscribe to <b>Ruminer</b>
                                             </h3>
                                             <p class="end-cta-author-subs">
                                                 Launched 7 months ago
                                             </p>
                                             <p class="end-cta-hero-text">
-                                                Updates from the Omnivore team
+                                                Updates from the Ruminer team
                                             </p>
                                             <div class="subscribe-widget">
                                                 <form class="form" action="/api/v1/free?nojs=true" method="post" novalidate="">
-                                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/organize-your-omnivore-library-with" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/organize-your-omnivore-library-with" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" />
+                                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/organize-your-ruminer-library-with" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/organize-your-ruminer-library-with" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="post-end-cta" />
                                                     <div class="sideBySideWrap">
                                                         <input type="email" name="email" placeholder="Type your email…" /><button tabindex="0" class="button rightButton primary subscribe-btn" type="submit"><b class="button-text">Subscribe</b></button>
                                                     </div>
@@ -4177,11 +4177,11 @@ VALUES
                                                 <img class="post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F658efff4-341a-4720-8cf6-9b2bdbedfaa7_800x668.gif" alt="" />
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-title newsletter">Getting Started with Omnivore</a><a href="https://blog.omnivore.app/p/getting-started-with-omnivore" class="post-preview-description">Learn the best ways to save links with Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-title newsletter">Getting Started with Ruminer</a><a href="https://blog.ruminer.app/p/getting-started-with-ruminer" class="post-preview-description">Learn the best ways to save links with Ruminer</a>
                                                 <div class="post-meta post-meta-actions-web custom post-preview-meta">
                                                     <div class="post-meta-item author">
                                                         <div class="account-hover-wrapper">
-                                                            <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                            <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                         </div>
                                                     </div>
                                                     <div class="post-meta-item post-date" title="2021-10-13T19:39:10.254Z">
@@ -4231,10 +4231,10 @@ VALUES
                                                                                 </div>
                                                                                 <div class="social-labels">
                                                                                     <div class="social-title">
-                                                                                        <span>Getting Started with Omnivore</span>
+                                                                                        <span>Getting Started with Ruminer</span>
                                                                                     </div>
                                                                                     <div class="social-subtitle">
-                                                                                        <span>blog.omnivore.app</span>
+                                                                                        <span>blog.ruminer.app</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -4294,11 +4294,11 @@ VALUES
                                                 <img class="post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F2ab1f7e8-2ca7-4011-8ccb-43d0b3bd244f_1490x2020.png" alt="" />
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.omnivore.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Omnivore</a>
+                                                <a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-title newsletter">Code Block Syntax Highlighting</a><a href="https://blog.ruminer.app/p/code-block-syntax-highlighting" class="post-preview-description">Highlighted &lt;code&gt; in Ruminer</a>
                                                 <div class="post-meta post-meta-actions-web custom post-preview-meta">
                                                     <div class="post-meta-item author">
                                                         <div class="account-hover-wrapper">
-                                                            <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                            <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                         </div>
                                                     </div>
                                                     <div class="post-meta-item post-date" title="2022-02-28T19:40:04.793Z">
@@ -4351,7 +4351,7 @@ VALUES
                                                                                         <span>Code Block Syntax Highlighting</span>
                                                                                     </div>
                                                                                     <div class="social-subtitle">
-                                                                                        <span>blog.omnivore.app</span>
+                                                                                        <span>blog.ruminer.app</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -4411,11 +4411,11 @@ VALUES
                                                 <img class="post-preview-inner-image" src="https://substackcdn.com/image/fetch/w_336,h_255,c_fill,f_webp,q_auto:good,fl_progressive:steep,g_auto/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F09b2e224-0d61-42d5-ad43-b176452a64f9_1208x1638.png" alt="" />
                                             </div>
                                             <div class="post-preview-content">
-                                                <a href="https://blog.omnivore.app/p/new-pdf-viewer" class="post-preview-title newsletter">New PDF Viewer</a><a href="https://blog.omnivore.app/p/new-pdf-viewer" class="post-preview-description">Today we are happy to launch our new PDF viewer. It is available in our latest iOS release (1.3.0) and on the web. The new PDF viewer supports…</a>
+                                                <a href="https://blog.ruminer.app/p/new-pdf-viewer" class="post-preview-title newsletter">New PDF Viewer</a><a href="https://blog.ruminer.app/p/new-pdf-viewer" class="post-preview-description">Today we are happy to launch our new PDF viewer. It is available in our latest iOS release (1.3.0) and on the web. The new PDF viewer supports…</a>
                                                 <div class="post-meta post-meta-actions-web custom post-preview-meta">
                                                     <div class="post-meta-item author">
                                                         <div class="account-hover-wrapper">
-                                                            <a href="https://substack.com/profile/49669396-omnivore">Omnivore</a>
+                                                            <a href="https://substack.com/profile/49669396-ruminer">Ruminer</a>
                                                         </div>
                                                     </div>
                                                     <div class="post-meta-item post-date" title="2021-11-12T20:45:41.797Z">
@@ -4468,7 +4468,7 @@ VALUES
                                                                                         <span>New PDF Viewer</span>
                                                                                     </div>
                                                                                     <div class="social-subtitle">
-                                                                                        <span>blog.omnivore.app</span>
+                                                                                        <span>blog.ruminer.app</span>
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -4537,7 +4537,7 @@ VALUES
                                     Ready for more?
                                 </h1>
                                 <form action="/api/v1/free?nojs=true" method="post" class="form" novalidate="">
-                                    <input type="hidden" name="first_url" value="https://blog.omnivore.app/p/organize-your-omnivore-library-with" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.omnivore.app/p/organize-your-omnivore-library-with" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" />
+                                    <input type="hidden" name="first_url" value="https://blog.ruminer.app/p/organize-your-ruminer-library-with" /><input type="hidden" name="first_referrer" /><input type="hidden" name="current_url" value="https://blog.ruminer.app/p/organize-your-ruminer-library-with" /><input type="hidden" name="current_referrer" /><input type="hidden" name="referral_code" /><input type="hidden" name="source" value="subscribe_footer" />
                                     <div class="sideBySideWrap">
                                         <input type="email" name="email" placeholder="Type your email…" /><button class="button rightButton primary subscribe-btn" type="submit" tabindex="0"><b class="button-text">Subscribe</b></button>
                                     </div>
@@ -4553,10 +4553,10 @@ VALUES
                         <div class="container">
                             <div class="footer-blurbs">
                                 <div class="footer-copyright-blurb">
-                                    © 2022 Omnivore
+                                    © 2022 Ruminer
                                 </div>
                                 <div class="footer-terms-blurb">
-                                    <a href="https://blog.omnivore.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
+                                    <a href="https://blog.ruminer.app/privacy" native="true">Privacy</a> ∙ <a href="/tos" native="true">Terms</a> ∙ <a href="https://substack.com/ccpa#personal-data-collected" native="true">Collection notice</a>
                                 </div>
                             </div>
                             <div class="footer-buttons">
@@ -4661,12 +4661,12 @@ VALUES
         <script src="https://js.sentry-cdn.com/c41771aeccbb43fbbffbc4755e65c9be.min.js" crossorigin="anonymous"></script> 
         <script>
         <![CDATA[
-        window._preloads        = {"isEU":false,"language":"en","country":"US","base_url":"https://blog.omnivore.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Omnivore","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.omnivore.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Omnivore","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Omnivore team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Omnivore","page_enabled":false,"paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"omnivoreapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Omnivore","author_photo_url":null,"author_bio":"Omnivore is the home for everything you read; automatically organized and easy to share","has_child_publications":false,"public_user_count":1,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":null,"rankingDetail":"Launched 7 months ago","rankingDetailFreeIncluded":"Launched 7 months ago","contributors":[{"name":"Omnivore","role":"admin","owner":true}],"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"draft_plans":null,"base_url":"https://blog.omnivore.app","hostname":"blog.omnivore.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"section":null},"user":null,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.omnivore.app"},"experimentFeatures":{"writer_share_modal":"control","selection_sharing":"treatment_card","welcome_screen_blurbs":"control","use_new_onboarding_email_import":null,"reader_recommendation_emails":null},"experimentExposures":{},"siteConfigs":{"reader_onboarding_enable_subscribe_button":"NONE","profile_reader_onboarding":"treatment","post_presence":false,"podcast_post_page":true,"reader-onboarding-promoted-pub":737237,"trending_posts_enabled":false,"continue_support_cta_emails_15d_after_expiry":false,"like_activity_start_time":1893456000,"free_signup_confirmation_behavior":"default","tts_enabled":false,"selection_sharing":"NONE","use_new_onboarding_email_import":"treatment","end_of_post_recommendations":"control","recommendations_announcement_url":"https://on.substack.com/p/recommendations","post_ufi_refresh":false,"amp_emails_enabled":false,"minimum_ios_version":null,"social_context_features":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"audio_embeds_enabled":false,"publication_author_display_override":"","app_inbox_v2_enabled":false,"settings_page_refresh":true,"delay_twitter":"NONE","tiktok_embed_enabled":true,"link_tracking_load_test":false,"first_party_click_tracking":true,"skip_welcome_email":false,"free_subscriber_email_campaign_drip":"control","ios_pause_email_default":false,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"podcast_post_email":true,"deep_prepare_document_body":false,"disallow_spammy_comment_edits":false,"welcome_screen_blurb_override":"","include_bottom_pixel":true,"show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"use_elastic_audio_transcoder":false,"history_max_iterations":10,"history_paging_enabled":true,"show_notes_editor":false,"custom_target_origin":"","podcast_emails_play_on_substack":false,"exempt_from_gtm_filter":false,"max_image_upload_mb":32,"generated_database_maintenance_mode":false,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"publication_ban_sample_rate":1,"publisher_banner":"","batched_link_emails":"treatment","subscribe_captcha_behavior":"never","post_page_conversion":"NONE","import_verification_limit":3873,"sticky_auto_share_on_publish":false,"continue_support_cta_in_newsletter_emails":false,"writer_share_modal":"NONE","end_of_post_publication_recommendation":"control","tax_report_enable_stripe_fee_lineitem":true},"noIndex":false,"post":{"id":52423864,"publication_id":509268,"type":"newsletter","title":"Organize your Omnivore library with labels","social_title":null,"section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"Use labels to organize your Omnivore library","slug":"organize-your-omnivore-library-with","post_date":"2022-04-18T18:06:20.131Z","podcast_url":"","podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"none","show_guest_bios":true,"default_comment_sort":null,"canonical_url":"https://blog.omnivore.app/p/organize-your-omnivore-library-with","reactions":{"\u2764":1},"top_exclusions":[],"pins":[],"section_pins":[],"next_slug":"setting-labels-from-the-library","prev_slug":"send-pdfs-and-subscribe-to-newsletters","cover_image":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif","cover_image_is_square":false,"videoUpload":null,"podcastUpload":null,"description":"Use labels to organize your Omnivore library","body_html":"<p>Omnivore provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels.<\/p><p>On the web if you have a larger screen you can find the labels tool on the left side of the screen.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif\" width=\"960\" height=\"711\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:711,&quot;width&quot;:960,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1016443,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/gif&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Adding a label from the left menu<\/figcaption><\/figure><\/div><p><\/p><p>For a smaller screen you will find the labels button at the top of the page.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png\" width=\"1456\" height=\"1315\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1315,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1313051,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Article Actions at the top of the Omnivore Reader for smaller screens<\/figcaption><\/figure><\/div><p><\/p><p>iOS users can long press on an item in the library or access the labels modal from the menu in the top right of the reader page.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png\" width=\"470\" height=\"808.7817258883249\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2034,&quot;width&quot;:1182,&quot;resizeWidth&quot;:470,&quot;bytes&quot;:836469,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Editing labels from the library view on iOS<\/figcaption><\/figure><\/div><h2>Label searches on iOS<\/h2><p>On iOS you can use the label search modal to search for specific labels. This will create an OR search and return all links matching the assigned labels.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png\" width=\"418\" height=\"773.5313653136532\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2006,&quot;width&quot;:1084,&quot;resizeWidth&quot;:418,&quot;bytes&quot;:309638,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Using labels to filter your search<\/figcaption><\/figure><\/div><p><\/p><h2>Using Advanced Search to filter your library with labels<\/h2><p>Omnivore''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label.<\/p><p>Some examples:<\/p><ul><li><p><code>label:Newsletter<\/code> finds all pages that have the label Newsletter<\/p><\/li><li><p><code>label:Cooking,Fitness<\/code> finds all your pages with either the Cooking or Fitness labels<\/p><\/li><li><p><code>label:Newsletter label:Surfing<\/code> finds all pages with both the Newsletter and Surfing labels<\/p><\/li><li><p>l<code>abel:Coding -label:News<\/code> finds all pages with the Coding label that do not have the News label<\/p><\/li><\/ul>","truncated_body_text":"Omnivore provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels. On the web if you have a larger screen you can find the labels tool on the left side of the screen.","wordcount":218,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Omnivore","photo_url":null,"bio":"Omnivore is the home for everything you read; automatically organized and easy to share","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Omnivore","subdomain":"omnivoreapp","custom_domain":"blog.omnivore.app","custom_domain_optional":false,"hero_text":"Updates from the Omnivore team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Omnivore","copyright":"Omnivore","founding_plan_name":null,"community_enabled":true,"invite_only":false}}],"is_guest":false}],"reaction":null,"podcast_episode_image_url":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif","truncated_description":null,"truncated_body_html":null,"post_paywall_content_for_google":null},"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.omnivore.app/p/organize-your-omnivore-library-with","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.omnivore.app/p/organize-your-omnivore-library-with","features":{}}
+        window._preloads        = {"isEU":false,"language":"en","country":"US","base_url":"https://blog.ruminer.app","stripe_publishable_key":"pk_live_vNnuGHOFnt4mM7V9PuCAAPJz","captcha_site_key":"6LdYbsYZAAAAAIFIRh8X_16GoFRLIReh-e-q6qSa","pub":{"apple_pay_disabled":false,"author_id":49669396,"byline_images_enabled":true,"bylines_enabled":true,"chartable_token":null,"community_enabled":true,"copyright":"Ruminer","cover_photo_url":null,"created_at":"2021-10-01T02:49:41.829Z","custom_domain_optional":false,"custom_domain":"blog.ruminer.app","default_comment_sort":"best_first","default_coupon":null,"default_group_coupon":null,"default_show_guest_bios":true,"email_banner_url":null,"email_from_name":"Ruminer","email_from":null,"embed_tracking_disabled":false,"explicit":false,"expose_paywall_content_to_search_engines":true,"fb_pixel_id":null,"fb_site_verification_token":null,"flagged_as_spam":false,"founding_subscription_benefits":null,"free_subscription_benefits":null,"ga_pixel_id":null,"google_site_verification_token":null,"google_tag_manager_token":null,"hero_image":null,"hero_text":"Updates from the Ruminer team","hide_intro_subtitle":null,"hide_intro_title":null,"hide_podcast_feed_link":false,"homepage_type":"newspaper","id":509268,"image_thumbnails_always_enabled":false,"invite_only":false,"keywee_pixel_id":null,"language":"en","logo_url_wide":null,"logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","minimum_group_size":4,"moderation_enabled":true,"name":"Ruminer","page_enabled":false,"paid_subscription_benefits":null,"parent_about_page_enabled":true,"parent_publication_id":null,"parsely_pixel_id":null,"payments_state":"disabled","paywall_free_trial_enabled":false,"podcast_art_url":null,"podcast_byline":null,"podcast_description":null,"podcast_enabled":false,"podcast_feed_url":null,"podcast_title":null,"post_preview_limit":null,"require_clickthrough":false,"rss_feed_url":null,"rss_website_url":null,"show_pub_podcast_tab":false,"show_recs_on_homepage":true,"sibling_rank":null,"subdomain":"ruminerapp","subscriber_invites":0,"support_email":null,"theme_var_background_pop":"#FF9900","theme_var_color_links":false,"theme_var_cover_bg_color":null,"trial_end_override":null,"twitter_pixel_id":null,"type":"newsletter","post_reaction_faces_enabled":true,"theme":{"publication_id":509268,"background_pop_color":"#ffe682","cover_bg_color":null,"web_bg_color":"#ffffff","color_links":null,"font_preset_heading":null,"font_preset_body":null,"font_family_headings":null,"font_family_body":null,"font_family_ui":null,"font_size_body_desktop":null,"print_secondary":null,"custom_css_web":null,"custom_css_email":null},"plans":null,"stripe_user_id":null,"stripe_country":null,"stripe_publishable_key":null,"author_name":"Ruminer","author_photo_url":null,"author_bio":"Ruminer is the home for everything you read; automatically organized and easy to share","has_child_publications":false,"public_user_count":1,"has_posts":true,"has_recommendations":false,"first_post_date":"2021-10-13T19:39:10.254Z","has_podcast":false,"has_subscriber_only_podcast":false,"has_community_content":false,"twitter_share_on_publish_opt_in":null,"twitter_permissions":null,"rankingDetail":"Launched 7 months ago","rankingDetailFreeIncluded":"Launched 7 months ago","contributors":[{"name":"Ruminer","role":"admin","owner":true}],"tier":2,"no_follow":false,"no_index":false,"can_set_google_site_verification":true,"can_have_sitemap":true,"draft_plans":null,"base_url":"https://blog.ruminer.app","hostname":"blog.ruminer.app","is_on_substack":false,"parent_publication":null,"child_publications":[],"sibling_publications":[],"sections":[],"section":null},"user":null,"freeSignupUserId":null,"freeSignupEmail":null,"freeSignup":null,"token":null,"staffContactId":null,"referralCode":null,"referralCoupon":null,"hide_intro_popup":false,"referralCampaign":null,"twitterEmail":null,"twitterToken":null,"domainInfo":{"isSubstack":false,"customDomain":"blog.ruminer.app"},"experimentFeatures":{"writer_share_modal":"control","selection_sharing":"treatment_card","welcome_screen_blurbs":"control","use_new_onboarding_email_import":null,"reader_recommendation_emails":null},"experimentExposures":{},"siteConfigs":{"reader_onboarding_enable_subscribe_button":"NONE","profile_reader_onboarding":"treatment","post_presence":false,"podcast_post_page":true,"reader-onboarding-promoted-pub":737237,"trending_posts_enabled":false,"continue_support_cta_emails_15d_after_expiry":false,"like_activity_start_time":1893456000,"free_signup_confirmation_behavior":"default","tts_enabled":false,"selection_sharing":"NONE","use_new_onboarding_email_import":"treatment","end_of_post_recommendations":"control","recommendations_announcement_url":"https://on.substack.com/p/recommendations","post_ufi_refresh":false,"amp_emails_enabled":false,"minimum_ios_version":null,"social_context_features":false,"bitcoin_enabled":false,"public_podcast_rss_feed_only_free_visible":false,"show_entire_square_image":false,"hide_subscriber_count":false,"audio_embeds_enabled":false,"publication_author_display_override":"","app_inbox_v2_enabled":false,"settings_page_refresh":true,"delay_twitter":"NONE","tiktok_embed_enabled":true,"link_tracking_load_test":false,"first_party_click_tracking":true,"skip_welcome_email":false,"free_subscriber_email_campaign_drip":"control","ios_pause_email_default":false,"dont_show_guest_byline":false,"like_comments_enabled":true,"video_posts_enabled":true,"podcast_post_email":true,"deep_prepare_document_body":false,"disallow_spammy_comment_edits":false,"welcome_screen_blurb_override":"","include_bottom_pixel":true,"show_email_app_install_button":true,"like_posts_enabled":true,"email_header_footer":"original_flow","history_bucket_unit":"month","twitter_player_card_enabled":true,"use_elastic_audio_transcoder":false,"history_max_iterations":10,"history_paging_enabled":true,"show_notes_editor":false,"custom_target_origin":"","podcast_emails_play_on_substack":false,"exempt_from_gtm_filter":false,"max_image_upload_mb":32,"generated_database_maintenance_mode":false,"allow_moderation_sampling_mode":false,"allow_filtering_moderation_reasons":false,"photo_dna_enabled":false,"round_square_images":false,"reader_referrals_feature_enabled":false,"publication_ban_sample_rate":1,"publisher_banner":"","batched_link_emails":"treatment","subscribe_captcha_behavior":"never","post_page_conversion":"NONE","import_verification_limit":3873,"sticky_auto_share_on_publish":false,"continue_support_cta_in_newsletter_emails":false,"writer_share_modal":"NONE","end_of_post_publication_recommendation":"control","tax_report_enable_stripe_fee_lineitem":true},"noIndex":false,"post":{"id":52423864,"publication_id":509268,"type":"newsletter","title":"Organize your Ruminer library with labels","social_title":null,"section_id":null,"search_engine_title":null,"search_engine_description":null,"subtitle":"Use labels to organize your Ruminer library","slug":"organize-your-ruminer-library-with","post_date":"2022-04-18T18:06:20.131Z","podcast_url":"","podcast_duration":null,"video_upload_id":null,"podcast_upload_id":null,"audience":"everyone","should_send_free_preview":false,"write_comment_permissions":"none","show_guest_bios":true,"default_comment_sort":null,"canonical_url":"https://blog.ruminer.app/p/organize-your-ruminer-library-with","reactions":{"\u2764":1},"top_exclusions":[],"pins":[],"section_pins":[],"next_slug":"setting-labels-from-the-library","prev_slug":"send-pdfs-and-subscribe-to-newsletters","cover_image":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif","cover_image_is_square":false,"videoUpload":null,"podcastUpload":null,"description":"Use labels to organize your Ruminer library","body_html":"<p>Ruminer provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels.<\/p><p>On the web if you have a larger screen you can find the labels tool on the left side of the screen.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif\" width=\"960\" height=\"711\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/a4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:711,&quot;width&quot;:960,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1016443,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/gif&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Adding a label from the left menu<\/figcaption><\/figure><\/div><p><\/p><p>For a smaller screen you will find the labels button at the top of the page.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png\" width=\"1456\" height=\"1315\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/b59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:1315,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:1313051,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fb59fdeb0-d711-442e-a7c2-4508bedad515_1818x1642.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Article Actions at the top of the Ruminer Reader for smaller screens<\/figcaption><\/figure><\/div><p><\/p><p>iOS users can long press on an item in the library or access the labels modal from the menu in the top right of the reader page.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png\" width=\"470\" height=\"808.7817258883249\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2034,&quot;width&quot;:1182,&quot;resizeWidth&quot;:470,&quot;bytes&quot;:836469,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F6c99b6c9-7b78-41a8-84b1-a738e832308d_1182x2034.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Editing labels from the library view on iOS<\/figcaption><\/figure><\/div><h2>Label searches on iOS<\/h2><p>On iOS you can use the label search modal to search for specific labels. This will create an OR search and return all links matching the assigned labels.<\/p><div class=\"captioned-image-container\"><figure><a class=\"image-link image2\" target=\"_blank\" rel=\"nofollow\" href=\"https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png\"><picture><source type=\"image/webp\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w\" sizes=\"100vw\"><img src=\"https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png\" width=\"418\" height=\"773.5313653136532\" data-attrs=\"{&quot;src&quot;:&quot;https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/c6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png&quot;,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:2006,&quot;width&quot;:1084,&quot;resizeWidth&quot;:418,&quot;bytes&quot;:309638,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null}\" class=\"sizing-normal\" alt=\"\" srcset=\"https://substackcdn.com/image/fetch/w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 424w, https://substackcdn.com/image/fetch/w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 848w, https://substackcdn.com/image/fetch/w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1272w, https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fc6720208-7551-41cb-a86d-afc58bb160c9_1084x2006.png 1456w\" sizes=\"100vw\"><\/picture><\/a><figcaption class=\"image-caption\">Using labels to filter your search<\/figcaption><\/figure><\/div><p><\/p><h2>Using Advanced Search to filter your library with labels<\/h2><p>Ruminer''s advanced search syntax supports searching for multiple labels using AND and OR clauses. You can also negate a label search to find pages that do not have a certain label.<\/p><p>Some examples:<\/p><ul><li><p><code>label:Newsletter<\/code> finds all pages that have the label Newsletter<\/p><\/li><li><p><code>label:Cooking,Fitness<\/code> finds all your pages with either the Cooking or Fitness labels<\/p><\/li><li><p><code>label:Newsletter label:Surfing<\/code> finds all pages with both the Newsletter and Surfing labels<\/p><\/li><li><p>l<code>abel:Coding -label:News<\/code> finds all pages with the Coding label that do not have the News label<\/p><\/li><\/ul>","truncated_body_text":"Ruminer provides labels (also known as tags) to help you organize your library. Labels can be added to any saved read, and your library can be filtered based on labels. On the web if you have a larger screen you can find the labels tool on the left side of the screen.","wordcount":218,"comment_count":0,"publishedBylines":[{"id":49669396,"name":"Ruminer","photo_url":null,"bio":"Ruminer is the home for everything you read; automatically organized and easy to share","profile_set_up_at":null,"publicationUsers":[{"id":437707,"user_id":49669396,"publication_id":509268,"role":"admin","public":true,"is_primary":false,"publication":{"id":509268,"name":"Ruminer","subdomain":"ruminerapp","custom_domain":"blog.ruminer.app","custom_domain_optional":false,"hero_text":"Updates from the Ruminer team","logo_url":"https://bucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com/public/images/052c15c4-ecfd-4d32-87db-13bcac9afad5_512x512.png","author_id":49669396,"theme_var_background_pop":"#FF9900","created_at":"2021-10-01T02:49:41.829Z","rss_website_url":null,"email_from_name":"Ruminer","copyright":"Ruminer","founding_plan_name":null,"community_enabled":true,"invite_only":false}}],"is_guest":false}],"reaction":null,"podcast_episode_image_url":"https://substackcdn.com/image/fetch/h_600,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2Fa4ec9f3c-baef-464b-8d3a-0b8a384874d3_960x711.gif","truncated_description":null,"truncated_body_html":null,"post_paywall_content_for_google":null},"comments":[],"post_reaction_token":null,"canonicalUrl":"https://blog.ruminer.app/p/organize-your-ruminer-library-with","inlineComments":false,"readerIsSearchCrawler":false,"selectionFromQuery":null,"embeddedPublications":null,"ogUrl":"https://blog.ruminer.app/p/organize-your-ruminer-library-with","features":{}}
         ]]>
         </script> 
         <script>
         <![CDATA[
-        window._analyticsConfig = {"user":null,"properties":{"subdomain":"omnivoreapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
+        window._analyticsConfig = {"user":null,"properties":{"subdomain":"ruminerapp","publication_id":509268,"has_plans":false,"pub_community_enabled":true,"parent_publication_id":null,"parent_publication_subdomain":null,"is_parent_publication":false,"section_name":null,"section_slug":null,"section_id":null,"section_is_podcast":null,"is_subscribed":false,"is_free_subscribed":false,"is_author":false,"is_contributor":false,"is_admin":false},"adwordsAccountId":"AW-316245675","adwordsEventSendTo":"Tf76CKqcyL4DEKuN5pYB"}
         ]]>
         </script> 
         <script src="https://substackcdn.com/min/main.bundle.js?v=15deb0-180f7b3e6a0" charset="utf-8"></script> <!-- Fallback tracking pixels -->
@@ -4677,7 +4677,7 @@ VALUES
     </body>
 </html>
 ', 259),
-  ('rlove_carnitas', 'https://medium.com/@rlove/carnitas-ff0ef1044ae9', 'Slow-Braised Carnitas Recipe', 'Robert Love', 'Carnitas is a wonderful Mexican dish, pork shoulder cooked until tender and then given a great crisp. In Mexico, carnitas is eaten on its own, in tacos, or in tortas. This is not an authentic recipe.', 'https://proxy-prod.omnivore-image-cache.app/88x88,sIcDXt3Ar0baKG1e1Yi1e2VUZFL85xPlOeEfAxF-s-Nw/https://miro.medium.com/max/1200/1*Wl-dMBJpSgPUxUOnPQthyg.jpeg', '2017-02-24', '@rlove', 'slow-braised-carnitas-recipe', '<DIV class="page" id="readability-page-1">
+  ('rlove_carnitas', 'https://medium.com/@rlove/carnitas-ff0ef1044ae9', 'Slow-Braised Carnitas Recipe', 'Robert Love', 'Carnitas is a wonderful Mexican dish, pork shoulder cooked until tender and then given a great crisp. In Mexico, carnitas is eaten on its own, in tacos, or in tortas. This is not an authentic recipe.', 'https://proxy-prod.ruminer-image-cache.app/88x88,sIcDXt3Ar0baKG1e1Yi1e2VUZFL85xPlOeEfAxF-s-Nw/https://miro.medium.com/max/1200/1*Wl-dMBJpSgPUxUOnPQthyg.jpeg', '2017-02-24', '@rlove', 'slow-braised-carnitas-recipe', '<DIV class="page" id="readability-page-1">
     <div>
         <article>
             <div>
@@ -4685,7 +4685,7 @@ VALUES
                 <p id="73f9" data-selectable-paragraph=""> But one of the most popular — and one of my personal favorites — was a recipe for the Mexican pork dish <em>carnitas</em>. It was a fun, relatively easy recipe, not traditional in approach but fairly traditional (and really delicious) in output. Folks keep asking for it. So here it is, in hopes I can eat it at your next house party. </p>
                 <p id="afba" data-selectable-paragraph=""> Carnitas is a wonderful Mexican dish, pork shoulder cooked until tender and then given a great crisp. In Mexico, carnitas is eaten on its own, in tacos, or in tortas. The traditional recipe is simple: several pounds of pork shoulder, a pound or two of lard, orange peel, and some water (or coca-cola), slow roasted and then “boiled” to a crisp. That is…a bit much. What follows is not an authentic approach. </p>
                 <figure>
-                    <p><img alt="" src="https://proxy-prod.omnivore-image-cache.app/400x400,s_6qxS4HCIYx4uqq8zAMZNZoz3y16TvrIiWkBbMa5wFY/https://miro.medium.com/max/800/1*Wl-dMBJpSgPUxUOnPQthyg.jpeg" width="400" height="400" role="presentation">
+                    <p><img alt="" src="https://proxy-prod.ruminer-image-cache.app/400x400,s_6qxS4HCIYx4uqq8zAMZNZoz3y16TvrIiWkBbMa5wFY/https://miro.medium.com/max/800/1*Wl-dMBJpSgPUxUOnPQthyg.jpeg" width="400" height="400" role="presentation">
                     </p>
                     <figcaption data-selectable-paragraph=""> Photo by <a href="https://web.archive.org/web/20160318211638/http://www.flickr.com/" rel="noopener ugc nofollow" target="_blank">flickr</a> user <a href="https://web.archive.org/web/20160318211638/http://www.flickr.com/photos/mccun934/" rel="noopener ugc nofollow" target="_blank">mccun934</a> licensed <a href="https://web.archive.org/web/20160318211638/http://creativecommons.org/licenses/by/2.0/deed.en" rel="noopener ugc nofollow" target="_blank">CC BY 2.0</a>
                     </figcaption>
@@ -5941,12 +5941,12 @@ VALUES
     </body>
 </html>
 ', 705),
-  ('power_read_it_later', 'https://fortelabs.co/blog/the-secret-power-of-read-it-later-apps', 'The Secret Power of ‘Read It Later’ Apps', 'Tiago Forte', 'At the end of 2014 I received an email informing me that I had read over a million words in the ‘read it later’ app Pocket', 'https://proxy-prod.omnivore-image-cache.app/320x320,sGN5R34M5z068QMXDZD32CQD6mCbxc47hWXm__JVUePE/https://fortelabs.com/wp-content/uploads/2015/11/1rPXwIczUJRCE54v8FfAHGw.jpeg', '2022-01-24', 'Forte Labs', 'the-secret-power-of-read-it-later-apps', '<DIV class="page" id="readability-page-1">
+  ('power_read_it_later', 'https://fortelabs.co/blog/the-secret-power-of-read-it-later-apps', 'The Secret Power of ‘Read It Later’ Apps', 'Tiago Forte', 'At the end of 2014 I received an email informing me that I had read over a million words in the ‘read it later’ app Pocket', 'https://proxy-prod.ruminer-image-cache.app/320x320,sGN5R34M5z068QMXDZD32CQD6mCbxc47hWXm__JVUePE/https://fortelabs.com/wp-content/uploads/2015/11/1rPXwIczUJRCE54v8FfAHGw.jpeg', '2022-01-24', 'Forte Labs', 'the-secret-power-of-read-it-later-apps', '<DIV class="page" id="readability-page-1">
     <div>
         <div data-widget_type="theme-post-content.default" data-element_type="widget" data-id="5d9db16f">
             <figure>
                 <figure>
-                    <img src="https://proxy-prod.omnivore-image-cache.app/900x380,sXXV7f9Au3y4tF2zoOnAQ1G8Xnf3Uh8IRqZcfVY3HoSY/https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&ssl=1" alt="" width="900" height="380" data-recalc-dims="1">
+                    <img src="https://proxy-prod.ruminer-image-cache.app/900x380,sXXV7f9Au3y4tF2zoOnAQ1G8Xnf3Uh8IRqZcfVY3HoSY/https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*rPXwIczUJRCE54v8FfAHGw.jpeg?resize=900%2C380&ssl=1" alt="" width="900" height="380" data-recalc-dims="1">
                     <figcaption> Image via Nuno Cruz </figcaption>
                 </figure>
                 <figcaption></figcaption>
@@ -5956,7 +5956,7 @@ VALUES
             </p>
             <p> At the end of 2014 I received an email informing me that I had read over a million words in the ‘read it later’ app Pocket over the course of the year. </p>
             <p>
-                <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/358x377,ssfZXhGmomcxzcD-VkrtnzD-6vk-rI8GUuXk4JlRMX2s/https://i0.wp.com/cdn-images-1.medium.com/max/600/1*Hd7YIhMrS5lldl1gDU8iWQ.png?resize=358%2C377&ssl=1" width="358" height="377" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/600/1*Hd7YIhMrS5lldl1gDU8iWQ.png?resize=358%2C377&ssl=1" data-recalc-dims="1">
+                <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/358x377,ssfZXhGmomcxzcD-VkrtnzD-6vk-rI8GUuXk4JlRMX2s/https://i0.wp.com/cdn-images-1.medium.com/max/600/1*Hd7YIhMrS5lldl1gDU8iWQ.png?resize=358%2C377&ssl=1" width="358" height="377" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/600/1*Hd7YIhMrS5lldl1gDU8iWQ.png?resize=358%2C377&ssl=1" data-recalc-dims="1">
             </p>
             <p> This number by itself isn’t impressive, considering our daily intake of information is equivalent to <a href="http://bits.blogs.nytimes.com/2009/12/09/the-american-diet-34-gigabytes-a-day/" target="_blank" rel="noopener noreferrer">34 gigabytes</a>, 100,000 words, or <a href="http://www.nytimes.com/2014/08/10/opinion/sunday/hit-the-reset-button-in-your-brain.html?smprod=nytcore-iphone&smid=nytcore-iphone-share" target="_blank" rel="noopener noreferrer">174 newspapers</a>, depending on who you ask. </p>
             <p> What makes this number significant (in my view) is that it represents 22 books’-worth of long-form reading that would not have happened without a system in place. </p>
@@ -5967,7 +5967,7 @@ VALUES
             <p> A <a href="https://hbr.org/2005/01/overloaded-circuits-why-smart-people-underperform" target="_blank" rel="noopener noreferrer">recent article</a> in the Harvard Business Review puts a name to this new neurological phenomenon: Attention Deficit Trait. Basically, the terms ADD and ADHD are falling out of use because effectively the entire population fits the diagnostic criteria. It’s not a condition anymore, it’s a <em>trait</em> — the inherent and unavoidable experience of modern life characterized by “distractibility, inner frenzy, and impatience.” </p>
             <form action="https://app.convertkit.com/forms/1022733/subscriptions" method="post" data-sv-form="1022733" data-uid="308d24305b" data-format="inline" data-version="5" min-width="400 500 600 700">
                 <div data-style="full">
-                    <p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sCKKsi_KsyhXjSRvn7hvFRJEjLKQkBiJU0agepFckkI4/https://embed.filekitcdn.com/e/oP2q5jihy5hj474ZFtvPjw/3edWskTMDwFhuVEtauLv5X"></p>
+                    <p><img src="https://proxy-prod.ruminer-image-cache.app/0x0,sCKKsi_KsyhXjSRvn7hvFRJEjLKQkBiJU0agepFckkI4/https://embed.filekitcdn.com/e/oP2q5jihy5hj474ZFtvPjw/3edWskTMDwFhuVEtauLv5X"></p>
                     <p> Start Building Your Second Brain </p>
                     <p> Subscribe below to learn more about the next cohort of the Building a Second Brain course </p>
                 </div>
@@ -5993,7 +5993,7 @@ VALUES
             </ul>
             <p> The app I use, Pocket, adds a button to the Chrome toolbar that looks like this: </p>
             <figure>
-                <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/130x58,syYiQlMJ3hP3JyGS_AYz8D5Oq9FZ1QxR2ef29Fia7Ht0/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*Lk-DPDFjLslM4h2GAv8KIA.png?resize=130%2C58&ssl=1" alt="" width="130" height="58" data-image-id="1*Lk-DPDFjLslM4h2GAv8KIA.png" data-width="130" data-height="58" data-recalc-dims="1">
+                <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/130x58,syYiQlMJ3hP3JyGS_AYz8D5Oq9FZ1QxR2ef29Fia7Ht0/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*Lk-DPDFjLslM4h2GAv8KIA.png?resize=130%2C58&ssl=1" alt="" width="130" height="58" data-image-id="1*Lk-DPDFjLslM4h2GAv8KIA.png" data-width="130" data-height="58" data-recalc-dims="1">
                 <figcaption> Chrome toolbar </figcaption>
             </figure>
             <p>
@@ -6002,13 +6002,13 @@ VALUES
             <p> Clicking the button while viewing a webpage turns the button pink, and saves the page to your “list.” Navigating to getpocket.com, or opening the Pocket app on your computer or mobile device shows you a list of everything you’ve saved: </p>
             <figure>
                 <figure>
-                    <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/800x507,smjUUrOduWv7T0bCSx9oh_Ag0Yasq_HyFfgAoDXryOcM/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*wkKD4oP3-kWJERxmBBI2cA.png?resize=800%2C507&ssl=1" alt="" width="800" height="507" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*wkKD4oP3-kWJERxmBBI2cA.png?resize=800%2C507&ssl=1" data-recalc-dims="1">
+                    <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/800x507,smjUUrOduWv7T0bCSx9oh_Ag0Yasq_HyFfgAoDXryOcM/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*wkKD4oP3-kWJERxmBBI2cA.png?resize=800%2C507&ssl=1" alt="" width="800" height="507" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*wkKD4oP3-kWJERxmBBI2cA.png?resize=800%2C507&ssl=1" data-recalc-dims="1">
                     <figcaption> Mac desktop client </figcaption>
                 </figure>
                 <p> You can also view your list in a “tile” layout on the web, making it into essentially a personalized magazine. Personalized, in this case, not by a cold, unfeeling algorithm, but by your past self: </p>
             </figure>
             <figure>
-                <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/800x478,sFjAZnzFiVzsVRlXF9QyD5dq_jzT69dsyyp3Bb-k5ZGU/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*ug06oorCHGFpEzMyl9kfhg.png?resize=800%2C478&ssl=1" alt="" width="800" height="478" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*ug06oorCHGFpEzMyl9kfhg.png?resize=800%2C478&ssl=1" data-recalc-dims="1">
+                <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/800x478,sFjAZnzFiVzsVRlXF9QyD5dq_jzT69dsyyp3Bb-k5ZGU/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*ug06oorCHGFpEzMyl9kfhg.png?resize=800%2C478&ssl=1" alt="" width="800" height="478" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*ug06oorCHGFpEzMyl9kfhg.png?resize=800%2C478&ssl=1" data-recalc-dims="1">
                 <figcaption> Web browser “tile” view </figcaption>
             </figure>
             <p> Marking an item as read in one version of the app will quickly sync across all platforms. It will also save your current progress on one device, so you can continue where you left off on a different device (for those longer pieces). </p>
@@ -6036,7 +6036,7 @@ VALUES
             <p> Read It Later apps, by slurping in content (articles, videos, slideshows) into a clean interface, eliminate the culprits — ads, site analytics, popups — all the stuff you don’t care about. </p>
             <p> A <a href="http://www.nytimes.com/2015/10/01/technology/personaltech/ad-blockers-mobile-iphone-browsers.html" target="_blank" rel="noopener noreferrer">recent analysis</a> by The New York Times of 3 leading ad-blockers (which have the same effect) measured a <strong>21% increase in battery life</strong>, and in the most egregious case of Boston.com, a drop in loading time <strong>from 33 seconds to 7 seconds</strong>. Many other leading sites were not that far off. </p>
             <figure>
-                <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/563x365,sFABKoLfIzSHIwYCEllG7t2i-uxewZOlI9ALe6-KJLSs/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*vfmR5LKEjfx-0Lx-kWb4bw.png?resize=563%2C365&ssl=1" alt="" width="563" height="365" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*vfmR5LKEjfx-0Lx-kWb4bw.png?resize=563%2C365&ssl=1" data-recalc-dims="1">
+                <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/563x365,sFABKoLfIzSHIwYCEllG7t2i-uxewZOlI9ALe6-KJLSs/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*vfmR5LKEjfx-0Lx-kWb4bw.png?resize=563%2C365&ssl=1" alt="" width="563" height="365" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*vfmR5LKEjfx-0Lx-kWb4bw.png?resize=563%2C365&ssl=1" data-recalc-dims="1">
                 <figcaption> Effect of ad-blocker on loading times of Boston.com, via <a href="http://www.nytimes.com/2015/10/01/technology/personaltech/ad-blockers-mobile-iphone-browsers.html" target="_blank" rel="noopener noreferrer">NYT</a>
                 </figcaption>
             </figure>
@@ -6044,7 +6044,7 @@ VALUES
             <h4> 2. Matching content with your&nbsp;context </h4>
             <figure>
                 <figure>
-                    <img loading="lazy" src="https://proxy-prod.omnivore-image-cache.app/507x676,sxG7LpsFKxnoEDDIOpwI06zJ3e8CoE30WZseOtRT8u6s/https://i0.wp.com/cdn-images-1.medium.com/max/600/1*N15BlTDGq8kTc7HdGUmShA.png?resize=507%2C676&ssl=1" alt="" width="507" height="676" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/600/1*N15BlTDGq8kTc7HdGUmShA.png?resize=507%2C676&ssl=1" data-recalc-dims="1">
+                    <img loading="lazy" src="https://proxy-prod.ruminer-image-cache.app/507x676,sxG7LpsFKxnoEDDIOpwI06zJ3e8CoE30WZseOtRT8u6s/https://i0.wp.com/cdn-images-1.medium.com/max/600/1*N15BlTDGq8kTc7HdGUmShA.png?resize=507%2C676&ssl=1" alt="" width="507" height="676" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/600/1*N15BlTDGq8kTc7HdGUmShA.png?resize=507%2C676&ssl=1" data-recalc-dims="1">
                     <figcaption> My Pocket list on iPad </figcaption>
                 </figure>
             </figure>
@@ -6085,7 +6085,7 @@ VALUES
             <p> So instead I just <strong>command-click</strong> every link I’m interested in (or <strong>right-click &gt; Open link in new tab</strong>), which opens each link in a separate tab <em>without taking me to that tab</em>. </p>
             <p> Here’s what a typical Monday morning link-fest looks like, just from email: </p>
             <p>
-                <img src="https://proxy-prod.omnivore-image-cache.app/0x0,s6KkWg-OdGcQNuvOShcztrmaslDz3Cm5o9rD1eDOxxRc/https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*cLy09F0SPJJmi0WfazXi3Q.png?w=900&ssl=1" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*cLy09F0SPJJmi0WfazXi3Q.png?w=900&ssl=1" data-recalc-dims="1">
+                <img src="https://proxy-prod.ruminer-image-cache.app/0x0,s6KkWg-OdGcQNuvOShcztrmaslDz3Cm5o9rD1eDOxxRc/https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*cLy09F0SPJJmi0WfazXi3Q.png?w=900&ssl=1" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/2000/1*cLy09F0SPJJmi0WfazXi3Q.png?w=900&ssl=1" data-recalc-dims="1">
             </p>
             <p> Then, because I’m still in <strong>collection mode</strong>, not in read mode, I cycle through each tab one at a time (<strong>shift-command-}</strong> or <strong>control-tab</strong>), saving each one to Pocket using the shortcut I set up: <strong>command-p</strong> (chosen for irony and to avoid inadvertent printing). </p>
             <p> There’s only one rule: <strong>NO READING OR WATCHING!</strong>
@@ -6098,7 +6098,7 @@ VALUES
             </blockquote>
             <p> Here’s a visual of how this works, from my Pocket analytics: </p>
             <p>
-                <img src="https://proxy-prod.omnivore-image-cache.app/0x0,stGbUueP6GB86OSUIreA-v1CvD10SF4A-ecLznSBpGQc/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*YRExWXbhPma8-AcWP_KSrw.png?w=900&ssl=1" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*YRExWXbhPma8-AcWP_KSrw.png?w=900&ssl=1" data-recalc-dims="1">
+                <img src="https://proxy-prod.ruminer-image-cache.app/0x0,stGbUueP6GB86OSUIreA-v1CvD10SF4A-ecLznSBpGQc/https://i0.wp.com/cdn-images-1.medium.com/max/800/1*YRExWXbhPma8-AcWP_KSrw.png?w=900&ssl=1" data-src="https://i0.wp.com/cdn-images-1.medium.com/max/800/1*YRExWXbhPma8-AcWP_KSrw.png?w=900&ssl=1" data-recalc-dims="1">
             </p>
             <p> You can see that I save more things toward the beginning of the week and the weekend, and then draw down the buffer more towards the end of the week. </p>
             <p>
@@ -6165,7 +6165,7 @@ VALUES
             <p><em><strong>Subscribe below to receive free weekly emails with our best new content, or follow us on <a href="https://twitter.com/fortelabs/">Twitter</a>, <a href="https://www.facebook.com/fortelabs/">Facebook</a>, <a href="https://www.instagram.com/fortelabsco/">Instagram</a>, <a href="https://www.linkedin.com/in/tiagoforte/">LinkedIn</a>, or <a href="https://www.youtube.com/user/simulacrumsquared/">YouTube</a>. Or become a <a href="https://fortelabs.co/about-praxis/">Praxis member</a> to receive instant access to our full collection of members-only posts.</strong></em></p>
             <form action="https://app.convertkit.com/forms/1022693/subscriptions" method="post" data-sv-form="1022693" data-uid="c4407a2f08" data-format="inline" data-version="5" min-width="400 500 600 700">
                 <div data-style="full">
-                    <p><img src="https://proxy-prod.omnivore-image-cache.app/0x0,sqWznQTJOu8MLbN_KvWQgeSkhwNPdvLRWTom32MHspAE/https://embed.filekitcdn.com/e/oP2q5jihy5hj474ZFtvPjw/pkwszL6w2hsV41vY6MLfdR"></p>
+                    <p><img src="https://proxy-prod.ruminer-image-cache.app/0x0,sqWznQTJOu8MLbN_KvWQgeSkhwNPdvLRWTom32MHspAE/https://embed.filekitcdn.com/e/oP2q5jihy5hj474ZFtvPjw/pkwszL6w2hsV41vY6MLfdR"></p>
                     <p> Join the Forte Labs Newsletter </p>
                     <p> Join 50,000+ people receiving my best ideas on learning, productivity &amp; knowledge management every Tuesday. I''ll send you my Top 10 All-Time Articles right away as a thank you. </p>
                 </div>
@@ -9324,7 +9324,7 @@ VALUES
           </li>
       </ul>
       <figure>
-          <img src="https://proxy-prod.omnivore-image-cache.app/0x0,sZWS0YDk87CXTDX82w3BSkkX8cxYRNQ8xkVbVMW8wRJM/https://imgs.xkcd.com/comics/icon_swap.png">
+          <img src="https://proxy-prod.ruminer-image-cache.app/0x0,sZWS0YDk87CXTDX82w3BSkkX8cxYRNQ8xkVbVMW8wRJM/https://imgs.xkcd.com/comics/icon_swap.png">
           <figcaption> Relevant XKCD, as is tradition </figcaption>
       </figure>
       <p> Following my curiosity feels like chasing a caffeinated bunny around while real understanding requires time, perspective, and reflection. The internet makes the former much easier - so I find myself constantly balancing the two. Additionally, my energy and attention levels vary throughout the day and it’s far easier to just open Twitter rather than continue reading a long-form article I started on my laptop two days ago. Too often I default to the lower-friction one. </p>
@@ -9362,7 +9362,7 @@ VALUES
       <h2 id="intelligent-pdf-viewers-ebook-readers-audiobook-podcast-players"> Intelligent PDF viewers, eBook readers, audiobook &amp; podcast players&nbsp;<a href="#intelligent-pdf-viewers-ebook-readers-audiobook-podcast-players">#</a>
       </h2>
       <figure>
-          <img src="https://proxy-prod.omnivore-image-cache.app/0x0,sECm2yNG0SpfWJthGyGHiTFk_7du_Ueh2VLXh_jLdtzU/https://d33wubrfki0l68.cloudfront.net/5aa98bca712e33bc729c180c9a588f4d5ac7e9af/c5011/digital-tools/ebook-concept.png">
+          <img src="https://proxy-prod.ruminer-image-cache.app/0x0,sECm2yNG0SpfWJthGyGHiTFk_7du_Ueh2VLXh_jLdtzU/https://d33wubrfki0l68.cloudfront.net/5aa98bca712e33bc729c180c9a588f4d5ac7e9af/c5011/digital-tools/ebook-concept.png">
           <figcaption> Functionality I want in my document reader </figcaption>
       </figure>
       <p> Reading is incredible and I love my Kindle. But eBooks today are just a step above OCR’ing a book and slapping on a few basic features which have existed for 30+ years. While I’m reading an eBook I want to: </p>
@@ -9390,7 +9390,7 @@ VALUES
           </li>
       </ul>
       <figure>
-          <img src="https://proxy-prod.omnivore-image-cache.app/0x0,sXee_1nhUYbWBBt7y_vCFpm-qbhSzFfklSS0e77sALK4/https://d33wubrfki0l68.cloudfront.net/7bc95c0c51628e5ba06ddb7e688a58c600e503c8/81599/digital-tools/audiobook-player.png">
+          <img src="https://proxy-prod.ruminer-image-cache.app/0x0,sXee_1nhUYbWBBt7y_vCFpm-qbhSzFfklSS0e77sALK4/https://d33wubrfki0l68.cloudfront.net/7bc95c0c51628e5ba06ddb7e688a58c600e503c8/81599/digital-tools/audiobook-player.png">
           <figcaption> What I want my audiobook player to look like </figcaption>
       </figure>
       <p> Most of these points above also apply to my experience listening to podcasts, audiobooks, and watching Youtube videos and interviews. I find myself wishing I could: </p>

@@ -38,7 +38,7 @@ var article = new Readability(documentClone).parse();
 Readability is available on npm:
 
 ```bash
-npm install @omnivore/readability
+npm install @ruminer/readability
 ```
 
 In Node.js, you won't generally have a DOM document object. To obtain one, you can use external
@@ -53,7 +53,7 @@ property of the `options` object you pass the `JSDOM` constructor.
 ### Example:
 
 ```js
-var { Readability } = require('@omnivore/readability');
+var { Readability } = require('@ruminer/readability');
 var JSDOM = require('jsdom').JSDOM;
 var doc = new JSDOM("<body>Here's a bunch of text</body>", {
   url: "https://www.example.com/the-page-i-got-the-source-from"

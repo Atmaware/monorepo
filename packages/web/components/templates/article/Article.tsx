@@ -1,6 +1,6 @@
 import { Box, SpanBox } from '../../elements/LayoutPrimitives'
 import {
-  getTopOmnivoreAnchorElement,
+  getTopRuminerAnchorElement,
   parseDomTree,
 } from '../../../lib/anchorElements'
 import {
@@ -76,7 +76,7 @@ export function Article(props: ArticleProps): JSX.Element {
       if (!readingProgress) return
       if (!articleContentRef.current) return
       if (!window.document.scrollingElement) return
-      const anchor = getTopOmnivoreAnchorElement(articleContentRef.current)
+      const anchor = getTopRuminerAnchorElement(articleContentRef.current)
       const topPositionPercent =
         window.scrollY / window.document.scrollingElement.scrollHeight
       const anchorIndex = Number(anchor)
@@ -119,10 +119,10 @@ export function Article(props: ArticleProps): JSX.Element {
   }, 2500)
 
   useEffect(() => {
-    const youtubePlayer = document.getElementById('_omnivore_youtube_video')
+    const youtubePlayer = document.getElementById('_ruminer_youtube_video')
 
     const updateScroll = () => {
-      const YOUTUBE_PLACEHOLDER_ID = 'omnivore-youtube-placeholder'
+      const YOUTUBE_PLACEHOLDER_ID = 'ruminer-youtube-placeholder'
       const youtubePlaceholder = document.getElementById(YOUTUBE_PLACEHOLDER_ID)
 
       if (youtubePlayer) {
@@ -176,10 +176,10 @@ export function Article(props: ArticleProps): JSX.Element {
 
     const anchorElement = props.highlightHref.current
       ? document.querySelector(
-          `[omnivore-highlight-id="${props.highlightHref.current}"]`
+          `[ruminer-highlight-id="${props.highlightHref.current}"]`
         )
       : document.querySelector(
-          `[data-omnivore-anchor-idx='${props.initialAnchorIndex.toString()}']`
+          `[data-ruminer-anchor-idx='${props.initialAnchorIndex.toString()}']`
         )
 
     if (anchorElement) {
@@ -283,13 +283,13 @@ export function Article(props: ArticleProps): JSX.Element {
     // Get all images with initial sizes, if they are small
     // make sure they get displayed small
     const sizedImages = Array.from(
-      document.querySelectorAll('img[data-omnivore-width]')
+      document.querySelectorAll('img[data-ruminer-width]')
     )
 
     sizedImages.forEach((element) => {
       const img = element as HTMLImageElement
-      const width = Number(img.getAttribute('data-omnivore-width'))
-      const height = Number(img.getAttribute('data-omnivore-height'))
+      const width = Number(img.getAttribute('data-ruminer-width'))
+      const height = Number(img.getAttribute('data-ruminer-height'))
 
       if (!isNaN(width) && !isNaN(height) && width < 100 && height < 100) {
         img.style.setProperty('width', `${width}px`)
@@ -299,12 +299,12 @@ export function Article(props: ArticleProps): JSX.Element {
     })
 
     const fallbackImages = Array.from(
-      document.querySelectorAll('img[data-omnivore-original-src]')
+      document.querySelectorAll('img[data-ruminer-original-src]')
     )
 
     fallbackImages.forEach((element) => {
       const img = element as HTMLImageElement
-      const fallbackSrc = img.getAttribute('data-omnivore-original-src')
+      const fallbackSrc = img.getAttribute('data-ruminer-original-src')
       if (fallbackSrc) {
         img.onerror = () => {
           console.log('image falling back to original: ', fallbackSrc)
@@ -316,7 +316,7 @@ export function Article(props: ArticleProps): JSX.Element {
     })
 
     const allImages = Array.from(
-      document.querySelectorAll('img[data-omnivore-anchor-idx]')
+      document.querySelectorAll('img[data-ruminer-anchor-idx]')
     )
 
     const srcs = allImages.map((img) => {
@@ -379,7 +379,7 @@ export function Article(props: ArticleProps): JSX.Element {
 
   useEffect(() => {
     const embeddedLinks = Array.from(
-      document.querySelectorAll('a[data-omnivore-anchor-idx]')
+      document.querySelectorAll('a[data-ruminer-anchor-idx]')
     )
 
     embeddedLinks.forEach((link: Element) => {

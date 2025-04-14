@@ -113,7 +113,7 @@ export function EmailForgotPassword(): JSX.Element {
         >
           <StyledText
             css={{
-              color: '$omnivoreLightGray',
+              color: '$ruminerLightGray',
               textDecoration: 'underline',
               cursor: 'pointer',
             }}

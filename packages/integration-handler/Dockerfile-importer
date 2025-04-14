@@ -13,7 +13,7 @@ COPY /packages/integration-handler/package.json ./packages/integration-handler/p
 RUN yarn install --pure-lockfile
 
 COPY /packages/integration-handler ./packages/integration-handler
-RUN yarn workspace @omnivore/integration-handler build
+RUN yarn workspace @ruminer/integration-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/integration-handler/node_modules
@@ -22,5 +22,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/integration-handler", "start_importer"]
+CMD ["yarn", "workspace", "@ruminer/integration-handler", "start_importer"]
 

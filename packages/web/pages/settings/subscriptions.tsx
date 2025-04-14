@@ -46,7 +46,7 @@ export default function SubscriptionsPage(): JSX.Element {
   return (
     <SettingsTable
       pageId="settings-subscriptions-tag"
-      pageInfoLink="https://docs.omnivore.app/using/feeds.html"
+      pageInfoLink="https://docs.ruminer.app/using/feeds.html"
       headerTitle="Subscriptions"
     >
       <>
@@ -66,7 +66,7 @@ export default function SubscriptionsPage(): JSX.Element {
                       fontSize: '11px',
 
                       a: {
-                        color: '$omnivoreCtaYellow',
+                        color: '$ruminerCtaYellow',
                       },
                     }}
                   >

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.post;
+DROP TABLE ruminer.post;
 
 COMMIT;

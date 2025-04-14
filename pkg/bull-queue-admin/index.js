@@ -59,13 +59,13 @@ const run = async () => {
   const connection = new Redis(secrets.REDIS_URL, redisOptions(secrets))
   console.log('set connection: ', connection)
 
-  const backendQueue = new Queue('omnivore-backend-queue', {
+  const backendQueue = new Queue('ruminer-backend-queue', {
     connection: connection,
   })
-  const exportQueue = new Queue('omnivore-export-queue', {
+  const exportQueue = new Queue('ruminer-export-queue', {
     connection: connection,
   })
-  const contentFetchQueue = new Queue('omnivore-content-fetch-queue', {
+  const contentFetchQueue = new Queue('ruminer-content-fetch-queue', {
     connection: connection,
   })
 

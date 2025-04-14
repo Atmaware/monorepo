@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP PROCEDURE IF EXISTS omnivore.batch_delete_trash_items();
+DROP PROCEDURE IF EXISTS ruminer.batch_delete_trash_items();
 
 COMMIT;

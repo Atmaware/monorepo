@@ -102,21 +102,21 @@ export default function BulkPerformer(): JSX.Element {
         <StyledText
           style="modalHeadline"
           css={{
-            color: theme.colors.omnivoreGray.toString(),
+            color: theme.colors.ruminerGray.toString(),
           }}
         >
           Perform a Bulk Action
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '10px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '10px', color: theme.colors.ruminerGray.toString() }}
         >
           Use this tool to perform a bulk operation on all the items in your
           library.<br></br>
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '0px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '0px', color: theme.colors.ruminerGray.toString() }}
         >
           <b>Note:</b> This operation can not be undone.
         </StyledText>
@@ -127,7 +127,7 @@ export default function BulkPerformer(): JSX.Element {
               css={{
                 pt: '10px',
                 pb: '20px',
-                color: theme.colors.omnivoreGray.toString(),
+                color: theme.colors.ruminerGray.toString(),
               }}
             >
               Your bulk action has started. Please note that it can take some
@@ -169,7 +169,7 @@ export default function BulkPerformer(): JSX.Element {
                     height: '38px',
                     borderRadius: '6px',
                     minWidth: '196px',
-                    color: theme.colors.omnivoreGray.toString(),
+                    color: theme.colors.ruminerGray.toString(),
                   }}
                 >
                   <option value="none">Choose bulk action</option>

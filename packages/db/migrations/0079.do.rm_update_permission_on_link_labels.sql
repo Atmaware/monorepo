@@ -4,6 +4,6 @@
 
 BEGIN;
 
-REVOKE UPDATE ON omnivore.link_labels FROM omnivore_user;
+REVOKE UPDATE ON ruminer.link_labels FROM ruminer_user;
 
 COMMIT;

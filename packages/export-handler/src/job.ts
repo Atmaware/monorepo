@@ -1,7 +1,7 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { Queue } from 'bullmq'
 
-const QUEUE_NAME = 'omnivore-backend-queue'
+const QUEUE_NAME = 'ruminer-backend-queue'
 export const SEND_EMAIL_JOB = 'send-email'
 
 interface SendEmailJobData {

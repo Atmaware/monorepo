@@ -1,7 +1,7 @@
 import { LIBRARY_LEFT_MENU_WIDTH } from '../templates/navMenu/LibraryMenu'
 import { theme } from '../tokens/stitches.config'
-import { OmnivoreFullLogo } from './images/OmnivoreFullLogo'
-import { OmnivoreNameLogo } from './images/OmnivoreNameLogo'
+import { RuminerFullLogo } from './images/RuminerFullLogo'
+import { RuminerNameLogo } from './images/RuminerNameLogo'
 import { SpanBox } from './LayoutPrimitives'
 
 export function LogoBox(): JSX.Element {
@@ -19,7 +19,7 @@ export function LogoBox(): JSX.Element {
           },
         }}
       >
-        <OmnivoreFullLogo
+        <RuminerFullLogo
           showTitle={true}
           color={theme.colors.thHighContrast.toString()}
         />
@@ -37,7 +37,7 @@ export function LogoBox(): JSX.Element {
           },
         }}
       >
-        <OmnivoreNameLogo color={theme.colors.thHighContrast.toString()} />
+        <RuminerNameLogo color={theme.colors.thHighContrast.toString()} />
       </SpanBox>
     </>
   )

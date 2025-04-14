@@ -362,7 +362,7 @@
   line-height: var(--line-height);
 }
 
-.article-inner-css .omnivore-instagram-embed {
+.article-inner-css .ruminer-instagram-embed {
   img {
     margin: 0 !important;
   }
@@ -393,7 +393,7 @@
   width: 20%;
 }
 
-.article-inner-css ._omnivore-static-tweet {
+.article-inner-css ._ruminer-static-tweet {
   color: #0F1419 !important;
   background: #ffffff !important;
   display: flex;
@@ -409,7 +409,7 @@
   -webkit-font-smoothing: subpixel-antialiased;
 }
 
-.article-inner-css ._omnivore-static-tweet ._omnivore-static-quote-tweet {
+.article-inner-css ._ruminer-static-tweet ._ruminer-static-quote-tweet {
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -420,7 +420,7 @@
     line-height: 20px;
 }
 
-.article-inner-css ._omnivore-static-tweet ._omnivore-static-quote-tweet-header {
+.article-inner-css ._ruminer-static-tweet ._ruminer-static-quote-tweet-header {
   display: flex;
   flex-direction: row;
   gap: 9px;
@@ -428,14 +428,14 @@
   justify-content: flex-start;
 }
 
-.article-inner-css ._omnivore-static-tweet ._omnivore-static-quote-tweet-header-avatar {
+.article-inner-css ._ruminer-static-tweet ._ruminer-static-quote-tweet-header-avatar {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   margin: unset !important;
 }
 
-.article-inner-css ._omnivore-static-tweet ._omnivore-static-quote-tweet-header-text {
+.article-inner-css ._ruminer-static-tweet ._ruminer-static-quote-tweet-header-text {
   display: flex;
   flex-direction: row;
   gap: 4px;
@@ -443,7 +443,7 @@
   line-height: 20px;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-header {
+._ruminer-static-tweet ._ruminer-static-tweet-header {
   display: flex;
   align-items: center;
   flex-direction: row;
@@ -454,7 +454,7 @@
 }
 
 
-._omnivore-static-tweet-header ._omnivore-static-tweet-header-text {
+._ruminer-static-tweet-header ._ruminer-static-tweet-header-text {
   display: flex;
   flex-direction: column;
   color: #0F1419 !important;
@@ -462,30 +462,30 @@
   line-height: 20px;
 }
 
-._omnivore-static-tweet-header-text .tweet-author-name {
+._ruminer-static-tweet-header-text .tweet-author-name {
   font-weight: 600;
 }
 
-._omnivore-static-tweet-header-text .tweet-author-handle {
+._ruminer-static-tweet-header-text .tweet-author-handle {
   color: #808080;
 }
 
 
-._omnivore-static-tweet ._omnivore-static-tweet-fake-link {
+._ruminer-static-tweet ._ruminer-static-tweet-fake-link {
   color: #1da1f2;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-text {
+._ruminer-static-tweet ._ruminer-static-tweet-text {
   font-size: 14px;
   line-height: 20px;
   color: #0F1419 !important;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-link-top {
+._ruminer-static-tweet ._ruminer-static-tweet-link-top {
   text-decoration: none;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-header-avatar {
+._ruminer-static-tweet ._ruminer-static-tweet-header-avatar {
   -ms-interpolation-mode: bicubic; 
   border: none !important;
   border-radius: 50%;
@@ -498,14 +498,14 @@
   vertical-align: middle;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-link-bottom {
+._ruminer-static-tweet ._ruminer-static-tweet-link-bottom {
   display: flex;
   flex-direction: column;
   text-decoration: none;
   white-space: pre-wrap;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-footer {
+._ruminer-static-tweet ._ruminer-static-tweet-footer {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -514,7 +514,7 @@
   line-height: 20px;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-footer hr {
+._ruminer-static-tweet ._ruminer-static-tweet-footer hr {
   background: #e0e0e0;
   border: none;
   height: 1px;
@@ -526,17 +526,17 @@
   line-height: 20px;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-author-handle {
+._ruminer-static-tweet ._ruminer-static-tweet-author-handle {
   display: block;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-ufi {
+._ruminer-static-tweet ._ruminer-static-tweet-ufi {
   display: flex;
   gap: 24px;
   align-items: center;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-ufi .likes, .retweets {
+._ruminer-static-tweet ._ruminer-static-tweet-ufi .likes, .retweets {
   display: flex;
   gap: 4px;
   text-decoration: none;
@@ -545,14 +545,14 @@
   line-height: 20px;
 }
 
-._omnivore-static-tweet ._omnivore-static-tweet-photo {
+._ruminer-static-tweet ._ruminer-static-tweet-photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 2px;
 }
 
-._omnivore-static-tweet .expanded-link {
+._ruminer-static-tweet .expanded-link {
   display: flex;
   flex-direction: column;
   text-decoration: none;
@@ -562,7 +562,7 @@
   overflow: hidden;
 }
 
-._omnivore-static-tweet .expanded-link-img {
+._ruminer-static-tweet .expanded-link-img {
   cursor: pointer;
   width: 100%;
   max-height: 280px;
@@ -571,11 +571,11 @@
   margin: 0px auto !important
 }
 
-._omnivore-static-tweet .expanded-link img {
+._ruminer-static-tweet .expanded-link img {
   margin: 0px auto !important
 }
 
-._omnivore-static-tweet .expanded-link-bottom {
+._ruminer-static-tweet .expanded-link-bottom {
   display: flex;
   flex-direction: column;
   padding: 12px;
@@ -607,7 +607,7 @@
   overflow: hidden;
 }
 
-.article-inner-css ._omnivore_tweet_content {
+.article-inner-css ._ruminer_tweet_content {
   white-space: pre-wrap;
   overflow-wrap: break-word;
 }

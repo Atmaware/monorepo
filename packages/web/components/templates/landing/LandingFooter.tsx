@@ -24,7 +24,7 @@ export function LandingFooter(): JSX.Element {
       pt: '15px',
     },
     a: {
-      color: '$omnivoreCtaYellow',
+      color: '$ruminerCtaYellow',
       textDecoration: 'none',
       '&:hover': {
         textDecoration: 'underline',
@@ -57,29 +57,29 @@ export function LandingFooter(): JSX.Element {
           <StyledText style="aboutFooter">Install</StyledText>
           <FooterList>
             <li>
-              <a href="https://omnivore.app/install/ios">iOS</a>
+              <a href="https://ruminer.app/install/ios">iOS</a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/macos">macOS</a>
+              <a href="https://ruminer.app/install/macos">macOS</a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/android">
+              <a href="https://ruminer.app/install/android">
                 Android (preview release)
               </a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/chrome">Chrome Extension</a>
+              <a href="https://ruminer.app/install/chrome">Chrome Extension</a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/firefox">
+              <a href="https://ruminer.app/install/firefox">
                 Firefox Extension
               </a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/safari">Safari Extension</a>
+              <a href="https://ruminer.app/install/safari">Safari Extension</a>
             </li>
             <li>
-              <a href="https://omnivore.app/install/edge">Edge Extension</a>
+              <a href="https://ruminer.app/install/edge">Edge Extension</a>
             </li>
           </FooterList>
         </VStack>
@@ -87,15 +87,15 @@ export function LandingFooter(): JSX.Element {
           <StyledText style="aboutFooter">About</StyledText>
           <FooterList>
             <li>
-              <a href="https://docs.omnivore.app/about/pricing">Pricing</a>
+              <a href="https://docs.ruminer.app/about/pricing">Pricing</a>
             </li>
             <li>
-              <a href="https://docs.omnivore.app/about/privacy-statement">
+              <a href="https://docs.ruminer.app/about/privacy-statement">
                 Privacy
               </a>
             </li>
             <li>
-              <a href="mailto:feedback@omnivore.app">Contact&nbsp;us via&nbsp;email</a>
+              <a href="mailto:feedback@ruminer.app">Contact&nbsp;us via&nbsp;email</a>
             </li>
             <li>
               <a href="https://discord.gg/h2z5rppzz9">
@@ -103,12 +103,12 @@ export function LandingFooter(): JSX.Element {
               </a>
             </li>
             <li>
-              <a href="https://github.com/omnivore-app/omnivore/blob/main/SECURITY.md">
+              <a href="https://github.com/ruminer-app/ruminer/blob/main/SECURITY.md">
                 Security
               </a>
             </li>
             <li>
-              <a href="https://docs.omnivore.app">Read our Docs</a>
+              <a href="https://docs.ruminer.app">Read our Docs</a>
             </li>
           </FooterList>
         </VStack>
@@ -117,16 +117,16 @@ export function LandingFooter(): JSX.Element {
           <StyledText style="aboutFooter">Follow</StyledText>
           <FooterList>
             <li>
-              <a href="https://twitter.com/OmnivoreApp">Twitter</a>
+              <a href="https://twitter.com/RuminerApp">Twitter</a>
             </li>
             <li>
-              <a href="https://pkm.social/@omnivore">Mastodon</a>
+              <a href="https://pkm.social/@ruminer">Mastodon</a>
             </li>
             <li>
-              <a href="https://blog.omnivore.app">Blog</a>
+              <a href="https://blog.ruminer.app">Blog</a>
             </li>
             <li>
-              <a href="https://github.com/omnivore-app/omnivore">GitHub</a>
+              <a href="https://github.com/ruminer-app/ruminer">GitHub</a>
             </li>
           </FooterList>
         </VStack>

@@ -9,7 +9,7 @@ PG_HOST = os.getenv('PG_HOST', 'localhost')
 PG_PORT = os.getenv('PG_PORT', 5432)
 PG_USER = os.getenv('PG_USER', 'app_user')
 PG_PASSWORD = os.getenv('PG_PASSWORD', 'app_pass')
-PG_DB = os.getenv('PG_DB', 'omnivore')
+PG_DB = os.getenv('PG_DB', 'ruminer')
 ES_URL = os.getenv('ES_URL', 'http://localhost:9200')
 ES_USERNAME = os.getenv('ES_USERNAME', 'elastic')
 ES_PASSWORD = os.getenv('ES_PASSWORD', 'password')
@@ -42,7 +42,7 @@ def assertData(conn, client: Elasticsearch, pages):
         for page in pages:
             pageId = page['pageId']
             cursor.execute(
-                f'''SELECT COUNT(*) FROM omnivore.highlight
+                f'''SELECT COUNT(*) FROM ruminer.highlight
                     WHERE elastic_page_id = \'{pageId}\' AND deleted = false''')
             countInPostgres = cursor.fetchone()['count']
             try:
@@ -91,7 +91,7 @@ def ingest_highlights(conn, pages):
                     short_id as "shortId",
                     user_id as "userId",
                     to_char(shared_at, '{DATETIME_FORMAT}') as "sharedAt"
-                FROM omnivore.highlight
+                FROM ruminer.highlight
                 WHERE
                     elastic_page_id = \'{pageId}\'
                     AND deleted = false
@@ -140,7 +140,7 @@ def get_pages_with_highlights(conn):
         query = f'''
             SELECT DISTINCT
                 elastic_page_id as "pageId"
-            FROM omnivore.highlight
+            FROM ruminer.highlight
             WHERE
                 elastic_page_id IS NOT NULL
                 AND deleted = false

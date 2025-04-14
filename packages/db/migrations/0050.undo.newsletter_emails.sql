@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE omnivore.newsletter_emails;
+DROP TABLE ruminer.newsletter_emails;
 
 COMMIT;

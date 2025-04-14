@@ -2,11 +2,11 @@ version: '3'
 services:
   postgres-test:
     image: "ankane/pgvector:v0.5.1"
-    container_name: "omnivore-postgres-test"
+    container_name: "ruminer-postgres-test"
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=omnivore_test
+      - POSTGRES_DB=ruminer_test
       - PG_POOL_MAX=20
     healthcheck:
       test: "exit 0"
@@ -20,14 +20,14 @@ services:
     build:
       context: .
       dockerfile: ./packages/db/Dockerfile
-    container_name: "omnivore-migrate-test"
-    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@omnivore.app, password: demo
+    container_name: "ruminer-migrate-test"
+    command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@ruminer.app, password: demo
     environment:
       - PGPASSWORD=postgres
       - PG_HOST=postgres-test
       - PG_USER=postgres
       - PG_PASSWORD=postgres
-      - PG_DB=omnivore_test
+      - PG_DB=ruminer_test
     depends_on:
       postgres-test:
         condition: service_healthy
@@ -36,13 +36,13 @@ services:
     build:
       context: .
       dockerfile: ./packages/api/Dockerfile-test
-    container_name: "omnivore-api-test"
+    container_name: "ruminer-api-test"
     environment:
       - API_ENV=local
       - PG_HOST=postgres-test
       - PG_USER=postgres
       - PG_PASSWORD=postgres
-      - PG_DB=omnivore_test
+      - PG_DB=ruminer_test
       - PG_PORT=5432
       - PG_POOL_MAX=20
       - IMAGE_PROXY_SECRET=some-secret
@@ -54,7 +54,7 @@ services:
       - BOOKMARKLET_JWT_SECRET=some_bookmarklet_secret
       - BOOKMARKLET_VERSION=1.0.0
       - PREVIEW_IMAGE_WRAPPER_ID='selected_highlight_wrapper'
-      - GCP_PROJECT_ID=omnivore-local
+      - GCP_PROJECT_ID=ruminer-local
       - GAUTH_CLIENT_ID='notset'
       - GAUTH_SECRET='notset'
       - SEGMENT_WRITE_KEY='test'

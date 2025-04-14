@@ -1,6 +1,6 @@
 import { Storage } from '@google-cloud/storage'
-import { fetchContent } from '@omnivore/puppeteer-parse'
-import { RedisDataSource } from '@omnivore/utils'
+import { fetchContent } from '@ruminer/puppeteer-parse'
+import { RedisDataSource } from '@ruminer/utils'
 import axios from 'axios'
 import 'dotenv/config'
 import jwt from 'jsonwebtoken'
@@ -62,7 +62,7 @@ interface FetchResult {
 const storage = process.env.GCS_UPLOAD_SA_KEY_FILE_PATH
   ? new Storage({ keyFilename: process.env.GCS_UPLOAD_SA_KEY_FILE_PATH })
   : new Storage()
-const bucketName = process.env.GCS_UPLOAD_BUCKET || 'omnivore-files'
+const bucketName = process.env.GCS_UPLOAD_BUCKET || 'ruminer-files'
 
 const NO_CACHE_URLS = [
   'https://deviceandbrowserinfo.com/are_you_a_bot',

@@ -29,11 +29,11 @@ COPY /packages/db ./packages/db
 COPY /packages/liqe ./packages/liqe
 COPY /packages/utils ./packages/utils
 
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/text-to-speech-handler build
-RUN yarn workspace @omnivore/content-handler build
-RUN yarn workspace @omnivore/liqe build
-RUN yarn workspace @omnivore/api build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/text-to-speech-handler build
+RUN yarn workspace @ruminer/content-handler build
+RUN yarn workspace @ruminer/liqe build
+RUN yarn workspace @ruminer/api build
 
 RUN rm -rf /app/packages/api/node_modules
 RUN rm -rf /app/node_modules
@@ -63,4 +63,4 @@ RUN apk add --no-cache postgresql-client
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/api", "start"]
+CMD ["yarn", "workspace", "@ruminer/api", "start"]

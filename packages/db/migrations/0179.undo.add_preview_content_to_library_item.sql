@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item
+ALTER TABLE ruminer.library_item
     DROP COLUMN preview_content;
 
 COMMIT;

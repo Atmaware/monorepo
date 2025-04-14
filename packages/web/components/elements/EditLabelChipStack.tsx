@@ -17,7 +17,7 @@ export function EditLabelChipStack(
 ): JSX.Element {
   const isDark = isDarkTheme()
 
-  const selectedBorder = isDark ? '#FFEA9F' : '$omnivoreGray'
+  const selectedBorder = isDark ? '#FFEA9F' : '$ruminerGray'
   const unSelectedBorder = isDark ? 'transparent' : '#DEDEDE'
 
   const colors = useMemo(() => {

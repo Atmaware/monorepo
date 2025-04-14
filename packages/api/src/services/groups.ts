@@ -130,9 +130,9 @@ export const joinGroup = async (
 
     // Check if exceeded max members considering concurrent requests
     await t.query(
-      `insert into omnivore.group_membership (user_id, group_id, invite_id)
+      `insert into ruminer.group_membership (user_id, group_id, invite_id)
         select $1, $2, $3
-        from omnivore.group_membership
+        from ruminer.group_membership
         where group_id = $2
         having count(*) < $4`,
       [user.id, invite.group.id, invite.id, invite.maxMembers]

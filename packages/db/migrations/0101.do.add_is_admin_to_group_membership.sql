@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.group_membership ADD COLUMN is_admin BOOLEAN NOT NULL DEFAULT FALSE;
+ALTER TABLE ruminer.group_membership ADD COLUMN is_admin BOOLEAN NOT NULL DEFAULT FALSE;
 
 COMMIT;

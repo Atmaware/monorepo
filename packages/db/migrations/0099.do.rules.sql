@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.rules (
+CREATE TABLE ruminer.rules (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
     name text NOT NULL,
     description text,
     filter text NOT NULL,
@@ -17,9 +17,9 @@ CREATE TABLE omnivore.rules (
     UNIQUE (user_id, filter)
 );
 
-CREATE TRIGGER rules_modtime BEFORE UPDATE ON omnivore.rules
+CREATE TRIGGER rules_modtime BEFORE UPDATE ON ruminer.rules
     FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.rules TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.rules TO ruminer_user;
 
 COMMIT;

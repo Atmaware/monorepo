@@ -300,12 +300,12 @@ describe('Subscriptions API', () => {
 
     it('unsubscribes', async () => {
       const name = 'Sub_5'
-      const to = 'unsubscribe@omnivore.app'
+      const to = 'unsubscribe@ruminer.app'
       const subject = 'test'
       // create test newsletter subscriptions
       const newsletterEmail = await getRepository(NewsletterEmail).save({
         user,
-        address: 'test_2@inbox.omnivore.app',
+        address: 'test_2@inbox.ruminer.app',
         confirmationCode: 'test',
       })
       const subscription = await createSubscription(
@@ -369,7 +369,7 @@ describe('Subscriptions API', () => {
     `
 
     context('when subscribing to a rss feed', () => {
-      const url = 'https://www.omnivore.app/rss'
+      const url = 'https://www.ruminer.app/rss'
       const subscriptionType = SubscriptionType.Rss
 
       before(() => {

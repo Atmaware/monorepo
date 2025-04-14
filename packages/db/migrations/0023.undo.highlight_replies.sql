@@ -1,9 +1,9 @@
 -- Type: UNDO
 -- Name: highlight_replies
--- Description: Create omnivore.highlight_reply table
+-- Description: Create ruminer.highlight_reply table
 
 BEGIN;
 
-DROP TABLE omnivore.highlight_reply;
+DROP TABLE ruminer.highlight_reply;
 
 COMMIT;

@@ -15,7 +15,7 @@ COPY /packages/discover/package.json ./packages/discover/package.json
 COPY /packages/discover/tsconfig.json ./packages/discover/tsconfig.json
 
 RUN yarn install --pure-lockfile
-RUN yarn workspace @omnivore/discover build
+RUN yarn workspace @ruminer/discover build
 
 FROM node:22.12 as runner
 
@@ -30,4 +30,4 @@ COPY --from=builder /app/packages/discover/node_modules /app/packages/discover/n
 COPY --from=builder /app/node_modules /app/node_modules
 COPY --from=builder /app/package.json /app/package.json
 
-CMD ["yarn", "workspace", "@omnivore/discover", "start"]
+CMD ["yarn", "workspace", "@ruminer/discover", "start"]

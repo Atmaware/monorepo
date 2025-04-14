@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP POLICY IF EXISTS update_speech ON omnivore.speech;
+DROP POLICY IF EXISTS update_speech ON ruminer.speech;
 
 COMMIT;

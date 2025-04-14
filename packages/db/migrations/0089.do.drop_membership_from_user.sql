@@ -4,9 +4,9 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     DROP column membership;
 
-DROP TYPE omnivore.membership_tier;
+DROP TYPE ruminer.membership_tier;
 
 COMMIT;

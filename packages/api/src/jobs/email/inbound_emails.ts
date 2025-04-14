@@ -1,4 +1,4 @@
-import { handleNewsletter } from '@omnivore/content-handler'
+import { handleNewsletter } from '@ruminer/content-handler'
 import { Converter } from 'showdown'
 import { ContentReaderType, LibraryItemState } from '../../entity/library_item'
 import { SubscriptionStatus } from '../../entity/subscription'
@@ -264,7 +264,7 @@ export const saveAttachmentJob = async (data: EmailJobData) => {
     uploadFileData.fileName
   )
 
-  const uploadFileUrlOverride = `https://omnivore.app/attachments/${uploadFilePathName}`
+  const uploadFileUrlOverride = `https://ruminer.app/attachments/${uploadFilePathName}`
   const uploadFileHash = uploadFileDetails.md5Hash
   const itemType =
     uploadFileData.contentType === 'application/pdf'

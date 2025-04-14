@@ -9,18 +9,18 @@ import {
 } from 'rxjs'
 import axios from 'axios'
 import { fromArrayLike, fromPromise } from 'rxjs/internal/observable/innerFrom'
-import { OmnivoreArticle } from '../../../../types/OmnivoreArticle'
+import { RuminerArticle } from '../../../../types/RuminerArticle'
 import converters from './rssConverters/converters'
 import { filter, finalize } from 'rxjs/operators'
 import { getRssFeeds$ } from '../../../store/feeds'
-import { OmnivoreContentFeed, OmnivoreFeed } from '../../../../types/Feeds'
+import { RuminerContentFeed, RuminerFeed } from '../../../../types/Feeds'
 import { newFeeds$ } from './newFeedIngestor'
 import { exponentialBackOff, onErrorContinue } from '../../../utils/reactive'
 
 const REFRESH_DELAY_MS = 3_600_000
 const getRssFeed = async (
-  feed: OmnivoreFeed
-): Promise<OmnivoreContentFeed | null> => {
+  feed: RuminerFeed
+): Promise<RuminerContentFeed | null> => {
   try {
     const rss = await axios.get<string>(feed.link)
     return {
@@ -33,10 +33,10 @@ const getRssFeed = async (
   }
 }
 
-const rssToArticles = (site: OmnivoreFeed) =>
+const rssToArticles = (site: RuminerFeed) =>
   fromPromise(getRssFeed(site)).pipe(
-    filter((it): it is OmnivoreContentFeed => !!it),
-    mergeMap<OmnivoreContentFeed, Observable<OmnivoreArticle>>((item) =>
+    filter((it): it is RuminerContentFeed => !!it),
+    mergeMap<RuminerContentFeed, Observable<RuminerArticle>>((item) =>
       converters.generic(item)
     )
   )
@@ -48,7 +48,7 @@ export const rss$ = (() => {
     onErrorContinue(
       mergeMap((it) => rssToArticles(it).pipe(exponentialBackOff(5)))
     ),
-    filter((it: OmnivoreArticle) => it.publishedAt > lastUpdatedTime),
+    filter((it: RuminerArticle) => it.publishedAt > lastUpdatedTime),
     finalize(() => {
       lastUpdatedTime = new Date()
       console.log(lastUpdatedTime)

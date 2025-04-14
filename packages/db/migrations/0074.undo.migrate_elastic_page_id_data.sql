@@ -4,9 +4,9 @@
 
 BEGIN;
 
-UPDATE omnivore.article_saving_request
+UPDATE ruminer.article_saving_request
     SET elastic_page_id = null WHERE elastic_page_id is not NULL;
-UPDATE omnivore.highlight
+UPDATE ruminer.highlight
     SET elastic_page_id = null WHERE elastic_page_id is not NULL;
 
 COMMIT;

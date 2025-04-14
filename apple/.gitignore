@@ -17,4 +17,4 @@ output/
 /vendor
 *.dSYM.zip
 
-OmnivoreKit/Sources/Utils/Resources/Keys.json
+RuminerKit/Sources/Utils/Resources/Keys.json

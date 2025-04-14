@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     ALTER column article_reading_progress TYPE smallint USING article_reading_progress::smallint;
 COMMIT;

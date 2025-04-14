@@ -148,7 +148,7 @@ export function EmailLogin(): JSX.Element {
             m: '0px',
             pt: '16px',
             width: '100%',
-            color: '$omnivoreLightGray',
+            color: '$ruminerLightGray',
             textAlign: 'center',
             whiteSpace: 'normal',
           }}
@@ -166,7 +166,7 @@ export function EmailLogin(): JSX.Element {
             mt: '0px',
             pt: '4px',
             width: '100%',
-            color: '$omnivoreLightGray',
+            color: '$ruminerLightGray',
             textAlign: 'center',
             whiteSpace: 'normal',
           }}
@@ -175,7 +175,7 @@ export function EmailLogin(): JSX.Element {
           <Link href="/auth/forgot-password" passHref legacyBehavior>
             <StyledTextSpan
               style="actionLink"
-              css={{ color: '$omnivoreLightGray' }}
+              css={{ color: '$ruminerLightGray' }}
             >
               Click here
             </StyledTextSpan>

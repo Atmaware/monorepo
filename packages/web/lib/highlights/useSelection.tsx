@@ -288,7 +288,7 @@ const clipRangeToNearestAnchor = (
   let nearestAnchorElement = selectionEndNode.parentElement
   while (
     nearestAnchorElement !== null &&
-    !nearestAnchorElement.hasAttribute('data-omnivore-anchor-idx')
+    !nearestAnchorElement.hasAttribute('data-ruminer-anchor-idx')
   ) {
     nearestAnchorElement = nearestAnchorElement.parentElement
   }
@@ -298,14 +298,14 @@ const clipRangeToNearestAnchor = (
     )
   }
   let anchorId = Number(
-    nearestAnchorElement.getAttribute('data-omnivore-anchor-idx')!
+    nearestAnchorElement.getAttribute('data-ruminer-anchor-idx')!
   )
   let adjacentAnchorId, adjacentAnchor, adjacentAnchorOffset
   if (isReverseSelected) {
     // move down to find adjacent anchor node and clip at its beginning
     adjacentAnchorId = anchorId + 1
     adjacentAnchor = document.querySelectorAll(
-      `[data-omnivore-anchor-idx='${adjacentAnchorId}']`
+      `[data-ruminer-anchor-idx='${adjacentAnchorId}']`
     )[0]
     adjacentAnchorOffset = 0
     range.setStart(adjacentAnchor, adjacentAnchorOffset)
@@ -314,7 +314,7 @@ const clipRangeToNearestAnchor = (
     do {
       adjacentAnchorId = --anchorId
       adjacentAnchor = document.querySelectorAll(
-        `[data-omnivore-anchor-idx='${adjacentAnchorId}']`
+        `[data-ruminer-anchor-idx='${adjacentAnchorId}']`
       )[0]
     } while (adjacentAnchor.contains(selectionEndNode))
     if (adjacentAnchor.textContent) {

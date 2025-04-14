@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization
+ALTER TABLE ruminer.user_personalization
     DROP column library_sort_order;
 
 COMMIT;

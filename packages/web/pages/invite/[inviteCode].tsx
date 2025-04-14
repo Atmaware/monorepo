@@ -64,7 +64,7 @@ export default function InvitePage(): JSX.Element {
   )
 
   return <>
-    <PageMetaData title="Accept Invite - Omnivore" path="/invite" />
+    <PageMetaData title="Accept Invite - Ruminer" path="/invite" />
     <ProfileLayout>
       <VStack
         alignment="center"
@@ -79,7 +79,7 @@ export default function InvitePage(): JSX.Element {
           boxShadow: '#B1B1B1 9px 9px 9px -9px',
         }}
       >
-        <StyledText style="subHeadline" css={{ color: '$omnivoreGray' }}>
+        <StyledText style="subHeadline" css={{ color: '$ruminerGray' }}>
           You&apos;re invited
         </StyledText>
 
@@ -89,12 +89,12 @@ export default function InvitePage(): JSX.Element {
             mt: '0px',
             pt: '4px',
             width: '100%',
-            color: '$omnivoreLightGray',
+            color: '$ruminerLightGray',
             textAlign: 'center',
             whiteSpace: 'normal',
           }}
         >
-          You have been invited to join a recommendation group on Omnivore.
+          You have been invited to join a recommendation group on Ruminer.
           Recommendation groups allow you to share articles with other group
           members.
         </StyledText>
@@ -146,16 +146,16 @@ export default function InvitePage(): JSX.Element {
             m: '0px',
             pt: '16px',
             width: '100%',
-            color: '$omnivoreLightGray',
+            color: '$ruminerLightGray',
             textAlign: 'center',
             whiteSpace: 'normal',
           }}
         >
-          Don&apos;t have an Omnivore account?{' '}
+          Don&apos;t have an Ruminer account?{' '}
           <Link href="/login" passHref legacyBehavior>
             <StyledTextSpan
               style="actionLink"
-              css={{ color: '$omnivoreGray' }}
+              css={{ color: '$ruminerGray' }}
             >
               Signup
             </StyledTextSpan>

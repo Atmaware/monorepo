@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Omnivore - Self Hosted",
+  "name": "Ruminer - Self Hosted",
   "version": "3.0",
-  "description": "Save content to your Omnivore library.",
+  "description": "Save content to your Ruminer library.",
   "permissions": [
     "activeTab",
     "scripting",

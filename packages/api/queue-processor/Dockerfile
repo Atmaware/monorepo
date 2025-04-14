@@ -27,11 +27,11 @@ ADD /packages/content-handler ./packages/content-handler
 ADD /packages/liqe ./packages/liqe
 ADD /packages/utils ./packages/utils
 
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/text-to-speech-handler build
-RUN yarn workspace @omnivore/content-handler build
-RUN yarn workspace @omnivore/liqe build
-RUN yarn workspace @omnivore/api build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/text-to-speech-handler build
+RUN yarn workspace @ruminer/content-handler build
+RUN yarn workspace @ruminer/liqe build
+RUN yarn workspace @ruminer/api build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/api/node_modules
@@ -39,7 +39,7 @@ RUN rm -rf /app/node_modules
 RUN yarn install --pure-lockfile --production
 
 FROM node:22.12 as runner
-LABEL org.opencontainers.image.source="https://github.com/omnivore-app/omnivore"
+LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
 
 RUN apt-get update && apt-get install -y netcat-openbsd
 
@@ -58,4 +58,4 @@ COPY --from=builder /app/packages/content-handler/ /app/packages/content-handler
 COPY --from=builder /app/packages/liqe/ /app/packages/liqe/
 COPY --from=builder /app/packages/utils/ /app/packages/utils/
 
-CMD ["yarn", "workspace", "@omnivore/api", "start_queue_processor"]
+CMD ["yarn", "workspace", "@ruminer/api", "start_queue_processor"]

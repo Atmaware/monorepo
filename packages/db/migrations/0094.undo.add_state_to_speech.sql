@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.speech
+ALTER TABLE ruminer.speech
     DROP COLUMN bucket,
     DROP COLUMN audio_file_name,
     DROP COLUMN speech_marks_file_name,

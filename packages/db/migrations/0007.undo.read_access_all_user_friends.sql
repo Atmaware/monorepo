@@ -4,10 +4,10 @@
 
 BEGIN;
 
-DROP POLICY read_all_user_friends ON omnivore.user_friends;
+DROP POLICY read_all_user_friends ON ruminer.user_friends;
 
-CREATE POLICY read_user_friends ON omnivore.user_friends
-  FOR SELECT TO omnivore_user
-  USING (user_id = omnivore.get_current_user_id() OR friend_user_id = omnivore.get_current_user_id());
+CREATE POLICY read_user_friends ON ruminer.user_friends
+  FOR SELECT TO ruminer_user
+  USING (user_id = ruminer.get_current_user_id() OR friend_user_id = ruminer.get_current_user_id());
 
 COMMIT;

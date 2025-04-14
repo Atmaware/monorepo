@@ -96,7 +96,7 @@ export default function AndroidInstallHelp({
             },
           }}
         >
-          Install Omnivore for Android
+          Install Ruminer for Android
         </StyledText>
       </Box>
       <StyledText
@@ -154,7 +154,7 @@ export default function AndroidInstallHelp({
             justifyContent: 'flex-end',
           }}
         >
-          <a href="https://omnivore.app/install/android">
+          <a href="https://ruminer.app/install/android">
             <img
               alt="Get it on Google Play"
               style={{

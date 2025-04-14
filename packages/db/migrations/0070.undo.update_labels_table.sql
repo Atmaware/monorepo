@@ -4,12 +4,12 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.labels
-    ADD COLUMN link_id uuid REFERENCES omnivore.links ON DELETE CASCADE,
+ALTER TABLE ruminer.labels
+    ADD COLUMN link_id uuid REFERENCES ruminer.links ON DELETE CASCADE,
     DROP COLUMN color,
     DROP COLUMN description,
     DROP CONSTRAINT label_name_unique;
 
-DROP TABLE omnivore.link_labels;
+DROP TABLE ruminer.link_labels;
 
 COMMIT;

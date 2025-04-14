@@ -4,9 +4,9 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.speech;
+DROP TABLE IF EXISTS ruminer.speech;
 
-ALTER TABLE omnivore.user_personalization
+ALTER TABLE ruminer.user_personalization
     DROP COLUMN IF EXISTS speech_voice,
     DROP COLUMN IF EXISTS speech_rate,
     DROP COLUMN IF EXISTS speech_volume;

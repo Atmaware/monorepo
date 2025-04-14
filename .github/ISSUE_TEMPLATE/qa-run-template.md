@@ -7,7 +7,7 @@ assignees: ''
 
 ---
 
-There are three QA focus areas in Omnivore:
+There are three QA focus areas in Ruminer:
 
 1. Saving
 2. Library Management
@@ -16,7 +16,7 @@ There are three QA focus areas in Omnivore:
 
 ## Saving
 
-Omnivore has three APIs involved in saving that should all be tested. URLs, Files, and Pages (captured content from the browser or the mobile) app can all be saved
+Ruminer has three APIs involved in saving that should all be tested. URLs, Files, and Pages (captured content from the browser or the mobile) app can all be saved
 
 ## Library Management
 

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions DROP COLUMN last_fetched_checksum ;
+ALTER TABLE ruminer.subscriptions DROP COLUMN last_fetched_checksum ;
 
 COMMIT;

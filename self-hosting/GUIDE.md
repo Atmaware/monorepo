@@ -12,7 +12,7 @@
 
 ## Docker Compose
 
-We recommend using Docker-compose for the simplest way to deploy Omnivore. We have provided a configuration in the `self-hosting/docker-compose` folder. 
+We recommend using Docker-compose for the simplest way to deploy Ruminer. We have provided a configuration in the `self-hosting/docker-compose` folder. 
 
 All networking and persistent storage is handled by the docker-compose file.
 
@@ -22,13 +22,13 @@ All networking and persistent storage is handled by the docker-compose file.
 
 ### 1. Clone the Repository
 
-Clone the repository at ``git@github.com:omnivore-app/omnivore.git``
+Clone the repository at ``git@github.com:ruminer-app/ruminer.git``
 
 ### 2. Change directory to self-hosting/docker-compose
 
 The Docker-compose file and necessary environment variables are found in the self-hosting folder under docker-compose. 
 
-These files provide all you need to get Omnivore up and running on your local environment. 
+These files provide all you need to get Ruminer up and running on your local environment. 
 
 This will pull some premade images. If you want to build these images yourself, you can use the file found in self-hosting/docker-compose/self-build. You might want to do this if you are making development adjustments.  
 
@@ -55,12 +55,12 @@ They are the same as the listed environment variables above.
 
 Running `docker compose up` will pull the images from the github, and then start the services. 
 
-During the first deployment omnivore-migrate will go through and set up the necessary Postgres tables. 
-This will also create a demo user with email: demo@omnivore.app, password: demo_password. 
+During the first deployment ruminer-migrate will go through and set up the necessary Postgres tables. 
+This will also create a demo user with email: demo@ruminer.app, password: demo_password. 
 
 When the service is ready you can access the web-app by using localhost:3000
 
-With the default .env file you will be able to use Omnivore, add RSS Feeds, add stories etc. 
+With the default .env file you will be able to use Ruminer, add RSS Feeds, add stories etc. 
 
 
 ### Additional Services used: 
@@ -80,8 +80,8 @@ It allows you to use the S3 Storage API.
 We also have a small client that creates the necessary buckets (createbuckets). See below: 
 ```bash
 until (/usr/bin/mc config host add myminio http://minio:9000 minio miniominio) do echo '...waiting...' && sleep 1; done;
-/usr/bin/mc mb myminio/omnivore;
-/usr/bin/mc policy set public myminio/omnivore;
+/usr/bin/mc mb myminio/ruminer;
+/usr/bin/mc policy set public myminio/ruminer;
 ```
 
 If you use GCS, or S3 buckets you can do the following:
@@ -115,12 +115,12 @@ with the path of the JSON key file for the service account.
 
 ## Nginx Reverse Proxy
 
-Nginx is a reverse proxy that receives requests, and directs them to the correct service internally. Omnivore runs 4 services we want to redirect to.
+Nginx is a reverse proxy that receives requests, and directs them to the correct service internally. Ruminer runs 4 services we want to redirect to.
 
-* Omnivore Web
-* Omnivore API
-* Omnivore Bucket [Optional]
-* Omnivore Image Proxy [Optional]
+* Ruminer Web
+* Ruminer API
+* Ruminer Bucket [Optional]
+* Ruminer Image Proxy [Optional]
 
 We have included an example Nginx Configuration that redirects traffic from http (80) to https (443), and then directs traffic to the correct service based on the request path. 
 
@@ -133,7 +133,7 @@ You run a daemon on your host machine, which creates outbound connections to the
 
 ![Tunnels Config](../docs/guides/images/cloudflare-tunnel.png)
 
-Omnivore is no way affiliated with Cloudflare, it is just the method to which the person writing this guide used, and found pretty painless overall.
+Ruminer is no way affiliated with Cloudflare, it is just the method to which the person writing this guide used, and found pretty painless overall.
 
 [Read More](https://www.cloudflare.com/products/tunnel/)
 
@@ -161,9 +161,9 @@ These extensions have been sent for submission to the Chrome and Firefox webstor
 6. Navigate to the options page, using the "Extensions Options" button. You should see the following page.
 ![Extension Options](../docs/guides/images/7-options.png)
 ![Extension Options](../docs/guides/images/8-options-page.png)
-7. Generate an API Key using Omnivore.
-   ![API Options](../docs/guides/images/9-omnivore-settings.png)
-   ![API Options](../docs/guides/images/10-omnivore-api-keys.png)
+7. Generate an API Key using Ruminer.
+   ![API Options](../docs/guides/images/9-ruminer-settings.png)
+   ![API Options](../docs/guides/images/10-ruminer-api-keys.png)
    ![API Options](../docs/guides/images/11-generate-key.png)
    ![API Options](../docs/guides/images/12-copy-key.png)
 8. Update the settings with the hosted options
@@ -174,7 +174,7 @@ These extensions have been sent for submission to the Chrome and Firefox webstor
 
 ## Emails and Newsletters
 
-Another Feature of Omnivore is the ability to receive Newsletters directly into your Inbox using email. This feature is described more [here](#receiving-newsletter-subscriptions-via-email).
+Another Feature of Ruminer is the ability to receive Newsletters directly into your Inbox using email. This feature is described more [here](#receiving-newsletter-subscriptions-via-email).
 
 This works by generating an email address, and subscribing to a newsletter using that email address. 
 
@@ -183,17 +183,17 @@ In order to get this working in a self-hosted way we have created a new endpoint
 We will go over 
 
 #### Receiving Newsletter Subscriptions via Email
-1. On the Omnivore website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select Emails from the menu.
+1. On the Ruminer website or app, tap your photo, initial, or avatar in the top right corner to access the profile menu. Select Emails from the menu.
 
-2. Tap Create a New Email Address to add a new email address (e.g. username-123abc@inbox.omnivore.app) to the list.
+2. Tap Create a New Email Address to add a new email address (e.g. username-123abc@inbox.ruminer.app) to the list.
 
 3. Click the Copy icon next to the email address.
 
 4. Navigate to the signup page for the newsletter you wish to subscribe to.
 
-5. Paste the Omnivore email address into the signup form.
+5. Paste the Ruminer email address into the signup form.
 
-6. New newsletters will be automatically delivered to your Omnivore inbox.
+6. New newsletters will be automatically delivered to your Ruminer inbox.
 
 ### IMap Watcher
 
@@ -206,18 +206,18 @@ There are a few environment variables that need to be set to make this work.
 | Environment Variable | Description                                                                                          | .env example                      |
 |----------------------|------------------------------------------------------------------------------------------------------|-----------------------------------|
 | WATCHER_API_KEY      | The API Key for the Watcher Service.                                                                 | api-key                           |
-| WATCHER_API_ENDPOINT | The URL of the Watcher Server.                                                                       | https://omnivore-watch.domain.tld |
+| WATCHER_API_ENDPOINT | The URL of the Watcher Server.                                                                       | https://ruminer-watch.domain.tld |
 | IMAP_USER            | The IMAP User, in the gmail case this will be your email                                             | email-address@emailserver.com     |
 | IMAP_PASSWORD        | For gmail, this will be an application password. for other services this will be your email-password | password                          |
 | IMAP_HOST            | The IMAP Host, for gmail this will be imap.gmail.com                                                 | imap.host.com                     |
 | IMAP_PORT            | The IMAP Port, usually 993                                                                           | 993                               |
-| OMNIVORE_EMAIL       | The email address that Omnivore Creates                                                              | uuid@omnivore.tld                 |
+| OMNIVORE_EMAIL       | The email address that Ruminer Creates                                                              | uuid@ruminer.tld                 |
 
 We will show how to set this up with a gmail account below. The steps should be similar for different email services. 
 
 #### GMail: How to
 
-##### Step 1. Create an Omnivore Email
+##### Step 1. Create an Ruminer Email
 ![Email](../docs/guides/images/create-new-email.png)
 
 This is the email address that you will use for the .env.imap file, `OMNIVORE_EMAIL`
@@ -247,7 +247,7 @@ This will be the password for the `IMAP_PASSWORD`.
 `docker compose -f docker-compose-imap.yml build`
 `docker compose -f docker-compose-imap.yml up`
 
-#### Step 5. Emails are sent to Omnivore 
+#### Step 5. Emails are sent to Ruminer 
 ![inc-gmail](../docs/guides/images/incoming-gmail.png)
 
 ### Docker-mailserver and mail-watcher
@@ -268,7 +268,7 @@ There are a few environment variables that need to be set.
 ```.env
 WATCHER_API_KEY=mail-api-key # The API Key that runs the mail-watcher-api 
 MAIL_FILE_PATH=/var/mail/domain.tld/user/new # where domain.tld is the name of your domain
-WATCHER_API_ENDPOINT=https://omnivore-watch.domain.tld # The hosted watcher api - where mail is proxied to and processed.
+WATCHER_API_ENDPOINT=https://ruminer-watch.domain.tld # The hosted watcher api - where mail is proxied to and processed.
 ```
 
 Additionally you need to change a few things in the docker-file. 
@@ -298,7 +298,7 @@ Setting up your own email server is a bit overkill for what we are trying to ach
 
 #### Amazon Simple Email Service and SNS 
 
-Amazon Simple Email Service (SES) has options for email receiving. We can use this to add the email functionality to Omnivore-self hosted. 
+Amazon Simple Email Service (SES) has options for email receiving. We can use this to add the email functionality to Ruminer-self hosted. 
 
 ##### Step 1. Create Identity
 Create your identity using Amazon SES. This will be your domain. 
@@ -326,22 +326,22 @@ See instructions on how to do that [here](https://docs.aws.amazon.com/ses/latest
 
 
 ##### Step 6. Setup Subscription
-In SNS you must setup a subscription to your Omnivore Host.
+In SNS you must setup a subscription to your Ruminer Host.
 ![Sns Subscription](../docs/guides/images/sns-create-subscription.png)
 
 
-##### Step 7. Test by sending email to Omnivore Email
+##### Step 7. Test by sending email to Ruminer Email
 ![Email](../docs/guides/images/create-new-email.png)
 ![Incoming](../docs/guides/images/testing-incoming-email.png)
 ![Received](../docs/guides/images/received-email.png)
 
 #### Zapier and other Webhook Services. 
 
-If you are just looking for a simple way to import emails into your Self Hosted Omnivore Account, you can use a service like Zapier to forward the email into the mail-proxy. 
+If you are just looking for a simple way to import emails into your Self Hosted Ruminer Account, you can use a service like Zapier to forward the email into the mail-proxy. 
 
 Below is a set of instructions to get this working. 
 
-##### Step 1. Create an Omnivore Email 
+##### Step 1. Create an Ruminer Email 
 ![Email](../docs/guides/images/create-new-email.png)
 
 ##### Step 2. Create a Zapier Integration, using Gmail or Equivalent
@@ -365,14 +365,14 @@ return { data: JSON.stringify(inputData) }
 
 ##### Email Imported
 
-Following these steps you should see your email imported into Omnivore. 
+Following these steps you should see your email imported into Ruminer. 
 
 ![imported-email](../docs/guides/images/imported-email.png)
 
 
 ## Youtube Transcripts
 
-Omnivore has the ability to process YouTube Transcripts, using OpenAI to add the necessary grammar, and structure. 
+Ruminer has the ability to process YouTube Transcripts, using OpenAI to add the necessary grammar, and structure. 
 
 ### Guide: 
 

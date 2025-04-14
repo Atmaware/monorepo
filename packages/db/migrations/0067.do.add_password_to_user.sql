@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user ADD COLUMN password character varying(255);
+ALTER TABLE ruminer.user ADD COLUMN password character varying(255);
 
 COMMIT;

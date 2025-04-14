@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { htmlToSpeechFile } from '@omnivore/text-to-speech-handler'
+import { htmlToSpeechFile } from '@ruminer/text-to-speech-handler'
 import cors from 'cors'
 import express from 'express'
 import * as jwt from 'jsonwebtoken'

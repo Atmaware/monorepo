@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/local-mail-watcher",
+  "name": "@ruminer/local-mail-watcher",
   "version": "0.0.1",
   "scripts": {
     "build": "tsc",
@@ -16,7 +16,7 @@
     "axios": "^1.7.7",
     "express": "^4.21.1",
     "bullmq": "^5.22.0",
-    "@omnivore/utils": "1.0.0"
+    "@ruminer/utils": "1.0.0"
   },
   "devDependencies": {
     "@types/html-to-text": "^9.0.2",

@@ -29,7 +29,7 @@ export const PROCESS_YOUTUBE_VIDEO_JOB_NAME = 'process-youtube-video'
 export const PROCESS_YOUTUBE_TRANSCRIPT_JOB_NAME = 'process-youtube-transcript'
 
 const TRANSCRIPT_PLACEHOLDER_TEXT =
-  '* Omnivore is preparing a transcript for this video'
+  '* Ruminer is preparing a transcript for this video'
 
 const calculateWordCount = (durationInSeconds: number): number => {
   // Calculate word count using the formula: word count = read time (in seconds) * words per second
@@ -155,17 +155,17 @@ export const addTranscriptToReadableContent = async (
   }
 
   const transcriptNode =
-    rootElement.querySelector('#_omnivore_youtube_transcript') ||
-    rootElement.querySelector('._omnivore_youtube_transcript')
+    rootElement.querySelector('#_ruminer_youtube_transcript') ||
+    rootElement.querySelector('._ruminer_youtube_transcript')
 
   if (transcriptNode) {
     transcriptNode.innerHTML = transcriptHTML
   } else {
     const div = document.createElement('div')
     div.innerHTML = transcriptHTML
-    div.className = '_omnivore_youtube_transcript'
+    div.className = '_ruminer_youtube_transcript'
 
-    const videoElement = rootElement.querySelector('#_omnivore_youtube')
+    const videoElement = rootElement.querySelector('#_ruminer_youtube')
     if (!videoElement) {
       logger.warning('no video element found')
       return undefined

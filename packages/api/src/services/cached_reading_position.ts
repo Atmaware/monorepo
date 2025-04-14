@@ -1,7 +1,7 @@
 import { redisDataSource } from '../redis_data_source'
 import { logger } from '../utils/logger'
 
-export const CACHED_READING_POSITION_PREFIX = `omnivore:reading-progress`
+export const CACHED_READING_POSITION_PREFIX = `ruminer:reading-progress`
 
 export type ReadingProgressCacheItem = {
   uid: string

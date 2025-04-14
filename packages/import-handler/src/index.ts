@@ -1,6 +1,6 @@
 import { Storage } from '@google-cloud/storage'
-import { Readability } from '@omnivore/readability'
-import { RedisDataSource } from '@omnivore/utils'
+import { Readability } from '@ruminer/readability'
+import { RedisDataSource } from '@ruminer/utils'
 import * as Sentry from '@sentry/serverless'
 import axios from 'axios'
 import 'dotenv/config'
@@ -123,8 +123,8 @@ const sendImportFailedEmail = async (
 ) => {
   return queueEmailJob(redisDataSource, {
     userId,
-    subject: 'Your Omnivore import failed.',
-    html: `There was an error importing your file. Please ensure you uploaded the correct file type, if you need help, please email feedback@omnivore.app`,
+    subject: 'Your Ruminer import failed.',
+    html: `There was an error importing your file. Please ensure you uploaded the correct file type, if you need help, please email feedback@ruminer.app`,
   })
 }
 
@@ -136,7 +136,7 @@ export const sendImportStartedEmail = async (
 ) => {
   return queueEmailJob(redisDataSource, {
     userId,
-    subject: 'Your Omnivore import has started',
+    subject: 'Your Ruminer import has started',
     html: `We have started processing ${urlsEnqueued} URLs. ${urlsFailed} URLs are invalid.`,
   })
 }
@@ -149,7 +149,7 @@ export const sendImportCompletedEmail = async (
 ) => {
   return queueEmailJob(redisDataSource, {
     userId,
-    subject: 'Your Omnivore import has finished',
+    subject: 'Your Ruminer import has finished',
     html: `We have finished processing ${
       urlsImported + urlsFailed
     } URLs. ${urlsImported} URLs have been added to your library. ${urlsFailed} URLs failed to be parsed.`,

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-UPDATE omnivore.labels SET internal = true WHERE LOWER(name) = 'library';
+UPDATE ruminer.labels SET internal = true WHERE LOWER(name) = 'library';
 
 COMMIT;

@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     ADD column shared_with_highlights boolean default false;
 
 COMMIT;

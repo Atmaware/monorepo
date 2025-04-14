@@ -19,8 +19,8 @@ import {
 import { DEFAULT_HOME_PATH } from '../../utils/navigation'
 
 const appleBaseURL = 'https://appleid.apple.com'
-const audienceName = 'app.omnivore.app'
-const webAudienceName = 'app.omnivore'
+const audienceName = 'app.ruminer.app'
+const webAudienceName = 'app.ruminer'
 
 async function fetchApplePublicKey(kid: string): Promise<string | null> {
   const client = jwksClient({

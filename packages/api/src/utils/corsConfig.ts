@@ -3,12 +3,12 @@ import { env } from '../env'
 export const corsConfig = {
   credentials: true,
   origin: [
-    'https://omnivore.app',
-    'https://dev.omnivore.app',
-    'https://demo.omnivore.app',
-    'https://web-prod.omnivore.app',
-    'https://web-dev.omnivore.app',
-    'https://web-demo.omnivore.app',
+    'https://ruminer.app',
+    'https://dev.ruminer.app',
+    'https://demo.ruminer.app',
+    'https://web-prod.ruminer.app',
+    'https://web-dev.ruminer.app',
+    'https://web-demo.ruminer.app',
     'http://localhost:3000',
     env.dev.isLocal && 'https://studio.apollographql.com',
     env.client.url,

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.filters ADD COLUMN folder text NOT NULL DEFAULT 'inbox';
+ALTER TABLE ruminer.filters ADD COLUMN folder text NOT NULL DEFAULT 'inbox';
 
 COMMIT;

@@ -4,4 +4,4 @@
 
 CREATE INDEX CONCURRENTLY
     IF NOT EXISTS library_item_user_id_state_idx
-    ON omnivore.library_item (user_id, state);
+    ON ruminer.library_item (user_id, state);

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.subscriptions ADD COLUMN icon text;
+ALTER TABLE ruminer.subscriptions ADD COLUMN icon text;
 
 COMMIT;

@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/thumbnail-handler",
+  "name": "@ruminer/thumbnail-handler",
   "version": "1.0.0",
   "main": "build/src/index.js",
   "files": [

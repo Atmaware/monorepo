@@ -10,7 +10,7 @@ import {
   noteImage,
 } from './highlightHelpers'
 
-const highlightTag = 'omnivore_highlight'
+const highlightTag = 'ruminer_highlight'
 const highlightClassname = 'highlight'
 const highlightWithNoteClassName = 'highlight_with_note'
 const articleContainerId = 'article-container'

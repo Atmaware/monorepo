@@ -25,11 +25,11 @@ _* At the moment, version numbers expect to be padded to 4 digits_
 
 We use Row Level Security when accessing the database from the application. In order to create a correct schema for new tables please study migration files for the schemas of previous tables (including possible later changes).
 
-In order to use Row Level Security every transaction with the database must set the correct role via `omnivore.set_claims` function.
+In order to use Row Level Security every transaction with the database must set the correct role via `ruminer.set_claims` function.
 
 ### Current roles
 
-`omnivore_user` - a user role that is intended for a regular user to access the data. Currently, this is the primary user of the database. 
+`ruminer_user` - a user role that is intended for a regular user to access the data. Currently, this is the primary user of the database. 
 
 ## Database users on GCP
 
@@ -37,7 +37,7 @@ In order to use Row Level Security every transaction with the database must set 
 
 `app_user` - a user that the app uses to login to database.
    
-:exclamation: Do not issue any extra grants to `app_user` other than that are needed to assume a certain internal role, i.e. `GRANT omnivore_user TO app_user`
+:exclamation: Do not issue any extra grants to `app_user` other than that are needed to assume a certain internal role, i.e. `GRANT ruminer_user TO app_user`
 
 ## Installing and Using locally
 
@@ -58,7 +58,7 @@ needing to be logged in locally as `postgres`. For simplicity, set the method to
 
 - Create database using handy CLI tool (which needs the `-U <user>` flag for now):
   ```bash
-  $ createdb -U postgres omnivore
+  $ createdb -U postgres ruminer
   ```
 - Copy .env.example file to .env file: `cp .env.example .env`
 - Modify `.env` and set `PG_USER` to `postgres`
@@ -67,7 +67,7 @@ needing to be logged in locally as `postgres`. For simplicity, set the method to
 
 ## Accessing the database locally
 
-Instead of using the superuser to access, create a user with the `omnivore_user` role. You can choose your local
+Instead of using the superuser to access, create a user with the `ruminer_user` role. You can choose your local
 username instead of `app_user` here to avoid needing the `-U app_user` flag in the `psql` command below.
 
 - Create a user named `app_user` in Postgres
@@ -77,13 +77,13 @@ username instead of `app_user` here to avoid needing the `-U app_user` flag in t
 `$ psql -U postgres`
 ```sql
 # CREATE USER app_user WITH ENCRYPTED PASSWORD 'app_pass';
-# GRANT omnivore_user to app_user;
+# GRANT ruminer_user to app_user;
 ```
 
 - Update the `PG_USER` and `PG_PASSWORD` values in `.env` files (packages/db, pkg/api) to `app_user` and `app_pass`,
 respectively
 
-- You can now use psql to login to your database: `psql -U app_user -d omnivore`
+- You can now use psql to login to your database: `psql -U app_user -d ruminer`
 
 ## Gotchas
 Postgres Row-Level Security can at times catch us off guard: there are policies limiting select/update operations on

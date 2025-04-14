@@ -4,8 +4,8 @@
 
 BEGIN;
 
-ALTER POLICY read_labels ON omnivore.labels
-    TO omnivore_user
+ALTER POLICY read_labels ON ruminer.labels
+    TO ruminer_user
     USING (true);
 
 COMMIT;

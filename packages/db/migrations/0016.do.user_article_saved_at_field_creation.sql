@@ -4,13 +4,13 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     ADD column saved_at timestamptz DEFAULT current_timestamp;
 
-UPDATE omnivore.user_articles
+UPDATE ruminer.user_articles
     SET saved_at = created_at;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     ALTER COLUMN saved_at SET NOT NULL;
 
 COMMIT;

@@ -116,20 +116,20 @@ export default function ImportUploader(): JSX.Element {
       >
         <StyledText
           style="modalHeadline"
-          css={{ color: theme.colors.omnivoreGray.toString() }}
+          css={{ color: theme.colors.ruminerGray.toString() }}
         >
           Upload a file to import
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '10px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '10px', color: theme.colors.ruminerGray.toString() }}
         >
-          Omnivore supports uploading a CSV file with one URL per a Row or a
+          Ruminer supports uploading a CSV file with one URL per a Row or a
           _matter_history.csv file for users migrating from the Matter app
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '10px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '10px', color: theme.colors.ruminerGray.toString() }}
         >
           <b>Importing from Matter:</b> If you are a Matter user, export your
           data, unzip the Archive.zip file, select `Matter history` on this
@@ -138,7 +138,7 @@ export default function ImportUploader(): JSX.Element {
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '10px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '10px', color: theme.colors.ruminerGray.toString() }}
         >
           <b>Importing from other apps:</b> Most apps allow you to export your
           saved items as a CSV file. Once you have extracted a file, ensure the
@@ -147,7 +147,7 @@ export default function ImportUploader(): JSX.Element {
         </StyledText>
         <StyledText
           style="caption"
-          css={{ pt: '10px', color: theme.colors.omnivoreGray.toString() }}
+          css={{ pt: '10px', color: theme.colors.ruminerGray.toString() }}
         >
           <b>Note:</b> Please note you are limited to three import uploads per a
           day, and the maximum file size is 10MB.
@@ -159,7 +159,7 @@ export default function ImportUploader(): JSX.Element {
               css={{
                 pt: '10px',
                 pb: '20px',
-                color: theme.colors.omnivoreGray.toString(),
+                color: theme.colors.ruminerGray.toString(),
               }}
             >
               Your upload has completed. Please note that it can take some time
@@ -175,7 +175,7 @@ export default function ImportUploader(): JSX.Element {
                     height: '38px',
                     width: '88px',
                     fontWeight: 'bold',
-                    color: theme.colors.omnivoreGray.toString(),
+                    color: theme.colors.ruminerGray.toString(),
                   }}
                 >
                   File type:
@@ -195,7 +195,7 @@ export default function ImportUploader(): JSX.Element {
                     height: '38px',
                     borderRadius: '6px',
                     minWidth: '196px',
-                    color: theme.colors.omnivoreGray.toString(),
+                    color: theme.colors.ruminerGray.toString(),
                   }}
                 >
                   <option value="none">Choose file type</option>
@@ -209,7 +209,7 @@ export default function ImportUploader(): JSX.Element {
                   css={{
                     height: '38px',
                     width: '88px',
-                    color: theme.colors.omnivoreGray.toString(),
+                    color: theme.colors.ruminerGray.toString(),
                   }}
                 ></FormLabel>
                 <HStack css={{ py: '16px' }} distribution="start">
@@ -234,7 +234,7 @@ export default function ImportUploader(): JSX.Element {
             )}
             {uploadState == 'uploading' && (
               <SyncLoader
-                color={theme.colors.omnivoreGray.toString()}
+                color={theme.colors.ruminerGray.toString()}
                 size={8}
               />
             )}

@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article ADD COLUMN updated_at timestamptz NOT NULL DEFAULT current_timestamp;
-CREATE TRIGGER update_article_modtime BEFORE UPDATE ON omnivore.article FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
+ALTER TABLE ruminer.article ADD COLUMN updated_at timestamptz NOT NULL DEFAULT current_timestamp;
+CREATE TRIGGER update_article_modtime BEFORE UPDATE ON ruminer.article FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 COMMIT;

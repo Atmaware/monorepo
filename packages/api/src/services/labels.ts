@@ -199,20 +199,20 @@ export const addLabelsToLibraryItem = async (
     async (tx) => {
       // assign new labels if not exist to the item owner by user
       await tx.query(
-        `INSERT INTO omnivore.entity_labels (label_id, library_item_id, source)
+        `INSERT INTO ruminer.entity_labels (label_id, library_item_id, source)
           SELECT 
               lbl.id, 
               $1, 
               $2 
           FROM 
-              omnivore.labels lbl
+              ruminer.labels lbl
           LEFT JOIN 
-              omnivore.entity_labels el 
+              ruminer.entity_labels el 
           ON 
               el.label_id = lbl.id 
               AND el.library_item_id = $1
           INNER JOIN 
-              omnivore.library_item li 
+              ruminer.library_item li 
           ON 
               li.id = $1
           WHERE 

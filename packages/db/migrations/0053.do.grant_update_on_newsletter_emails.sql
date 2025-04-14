@@ -4,6 +4,6 @@
 
 BEGIN;
 
-GRANT UPDATE ON omnivore.newsletter_emails TO omnivore_user;
+GRANT UPDATE ON ruminer.newsletter_emails TO ruminer_user;
 
 COMMIT;

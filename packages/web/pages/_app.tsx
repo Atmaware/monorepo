@@ -92,7 +92,7 @@ const ConditionalCaptchaProvider = (props: {
   return <>{props.children}</>
 }
 
-export function OmnivoreApp({ Component, pageProps }: AppProps): JSX.Element {
+export function RuminerApp({ Component, pageProps }: AppProps): JSX.Element {
   const router = useRouter()
 
   return (
@@ -120,4 +120,4 @@ export function OmnivoreApp({ Component, pageProps }: AppProps): JSX.Element {
   )
 }
 
-export default OmnivoreApp
+export default RuminerApp

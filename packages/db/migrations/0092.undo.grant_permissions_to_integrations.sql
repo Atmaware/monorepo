@@ -4,6 +4,6 @@
 
 BEGIN;
 
-REVOKE SELECT, INSERT, UPDATE, DELETE ON omnivore.integrations FROM omnivore_user;
+REVOKE SELECT, INSERT, UPDATE, DELETE ON ruminer.integrations FROM ruminer_user;
 
 COMMIT;

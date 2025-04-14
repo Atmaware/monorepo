@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     RENAME COLUMN source_username TO username;
 
 COMMIT;

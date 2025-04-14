@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
    ADD COLUMN updated_at timestamptz NOT NULL DEFAULT current_timestamp;
 
 COMMIT;

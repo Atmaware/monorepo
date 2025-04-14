@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     ALTER COLUMN username DROP NOT NULL;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     RENAME COLUMN username TO source_username;
 
 COMMIT;

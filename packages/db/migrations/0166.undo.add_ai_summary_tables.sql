@@ -4,9 +4,9 @@
 
 BEGIN;
 
-DROP TABLE omnivore.ai_summaries;
+DROP TABLE ruminer.ai_summaries;
 
-DROP TABLE omnivore.ai_prompts;
+DROP TABLE ruminer.ai_prompts;
 
 
 COMMIT;

@@ -18,9 +18,9 @@ RUN yarn install --pure-lockfile
 ADD /packages/inbound-email-handler ./packages/inbound-email-handler
 ADD /packages/content-handler ./packages/content-handler
 ADD /packages/utils ./packages/utils
-RUN yarn workspace @omnivore/utils build
-RUN yarn workspace @omnivore/content-handler build
-RUN yarn workspace @omnivore/inbound-email-handler build
+RUN yarn workspace @ruminer/utils build
+RUN yarn workspace @ruminer/content-handler build
+RUN yarn workspace @ruminer/inbound-email-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/inbound-email-handler/node_modules
@@ -29,5 +29,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/inbound-email-handler", "start"]
+CMD ["yarn", "workspace", "@ruminer/inbound-email-handler", "start"]
 

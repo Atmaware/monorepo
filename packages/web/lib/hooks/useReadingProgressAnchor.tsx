@@ -1,19 +1,19 @@
 import { useEffect } from 'react'
 
 const ANCHOR_ELEMENTS_BLOCKED_ATTRIBUTES = [
-  'omnivore-highlight-id',
+  'ruminer-highlight-id',
   'data-twitter-tweet-id',
   'data-instagram-id',
 ]
 
 // We search in reverse so we can find the last element
 // that is visible on the page
-export const getTopOmnivoreAnchorElement = (
+export const getTopRuminerAnchorElement = (
   articleContentElement: HTMLDivElement
 ): string | undefined => {
   let lastVisibleAnchor: Element | undefined = undefined
   const anchors = Array.from(
-    articleContentElement.querySelectorAll(`[data-omnivore-anchor-idx]`)
+    articleContentElement.querySelectorAll(`[data-ruminer-anchor-idx]`)
   ).reverse()
 
   for (const anchor of anchors) {
@@ -31,7 +31,7 @@ export const getTopOmnivoreAnchorElement = (
 
   console.log('last', lastVisibleAnchor)
   return (
-    lastVisibleAnchor?.getAttribute(`data-omnivore-anchor-idx`) ?? undefined
+    lastVisibleAnchor?.getAttribute(`data-ruminer-anchor-idx`) ?? undefined
   )
 }
 
@@ -53,7 +53,7 @@ export const useReadingProgressAnchor = (
       let minTopElem = 100000
       entries.forEach(function (entry: IntersectionObserverEntry) {
         const elem = entry.target
-        const elemId = elem.getAttribute('data-omnivore-anchor-idx') || '0'
+        const elemId = elem.getAttribute('data-ruminer-anchor-idx') || '0'
 
         if (entry.isIntersecting && entry.intersectionRatio === 1) {
           // Among all intersecting elements, find the topmost element.
@@ -76,7 +76,7 @@ export const useReadingProgressAnchor = (
         let topVisibleElemId = topIntersectingElemId
         while (topVisibleElemId - 1 > 0) {
           const elem = document.querySelector(
-            `[data-omnivore-anchor-idx='${(topVisibleElemId - 1).toString()}']`
+            `[data-ruminer-anchor-idx='${(topVisibleElemId - 1).toString()}']`
           )
           if (elem) {
             const rect = elem.getBoundingClientRect()
@@ -147,7 +147,7 @@ function parseDomTree(pageNode: HTMLDivElement | null): HTMLDivElement[] {
   visitedNodeList.shift()
   visitedNodeList.forEach((node, index) => {
     // start from index 1, index 0 reserved for anchor unknown.
-    node.setAttribute('data-omnivore-anchor-idx', (index + 1).toString())
+    node.setAttribute('data-ruminer-anchor-idx', (index + 1).toString())
   })
   return visitedNodeList
 }

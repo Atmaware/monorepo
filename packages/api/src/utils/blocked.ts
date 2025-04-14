@@ -3,9 +3,9 @@ import normalizeUrl from 'normalize-url'
 const BLOCKED_SITES = [
   'https://mail.google.com/',
   'https://accounts.google.com/',
-  'https://dev.omnivore.app',
-  'https://demo.omnivore.app',
-  'https://omnivore.app',
+  'https://dev.ruminer.app',
+  'https://demo.ruminer.app',
+  'https://ruminer.app',
 ]
 
 export const isSiteBlockedForParse = (urlToParse: string): boolean => {

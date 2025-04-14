@@ -17,7 +17,7 @@ export const sendToEmailApi = (data: EmailContents) => {
 export const convertToMailObject = (it: ParsedMail): EmailContents => {
   return {
     from: it.from?.value[0]?.address || '',
-    to: env.omnivoreEmail,
+    to: env.ruminerEmail,
     subject: it.subject || '',
     html: it.html || '',
     text: it.text || '',

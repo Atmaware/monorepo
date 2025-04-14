@@ -4,7 +4,7 @@
 
 BEGIN;
 
-CREATE OR REPLACE PROCEDURE omnivore.batch_delete_trash_items(
+CREATE OR REPLACE PROCEDURE ruminer.batch_delete_trash_items(
     num_days INT
 )
 LANGUAGE plpgsql AS $$
@@ -14,7 +14,7 @@ DECLARE
     SELECT
         id
     FROM
-        omnivore.user
+        ruminer.user
     WHERE
         status = 'ACTIVE';
 BEGIN
@@ -22,9 +22,9 @@ BEGIN
         BEGIN
         
             -- For Row Level Security
-            PERFORM omnivore.set_claims(user_record.id, 'omnivore_user');
+            PERFORM ruminer.set_claims(user_record.id, 'ruminer_user');
 
-            DELETE FROM omnivore.library_item
+            DELETE FROM ruminer.library_item
             WHERE
                 user_id = user_record.id
                 AND state = 'DELETED'

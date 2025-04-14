@@ -7,7 +7,7 @@ import { useKeyboardShortcuts } from '../../../lib/keyboardShortcuts/useKeyboard
 import { Button } from '../../elements/Button'
 import { FunnelSimple, X } from '@phosphor-icons/react'
 import { LayoutType } from '../homeFeed/HomeFeedContainer'
-import { OmnivoreSmallLogo } from '../../elements/images/OmnivoreNameLogo'
+import { RuminerSmallLogo } from '../../elements/images/RuminerNameLogo'
 import { LIBRARY_LEFT_MENU_WIDTH } from '../navMenu/LibraryMenu'
 import { BulkAction } from '../../../lib/networking/library_items/useLibraryItems'
 import { HeaderToggleGridIcon } from '../../elements/icons/HeaderToggleGridIcon'
@@ -188,7 +188,7 @@ export function MenuHeaderButton(props: MenuHeaderButtonProps): JSX.Element {
         props.setShowFilterMenu(!props.showFilterMenu)
       }}
     >
-      <OmnivoreSmallLogo
+      <RuminerSmallLogo
         size={20}
         strokeColor={
           props.showFilterMenu

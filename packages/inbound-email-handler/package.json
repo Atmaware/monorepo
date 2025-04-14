@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/inbound-email-handler",
+  "name": "@ruminer/inbound-email-handler",
   "version": "1.0.0",
   "description": "",
   "main": "build/src/index.js",
@@ -35,7 +35,7 @@
   "dependencies": {
     "@google-cloud/functions-framework": "3.4.5",
     "@google-cloud/storage": "^7.0.1",
-    "@omnivore/utils": "1.0.0",
+    "@ruminer/utils": "1.0.0",
     "@sentry/serverless": "^7.77.0",
     "addressparser": "^1.0.1",
     "bullmq": "^5.1.1",

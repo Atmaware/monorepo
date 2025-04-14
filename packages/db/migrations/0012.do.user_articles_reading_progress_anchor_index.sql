@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_articles
+ALTER TABLE ruminer.user_articles
     ADD column article_reading_progress_anchor_index integer NOT NULL default 0;
 COMMIT;

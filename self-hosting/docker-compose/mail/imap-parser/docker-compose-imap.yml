@@ -3,6 +3,6 @@ services:
     build:
       context: ../../../../
       dockerfile: ./packages/imap-mail-watcher/Dockerfile
-    container_name: "omnivore-imap-watch"
+    container_name: "ruminer-imap-watch"
     env_file:
       - .env.imap

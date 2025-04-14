@@ -51,7 +51,7 @@ const config: Configuration = {
   },
   plugins: [
     new DefinePlugin({
-      'process.env': 'window.omnivoreEnv',
+      'process.env': 'window.ruminerEnv',
     }),
     new BundleAnalyzerPlugin({
       openAnalyzer: !!analyze,

@@ -4,8 +4,8 @@
 
 BEGIN;
 
-GRANT DELETE ON omnivore."group" TO omnivore_user;
+GRANT DELETE ON ruminer."group" TO ruminer_user;
 
-GRANT DELETE ON omnivore.group_membership TO omnivore_user;
+GRANT DELETE ON ruminer.group_membership TO ruminer_user;
 
 COMMIT;

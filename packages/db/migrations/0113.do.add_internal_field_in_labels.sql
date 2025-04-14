@@ -4,8 +4,8 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.labels ADD COLUMN internal boolean NOT NULL DEFAULT false;
+ALTER TABLE ruminer.labels ADD COLUMN internal boolean NOT NULL DEFAULT false;
 
-UPDATE omnivore.labels SET internal = true WHERE LOWER(name) = 'newsletters' OR LOWER(name) = 'favorites';
+UPDATE ruminer.labels SET internal = true WHERE LOWER(name) = 'newsletters' OR LOWER(name) = 'favorites';
 
 COMMIT;

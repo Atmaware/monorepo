@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.filters DROP COLUMN IF EXISTS category;
+ALTER TABLE ruminer.filters DROP COLUMN IF EXISTS category;
 
 COMMIT;

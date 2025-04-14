@@ -4,7 +4,7 @@
 
 BEGIN;
 
-UPDATE omnivore.filters 
+UPDATE ruminer.filters 
     SET filter = 'in:inbox sort:read-desc is:reading' 
     WHERE name = 'Continue Reading' AND default_filter = true;
 

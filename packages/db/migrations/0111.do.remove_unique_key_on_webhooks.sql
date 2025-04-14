@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.webhooks DROP CONSTRAINT webhooks_user_id_event_types_key;
+ALTER TABLE ruminer.webhooks DROP CONSTRAINT webhooks_user_id_event_types_key;
 
 COMMIT;

@@ -213,13 +213,13 @@ export default function Integrations(): JSX.Element {
         icon: '/static/icons/logseq.svg',
         title: 'Logseq',
         subText:
-          'Logseq is an open-source knowledge base. Use the Omnivore Logseq plugin to sync articles, highlights, and notes to Logseq.',
+          'Logseq is an open-source knowledge base. Use the Ruminer Logseq plugin to sync articles, highlights, and notes to Logseq.',
         button: {
           text: `Install Logseq Plugin`,
           icon: <DownloadSimple size={16} weight={'bold'} />,
           style: 'ctaDarkYellow',
           action: () => {
-            router.push(`https://github.com/omnivore-app/logseq-omnivore`)
+            router.push(`https://github.com/ruminer-app/logseq-ruminer`)
           },
         },
       },
@@ -227,13 +227,13 @@ export default function Integrations(): JSX.Element {
         icon: '/static/icons/obsidian.png',
         title: 'Obsidian',
         subText:
-          'Obsidian is a powerful and extensible knowledge base that works on top of your local folder of plain text files. Use the Omnivore Obsidian plugin to sync articles, highlights, and notes to Obsidian.',
+          'Obsidian is a powerful and extensible knowledge base that works on top of your local folder of plain text files. Use the Ruminer Obsidian plugin to sync articles, highlights, and notes to Obsidian.',
         button: {
           text: `Install Obsidian Plugin`,
           icon: <DownloadSimple size={16} weight={'bold'} />,
           style: 'ctaDarkYellow',
           action: () => {
-            router.push(`https://github.com/omnivore-app/obsidian-omnivore`)
+            router.push(`https://github.com/ruminer-app/obsidian-ruminer`)
           },
         },
       },
@@ -241,7 +241,7 @@ export default function Integrations(): JSX.Element {
       //   icon: '/static/icons/pocket.svg',
       //   title: 'Pocket',
       //   subText:
-      //     'Pocket is a place to save articles, videos, and more. Our Pocket integration allows importing your Pocket library to Omnivore. Once connected we will asyncronously import all your Pocket articles into Omnivore, as this process is resource intensive it can take some time. You will receive an email when the process is completed. Limit 20k articles per import. The import is a one-time process and can only be performed once per-account.',
+      //     'Pocket is a place to save articles, videos, and more. Our Pocket integration allows importing your Pocket library to Ruminer. Once connected we will asyncronously import all your Pocket articles into Ruminer, as this process is resource intensive it can take some time. You will receive an email when the process is completed. Limit 20k articles per import. The import is a one-time process and can only be performed once per-account.',
       //   button: {
       //     text: pocket ? 'Disconnect' : 'Import',
       //     icon: isImporting(pocket) ? (
@@ -289,7 +289,7 @@ export default function Integrations(): JSX.Element {
         icon: '/static/icons/readwise.svg',
         title: 'Readwise',
         subText:
-          'Readwise makes it easy to revisit and learn from your ebook & article highlights. Use our Readwise integration to sync your highlights from Omnivore to Readwise.',
+          'Readwise makes it easy to revisit and learn from your ebook & article highlights. Use our Readwise integration to sync your highlights from Ruminer to Readwise.',
         button: {
           text: readwise ? 'Remove' : 'Connect to Readwise',
           icon: <Link size={16} weight={'bold'} />,
@@ -305,7 +305,7 @@ export default function Integrations(): JSX.Element {
       //   icon: '/static/icons/notion.png',
       //   title: 'Notion',
       //   subText:
-      //     'Notion is an all-in-one workspace. Use our Notion integration to sync your Omnivore items to Notion.',
+      //     'Notion is an all-in-one workspace. Use our Notion integration to sync your Ruminer items to Notion.',
       //   button: {
       //     text: notion ? 'Settings' : 'Connect',
       //     icon: <Link size={16} weight={'bold'} />,
@@ -330,8 +330,8 @@ export default function Integrations(): JSX.Element {
         </Header>
         <Subheader>
           Connect with other applications can help enhance and streamline your
-          experience with Omnivore, below are some useful apps to connect your
-          Omnivore account to.
+          experience with Ruminer, below are some useful apps to connect your
+          Ruminer account to.
         </Subheader>
         <VStack
           distribution={'start'}

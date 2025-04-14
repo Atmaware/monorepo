@@ -52,14 +52,14 @@ export default function PdfArticleContainer(
   const updateHighlight = useUpdateHighlight()
   const updateItemReadStatus = useUpdateItemReadStatus()
 
-  const annotationOmnivoreId = (annotation: Annotation): string | undefined => {
+  const annotationRuminerId = (annotation: Annotation): string | undefined => {
     if (
       annotation &&
       annotation.customData &&
-      annotation.customData.omnivoreHighlight &&
-      (annotation.customData.omnivoreHighlight as Highlight).id
+      annotation.customData.ruminerHighlight &&
+      (annotation.customData.ruminerHighlight as Highlight).id
     ) {
-      return (annotation.customData.omnivoreHighlight as Highlight).id
+      return (annotation.customData.ruminerHighlight as Highlight).id
     }
     return undefined
   }
@@ -119,7 +119,7 @@ export default function PdfArticleContainer(
           id: 'tooltip-remove-annotation',
           className: 'TooltipItem-Remove',
           onPress: () => {
-            const annotationId = annotationOmnivoreId(annotation)
+            const annotationId = annotationRuminerId(annotation)
 
             instance
               .delete(annotation)
@@ -155,10 +155,10 @@ export default function PdfArticleContainer(
           onPress: async () => {
             if (
               annotation.customData &&
-              annotation.customData.omnivoreHighlight &&
-              (annotation.customData.omnivoreHighlight as Highlight).shortId
+              annotation.customData.ruminerHighlight &&
+              (annotation.customData.ruminerHighlight as Highlight).shortId
             ) {
-              const data = annotation.customData.omnivoreHighlight as Highlight
+              const data = annotation.customData.ruminerHighlight as Highlight
               const savedHighlight = highlightsRef.current.find(
                 (other: Highlight) => {
                   return other.id === data.id
@@ -179,10 +179,10 @@ export default function PdfArticleContainer(
         //   onPress: () => {
         //     if (
         //       annotation.customData &&
-        //       annotation.customData.omnivoreHighlight &&
-        //       (annotation.customData.omnivoreHighlight as Highlight).shortId
+        //       annotation.customData.ruminerHighlight &&
+        //       (annotation.customData.ruminerHighlight as Highlight).shortId
         //     ) {
-        //       const data = annotation.customData.omnivoreHighlight as Highlight
+        //       const data = annotation.customData.ruminerHighlight as Highlight
         //       handleOpenShare(data)
         //     }
         //     instance.setSelectedAnnotation(null)
@@ -241,7 +241,7 @@ export default function PdfArticleContainer(
         ) {
           return
         }
-        const annotationId = annotationOmnivoreId(annotation)
+        const annotationId = annotationRuminerId(annotation)
         if (annotationId) {
           await deleteHighlight.mutateAsync({
             itemId: props.article.id,
@@ -257,8 +257,8 @@ export default function PdfArticleContainer(
         (h) => h.type == 'HIGHLIGHT'
       )) {
         const patch = JSON.parse(highlight.patch)
-        if (highlight.annotation && patch.customData.omnivoreHighight) {
-          patch.customData.omnivoreHighight.annotation = highlight.annotation
+        if (highlight.annotation && patch.customData.ruminerHighight) {
+          patch.customData.ruminerHighight.annotation = highlight.annotation
         }
 
         const annotation = PSPDFKit.Annotations.fromSerializableObject(
@@ -285,7 +285,7 @@ export default function PdfArticleContainer(
           return (
             annotation instanceof PSPDFKit.Annotations.HighlightAnnotation &&
             annotation.customData &&
-            annotation.customData.omnivoreHighlight
+            annotation.customData.ruminerHighlight
           )
         })
 
@@ -315,12 +315,12 @@ export default function PdfArticleContainer(
             return
           }
 
-          // If the annotation already has the omnivore highlight
+          // If the annotation already has the ruminer highlight
           // custom data its already been created, so we can
           // ignore this event.
           if (
             highlightAnnotation.customData &&
-            highlightAnnotation.customData.omnivoreHighlight
+            highlightAnnotation.customData.ruminerHighlight
           ) {
             // This highlight has already been created, so we skip adding it
             return
@@ -341,7 +341,7 @@ export default function PdfArticleContainer(
 
           const surroundingText = { prefix: '', suffix: '' }
           const annotation = highlightAnnotation.set('customData', {
-            omnivoreHighlight: {
+            ruminerHighlight: {
               id,
               quote,
               shortId,
@@ -388,7 +388,7 @@ export default function PdfArticleContainer(
               color: new PSPDFKit.Color({ r: 255, g: 210, b: 52 }),
               boundingBox: PSPDFKit.Geometry.Rect.union(rects),
               customData: {
-                omnivoreHighlight: {
+                ruminerHighlight: {
                   id,
                   quote,
                   shortId,
@@ -404,7 +404,7 @@ export default function PdfArticleContainer(
             await instance.delete(highlightAnnotation)
 
             const mergedIds = overlapping.map(
-              (ha) => (ha.customData?.omnivoreHighlight as Highlight).id
+              (ha) => (ha.customData?.ruminerHighlight as Highlight).id
             )
             const positionPercent = positionPercentForAnnotation(annotation)
             const result = await mergeHighlight.mutateAsync({
@@ -545,7 +545,7 @@ export default function PdfArticleContainer(
           if (!annotation) {
             continue
           }
-          const storedId = annotationOmnivoreId(annotation)
+          const storedId = annotationRuminerId(annotation)
           if (storedId == annotationId) {
             await instance.delete(annotation)
             await deleteHighlight.mutateAsync({
@@ -576,7 +576,7 @@ export default function PdfArticleContainer(
           if (!annotation) {
             continue
           }
-          const storedId = annotationOmnivoreId(annotation)
+          const storedId = annotationRuminerId(annotation)
           if (storedId == annotationId) {
             instance.jumpToRect(pageIdx, annotation.boundingBox)
           }

@@ -142,7 +142,7 @@ export const triggerActions = async (
           )
         case RuleActionType.SendNotification: {
           const data: NotificationData = {
-            title: filteredPage.author || filteredPage.siteName || 'Omnivore',
+            title: filteredPage.author || filteredPage.siteName || 'Ruminer',
             body: filteredPage.title,
             image: filteredPage.image || undefined,
           }

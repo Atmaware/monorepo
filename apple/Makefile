@@ -1,5 +1,5 @@
 open:
-	open Omnivore.xcworkspace
+	open Ruminer.xcworkspace
 
 graphql_gen:
 	scripts/graphql_gen.sh

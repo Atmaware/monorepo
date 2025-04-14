@@ -163,7 +163,7 @@ export function DiscoverListCardContent(
         </HStack>
         {displayFallback ? (
           <ListFallbackImage
-            title={props.item.title ?? 'Omnivore Fallback'}
+            title={props.item.title ?? 'Ruminer Fallback'}
             width="55px"
             height="55px"
             fontSize="36pt"

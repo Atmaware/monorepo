@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.highlight ALTER COLUMN article_id SET NOT NULL;
+ALTER TABLE ruminer.highlight ALTER COLUMN article_id SET NOT NULL;
 
 COMMIT;

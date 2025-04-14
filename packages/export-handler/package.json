@@ -1,5 +1,5 @@
 {
-  "name": "@omnivore/export-handler",
+  "name": "@ruminer/export-handler",
   "version": "1.0.0",
   "description": "",
   "main": "build/src/index.js",
@@ -26,8 +26,8 @@
   "dependencies": {
     "@google-cloud/functions-framework": "3.4.5",
     "@google-cloud/storage": "^7.0.1",
-    "@omnivore-app/api": "^1.0.4",
-    "@omnivore/utils": "1.0.0",
+    "@ruminer-app/api": "^1.0.4",
+    "@ruminer/utils": "1.0.0",
     "@sentry/serverless": "^7.77.0",
     "archiver": "^7.0.1",
     "dotenv": "^16.0.1",

@@ -95,7 +95,7 @@ export class ZhihuHandler extends ContentHandler {
       const newMainEntity = dom.createElement('div')
       const question = mainEntity.querySelector('.QuestionHeader')
       if (question) {
-        question.className = '_omnivore_zhihu_question'
+        question.className = '_ruminer_zhihu_question'
         newMainEntity.appendChild(question)
       }
 
@@ -103,9 +103,9 @@ export class ZhihuHandler extends ContentHandler {
       answers.forEach((answer) => {
         answer
           .querySelector('.AuthorInfo')
-          ?.setAttribute('class', '_omnivore_zhihu_author')
+          ?.setAttribute('class', '_ruminer_zhihu_author')
 
-        answer.className = '_omnivore_zhihu_answer'
+        answer.className = '_ruminer_zhihu_answer'
         newMainEntity.appendChild(answer)
       })
 

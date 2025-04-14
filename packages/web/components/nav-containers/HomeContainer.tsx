@@ -401,7 +401,7 @@ export function HomeContainer(): JSX.Element {
           minWidth: '320px',
         }}
       >
-        <SyncLoader color={theme.colors.omnivoreGray.toString()} size={8} />
+        <SyncLoader color={theme.colors.ruminerGray.toString()} size={8} />
       </VStack>
     )
   }

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.library_item ADD COLUMN IF NOT EXISTS original_content text;
+ALTER TABLE ruminer.library_item ADD COLUMN IF NOT EXISTS original_content text;
 
 COMMIT;

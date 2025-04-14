@@ -167,7 +167,7 @@ const GridImage = (props: GridImageProps): JSX.Element => {
       )}
       {displayFallback ? (
         <GridFallbackImage
-          title={props.title ?? 'Omnivore Fallback'}
+          title={props.title ?? 'Ruminer Fallback'}
           width="100%"
           height="150px"
           fontSize="16px"

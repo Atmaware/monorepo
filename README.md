@@ -1,48 +1,48 @@
-# Omnivore
+# Ruminer
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/omnivore-app/omnivore/run-tests.yaml?branch=main)](https://github.com/omnivore-app/omnivore/actions/workflows/run-tests.yaml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ruminer-app/ruminer/run-tests.yaml?branch=main)](https://github.com/ruminer-app/ruminer/actions/workflows/run-tests.yaml)
 [![Discord](https://img.shields.io/discord/844965259462311966?label=Join%20our%20Discord)](https://discord.gg/h2z5rppzz9)
-[![Mastodon Follow](https://img.shields.io/mastodon/follow/109458738600914558?domain=https%3A%2F%2Fpkm.social)](https://pkm.social/@omnivore)
-[![Twitter Follow](https://img.shields.io/twitter/follow/omnivoreapp)](https://twitter.com/OmnivoreApp)
-![GitHub](https://img.shields.io/github/license/omnivore-app/omnivore)
+[![Mastodon Follow](https://img.shields.io/mastodon/follow/109458738600914558?domain=https%3A%2F%2Fpkm.social)](https://pkm.social/@ruminer)
+[![Twitter Follow](https://img.shields.io/twitter/follow/ruminerapp)](https://twitter.com/RuminerApp)
+![GitHub](https://img.shields.io/github/license/ruminer-app/ruminer)
 
-<img align="right" src="https://avatars.githubusercontent.com/u/70113176?s=400&u=506b21d9f019f3160963c010ef363667fb24c7c9&v=4" height="150px" alt="Omnivore Logo">
+<img align="right" src="https://avatars.githubusercontent.com/u/70113176?s=400&u=506b21d9f019f3160963c010ef363667fb24c7c9&v=4" height="150px" alt="Ruminer Logo">
 
-[Omnivore](https://omnivore.app) is a complete, open source read-it-later solution for people who like text.
+[Ruminer](https://ruminer.app) is a complete, open source read-it-later solution for people who like text.
 
-We built Omnivore because we love reading and we want it to be more social. Join us!
+We built Ruminer because we love reading and we want it to be more social. Join us!
 
 - Highlighting, notes, search, and sharing
 - Full keyboard navigation
 - Automatically saves your place in long articles
 - Add newsletter articles via email (with substack support!)
 - PDF support
-- [Web app](https://omnivore.app/) written in Node.js and TypeScript
-- [Native iOS app](https://omnivore.app/install/ios) ([source](https://github.com/omnivore-app/omnivore/tree/main/apple))
-- [Android app](https://omnivore.app/install/android) ([source](https://github.com/omnivore-app/omnivore/tree/main/android/Omnivore))
+- [Web app](https://ruminer.app/) written in Node.js and TypeScript
+- [Native iOS app](https://ruminer.app/install/ios) ([source](https://github.com/ruminer-app/ruminer/tree/main/apple))
+- [Android app](https://ruminer.app/install/android) ([source](https://github.com/ruminer-app/ruminer/tree/main/android/Ruminer))
 - Progressive web app for Android users
-- Browser extensions for [Chrome](https://omnivore.app/install/chrome), [Safari](https://omnivore.app/install/safari), [Firefox](https://omnivore.app/install/firefox), and [Edge](https://omnivore.app/install/edge)
+- Browser extensions for [Chrome](https://ruminer.app/install/chrome), [Safari](https://ruminer.app/install/safari), [Firefox](https://ruminer.app/install/firefox), and [Edge](https://ruminer.app/install/edge)
 - Labels (aka tagging)
 - Offline support
 - Text to speech (iOS only)
-- [Logseq](https://logseq.com/) support via our [Logseq Plugin](https://github.com/omnivore-app/logseq-omnivore)
-- [Obsidian](https://obsidian.md/) support via our [Obsidian Plugin](https://github.com/omnivore-app/obsidian-omnivore)
+- [Logseq](https://logseq.com/) support via our [Logseq Plugin](https://github.com/ruminer-app/logseq-ruminer)
+- [Obsidian](https://obsidian.md/) support via our [Obsidian Plugin](https://github.com/ruminer-app/obsidian-ruminer)
 
 Every single part is fully open source! Fork it, extend it, or deploy it to your own server.
 
 A guide for running a self hosted server can be found [here](./self-hosting/GUIDE.md)
 
-<img width="981" alt="web-screenshot-listview" src="https://github.com/omnivore-app/omnivore/assets/75189/df7c797a-4255-42f4-a686-ad94866cb580">
+<img width="981" alt="web-screenshot-listview" src="https://github.com/ruminer-app/ruminer/assets/75189/df7c797a-4255-42f4-a686-ad94866cb580">
 
 ## Join us on Discord! :speech_balloon:
 
 We're building our community on Discord. [Join us!](https://discord.gg/h2z5rppzz9)
 
-Read more about Omnivore on our blog. <https://blog.omnivore.app/p/getting-started-with-omnivore>
+Read more about Ruminer on our blog. <https://blog.ruminer.app/p/getting-started-with-ruminer>
 
 ## Shoutouts :tada:
 
-Omnivore takes advantage of some great open source software:
+Ruminer takes advantage of some great open source software:
 
 - [TypeScript](https://www.typescriptlang.org/) - Most of our backend and frontend are written in TypeScript.
 - [Next.js](https://nextjs.org/) - Our frontend is a Next.JS app and is hosted on [Vercel](https://vercel.com/).
@@ -57,7 +57,7 @@ Omnivore takes advantage of some great open source software:
 
 ## Importing Libraries
 
-Check out our [docs](https://docs.omnivore.app/using/importing.html) for information on importing your data from other apps.
+Check out our [docs](https://docs.ruminer.app/using/importing.html) for information on importing your data from other apps.
 
 ## How to setup local development :computer:
 
@@ -65,7 +65,7 @@ The easiest way to get started with local development is to use `docker compose 
 
 ### Requirements for development
 
-Omnivore is written in TypeScript and JavaScript.
+Ruminer is written in TypeScript and JavaScript.
 
 - [Node.js](https://nodejs.org/) (v18.16) and [Yarn](https://classic.yarnpkg.com/lang/en/) -- Versions are managed by [Volta](https://docs.volta.sh/guide/getting-started).
 - [Chromium](https://www.chromium.org/chromium-projects/) -- See below for installation info.
@@ -75,8 +75,8 @@ Omnivore is written in TypeScript and JavaScript.
 #### 1. Start docker compose
 
 ```bash
-git clone https://github.com/omnivore-app/omnivore
-cd omnivore
+git clone https://github.com/ruminer-app/ruminer
+cd ruminer
 docker compose up
 ```
 
@@ -84,17 +84,17 @@ This will start postgres, initialize the database, and start the web and api ser
 
 #### 2. Open the browser
 
-Open <http://localhost:3000> and confirm Omnivore is running
+Open <http://localhost:3000> and confirm Ruminer is running
 
 #### 3. Login with the test account
 
-During database setup docker compose creates an account `demo@omnivore.app`, password: `demo_password`.
+During database setup docker compose creates an account `demo@ruminer.app`, password: `demo_password`.
 
 Go to <http://localhost:3000/> in your browser and choose `Continue with Email` to login.
 
 ### Frontend Development
 
-If you want to work on just the frontend of Omnivore you can run the backend services
+If you want to work on just the frontend of Ruminer you can run the backend services
 with docker compose and the frontend locally:
 
 ```bash
@@ -145,7 +145,7 @@ yarn start
 This will start the puppeteer-parse service on port 9090.
 
 In your browser go to <http://localhost:3000/home>, click the `Add Link` button,
-and enter a URL such as `https://blog.omnivore.app/p/getting-started-with-omnivore`.
+and enter a URL such as `https://blog.ruminer.app/p/getting-started-with-ruminer`.
 
 You should see a Chromium window open and navigate to your link. When the service
 is done fetching your content you will see it in your library.
@@ -156,4 +156,4 @@ A guide for running a self hosted server can be found [here](./self-hosting/GUID
 
 ## License
 
-Omnivore and our extensions to Readability.js are under the AGPL-3.0 license.
+Ruminer and our extensions to Readability.js are under the AGPL-3.0 license.

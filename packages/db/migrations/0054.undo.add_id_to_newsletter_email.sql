@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     DROP COLUMN id;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     ADD CONSTRAINT newsletter_emails_pkey PRIMARY KEY (address);
 
 COMMIT;

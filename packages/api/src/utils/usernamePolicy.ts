@@ -1,7 +1,7 @@
 const REGEX_POLICY = /^[a-z0-9][a-z0-9_]+[a-z0-9]$/
 
 const RESERVED_NAMES = new Set([
-  'omnivore',
+  'ruminer',
   'supportdetails',
   'support-details',
   'stacks',
@@ -185,7 +185,7 @@ export const validateUsername = (username: string): boolean => {
   }
 
   if (
-    lowerCasedUsername.includes('omnivore') ||
+    lowerCasedUsername.includes('ruminer') ||
     lowerCasedUsername.includes('admin')
   ) {
     return false

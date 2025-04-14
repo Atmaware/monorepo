@@ -4,9 +4,9 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.filters (
+CREATE TABLE ruminer.filters (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
     name character varying(255) NOT NULL,
     description character varying(255),
     filter character varying(255) NOT NULL,
@@ -22,30 +22,30 @@ DECLARE
     new_position INTEGER;
 BEGIN
     IF (TG_OP = 'DELETE') THEN
-        UPDATE omnivore.filters SET position = position - 1 WHERE user_id = OLD.user_id AND position > OLD.position;
+        UPDATE ruminer.filters SET position = position - 1 WHERE user_id = OLD.user_id AND position > OLD.position;
         RETURN OLD;
     ELSIF (TG_OP = 'INSERT') THEN
-        SELECT COALESCE(MAX(position), 0) + 1 INTO new_position FROM omnivore.filters WHERE user_id = NEW.user_id AND name < NEW.name;
-        UPDATE omnivore.filters SET position = position + 1 WHERE user_id = NEW.user_id AND position >= new_position;
+        SELECT COALESCE(MAX(position), 0) + 1 INTO new_position FROM ruminer.filters WHERE user_id = NEW.user_id AND name < NEW.name;
+        UPDATE ruminer.filters SET position = position + 1 WHERE user_id = NEW.user_id AND position >= new_position;
         NEW.position = new_position;
         RETURN NEW;
     END IF;
 END;
 $$ LANGUAGE 'plpgsql';
 
-CREATE TRIGGER update_filter_modtime BEFORE UPDATE ON omnivore.filters
+CREATE TRIGGER update_filter_modtime BEFORE UPDATE ON ruminer.filters
     FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
 CREATE TRIGGER increment_filter_position
-    BEFORE INSERT ON omnivore.filters
+    BEFORE INSERT ON ruminer.filters
     FOR EACH ROW
 EXECUTE FUNCTION update_filter_position();
 
 CREATE TRIGGER decrement_filter_position
-    AFTER DELETE ON omnivore.filters
+    AFTER DELETE ON ruminer.filters
     FOR EACH ROW
 EXECUTE FUNCTION update_filter_position();
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.filters TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.filters TO ruminer_user;
 
 COMMIT;

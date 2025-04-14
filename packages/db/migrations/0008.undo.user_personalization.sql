@@ -4,8 +4,8 @@
 
 BEGIN;
 
-DROP TRIGGER update_user_personalization_modtime ON omnivore.user_personalization;
+DROP TRIGGER update_user_personalization_modtime ON ruminer.user_personalization;
 
-DROP TABLE omnivore.user_personalization;
+DROP TABLE ruminer.user_personalization;
 
 COMMIT;

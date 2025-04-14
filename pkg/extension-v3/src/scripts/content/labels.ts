@@ -5,7 +5,7 @@ import { cancelAutoDismiss, getClientRequestId, toggleRow, updateStatusBox, upda
 export async function editLabels() {
   cancelAutoDismiss()
 
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
 
   if (!currentToastEl || !currentToastEl.shadowRoot) {
     console.log('no statusBox to update')
@@ -20,13 +20,13 @@ export async function editLabels() {
     return undefined
   })
 
-  toggleRow('#omnivore-edit-labels-row')
+  toggleRow('#ruminer-edit-labels-row')
   currentToastEl.shadowRoot
-    .querySelector<HTMLInputElement>('#omnivore-edit-label-input')
+    .querySelector<HTMLInputElement>('#ruminer-edit-label-input')
     ?.focus()
 
   const list = currentToastEl.shadowRoot.querySelector(
-    '#omnivore-edit-labels-list'
+    '#ruminer-edit-labels-list'
   )
 
   // Add a box for waiting for the labels.
@@ -43,15 +43,15 @@ export async function editLabels() {
 
 
   // currentToastEl.shadowRoot.querySelector(
-  //   '#omnivore-edit-label-input'
+  //   '#ruminer-edit-label-input'
   // )<HTMLInputElement>.onkeydown = labelEditorKeyDownHandler
   //
   // currentToastEl.shadowRoot.querySelector(
-  //   '#omnivore-edit-label-editor'
+  //   '#ruminer-edit-label-editor'
   // )<HTMLInputElement>.onclick = labelEditorClickHandler
   //
   // currentToastEl.shadowRoot
-  //   .querySelector<HTMLInputElement>('#omnivore-edit-label-input')
+  //   .querySelector<HTMLInputElement>('#ruminer-edit-label-input')
   //   .addEventListener('input', (event) => {
   //     updateLabels(event.target.value)
   //   })
@@ -151,14 +151,14 @@ async function toggleLabel(event: any, labelId: string) {
 
 function syncLabelChanges() {
   updateStatusBox(
-    '#omnivore-edit-labels-status',
+    '#ruminer-edit-labels-status',
     'waiting',
     'Updating Labels...',
     undefined
   )
 
-  const currentToastEl = document.querySelector('#omnivore-extension-root')
-  const labels = currentToastEl?.shadowRoot?.querySelector("#omnivore-edit-labels-list")
+  const currentToastEl = document.querySelector('#ruminer-extension-root')
+  const labels = currentToastEl?.shadowRoot?.querySelector("#ruminer-edit-labels-list")
 
   if (labels) {
     const setLabels = [...labels.children]

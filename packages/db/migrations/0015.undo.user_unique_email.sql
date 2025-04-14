@@ -4,7 +4,7 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user
+ALTER TABLE ruminer.user
     DROP CONSTRAINT email_unique;
 
 COMMIT;

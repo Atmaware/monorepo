@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.filters DROP COLUMN folder;
+ALTER TABLE ruminer.filters DROP COLUMN folder;
 
 COMMIT;

@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.integrations DROP COLUMN settings;
+ALTER TABLE ruminer.integrations DROP COLUMN settings;
 
 COMMIT;

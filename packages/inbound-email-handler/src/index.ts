@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import * as Sentry from '@sentry/serverless'
 import 'dotenv/config'
 import parseHeaders from 'parse-headers'
@@ -68,7 +68,7 @@ export const inboundEmailHandler = Sentry.GCPFunction.wrapHttpFunction(
       const to = parsedTo(parsed)
       // x-forwarded-for is a space separated list of email address
       // the first one is the forwarding email sender and the last one is the recipient
-      // e.g. 'X-Forwarded-For: sender@omnivore.app recipient@omnivore.app'
+      // e.g. 'X-Forwarded-For: sender@ruminer.app recipient@ruminer.app'
       const forwardedFrom = headers['x-forwarded-for']?.toString().split(' ')[0]
       const unSubHeader = headers['list-unsubscribe']?.toString()
       const unsubscribe = unSubHeader

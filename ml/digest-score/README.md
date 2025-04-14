@@ -6,7 +6,7 @@ The digest-score is the result of calculating the user's `interaction_score` whi
 
 Currently the features are materialized views created in the public schema. Before moving to production we should create a `features` schema. To create all the materialized views locally run the `create-features.sql` file with the psql command:
 
-`psql omnivore -f create_feature_views.sql`
+`psql ruminer -f create_feature_views.sql`
 
 ## Training
 
@@ -29,7 +29,7 @@ To test the model make a curl request using your user id, for example:
 ### A single prediction
 
 ```
-curl -d '{ "user_id": "2da52794-0dd2-11ef-9855-5f368b90f676", "item_features": { "site": "Omnivore Blog", "title": "this is a title", "author": "Tiago Forte", "subscription": "this is a subscriptionsdfsdfsdf", "has_thumbnail": true, "has_site_icon": true, "saved_at": "2024-05-27T04:20:47Z" }}' -H 'Content-Type: application/json' localhost:5000/predict
+curl -d '{ "user_id": "2da52794-0dd2-11ef-9855-5f368b90f676", "item_features": { "site": "Ruminer Blog", "title": "this is a title", "author": "Tiago Forte", "subscription": "this is a subscriptionsdfsdfsdf", "has_thumbnail": true, "has_site_icon": true, "saved_at": "2024-05-27T04:20:47Z" }}' -H 'Content-Type: application/json' localhost:5000/predict
 ```
 
 ### A batch prediction

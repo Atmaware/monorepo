@@ -4,31 +4,31 @@
 
 BEGIN;
 
-CREATE TABLE omnivore.reminders (
+CREATE TABLE ruminer.reminders (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user ON DELETE CASCADE,
-    article_saving_request_id uuid REFERENCES omnivore.article_saving_request ON DELETE CASCADE,
-    link_id uuid REFERENCES omnivore.links ON DELETE CASCADE
+    user_id uuid NOT NULL REFERENCES ruminer.user ON DELETE CASCADE,
+    article_saving_request_id uuid REFERENCES ruminer.article_saving_request ON DELETE CASCADE,
+    link_id uuid REFERENCES ruminer.links ON DELETE CASCADE
 );
 
-ALTER TABLE omnivore.reminders ENABLE ROW LEVEL SECURITY;
+ALTER TABLE ruminer.reminders ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY read_reminders on omnivore.reminders
-  FOR SELECT TO omnivore_user
+CREATE POLICY read_reminders on ruminer.reminders
+  FOR SELECT TO ruminer_user
   USING (true);
 
-CREATE POLICY create_reminders on omnivore.reminders
-  FOR INSERT TO omnivore_user
+CREATE POLICY create_reminders on ruminer.reminders
+  FOR INSERT TO ruminer_user
   WITH CHECK (true);
 
-CREATE POLICY update_reminders on omnivore.reminders
-  FOR UPDATE TO omnivore_user
-  USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY update_reminders on ruminer.reminders
+  FOR UPDATE TO ruminer_user
+  USING (user_id = ruminer.get_current_user_id());
 
-CREATE POLICY delete_reminders on omnivore.reminders
-  FOR DELETE TO omnivore_user
-  USING (user_id = omnivore.get_current_user_id());
+CREATE POLICY delete_reminders on ruminer.reminders
+  FOR DELETE TO ruminer_user
+  USING (user_id = ruminer.get_current_user_id());
 
-GRANT SELECT, INSERT, UPDATE, DELETE ON omnivore.reminders TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE, DELETE ON ruminer.reminders TO ruminer_user;
 
 COMMIT;

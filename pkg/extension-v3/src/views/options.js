@@ -7,40 +7,40 @@ document.addEventListener('DOMContentLoaded', () => {
   const apiInput = document.getElementById('api-key')
 
 
-  chrome.storage.local.get('omnivoreApiKey').then(
+  chrome.storage.local.get('ruminerApiKey').then(
     apiKey => {
-      apiInput.value = apiKey.omnivoreApiKey ?? ''
+      apiInput.value = apiKey.ruminerApiKey ?? ''
     }
   )
 
   saveApiButton.addEventListener('click', (e) => {
-    addStorage({ "omnivoreApiKey": apiInput.value })
+    addStorage({ "ruminerApiKey": apiInput.value })
   })
 
   const saveUrlButton = document.getElementById('save-api-url-btn')
   const apiUrlInput = document.getElementById('api-url')
 
-  chrome.storage.local.get('omnivoreApiUrl').then(
+  chrome.storage.local.get('ruminerApiUrl').then(
     url => {
-      apiUrlInput.value = url.omnivoreApiUrl ?? ''
+      apiUrlInput.value = url.ruminerApiUrl ?? ''
     }
   )
 
   saveUrlButton.addEventListener('click', (e) => {
-    addStorage({ "omnivoreApiUrl": apiUrlInput.value })
+    addStorage({ "ruminerApiUrl": apiUrlInput.value })
   })
 
 
-  const urlButton = document.getElementById('save-omnivore-url-btn')
-  const urlInput = document.getElementById('omnivore-url')
+  const urlButton = document.getElementById('save-ruminer-url-btn')
+  const urlInput = document.getElementById('ruminer-url')
 
-  chrome.storage.local.get('omnivoreUrl').then(
+  chrome.storage.local.get('ruminerUrl').then(
     url => {
-      urlInput.value = url.omnivoreUrl ?? ''
+      urlInput.value = url.ruminerUrl ?? ''
     }
   )
 
   urlButton.addEventListener('click', (e) => {
-    addStorage({ "omnivoreUrl": urlInput.value })
+    addStorage({ "ruminerUrl": urlInput.value })
   })
 });

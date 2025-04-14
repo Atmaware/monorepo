@@ -4,7 +4,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 
 import { parse } from '@fast-csv/parse'
-import { Readability } from '@omnivore/readability'
+import { Readability } from '@ruminer/readability'
 import crypto from 'crypto'
 import createDOMPurify, { SanitizeElementHookEvent } from 'dompurify'
 import fs from 'fs'

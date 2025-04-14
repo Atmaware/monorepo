@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article ADD COLUMN type TEXT;
+ALTER TABLE ruminer.article ADD COLUMN type TEXT;
 
 COMMIT;

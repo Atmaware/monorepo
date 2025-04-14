@@ -162,7 +162,7 @@ export function HighlightsLayer(props: HighlightsLayerProps): JSX.Element {
     // page.
     if (props.scrollToHighlight.current) {
       const anchorElement = document.querySelector(
-        `[omnivore-highlight-id="${props.scrollToHighlight.current}"]`
+        `[ruminer-highlight-id="${props.scrollToHighlight.current}"]`
       )
       if (anchorElement) {
         anchorElement.scrollIntoView({
@@ -293,7 +293,7 @@ export function HighlightsLayer(props: HighlightsLayerProps): JSX.Element {
       }
       let walk = containerElement()
       while (walk) {
-        const idx = Number(walk.getAttribute('data-omnivore-anchor-idx'))
+        const idx = Number(walk.getAttribute('data-ruminer-anchor-idx'))
         if (idx > 0) {
           return idx
         }
@@ -670,7 +670,7 @@ export function HighlightsLayer(props: HighlightsLayerProps): JSX.Element {
     const goToHighlightIdx = (idx: number, highlightsList: Highlight[]) => {
       const highlight = highlightsList[idx]
       const target = document.querySelector(
-        `[omnivore-highlight-id="${highlight.id}"]`
+        `[ruminer-highlight-id="${highlight.id}"]`
       )
       target?.scrollIntoView({
         block: 'center',
@@ -696,7 +696,7 @@ export function HighlightsLayer(props: HighlightsLayerProps): JSX.Element {
 
     const speakingSection = async (event: SpeakingSectionEvent) => {
       const item = document.querySelector(
-        `[data-omnivore-anchor-idx="${event.anchorIdx}"]`
+        `[data-ruminer-anchor-idx="${event.anchorIdx}"]`
       )
       const otherItems = document.querySelectorAll('.speakingSection')
       otherItems.forEach((other) => {
@@ -862,7 +862,7 @@ export function HighlightsLayer(props: HighlightsLayerProps): JSX.Element {
             // The timeout here is a bit of a hack to work around rerendering
             setTimeout(() => {
               const target = document.querySelector(
-                `[omnivore-highlight-id="${highlightId}"]`
+                `[ruminer-highlight-id="${highlightId}"]`
               )
               target?.scrollIntoView({
                 block: 'center',

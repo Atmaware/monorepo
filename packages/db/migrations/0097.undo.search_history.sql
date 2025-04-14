@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.search_history;
+DROP TABLE IF EXISTS ruminer.search_history;
 
 COMMIT;

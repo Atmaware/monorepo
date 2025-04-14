@@ -4,8 +4,8 @@
 
 BEGIN;
 
-DROP TRIGGER update_article_saving_request_modtime ON omnivore.article_saving_request;
+DROP TRIGGER update_article_saving_request_modtime ON ruminer.article_saving_request;
 
-DROP TABLE omnivore.article_saving_request;
+DROP TABLE ruminer.article_saving_request;
 
 COMMIT;

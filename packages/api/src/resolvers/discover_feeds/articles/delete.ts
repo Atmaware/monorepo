@@ -25,7 +25,7 @@ export const deleteDiscoverArticleResolver = authorized<
     }
 
     const { rows: discoverArticles } = (await appDataSource.query(
-      `SELECT article_save_id FROM omnivore.discover_feed_save_link WHERE discover_article_id=$1 and user_id=$2`,
+      `SELECT article_save_id FROM ruminer.discover_feed_save_link WHERE discover_article_id=$1 and user_id=$2`,
       [discoverArticleId, uid]
     )) as {
       rows: { article_save_id: string }[]
@@ -39,7 +39,7 @@ export const deleteDiscoverArticleResolver = authorized<
     }
 
     await appDataSource.query(
-      `UPDATE omnivore.discover_feed_save_link set deleted = true WHERE discover_article_id=$1 and user_id=$2`,
+      `UPDATE ruminer.discover_feed_save_link set deleted = true WHERE discover_article_id=$1 and user_id=$2`,
       [discoverArticleId, uid]
     )
 

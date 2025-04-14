@@ -1,4 +1,4 @@
-export type OmnivoreFeed = {
+export type RuminerFeed = {
   id: string
   description?: string
   image?: string
@@ -7,7 +7,7 @@ export type OmnivoreFeed = {
   type: string
 }
 
-export type OmnivoreContentFeed = {
-  feed: OmnivoreFeed
+export type RuminerContentFeed = {
+  feed: RuminerFeed
   content: string
 }

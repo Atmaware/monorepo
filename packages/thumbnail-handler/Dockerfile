@@ -13,7 +13,7 @@ COPY /packages/thumbnail-handler/package.json ./packages/thumbnail-handler/packa
 RUN yarn install --pure-lockfile
 
 ADD /packages/thumbnail-handler ./packages/thumbnail-handler
-RUN yarn workspace @omnivore/thumbnail-handler build
+RUN yarn workspace @ruminer/thumbnail-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/thumbnail-handler/node_modules
@@ -22,5 +22,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/thumbnail-handler", "start"]
+CMD ["yarn", "workspace", "@ruminer/thumbnail-handler", "start"]
 

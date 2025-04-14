@@ -4,8 +4,8 @@
 
 BEGIN;
 
-REVOKE DELETE ON omnivore.group_membership FROM omnivore_user;
+REVOKE DELETE ON ruminer.group_membership FROM ruminer_user;
 
-REVOKE DELETE ON omnivore."group" FROM omnivore_user;
+REVOKE DELETE ON ruminer."group" FROM ruminer_user;
 
 COMMIT;

@@ -4,11 +4,11 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.article ADD COLUMN slug TEXT;
-UPDATE omnivore.article a SET slug = ua.slug FROM omnivore.user_articles ua WHERE article_id = a.id;
+ALTER TABLE ruminer.article ADD COLUMN slug TEXT;
+UPDATE ruminer.article a SET slug = ua.slug FROM ruminer.user_articles ua WHERE article_id = a.id;
 
-ALTER TABLE omnivore.user_articles DROP COLUMN slug;
-ALTER TABLE omnivore.article ALTER COLUMN slug SET NOT NULL;
-CREATE INDEX article_slug_idx ON omnivore.article(slug);
+ALTER TABLE ruminer.user_articles DROP COLUMN slug;
+ALTER TABLE ruminer.article ALTER COLUMN slug SET NOT NULL;
+CREATE INDEX article_slug_idx ON ruminer.article(slug);
 
 COMMIT;

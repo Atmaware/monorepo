@@ -19,14 +19,14 @@ export function requestHeaders(): Record<string, string> {
 
   if (authToken) {
     return {
-      'X-OmnivoreClient': 'web',
+      'X-RuminerClient': 'web',
       authorization: authToken,
     }
   }
 
   if (pendingAuthToken) {
     return {
-      'X-OmnivoreClient': 'web',
+      'X-RuminerClient': 'web',
       pendingUserAuth: pendingAuthToken,
     }
   }

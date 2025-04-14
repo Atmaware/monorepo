@@ -1,7 +1,7 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { Queue } from 'bullmq'
 
-const QUEUE_NAME = 'omnivore-backend-queue'
+const QUEUE_NAME = 'ruminer-backend-queue'
 const JOB_NAME = 'update-pdf-content'
 
 export type State = 'SUCCEEDED' | 'FAILED'

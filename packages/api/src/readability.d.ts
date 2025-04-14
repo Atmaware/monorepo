@@ -4,7 +4,7 @@
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 // TypeScript Version: 2.2
 
-declare module '@omnivore/readability' {
+declare module '@ruminer/readability' {
   /**
    * A standalone version of the readability library used for Firefox Reader View.
    *

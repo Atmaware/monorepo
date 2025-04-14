@@ -13,7 +13,7 @@ COPY /packages/rule-handler/package.json ./packages/rule-handler/package.json
 RUN yarn install --pure-lockfile
 
 ADD /packages/rule-handler ./packages/rule-handler
-RUN yarn workspace @omnivore/rule-handler build
+RUN yarn workspace @ruminer/rule-handler build
 
 # After building, fetch the production dependencies
 RUN rm -rf /app/packages/rule-handler/node_modules
@@ -22,5 +22,5 @@ RUN yarn install --pure-lockfile --production
 
 EXPOSE 8080
 
-CMD ["yarn", "workspace", "@omnivore/rule-handler", "start"]
+CMD ["yarn", "workspace", "@ruminer/rule-handler", "start"]
 

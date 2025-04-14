@@ -273,7 +273,7 @@ Readability.prototype = {
   PLACEHOLDER_CLASSES: ['tweet-placeholder', 'instagram-placeholder'],
 
   // Classes of embeds extracted by the extension
-  EMBEDS_CLASSES: ['omnivore-instagram-embed'],
+  EMBEDS_CLASSES: ['ruminer-instagram-embed'],
 
   // These are the list of HTML entities that need to be escaped.
   HTML_ESCAPE_MAP: {
@@ -457,11 +457,11 @@ Readability.prototype = {
    * @return void
    */
   _cleanElement: function (node) {
-    if (node.className && node.className.startsWith && node.className.startsWith('_omnivore')) {
+    if (node.className && node.className.startsWith && node.className.startsWith('_ruminer')) {
       return;
     }
 
-    if (node.className && node.className.hasOwnProperty && node.className.hasOwnProperty('_omnivore')) {
+    if (node.className && node.className.hasOwnProperty && node.className.hasOwnProperty('_ruminer')) {
       return;
     }
 
@@ -600,7 +600,7 @@ Readability.prototype = {
 
           const proxySrc = this.createImageProxyUrl(absoluteSrc, width, height);
           image.setAttribute('src', proxySrc);
-          image.setAttribute('data-omnivore-original-src', absoluteSrc)
+          image.setAttribute('data-ruminer-original-src', absoluteSrc)
         }
 
         // remove crossorigin attribute to avoid CORS errors
@@ -669,7 +669,7 @@ Readability.prototype = {
         continue;
       }
 
-      if (node.parentNode && ["DIV", "SECTION"].includes(node.tagName) && !this._isOmnivoreNode(node) && !(node.id && node.id.startsWith("readability"))) {
+      if (node.parentNode && ["DIV", "SECTION"].includes(node.tagName) && !this._isRuminerNode(node) && !(node.id && node.id.startsWith("readability"))) {
         if (this._isElementWithoutContent(node)) {
           node = this._removeAndGetNext(node);
           continue;
@@ -1110,8 +1110,8 @@ Readability.prototype = {
   _checkPublishedDate: function (node, matchString) {
     // Skipping meta tags
     if (node.tagName.toLowerCase() === 'meta') return
-    // return published date if the class name is 'omnivore-published-date' which we added when we scraped the article
-    if (node.className === 'omnivore-published-date' && this._isValidPublishedDate(node.textContent)) {
+    // return published date if the class name is 'ruminer-published-date' which we added when we scraped the article
+    if (node.className === 'ruminer-published-date' && this._isValidPublishedDate(node.textContent)) {
       return new Date(node.textContent);
     }
     // we don't want to check for dates in the URL's
@@ -1239,7 +1239,7 @@ Readability.prototype = {
       while (node) {
         var matchString = node.className + " " + node.id;
 
-        if (this._isOmnivoreNode(node)) {
+        if (this._isRuminerNode(node)) {
           node = this._getNextNode(node);
           continue;
         }
@@ -2907,7 +2907,7 @@ Readability.prototype = {
 
         var parentClasses = node.parentNode?.classList || [];
         var haveToRemove =
-          !this._isOmnivoreNode(node) && (
+          !this._isRuminerNode(node) && (
           (img > 1 && p / img < 0.5 && !this._hasAncestorTag(node, "figure")) ||
           (!isList && li > p) ||
           (input > Math.floor(p/3)) ||
@@ -2945,8 +2945,8 @@ Readability.prototype = {
     });
   },
 
-  _isOmnivoreNode: function(node) {
-    const prefix = '_omnivore'
+  _isRuminerNode: function(node) {
+    const prefix = '_ruminer'
     var walk = node
 
     while (walk) {

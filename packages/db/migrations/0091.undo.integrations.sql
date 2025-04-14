@@ -4,8 +4,8 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS omnivore.integrations;
+DROP TABLE IF EXISTS ruminer.integrations;
 
-DROP TYPE IF EXISTS omnivore.integration_type CASCADE;
+DROP TYPE IF EXISTS ruminer.integration_type CASCADE;
 
 COMMIT;

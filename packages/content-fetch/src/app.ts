@@ -1,4 +1,4 @@
-import { RedisDataSource } from '@omnivore/utils'
+import { RedisDataSource } from '@ruminer/utils'
 import { JobType } from 'bullmq'
 import express, { Express } from 'express'
 import asyncHandler from 'express-async-handler'
@@ -63,8 +63,8 @@ const main = () => {
       const counts = await queue.getJobCounts(...jobsTypes)
 
       jobsTypes.forEach((metric) => {
-        output += `# TYPE omnivore_queue_messages_${metric} gauge\n`
-        output += `omnivore_queue_messages_${metric}{queue="${QUEUE}"} ${counts[metric]}\n`
+        output += `# TYPE ruminer_queue_messages_${metric} gauge\n`
+        output += `ruminer_queue_messages_${metric}{queue="${QUEUE}"} ${counts[metric]}\n`
       })
 
       // Export the age of the oldest prioritized job in the queue
@@ -72,11 +72,11 @@ const main = () => {
       if (oldestJobs.length > 0) {
         const currentTime = Date.now()
         const ageInSeconds = (currentTime - oldestJobs[0].timestamp) / 1000
-        output += `# TYPE omnivore_queue_messages_oldest_job_age_seconds gauge\n`
-        output += `omnivore_queue_messages_oldest_job_age_seconds{queue="${QUEUE}"} ${ageInSeconds}\n`
+        output += `# TYPE ruminer_queue_messages_oldest_job_age_seconds gauge\n`
+        output += `ruminer_queue_messages_oldest_job_age_seconds{queue="${QUEUE}"} ${ageInSeconds}\n`
       } else {
-        output += `# TYPE omnivore_queue_messages_oldest_job_age_seconds gauge\n`
-        output += `omnivore_queue_messages_oldest_job_age_seconds{queue="${QUEUE}"} ${0}\n`
+        output += `# TYPE ruminer_queue_messages_oldest_job_age_seconds gauge\n`
+        output += `ruminer_queue_messages_oldest_job_age_seconds{queue="${QUEUE}"} ${0}\n`
       }
 
       res.status(200).setHeader('Content-Type', 'text/plain').send(output)

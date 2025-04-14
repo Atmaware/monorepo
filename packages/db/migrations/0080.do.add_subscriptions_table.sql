@@ -6,9 +6,9 @@ BEGIN;
 
 CREATE TYPE subscription_status_type AS ENUM ('ACTIVE', 'UNSUBSCRIBED', 'DELETED');
 
-CREATE TABLE omnivore.subscriptions (
+CREATE TABLE ruminer.subscriptions (
     id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc(),
-    user_id uuid NOT NULL REFERENCES omnivore.user (id) ON DELETE CASCADE,
+    user_id uuid NOT NULL REFERENCES ruminer.user (id) ON DELETE CASCADE,
     name text NOT NULL,
     description text,
     url text,
@@ -19,9 +19,9 @@ CREATE TABLE omnivore.subscriptions (
     updated_at timestamptz NOT NULL DEFAULT current_timestamp
 );
 
-CREATE TRIGGER update_subscription_modtime BEFORE UPDATE ON omnivore.subscriptions
+CREATE TRIGGER update_subscription_modtime BEFORE UPDATE ON ruminer.subscriptions
     FOR EACH ROW EXECUTE PROCEDURE update_updated_at_column();
 
-GRANT SELECT, INSERT, UPDATE ON omnivore.subscriptions TO omnivore_user;
+GRANT SELECT, INSERT, UPDATE ON ruminer.subscriptions TO ruminer_user;
 
 COMMIT;

@@ -4,10 +4,10 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     DROP CONSTRAINT newsletter_emails_pkey;
 
-ALTER TABLE omnivore.newsletter_emails
+ALTER TABLE ruminer.newsletter_emails
     ADD COLUMN id uuid PRIMARY KEY DEFAULT uuid_generate_v1mc();
 
 COMMIT;

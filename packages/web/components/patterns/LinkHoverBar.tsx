@@ -48,7 +48,7 @@ export function LinkHoverBar(props: LinkHoverBarProps): JSX.Element {
         top: props.anchorCoordinates.pageY,
       }}
     >
-      <Box>Save to Omnivore</Box>
+      <Box>Save to Ruminer</Box>
     </Box>
   )
 }

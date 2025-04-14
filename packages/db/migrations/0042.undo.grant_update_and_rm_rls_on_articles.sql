@@ -4,7 +4,7 @@
 
 BEGIN;
 
-REVOKE GRANT UPDATE ON omnivore.article TO omnivore_user;
-ALTER TABLE omnivore.article ENABLE ROW LEVEL SECURITY;
+REVOKE GRANT UPDATE ON ruminer.article TO ruminer_user;
+ALTER TABLE ruminer.article ENABLE ROW LEVEL SECURITY;
 
 COMMIT;

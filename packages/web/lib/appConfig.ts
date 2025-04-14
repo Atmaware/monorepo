@@ -31,7 +31,7 @@ const baseURLRecords: BaseURLRecords = {
 function serverBaseURL(env: AppEnvironment): string {
   const value = baseURLRecords[appEnv].serverBaseURL
   if (value.length == 0 && global.window) {
-    const windowEnv = (window as any).omnivoreEnv
+    const windowEnv = (window as any).ruminerEnv
     console.warn(
       `Couldn't find environment variable for server base url in ${env} environment, using ${windowEnv.SERVER_BASE_URL}`
     )
@@ -44,7 +44,7 @@ function serverBaseURL(env: AppEnvironment): string {
 function webURL(env: AppEnvironment): string {
   const value = baseURLRecords[appEnv].webBaseURL
   if (value.length == 0 && global.window) {
-    const windowEnv = (window as any).omnivoreEnv
+    const windowEnv = (window as any).ruminerEnv
     console.warn(
       `Couldn't find environment variable for base url in ${env} environment, using ${windowEnv.BASE_URL}`
     )

@@ -6,9 +6,9 @@ BEGIN;
 
 CREATE TYPE report_type AS ENUM ('SPAM', 'ABUSIVE', 'CONTENT_VIOLATION');
 
-ALTER TABLE omnivore.abuse_report RENAME TO abuse_reports;
+ALTER TABLE ruminer.abuse_report RENAME TO abuse_reports;
 
-ALTER TABLE omnivore.abuse_reports
+ALTER TABLE ruminer.abuse_reports
 ALTER COLUMN report_types TYPE report_type[];
 
 COMMIT;

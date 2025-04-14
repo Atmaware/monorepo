@@ -4,6 +4,6 @@
 
 BEGIN;
 
-DROP INDEX IF EXISTS omnivore.library_item_user_id_saved_at_idx;
+DROP INDEX IF EXISTS ruminer.library_item_user_id_saved_at_idx;
 
 COMMIT;

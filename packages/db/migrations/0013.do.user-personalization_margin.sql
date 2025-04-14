@@ -4,6 +4,6 @@
 
 BEGIN;
 
-ALTER TABLE omnivore.user_personalization 
+ALTER TABLE ruminer.user_personalization 
     ADD column margin integer;
 COMMIT;

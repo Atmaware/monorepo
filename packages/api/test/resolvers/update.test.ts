@@ -31,7 +31,7 @@ describe('Update API', () => {
     let query: string
     const title = 'New Title'
     const description = 'New Description'
-    const previewImage = 'https://omnivore.app/image.png'
+    const previewImage = 'https://ruminer.app/image.png'
 
     beforeEach(() => {
       query = `

@@ -6,6 +6,6 @@ BEGIN;
 
 DROP FUNCTION IF EXISTS update_filter_position;
 
-DROP TABLE IF EXISTS omnivore.filters;
+DROP TABLE IF EXISTS ruminer.filters;
 
 COMMIT;

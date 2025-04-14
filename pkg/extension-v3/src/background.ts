@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
-import { addNoteToLibraryItem, savePageRequest } from './scripts/omnivore-api'
+import { addNoteToLibraryItem, savePageRequest } from './scripts/ruminer-api'
 import {
   isAddNoteInput,
   isEnqueueTaskMessage,
@@ -80,7 +80,7 @@ browserAPI.action.onClicked.addListener(async (tab) => {
         })
       }
     } catch (err) {
-      console.log('[omnivore] error injecting content script: ', err)
+      console.log('[ruminer] error injecting content script: ', err)
     }
 
     const clientRequestId = uuidv4()

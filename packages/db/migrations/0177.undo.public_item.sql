@@ -4,12 +4,12 @@
 
 BEGIN;
 
-DROP TABLE omnivore.public_item_interactions;
-DROP TABLE omnivore.public_item_stats;
-DROP TABLE omnivore.public_item;
-DROP TABLE omnivore.public_item_source;
+DROP TABLE ruminer.public_item_interactions;
+DROP TABLE ruminer.public_item_stats;
+DROP TABLE ruminer.public_item;
+DROP TABLE ruminer.public_item_source;
 
-ALTER TABLE omnivore.library_item 
+ALTER TABLE ruminer.library_item 
     DROP COLUMN seen_at,
     DROP COLUMN digested_at,
     DROP COLUMN topic,

@@ -23,7 +23,7 @@ export default function DebugShareTarget(): JSX.Element {
           boxShadow: '#B1B1B1 9px 9px 9px -9px',
         }}
       >
-        <StyledText style="subHeadline" css={{ color: '$omnivoreGray' }}>
+        <StyledText style="subHeadline" css={{ color: '$ruminerGray' }}>
           Debug the share-target PWA feature
         </StyledText>
         <VStack

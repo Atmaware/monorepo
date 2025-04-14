@@ -111,7 +111,7 @@ export default function Api(): JSX.Element {
   return (
     <SettingsTable
       pageId="api-keys"
-      pageInfoLink="https://docs.omnivore.app/integrations/api.html"
+      pageInfoLink="https://docs.ruminer.app/integrations/api.html"
       headerTitle="API Keys"
       createTitle="Create an API Key"
       createAction={() => {
@@ -139,7 +139,7 @@ export default function Api(): JSX.Element {
                     my: '5px',
                     fontSize: '11px',
                     a: {
-                      color: '$omnivoreCtaYellow',
+                      color: '$ruminerCtaYellow',
                     },
                   }}
                 >

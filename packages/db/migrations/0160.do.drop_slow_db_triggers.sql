@@ -4,8 +4,8 @@
 
 BEGIN;
 
-DROP TRIGGER IF EXISTS library_item_labels_update ON omnivore.entity_labels;
-DROP TRIGGER IF EXISTS library_item_highlight_annotations_update ON omnivore.highlight;
-DROP TRIGGER IF EXISTS label_names_update ON omnivore.labels;
+DROP TRIGGER IF EXISTS library_item_labels_update ON ruminer.entity_labels;
+DROP TRIGGER IF EXISTS library_item_highlight_annotations_update ON ruminer.highlight;
+DROP TRIGGER IF EXISTS label_names_update ON ruminer.labels;
 
 COMMIT;

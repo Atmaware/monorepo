@@ -15,7 +15,7 @@ import pyarrow.parquet as pq
 from google.cloud import storage
 
 DB_PARAMS = {
-  'dbname': os.getenv('DB_NAME') or 'omnivore',
+  'dbname': os.getenv('DB_NAME') or 'ruminer',
   'user': os.getenv('DB_USER'),
   'password': os.getenv('DB_PASSWORD'),
   'host': os.getenv('DB_HOST') or 'localhost',
@@ -65,8 +65,8 @@ def fetch_raw_data(date_str, num_days_history):
     CASE WHEN li.read_at is not NULL then 1 else 0 END as user_clicked,
     CASE WHEN li.reading_progress_bottom_percent > 10 THEN 1 ELSE 0 END AS user_read,
     CASE WHEN li.reading_progress_bottom_percent > 50 THEN 1 ELSE 0 END AS user_long_read
-  FROM omnivore.library_item AS li
-  LEFT JOIN omnivore.subscriptions sub on li.subscription = sub.name AND sub.user_id = li.user_id
+  FROM ruminer.library_item AS li
+  LEFT JOIN ruminer.subscriptions sub on li.subscription = sub.name AND sub.user_id = li.user_id
   WHERE li.created_at >= :start_date AND li.created_at <= :end_date;
   """)
 
