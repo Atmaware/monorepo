@@ -1,0 +1,128 @@
+name: Deploy to GCE
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'apple/**'
+      - 'android/**'
+      - '**.md'
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy to GCE
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Google Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+        with:
+          project_id: ${{ secrets.GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Build and push Docker images
+        run: |
+          # Configure Docker to use gcloud as a credential helper
+          gcloud auth configure-docker
+
+          # Build and tag images
+          docker build . --file packages/api/Dockerfile --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-api:${GITHUB_SHA}" --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-api:latest"
+          docker build . --file packages/web/Dockerfile --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-web:${GITHUB_SHA}" --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-web:latest"
+          docker build . --file packages/content-fetch/Dockerfile --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-content-fetch:${GITHUB_SHA}" --tag "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-content-fetch:latest"
+
+          # Push images to Google Container Registry
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-api:${GITHUB_SHA}"
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-api:latest"
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-web:${GITHUB_SHA}"
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-web:latest"
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-content-fetch:${GITHUB_SHA}"
+          docker push "gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-content-fetch:latest"
+
+      - name: Deploy to GCE VM
+        run: |
+          # Generate docker-compose.yml file
+          cat > docker-compose.yml << EOL
+          version: '3'
+
+          services:
+            postgres:
+              image: postgres:13
+              environment:
+                POSTGRES_PASSWORD: \${{ secrets.DB_PASSWORD }}
+                POSTGRES_USER: postgres
+                POSTGRES_DB: ruminer
+              volumes:
+                - postgres-data:/var/lib/postgresql/data
+              restart: always
+
+            redis:
+              image: redis:6
+              volumes:
+                - redis-data:/data
+              restart: always
+
+            api:
+              image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-api:${GITHUB_SHA}
+              depends_on:
+                - postgres
+                - redis
+              environment:
+                - DATABASE_URL=postgres://postgres:\${{ secrets.DB_PASSWORD }}@postgres:5432/ruminer
+                - REDIS_URL=redis://redis:6379
+                - JWT_SECRET=\${{ secrets.JWT_SECRET }}
+                - BASE_URL=https://ruminer.atmaware.com
+              ports:
+                - "4000:4000"
+              restart: always
+
+            web:
+              image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-web:${GITHUB_SHA}
+              depends_on:
+                - api
+              environment:
+                - NEXT_PUBLIC_BASE_URL=https://ruminer.atmaware.com
+                - NEXT_PUBLIC_SERVER_BASE_URL=https://ruminer.atmaware.com/api
+              ports:
+                - "3000:3000"
+              restart: always
+
+            content-fetch:
+              image: gcr.io/${{ secrets.GCP_PROJECT_ID }}/ruminer-content-fetch:${GITHUB_SHA}
+              depends_on:
+                - postgres
+                - redis
+              environment:
+                - DATABASE_URL=postgres://postgres:\${{ secrets.DB_PASSWORD }}@postgres:5432/ruminer
+                - REDIS_URL=redis://redis:6379
+              restart: always
+
+          volumes:
+            postgres-data:
+            redis-data:
+          EOL
+
+          # Copy docker-compose.yml to VM
+          gcloud compute scp docker-compose.yml ${{ secrets.VM_USERNAME }}@ruminer-test-vm:~/ --zone=us-central1-a
+
+          # SSH into VM and run docker-compose
+          gcloud compute ssh ${{ secrets.VM_USERNAME }}@ruminer-test-vm --zone=us-central1-a --command="
+            # Pull latest images
+            sudo docker-compose pull
+            
+            # Stop and remove existing containers
+            sudo docker-compose down
+            
+            # Start new containers
+            sudo docker-compose up -d
+            
+            # Run migrations if needed
+            sleep 10 # Wait for services to start
+            sudo docker-compose exec -T api npm run db:migrate
+          "
