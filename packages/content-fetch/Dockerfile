@@ -1,5 +1,5 @@
 FROM node:22.12-alpine AS build
-LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
+LABEL org.opencontainers.image.source="https://github.com/atmaware/ruminer"
 
 # Installs latest Chromium package and other dependencies.
 RUN apk -U upgrade \

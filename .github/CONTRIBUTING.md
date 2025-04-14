@@ -4,15 +4,15 @@ Hello there! When contributing to Ruminer, it's essential to maintain a style co
 
 📜 **License**
 
-Ruminer is proudly licensed under the [AGPL license](https://github.com/ruminer-app/ruminer/blob/main/LICENSE). Let's keep our code open and accessible to all!
+Ruminer is proudly licensed under the [AGPL license](https://github.com/atmaware/ruminer/blob/main/LICENSE). Let's keep our code open and accessible to all!
 
 🤝 **CLA (Contributor License Agreement)**
 
-We kindly request all contributors to adhere to Ruminer's CLA, which you can review and accept at [Ruminer's CLA](https://cla-assistant.io/ruminer-app/ruminer). Your commitment to this agreement is much appreciated.
+We kindly request all contributors to adhere to Ruminer's CLA, which you can review and accept at [Ruminer's CLA](https://cla-assistant.io/atmaware/ruminer). Your commitment to this agreement is much appreciated.
 
 👩‍💻 **Code Review**
 
-Before merging any pull request, we require a code review from one of our trusted [CODEOWNERS](https://github.com/ruminer-app/ruminer/blob/main/.github/CODEOWNERS). It ensures the quality and integrity of our codebase.
+Before merging any pull request, we require a code review from one of our trusted [CODEOWNERS](https://github.com/atmaware/ruminer/blob/main/.github/CODEOWNERS). It ensures the quality and integrity of our codebase.
 
 🧪 **Testing**
 

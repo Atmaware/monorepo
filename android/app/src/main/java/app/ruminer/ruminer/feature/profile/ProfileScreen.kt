@@ -21,7 +21,7 @@ import app.ruminer.ruminer.core.designsystem.component.TextPreferenceWidget
 import app.ruminer.ruminer.feature.onboarding.OnboardingViewModel
 import app.ruminer.ruminer.navigation.Routes
 
-internal const val RELEASE_URL = "https://github.com/ruminer-app/ruminer/releases"
+internal const val RELEASE_URL = "https://github.com/atmaware/ruminer/releases"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

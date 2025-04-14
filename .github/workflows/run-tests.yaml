@@ -22,7 +22,7 @@ env:
 jobs:
   run-code-tests:
     name: Run Codebase tests
-    runs-on: ${{ github.repository_owner == 'ruminer-app' && 'ubuntu-latest-m' || 'ubuntu-latest' }}
+    runs-on: ${{ github.repository_owner == 'atmaware' && 'ubuntu-latest-m' || 'ubuntu-latest' }}
     services:
       postgres:
         image: ankane/pgvector

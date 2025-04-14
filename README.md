@@ -1,10 +1,10 @@
 # Ruminer
 
-[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/ruminer-app/ruminer/run-tests.yaml?branch=main)](https://github.com/ruminer-app/ruminer/actions/workflows/run-tests.yaml)
+[![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/atmaware/ruminer/run-tests.yaml?branch=main)](https://github.com/atmaware/ruminer/actions/workflows/run-tests.yaml)
 [![Discord](https://img.shields.io/discord/844965259462311966?label=Join%20our%20Discord)](https://discord.gg/h2z5rppzz9)
 [![Mastodon Follow](https://img.shields.io/mastodon/follow/109458738600914558?domain=https%3A%2F%2Fpkm.social)](https://pkm.social/@ruminer)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ruminerapp)](https://twitter.com/RuminerApp)
-![GitHub](https://img.shields.io/github/license/ruminer-app/ruminer)
+![GitHub](https://img.shields.io/github/license/atmaware/ruminer)
 
 <img align="right" src="https://avatars.githubusercontent.com/u/70113176?s=400&u=506b21d9f019f3160963c010ef363667fb24c7c9&v=4" height="150px" alt="Ruminer Logo">
 
@@ -18,21 +18,21 @@ We built Ruminer because we love reading and we want it to be more social. Join 
 - Add newsletter articles via email (with substack support!)
 - PDF support
 - [Web app](https://ruminer.app/) written in Node.js and TypeScript
-- [Native iOS app](https://ruminer.app/install/ios) ([source](https://github.com/ruminer-app/ruminer/tree/main/apple))
-- [Android app](https://ruminer.app/install/android) ([source](https://github.com/ruminer-app/ruminer/tree/main/android/Ruminer))
+- [Native iOS app](https://ruminer.app/install/ios) ([source](https://github.com/atmaware/ruminer/tree/main/apple))
+- [Android app](https://ruminer.app/install/android) ([source](https://github.com/atmaware/ruminer/tree/main/android/Ruminer))
 - Progressive web app for Android users
 - Browser extensions for [Chrome](https://ruminer.app/install/chrome), [Safari](https://ruminer.app/install/safari), [Firefox](https://ruminer.app/install/firefox), and [Edge](https://ruminer.app/install/edge)
 - Labels (aka tagging)
 - Offline support
 - Text to speech (iOS only)
-- [Logseq](https://logseq.com/) support via our [Logseq Plugin](https://github.com/ruminer-app/logseq-ruminer)
-- [Obsidian](https://obsidian.md/) support via our [Obsidian Plugin](https://github.com/ruminer-app/obsidian-ruminer)
+- [Logseq](https://logseq.com/) support via our [Logseq Plugin](https://github.com/atmaware/logseq-ruminer)
+- [Obsidian](https://obsidian.md/) support via our [Obsidian Plugin](https://github.com/atmaware/obsidian-ruminer)
 
 Every single part is fully open source! Fork it, extend it, or deploy it to your own server.
 
 A guide for running a self hosted server can be found [here](./self-hosting/GUIDE.md)
 
-<img width="981" alt="web-screenshot-listview" src="https://github.com/ruminer-app/ruminer/assets/75189/df7c797a-4255-42f4-a686-ad94866cb580">
+<img width="981" alt="web-screenshot-listview" src="https://github.com/atmaware/ruminer/assets/75189/df7c797a-4255-42f4-a686-ad94866cb580">
 
 ## Join us on Discord! :speech_balloon:
 
@@ -75,7 +75,7 @@ Ruminer is written in TypeScript and JavaScript.
 #### 1. Start docker compose
 
 ```bash
-git clone https://github.com/ruminer-app/ruminer
+git clone https://github.com/atmaware/ruminer
 cd ruminer
 docker compose up
 ```

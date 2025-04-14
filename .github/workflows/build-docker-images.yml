@@ -24,10 +24,10 @@ jobs:
           password: ${{secrets.GITHUB_TOKEN}}
       - name: Build the backend docker image
         run: |
-          docker build . --file packages/api/Dockerfile --tag "ghcr.io/ruminer-app/backend:${GITHUB_SHA}" --tag ghcr.io/ruminer-app/backend:latest
-          docker push ghcr.io/ruminer-app/backend:${GITHUB_SHA}
+          docker build . --file packages/api/Dockerfile --tag "ghcr.io/ruminer/backend:${GITHUB_SHA}" --tag ghcr.io/ruminer/backend:latest
+          docker push ghcr.io/ruminer/backend:${GITHUB_SHA}
       - name: Build the content-fetch docker image
         run: |
-          docker build --file packages/content-fetch/Dockerfile . --tag "ghcr.io/ruminer-app/content-fetch:${GITHUB_SHA}" --tag ghcr.io/ruminer-app/content-fetch:latest
-          docker push ghcr.io/ruminer-app/content-fetch:${GITHUB_SHA}
+          docker build --file packages/content-fetch/Dockerfile . --tag "ghcr.io/ruminer/content-fetch:${GITHUB_SHA}" --tag ghcr.io/ruminer/content-fetch:latest
+          docker push ghcr.io/ruminer/content-fetch:${GITHUB_SHA}
    

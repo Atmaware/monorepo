@@ -22,7 +22,7 @@ All networking and persistent storage is handled by the docker-compose file.
 
 ### 1. Clone the Repository
 
-Clone the repository at ``git@github.com:ruminer-app/ruminer.git``
+Clone the repository at ``git@github.com:atmaware/ruminer.git``
 
 ### 2. Change directory to self-hosting/docker-compose
 

@@ -33,7 +33,7 @@ RUN yarn workspace @ruminer/web build
 
 
 FROM node:22.12-alpine as runner
-LABEL org.opencontainers.image.source="https://github.com/ruminer-app/ruminer"
+LABEL org.opencontainers.image.source="https://github.com/atmaware/ruminer"
 
 ENV NODE_ENV production
 ENV PORT=8080

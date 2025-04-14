@@ -55,7 +55,7 @@ dist
 # Xcode
 xcuserdata/
 
-ruminer-app-sa-gcs*
+ruminer-sa-gcs*
 
 # Emacs temp files
 *~

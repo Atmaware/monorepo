@@ -19,7 +19,7 @@ services:
       - .env
 
   migrate:
-    image: "ghcr.io/ruminer-app/sh-migrate:latest"
+    image: "ghcr.io/ruminer/sh-migrate:latest"
     container_name: "ruminer-migrate"
     command: '/bin/sh ./packages/db/setup.sh' # Also create a demo user with email: demo@ruminer.app, password: demo_password
     env_file:
@@ -29,7 +29,7 @@ services:
         condition: service_healthy
 
   api:
-    image: "ghcr.io/ruminer-app/sh-backend:latest"
+    image: "ghcr.io/ruminer/sh-backend:latest"
     container_name: "ruminer-api"
     ports:
       - "4000:8080"
@@ -45,7 +45,7 @@ services:
         condition: service_completed_successfully
 
   queue-processor:
-    image: "ghcr.io/ruminer-app/sh-queue-processor:latest"
+    image: "ghcr.io/ruminer/sh-queue-processor:latest"
     container_name: "ruminer-queue-processor"
     env_file:
       - .env
@@ -54,7 +54,7 @@ services:
         condition: service_started
 
   web:
-    image: "ghcr.io/ruminer-app/sh-web:latest"
+    image: "ghcr.io/ruminer/sh-web:latest"
     container_name: "ruminer-web"
     ports:
       - "3000:8080"
@@ -65,7 +65,7 @@ services:
         condition: service_healthy
 
   image-proxy:
-    image: "ghcr.io/ruminer-app/sh-image-proxy:latest"
+    image: "ghcr.io/ruminer/sh-image-proxy:latest"
     container_name: "ruminer-image-proxy"
     ports:
       - "7070:8080"
@@ -73,7 +73,7 @@ services:
       - .env
 
   content-fetch:
-    image: "ghcr.io/ruminer-app/sh-content-fetch:latest"
+    image: "ghcr.io/ruminer/sh-content-fetch:latest"
     container_name: "ruminer-content-fetch"
     ports:
       - "9090:8080"
@@ -136,7 +136,7 @@ services:
       exit 0;
       "
   mail-watch-server:
-    image: "ghcr.io/ruminer-app/sh-local-mail-watcher:latest"
+    image: "ghcr.io/ruminer/sh-local-mail-watcher:latest"
     container_name: "ruminer-mail-watch-server"
     ports:
       - "4398:8080"

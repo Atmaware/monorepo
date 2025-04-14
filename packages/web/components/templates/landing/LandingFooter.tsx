@@ -103,7 +103,7 @@ export function LandingFooter(): JSX.Element {
               </a>
             </li>
             <li>
-              <a href="https://github.com/ruminer-app/ruminer/blob/main/SECURITY.md">
+              <a href="https://github.com/atmaware/ruminer/blob/main/SECURITY.md">
                 Security
               </a>
             </li>
@@ -126,7 +126,7 @@ export function LandingFooter(): JSX.Element {
               <a href="https://blog.ruminer.app">Blog</a>
             </li>
             <li>
-              <a href="https://github.com/ruminer-app/ruminer">GitHub</a>
+              <a href="https://github.com/atmaware/ruminer">GitHub</a>
             </li>
           </FooterList>
         </VStack>

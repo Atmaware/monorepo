@@ -135,7 +135,7 @@ internal fun AboutScreen(
                     LinkIcon(
                         label = "GitHub",
                         icon = ImageVector.vectorResource(R.drawable.ic_github),
-                        url = "https://github.com/ruminer-app",
+                        url = "https://github.com/atmaware",
                     )
                 }
             }

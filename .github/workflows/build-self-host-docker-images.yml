@@ -39,71 +39,71 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-web:latest
+          tags: ghcr.io/ruminer/sh-web:latest
           file: packages/web/Dockerfile-self
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-web:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-web:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-web:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-web:cache,mode=max
 
       - name: Build and push image-proxy
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-image-proxy:latest
+          tags: ghcr.io/ruminer/sh-image-proxy:latest
           context: imageproxy/
           file: imageproxy/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-image-proxy:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-image-proxy:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-image-proxy:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-image-proxy:cache,mode=max
 
       - name: Build and push content-fetch
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-content-fetch:latest
+          tags: ghcr.io/ruminer/sh-content-fetch:latest
           file: packages/content-fetch/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-content-fetch:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-content-fetch:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-content-fetch:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-content-fetch:cache,mode=max
 
       - name: Build and push migrate
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-migrate:latest
+          tags: ghcr.io/ruminer/sh-migrate:latest
           file: packages/db/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-migrate:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-migrate:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-migrate:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-migrate:cache,mode=max
 
       - name: Build and push local-mail-watcher
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-local-mail-watcher:latest
+          tags: ghcr.io/ruminer/sh-local-mail-watcher:latest
           file: packages/local-mail-watcher/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-local-mail-watcher:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-local-mail-watcher:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-local-mail-watcher:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-local-mail-watcher:cache,mode=max
 
       - name: Build and push backend
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-backend:latest
+          tags: ghcr.io/ruminer/sh-backend:latest
           file: packages/api/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-backend:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-backend:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-backend:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-backend:cache,mode=max
 
       - name: Build and push queue-processor
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/ruminer-app/sh-queue-processor:latest
+          tags: ghcr.io/ruminer/sh-queue-processor:latest
           file: packages/api/queue-processor/Dockerfile
-          cache-from: type=registry,ref=ghcr.io/ruminer-app/sh-queue-processor:cache
-          cache-to: type=registry,ref=ghcr.io/ruminer-app/sh-queue-processor:cache,mode=max
+          cache-from: type=registry,ref=ghcr.io/ruminer/sh-queue-processor:cache
+          cache-to: type=registry,ref=ghcr.io/ruminer/sh-queue-processor:cache,mode=max
 
 
 

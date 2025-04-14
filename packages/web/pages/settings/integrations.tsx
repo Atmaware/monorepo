@@ -219,7 +219,7 @@ export default function Integrations(): JSX.Element {
           icon: <DownloadSimple size={16} weight={'bold'} />,
           style: 'ctaDarkYellow',
           action: () => {
-            router.push(`https://github.com/ruminer-app/logseq-ruminer`)
+            router.push(`https://github.com/atmaware/logseq-ruminer`)
           },
         },
       },
@@ -233,7 +233,7 @@ export default function Integrations(): JSX.Element {
           icon: <DownloadSimple size={16} weight={'bold'} />,
           style: 'ctaDarkYellow',
           action: () => {
-            router.push(`https://github.com/ruminer-app/obsidian-ruminer`)
+            router.push(`https://github.com/atmaware/obsidian-ruminer`)
           },
         },
       },
