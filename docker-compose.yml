@@ -1,9 +1,16 @@
-version: '3'
+x-postgres: &postgres-common
+  image: "ankane/pgvector:v0.5.1"
+  user: postgres
+  healthcheck:
+    test: "exit 0"
+    interval: 2s
+    timeout: 12s
+    retries: 3
+
 
 services:
   postgres:
-    image: "ankane/pgvector:v0.5.1"
-    user: postgres
+    <<: *postgres-common
     container_name: "ruminer-postgres"
     expose:
       - 5432
@@ -23,15 +30,9 @@ services:
       -c max_wal_senders=10 
       -c max_replication_slots=10 
       -c hot_standby_feedback=on
-    healthcheck:
-      test: "exit 0"
-      interval: 2s
-      timeout: 12s
-      retries: 3
 
   postgres-replica:
-    image: "ankane/pgvector:v0.5.1"
-    user: postgres
+    <<: *postgres-common
     container_name: "ruminer-postgres-replica"
     expose:
       - 5433
@@ -53,11 +54,6 @@ services:
       "
     depends_on:
       - postgres
-    healthcheck:
-      test: "exit 0"
-      interval: 2s
-      timeout: 12s
-      retries: 3
 
   migrate:
     build:
@@ -72,7 +68,8 @@ services:
       - PG_PASSWORD=app_pass
       - PG_DB=ruminer
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
 
   api:
     build:
@@ -102,7 +99,8 @@ services:
       - CONTENT_FETCH_URL=http://content-fetch:8080/?token=some_token
       - REDIS_URL='redis://redis:6379'
     depends_on:
-      - migrate
+      migrate:
+        condition: service_completed_successfully
 
   web:
     build:
@@ -122,7 +120,8 @@ services:
       - NEXT_PUBLIC_SERVER_BASE_URL=http://localhost:4000
       - NEXT_PUBLIC_HIGHLIGHTS_BASE_URL=http://localhost:3000
     depends_on:
-      - api
+      api:
+        condition: service_healthy
 
   content-fetch:
     build:
@@ -137,8 +136,10 @@ services:
       - REST_BACKEND_ENDPOINT=http://api:8080/api
       - REDIS_URL=redis://redis:6379
     depends_on:
-      - redis
-      - api
+      redis:
+        condition: service_healthy
+      api:
+        condition: service_healthy
 
   redis:
     image: "redis:7.2.4"
