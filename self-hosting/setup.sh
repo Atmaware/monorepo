@@ -56,5 +56,6 @@ echo "SSL certificates have been configured by certbot."
 # Build docker images
 cd docker-compose
 cp .env.example .env
+cp .env self-build/.env
 docker compose down
 docker compose up -d
