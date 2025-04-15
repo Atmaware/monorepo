@@ -23,7 +23,7 @@ echo "    DOCKER_HUB_USER=$DOCKER_HUB_USER"
 echo "    DOCKER_TAG=$DOCKER_TAG"
 echo ""
 
-read -p "OK? Continue [Y, y]: " yn
+read -p "OK? Continue [y, N]: " yn
 case $yn in
     [Yy]* ) echo;;
     * ) exit;;
