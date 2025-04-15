@@ -10,8 +10,9 @@ fi
 # Setup variables
 DOMAIN="ruminer.atmaware.com"
 
-# Install certbot if not installed
-if ! command -v certbot &> /dev/null; then
+# Install nginx and certbot if not installed
+if ! command -v nginx &> /dev/null || ! command -v certbot &> /dev/null; then
+  apt update
   apt install -y nginx certbot python3-certbot-nginx
 fi
 
@@ -19,11 +20,11 @@ fi
 cp ./nginx.conf /etc/nginx/nginx.conf
 
 # Copy site config
-cp ./ruminer.conf /etc/nginx/sites-available/ruminer
+cp ./ruminer.conf "/etc/nginx/sites-available/$DOMAIN"
 
 # Create symlink if it doesn't exist
-if [ ! -L /etc/nginx/sites-enabled/ruminer ]; then
-  ln -s /etc/nginx/sites-available/ruminer /etc/nginx/sites-enabled/
+if [ ! -L "/etc/nginx/sites-enabled/$DOMAIN" ]; then
+  ln -s "/etc/nginx/sites-available/$DOMAIN" "/etc/nginx/sites-enabled/"
 fi
 
 # Remove default config if it exists
