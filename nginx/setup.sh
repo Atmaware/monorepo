@@ -32,14 +32,14 @@ if [ -L /etc/nginx/sites-enabled/default ]; then
   rm -rf /etc/nginx/sites-enabled/default
 fi
 
+# Obtain SSL certificate and redirect HTTP to HTTPS
+certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmaware.com
+
 # Test nginx config
 nginx -t
 
 # Start/reload nginx
 systemctl start nginx || systemctl reload nginx
-
-# Obtain SSL certificate and redirect HTTP to HTTPS
-certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmaware.com
 
 echo "Deployment setup completed!"
 echo "SSL certificates have been configured by certbot."
