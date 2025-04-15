@@ -57,5 +57,6 @@ echo "SSL certificates have been configured by certbot."
 cd docker-compose
 cp .env.example .env
 cp .env self-build/.env
+echo $GITHUB_TOKEN | docker login ghcr.io -u $GITHUB_USERNAME --password-stdin
 docker compose down
 docker compose up -d
