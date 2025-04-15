@@ -39,9 +39,11 @@ fi
 if [ ! -f "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
     # Obtain SSL certificate if it doesn't exist
     certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email caster@atmaware.com
+    echo "SSL certificates have been obtained by certbot."
 else
     # Renew existing certificate
     certbot renew --quiet
+    echo "SSL certificates have been renewed by certbot."
 fi
 
 # Test nginx config
@@ -50,13 +52,10 @@ nginx -t
 # Restart nginx
 systemctl restart nginx
 
-echo "Deployment setup completed!"
-echo "SSL certificates have been configured by certbot."
-
 # Copy env files
 cd docker-compose
 cp .env.example .env
 cp .env self-build/.env
 
-# Login to ghcr
-echo $GITHUB_TOKEN | docker login ghcr.io -u $GITHUB_USERNAME --password-stdin
+# Login to ghcr (non-interactive mode)
+docker login ghcr.io -u "$GITHUB_USERNAME" --password-stdin <<< "$GITHUB_TOKEN"
