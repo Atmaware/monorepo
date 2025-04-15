@@ -38,8 +38,8 @@ certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmawar
 # Test nginx config
 nginx -t
 
-# Start/reload nginx
-systemctl start nginx || systemctl reload nginx
+# Restart nginx
+systemctl restart nginx
 
 echo "Deployment setup completed!"
 echo "SSL certificates have been configured by certbot."
