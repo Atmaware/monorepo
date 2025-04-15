@@ -9,20 +9,17 @@ fi
 
 # Setup variables
 DOMAIN="ruminer.atmaware.com"
-PROJECT_DIR=$(pwd)
-SITE_CONF="$PROJECT_DIR/ruminer.conf"
 
 # Install certbot if not installed
 if ! command -v certbot &> /dev/null; then
-  apt install -y certbot python3-certbot-nginx
+  apt install -y nginx certbot python3-certbot-nginx
 fi
 
-# Setup Nginx
 # Copy nginx config
-cp self-hosting/nginx/nginx.conf /etc/nginx/nginx.conf
+cp ./nginx.conf /etc/nginx/nginx.conf
 
 # Copy site config
-cp "$SITE_CONF" /etc/nginx/sites-available/ruminer
+cp ./ruminer.conf /etc/nginx/sites-available/ruminer
 
 # Create symlink if it doesn't exist
 if [ ! -L /etc/nginx/sites-enabled/ruminer ]; then
@@ -40,7 +37,7 @@ nginx -t
 # Start/reload nginx
 systemctl start nginx || systemctl reload nginx
 
-# Obtain SSL certificate
+# Obtain SSL certificate and redirect HTTP to HTTPS
 certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmaware.com
 
 echo "Deployment setup completed!"
