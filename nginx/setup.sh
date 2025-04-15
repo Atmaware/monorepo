@@ -24,7 +24,7 @@ cp ./ruminer.conf "/etc/nginx/sites-available/$DOMAIN"
 
 # Create symlink if it doesn't exist
 if [ ! -L "/etc/nginx/sites-enabled/$DOMAIN" ]; then
-  ln -s "/etc/nginx/sites-available/$DOMAIN" "/etc/nginx/sites-enabled/"
+  ln -s "/etc/nginx/sites-available/$DOMAIN" "/etc/nginx/sites-enabled/$DOMAIN"
 fi
 
 # Remove default config if it exists
