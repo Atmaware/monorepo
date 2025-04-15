@@ -53,10 +53,10 @@ systemctl restart nginx
 echo "Deployment setup completed!"
 echo "SSL certificates have been configured by certbot."
 
-# Build docker images
+# Copy env files
 cd docker-compose
 cp .env.example .env
 cp .env self-build/.env
+
+# Login to ghcr
 echo $GITHUB_TOKEN | docker login ghcr.io -u $GITHUB_USERNAME --password-stdin
-docker compose down
-docker compose up -d

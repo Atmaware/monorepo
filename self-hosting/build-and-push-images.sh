@@ -1,3 +1,5 @@
+source docker-compose/.env
+
 : ${BASE_URL?Please set BASE_URL, i.e. your public webserver URL, e.g. 'https://ruminer.example.com'}
 : ${SERVER_BASE_URL?Please set SERVER_BASE_URL, i.e. your public API URL, e.g. 'https://api.ruminer.example.com'}
 : ${HIGHLIGHTS_BASE_URL?Please set HIGHLIGHTS_BASE_URL, i.e. your public webserver URL, e.g. 'https://ruminer.example.com'}
