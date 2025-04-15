@@ -57,5 +57,6 @@ cd docker-compose
 cp .env.example .env
 cp .env self-build/.env
 
-# Login to ghcr (non-interactive mode)
-docker login ghcr.io -u "$GITHUB_USERNAME" --password-stdin <<< "$GITHUB_TOKEN"
+# Logins
+docker login
+docker login ghcr.io
