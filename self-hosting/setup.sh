@@ -7,6 +7,9 @@ if [ "$EUID" -ne 0 ]; then
   exit 1
 fi
 
+# Change directory to self-hosting
+cd $PWD
+
 # Setup variables
 DOMAIN="ruminer.atmaware.com"
 
@@ -17,10 +20,10 @@ if ! command -v nginx &> /dev/null || ! command -v certbot &> /dev/null; then
 fi
 
 # Copy nginx config
-cp ./nginx.conf /etc/nginx/nginx.conf
+cp ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 # Copy site config
-cp ./ruminer.conf "/etc/nginx/sites-available/$DOMAIN"
+cp ./nginx/ruminer.conf "/etc/nginx/sites-available/$DOMAIN"
 
 # Create symlink if it doesn't exist
 if [ ! -L "/etc/nginx/sites-enabled/$DOMAIN" ]; then
@@ -32,8 +35,14 @@ if [ -L /etc/nginx/sites-enabled/default ]; then
   rm -rf /etc/nginx/sites-enabled/default
 fi
 
-# Obtain SSL certificate and redirect HTTP to HTTPS
-certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmaware.com
+# Check if SSL certificate already exists
+if [ ! -f "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
+    # Obtain SSL certificate if it doesn't exist
+    certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email caster@atmaware.com
+else
+    # Renew existing certificate
+    certbot renew --quiet
+fi
 
 # Test nginx config
 nginx -t
@@ -43,4 +52,9 @@ systemctl restart nginx
 
 echo "Deployment setup completed!"
 echo "SSL certificates have been configured by certbot."
-echo "You can now run 'docker compose up -d' to start the services."
+
+# Build docker images
+cd docker-compose
+cp .env.example .env
+docker compose down
+docker compose up -d

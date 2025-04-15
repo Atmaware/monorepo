@@ -43,6 +43,8 @@ services:
     depends_on:
       migrate:
         condition: service_completed_successfully
+      redis:
+        condition: service_healthy
 
   queue-processor:
     image: "ghcr.io/ruminer/sh-queue-processor:latest"
