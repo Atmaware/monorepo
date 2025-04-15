@@ -17,7 +17,7 @@ const gqlRequest = async (query: string) => {
 
   try {
     const apiUrl= (await getStorageItem('ruminerApiUrl')) as string | undefined
-      ?? process.env.OMNIVORE_GRAPHQL_URL
+      ?? process.env.RUMINER_GRAPHQL_URL
       ?? ''
 
     console.log(apiUrl)

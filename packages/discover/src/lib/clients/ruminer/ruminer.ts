@@ -8,7 +8,7 @@ import {
 } from '../../../types/RuminerSchema'
 
 const API_URL =
-  process.env.OMNIVORE_API_URL ?? 'https://api-prod.ruminer.app/api'
+  process.env.RUMINER_API_URL ?? 'https://api-prod.ruminer.app/api'
 
 export class RuminerClient {
   username: string
@@ -109,7 +109,7 @@ export class RuminerClient {
     const response = await axios
       .post(`${API_URL}/graphql`, data, {
         headers: {
-          Cookie: `auth=${process.env.OMNIVORE_AUTH_TOKEN!};`,
+          Cookie: `auth=${process.env.RUMINER_AUTH_TOKEN!};`,
           'Content-Type': 'application/json',
         },
       })

@@ -39,7 +39,7 @@ fun GoogleAuthButton(viewModel: OnboardingViewModel) {
     val credentialManager = remember { CredentialManager.create(context) }
 
     val googleIdOption = remember {
-        GetSignInWithGoogleOption.Builder(BuildConfig.OMNIVORE_GAUTH_SERVER_CLIENT_ID)
+        GetSignInWithGoogleOption.Builder(BuildConfig.RUMINER_GAUTH_SERVER_CLIENT_ID)
             .build()
     }
 

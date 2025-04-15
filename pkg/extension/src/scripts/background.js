@@ -56,8 +56,8 @@ class TaskQueue {
 
 let authToken = undefined
 const queue = new TaskQueue()
-const ruminerURL = process.env.OMNIVORE_URL
-const ruminerGraphqlURL = process.env.OMNIVORE_GRAPHQL_URL
+const ruminerURL = process.env.RUMINER_URL
+const ruminerGraphqlURL = process.env.RUMINER_GRAPHQL_URL
 
 let completedRequests = {}
 

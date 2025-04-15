@@ -415,7 +415,7 @@ export const getClientRequestId = () => {
 //
 
 const login = () => {
-  window.open(new URL(`/login`, process.env.OMNIVORE_URL), '_blank')
+  window.open(new URL(`/login`, process.env.RUMINER_URL), '_blank')
   closeToolbarLater()
 }
 

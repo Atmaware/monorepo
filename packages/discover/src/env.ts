@@ -55,7 +55,7 @@ export function getEnv(): BackendEnv {
 
   return {
     pg,
-    apiKey: parse('OMNIVORE_API_KEY')!,
+    apiKey: parse('RUMINER_API_KEY')!,
     openAiApiKey: parse('OPENAI_API_KEY')!,
     imageProxy: {
       url: parse('IMAGE_PROXY_URL', false),

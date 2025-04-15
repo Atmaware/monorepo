@@ -4,7 +4,7 @@ var { parseHTML } = require("linkedom");
 chai.config.includeStack = true;
 var expect = chai.expect;
 
-const isRuminer = process.env.IS_OMNIVORE;
+const isRuminer = process.env.IS_RUMINER;
 var testPages = require("./utils").getTestPages(isRuminer);
 var isProbablyReaderable = require("../index").isProbablyReaderable;
 

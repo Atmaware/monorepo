@@ -12,7 +12,7 @@ var Readability = require('../index').Readability
 var JSDOMParser = require('../JSDOMParser')
 var prettyPrint = require('./utils').prettyPrint
 
-const isRuminer = process.env.IS_OMNIVORE
+const isRuminer = process.env.IS_RUMINER
 var testPages = require('./utils').getTestPages(isRuminer)
 
 function reformatError(err) {

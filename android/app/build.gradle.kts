@@ -57,22 +57,22 @@ android {
         debug {
             signingConfig = signingConfigs.getByName("debug")
             applicationIdSuffix = ".debug"
-            buildConfigField("String", "OMNIVORE_API_URL", "\"https://api-demo.ruminer.app\"")
-            buildConfigField("String", "OMNIVORE_WEB_URL", "\"https://demo.ruminer.app\"")
+            buildConfigField("String", "RUMINER_API_URL", "\"https://api-demo.ruminer.app\"")
+            buildConfigField("String", "RUMINER_WEB_URL", "\"https://demo.ruminer.app\"")
             buildConfigField(
                 "String",
-                "OMNIVORE_GAUTH_SERVER_CLIENT_ID",
+                "RUMINER_GAUTH_SERVER_CLIENT_ID",
                 "\"267918240109-eu2ar09unac3lqqigluknhk7t0021b54.apps.googleusercontent.com\""
             )
         }
         release {
             isMinifyEnabled = false
             signingConfig = signingConfigs.getByName("release")
-            buildConfigField("String", "OMNIVORE_API_URL", "\"https://api-prod.ruminer.app\"")
-            buildConfigField("String", "OMNIVORE_WEB_URL", "\"https://ruminer.app\"")
+            buildConfigField("String", "RUMINER_API_URL", "\"https://ruminer.atmaware.com\"")
+            buildConfigField("String", "RUMINER_WEB_URL", "\"https://ruminer.atmaware.com\"")
             buildConfigField(
                 "String",
-                "OMNIVORE_GAUTH_SERVER_CLIENT_ID",
+                "RUMINER_GAUTH_SERVER_CLIENT_ID",
                 "\"687911924401-lq8j1e97n0sv3khhb8g8n368lk4dqkbp.apps.googleusercontent.com\""
             )
             proguardFiles(

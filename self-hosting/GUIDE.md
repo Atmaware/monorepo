@@ -211,7 +211,7 @@ There are a few environment variables that need to be set to make this work.
 | IMAP_PASSWORD        | For gmail, this will be an application password. for other services this will be your email-password | password                          |
 | IMAP_HOST            | The IMAP Host, for gmail this will be imap.gmail.com                                                 | imap.host.com                     |
 | IMAP_PORT            | The IMAP Port, usually 993                                                                           | 993                               |
-| OMNIVORE_EMAIL       | The email address that Ruminer Creates                                                              | uuid@ruminer.tld                 |
+| RUMINER_EMAIL       | The email address that Ruminer Creates                                                              | uuid@ruminer.tld                 |
 
 We will show how to set this up with a gmail account below. The steps should be similar for different email services. 
 
@@ -220,7 +220,7 @@ We will show how to set this up with a gmail account below. The steps should be 
 ##### Step 1. Create an Ruminer Email
 ![Email](../docs/guides/images/create-new-email.png)
 
-This is the email address that you will use for the .env.imap file, `OMNIVORE_EMAIL`
+This is the email address that you will use for the .env.imap file, `RUMINER_EMAIL`
 
 ##### Step 2. Enable imap on GMail. 
 Note: For this step, I would recommend creating a separate email account rather than using your own email account. This functionality works by tracking which emails have already been opened, and automatically opens emails. 

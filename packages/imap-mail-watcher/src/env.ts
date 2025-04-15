@@ -44,7 +44,7 @@ export function getEnv(): WatcherEnv {
   return {
     apiKey: parse('WATCHER_API_KEY')!,
     apiEndpoint: parse('WATCHER_API_ENDPOINT')!,
-    ruminerEmail: parse('OMNIVORE_EMAIL')!,
+    ruminerEmail: parse('RUMINER_EMAIL')!,
     waitTime: Number(parse('WAIT_TIME')),
     imap,
   }

@@ -1,6 +1,6 @@
 describe('save link', () => {
   const title = 'Ruminer - Cypress Webpage Test'
-  const desc = 'OMNIvore'
+  const desc = 'Ruminer'
 
   const TEST_LINK = 'https://blog.ruminer.app/p/getting-started-with-ruminer'
 
