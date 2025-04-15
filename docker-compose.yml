@@ -7,7 +7,6 @@ x-postgres: &postgres-common
     timeout: 12s
     retries: 3
 
-
 services:
   postgres:
     <<: *postgres-common
@@ -101,6 +100,8 @@ services:
     depends_on:
       migrate:
         condition: service_completed_successfully
+      redis:
+        condition: service_healthy
 
   web:
     build:
@@ -148,3 +149,6 @@ services:
       - "6379:6379"
     healthcheck:
       test: [ "CMD", "redis-cli", "--raw", "incr", "ping" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
