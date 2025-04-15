@@ -12,8 +12,16 @@ DOMAIN="ruminer.atmaware.com"
 PROJECT_DIR=$(pwd)
 SITE_CONF="$PROJECT_DIR/ruminer.conf"
 
+# Install certbot if not installed
+if ! command -v certbot &> /dev/null; then
+  apt install -y certbot python3-certbot-nginx
+fi
+
 # Setup Nginx
 # Copy nginx config
+cp self-hosting/nginx/nginx.conf /etc/nginx/nginx.conf
+
+# Copy site config
 cp "$SITE_CONF" /etc/nginx/sites-available/ruminer
 
 # Create symlink if it doesn't exist
@@ -29,15 +37,12 @@ fi
 # Test nginx config
 nginx -t
 
-# Reload nginx
-systemctl reload nginx
-
-# Install certbot
-apt install -y certbot python3-certbot-nginx
+# Start/reload nginx
+systemctl start nginx || systemctl reload nginx
 
 # Obtain SSL certificate
-certbot --nginx -d ruminer.atmaware.com
+certbot --nginx -d "$DOMAIN" --non-interactive --agree-tos --email admin@atmaware.com
 
 echo "Deployment setup completed!"
-echo "Please ensure your SSL certificates are properly configured in the Nginx config."
+echo "SSL certificates have been configured by certbot."
 echo "You can now run 'docker compose up -d' to start the services."
