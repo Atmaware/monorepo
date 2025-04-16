@@ -1,4 +1,4 @@
-package app.ruminer.ruminer
+package app.atmaware.ruminer
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
   fun useAppContext() {
     // Context of the app under test.
     val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-    assertEquals("app.ruminer.ruminer", appContext.packageName)
+    assertEquals("app.atmaware.ruminer", appContext.packageName)
   }
 }

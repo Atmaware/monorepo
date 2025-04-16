@@ -20,12 +20,12 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "app.ruminer.ruminer"
+    namespace = "app.atmaware.ruminer"
 
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "app.ruminer.ruminer"
+        applicationId = "app.atmaware.ruminer"
         minSdk = 26
         targetSdk = 34
         versionCode = 2260000
@@ -57,8 +57,8 @@ android {
         debug {
             signingConfig = signingConfigs.getByName("debug")
             applicationIdSuffix = ".debug"
-            buildConfigField("String", "RUMINER_API_URL", "\"https://api-demo.ruminer.app\"")
-            buildConfigField("String", "RUMINER_WEB_URL", "\"https://demo.ruminer.app\"")
+            buildConfigField("String", "RUMINER_API_URL", "\"https://ruminer.atmaware.com\"")
+            buildConfigField("String", "RUMINER_WEB_URL", "\"https://ruminer.atmaware.com\"")
             buildConfigField(
                 "String",
                 "RUMINER_GAUTH_SERVER_CLIENT_ID",
@@ -178,7 +178,7 @@ apollo {
         outputDirConnection {
             connectToKotlinSourceSet("main")
         }
-        packageName.set("app.ruminer.ruminer.graphql.generated")
+        packageName.set("app.atmaware.ruminer.graphql.generated")
     }
 }
 
