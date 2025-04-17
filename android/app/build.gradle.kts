@@ -62,7 +62,7 @@ android {
             buildConfigField(
                 "String",
                 "RUMINER_GAUTH_SERVER_CLIENT_ID",
-                "\"267918240109-eu2ar09unac3lqqigluknhk7t0021b54.apps.googleusercontent.com\""
+                "\"129117411613-c8tjthrdqh47a5of25kvq24dmnoifc9r.apps.googleusercontent.com\""
             )
         }
         release {
@@ -73,7 +73,7 @@ android {
             buildConfigField(
                 "String",
                 "RUMINER_GAUTH_SERVER_CLIENT_ID",
-                "\"687911924401-lq8j1e97n0sv3khhb8g8n368lk4dqkbp.apps.googleusercontent.com\""
+                "\"129117411613-jcs5lqvik173qkqbccp9i4ckcbc1sul9.apps.googleusercontent.com\""
             )
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
