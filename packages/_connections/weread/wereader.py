@@ -1,0 +1,230 @@
+import os.path
+from collections import defaultdict, namedtuple
+from itertools import chain
+from operator import attrgetter
+
+import requests
+
+requests.packages.urllib3.disable_warnings()
+
+Book = namedtuple("Book", ["bookId", "title", "author", "cover"])
+
+headers = """
+Host: i.weread.qq.com
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9,en;q=0.8
+"""
+headers = dict(x.split(": ", 1) for x in headers.splitlines() if x)
+
+
+def get_bookmarklist(bookId, cookies):
+    """获取某本书的笔记返回md文本"""
+    url = "https://i.weread.qq.com/book/bookmarklist"
+    params = dict(bookId=bookId)
+    r = requests.get(url, params=params, headers=headers, cookies=cookies, verify=False)
+
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+    chapters = {c["chapterUid"]: c["title"] for c in data["chapters"]}
+    contents = defaultdict(list)
+
+    for item in sorted(data["updated"], key=lambda x: x["chapterUid"]):
+        chapter = item["chapterUid"]
+        text = item["markText"]
+        create_time = item["createTime"]
+        start = int(item["range"].split("-")[0])
+        contents[chapter].append((start, text))
+
+    chapters_map = {title: level for level, title in get_chapters(int(bookId), cookies)}
+    res = ""
+    for c in sorted(chapters.keys()):
+        title = chapters[c]
+        res += "#" * chapters_map[title] + " " + title + "\n"
+        for start, text in sorted(contents[c], key=lambda e: e[0]):
+            res += "> " + text.strip() + "\n\n"
+        res += "\n"
+
+    return res
+
+
+def get_bestbookmarks(bookId, cookies):
+    """获取书籍的热门划线,返回文本"""
+    url = "https://i.weread.qq.com/book/bestbookmarks"
+    params = dict(bookId=bookId)
+    r = requests.get(url, params=params, headers=headers, cookies=cookies, verify=False)
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+    chapters = {c["chapterUid"]: c["title"] for c in data["chapters"]}
+    contents = defaultdict(list)
+    for item in data["items"]:
+        chapter = item["chapterUid"]
+        text = item["markText"]
+        contents[chapter].append(text)
+
+    chapters_map = {title: level for level, title in get_chapters(int(bookId), cookies)}
+    res = ""
+    for c in chapters:
+        title = chapters[c]
+        res += "#" * chapters_map[title] + " " + title + "\n"
+        for text in contents[c]:
+            res += "> " + text.strip() + "\n\n"
+        res += "\n"
+    return res
+
+
+def get_chapters(bookId, cookies):
+    """获取书的目录"""
+    url = "https://i.weread.qq.com/book/chapterInfos"
+    data = '{"bookIds":["%d"],"synckeys":[0]}' % bookId
+
+    r = requests.post(url, data=data, headers=headers, cookies=cookies, verify=False)
+
+    if r.ok:
+        data = r.json()
+        # clipboard.copy(json.dumps(data, indent=4, sort_keys=True))
+    else:
+        raise Exception(r.text)
+
+    chapters = []
+    for item in data["data"][0]["updated"]:
+        if "anchors" in item:
+            chapters.append((item.get("level", 1), item["title"]))
+            for ac in item["anchors"]:
+                chapters.append((ac["level"], ac["title"]))
+
+        elif "level" in item:
+            chapters.append((item.get("level", 1), item["title"]))
+
+        else:
+            chapters.append((1, item["title"]))
+
+    return chapters
+
+
+def get_bookinfo(bookId, cookies):
+    """获取书的详情"""
+    url = "https://i.weread.qq.com/book/info"
+    params = dict(bookId=bookId)
+    r = requests.get(url, params=params, headers=headers, cookies=cookies, verify=False)
+
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+    return data
+
+
+def get_bookshelf(cookies):
+    """获取书架上所有书"""
+    url = "https://i.weread.qq.com/shelf/friendCommon"
+    userVid = cookies.get("wr_vid")
+    params = dict(userVid=userVid)
+    r = requests.get(url, params=params, headers=headers, cookies=cookies, verify=False)
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+    finishReadBooks = [b for b in data["finishReadBooks"] if 'bookId' in b]
+    recentBooks = [b for b in data["recentBooks"] if 'bookId' in b]
+    books = set()
+    for book in chain(finishReadBooks, recentBooks):
+        if not book["bookId"].isdigit():  # 过滤公众号
+            continue
+        try:
+            b = Book(book["bookId"], book["title"], book["author"], book["cover"])
+            books.add(b)
+        except Exception as e:
+            pass
+
+    books = list(books)
+    books.sort(key=attrgetter("title"))
+
+    return books
+
+
+def get_notebooklist(cookies):
+    """获取笔记本列表"""
+    url = "https://i.weread.qq.com/user/notebooks"
+    r = requests.get(url, headers=headers, cookies=cookies, verify=False)
+
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+    books = []
+    for b in data["books"]:
+        book = b["book"]
+        b = Book(book["bookId"], book["title"], book["author"], book["cover"])
+        books.append(b)
+    books.sort(key=attrgetter("title"))
+    return books
+
+
+def get_bookcover(book, output_dir=None):
+    headers = {
+        "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+        "accept-encoding": "gzip, deflate, br",
+        "accept-language": "zh-CN,zh;q=0.9",
+        "cache-control": "max-age=0",
+        "if-modified-since": "Thu, 01 Nov 2018 11:45:36 GMT",
+        "if-none-match": "d52c44c46328acfc2e0bd6f4b444f9f03e2a5be2",
+        "sec-ch-ua": '" Not A;Brand";v="99", "Chromium";v="96", "Google Chrome";v="96"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"Windows"',
+        "sec-fetch-dest": "document",
+        "sec-fetch-mode": "navigate",
+        "sec-fetch-site": "none",
+        "sec-fetch-user": "?1",
+        "upgrade-insecure-requests": "1",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36",
+    }
+
+    url = "b".join(book.cover.rsplit("s", 1))
+    r = requests.get(url, headers=headers, verify=False)
+    print(r)
+    if r.ok:
+        data = r.content
+    else:
+        raise Exception(r.text)
+
+    if output_dir is None:
+        output_dir = os.path.abspath(os.path.dirname(__file__))
+
+    path = os.path.join(output_dir, str(book.bookId) + ".jpg")
+    print(path)
+    with open(path, "wb") as f:
+        f.write(data)
+
+
+def get_readbooks():
+    url = "https://i.weread.qq.com/mine/readbook"
+    headers = """
+accessToken: qAanBoeF
+vid: 23859891
+baseapi: 31
+appver: 7.3.5.10161335
+User-Agent: WeRead/7.3.5 WRBrand/other Dalvik/2.1.0 (Linux; U; Android 12; 22041211AC Build/SP1A.210812.016)
+osver: 12
+channelId: 12
+basever: 7.3.5.10161334
+Host: i.weread.qq.com
+Connection: Keep-Alive
+Accept-Encoding: gzip
+"""
+    headers = dict(x.split(": ", 1) for x in headers.splitlines() if x)
+    params = dict(vid=23859891,star=0,yearRange="0_0",count=15,rating=0,listType=2)
+    r = requests.get(url, params=params, headers=headers, verify=False)
+    if r.ok:
+        data = r.json()
+    else:
+        raise Exception(r.text)
+
+    return data

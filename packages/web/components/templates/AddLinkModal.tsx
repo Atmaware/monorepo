@@ -69,9 +69,10 @@ export function AddLinkModal(props: AddLinkModalProps): JSX.Element {
           />
           <Box css={{ width: '100%' }}>
             {selectedTab == 'link' && <AddLinkTab {...props} />}
-            {selectedTab == 'feed' && <AddFeedTab {...props} />}
-            {selectedTab == 'opml' && <UploadOPMLTab />}
             {selectedTab == 'pdf' && <UploadPDFTab />}
+            {selectedTab == 'feed' && <AddFeedTab {...props} />}
+            {/* {selectedTab == 'opml' && <UploadOPMLTab />} */}
+            {selectedTab == 'import' && <UploadImportTab {...props} />}
           </Box>
         </VStack>
       </ModalContent>

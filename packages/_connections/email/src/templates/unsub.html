@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Unsubscribe Emails</title>
+</head>
+<body>
+    <h1>Senders of emails containing 'unsubscribe'</h1>
+    <form action="{{ url_for('redirect_emails') }}" method="post">
+        {% for sender in senders %}
+            <div>
+                <input type="checkbox" name="senders" value="{{ sender }}">
+                <label>{{ sender }}</label>
+            </div>
+        {% endfor %}
+        <button type="submit">Redirect Selected Emails</button>
+    </form>
+</body>
+</html>

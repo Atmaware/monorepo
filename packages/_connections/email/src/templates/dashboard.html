@@ -1,0 +1,69 @@
+<!-- templates/dashboard.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Welcome, {{ user.username }}</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'view_dashboard' %}">Dashboard</a></li>
+                <li><a href="{% url 'manage_account_settings' %}">Account Settings</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="proxy-emails">
+            <h2>Your Proxy Emails</h2>
+            <ul>
+                {% for proxy_email in proxy_emails %}
+                    <li>{{ proxy_email.proxy_address }}</li>
+                {% empty %}
+                    <li>No proxy emails found.</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="emails">
+            <h2>Your Emails</h2>
+            <ul>
+                {% for email in emails %}
+                    <li>
+                        <strong>Subject:</strong> {{ email.subject }}<br>
+                        <strong>Received At:</strong> {{ email.received_at }}<br>
+                        <strong>Body:</strong> {{ email.body }}
+                    </li>
+                {% empty %}
+                    <li>No emails found.</li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section id="email-summaries">
+            <h2>Email Summaries</h2>
+            <ul>
+                {% for summary in email_summaries %}
+                    <li>
+                        <strong>Summary:</strong> {{ summary.summary }}<br>
+                        <strong>Original Email Subject:</strong> {{ summary.email.subject }}
+                    </li>
+                {% empty %}
+                    <li>No email summaries found.</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; tztsai.github.io</p>
+    </footer>
+</body>
+</html>

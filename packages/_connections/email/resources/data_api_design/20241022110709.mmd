@@ -1,0 +1,35 @@
+
+classDiagram
+    class User {
+        -String username
+        -String email
+        -String password
+        +register() bool
+        +authenticate() bool
+    }
+    class ProxyEmail {
+        -String proxy_address
+        -User user
+        +generate_proxy_email(user: User) ProxyEmail
+    }
+    class Email {
+        -String subject
+        -String body
+        -DateTime received_at
+        -ProxyEmail proxy_email
+        +parse_email(raw_email: str) Email
+    }
+    class EmailSummary {
+        -String summary
+        -Email email
+        +summarize_email(email: Email) EmailSummary
+    }
+    class Dashboard {
+        -User user
+        +view_dashboard(user: User) str
+        +manage_account_settings(user: User) bool
+    }
+    User --> ProxyEmail
+    ProxyEmail --> Email
+    Email --> EmailSummary
+    User --> Dashboard

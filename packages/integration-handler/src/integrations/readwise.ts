@@ -3,6 +3,7 @@ import { wait } from '..'
 import { highlightUrl, Item } from '../item'
 import { IntegrationClient } from './integration'
 
+// TODO: implement readwise import
 interface ReadwiseHighlight {
   // The highlight text, (technically the only field required in a highlight object)
   text: string

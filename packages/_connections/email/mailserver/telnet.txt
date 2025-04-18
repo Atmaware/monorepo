@@ -1,0 +1,10 @@
+EHLO testdomain.local
+MAIL FROM:<user2@testdomain.local>
+RCPT TO:<user1@testdomain.local>
+DATA
+From: user2@testdomain.local
+Subject: Test Email
+
+This is a test email.
+.
+QUIT
