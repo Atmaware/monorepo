@@ -9,6 +9,8 @@ completedColumns:
 
 ## Backlog
 
+- [implement-third-party-integrations-import-in-integration-handler](tasks/implement-third-party-integrations-import-in-integration-handler.md)
+
 ## Todo
 
 - [fix-only-one-item-is-fetched-per-rss-source](tasks/fix-only-one-item-is-fetched-per-rss-source.md)

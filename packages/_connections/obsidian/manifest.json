@@ -1,9 +1,0 @@
-{
-    "id": "obsidian-conversation-importer",
-    "name": "Conversation Importer",
-    "version": "1.0.0",
-    "minAppVersion": "0.15.0",
-    "description": "Convert ChatGPT/Podcast/Email/... conversations to markdown files in your vault",
-    "author": "Julian Kay",
-    "isDesktopOnly": true
-}

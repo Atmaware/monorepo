@@ -2,6 +2,20 @@ import axios from 'axios'
 import { IntegrationClient } from './integration'
 import { PocketClient } from './pocket'
 import { ReadwiseClient } from './readwise'
+import { TwitterClient } from './twitter'
+import { ZhihuClient } from './zhihu'
+import { BilibiliClient } from './bilibili'
+import { YouTubeClient } from './youtube'
+import { ZoteroClient } from './zotero'
+import { WeReadClient } from './weread'
+import { DiscordClient } from './discord'
+import { InstapaperClient } from './instapaper'
+import { NotionClient } from './notion'
+import { ObsidianClient } from './obsidian'
+import { ChatGPTClient } from './chatgpt'
+import { GmailClient } from './gmail'
+import { OneNoteClient } from './onenote'
+import { PodcastClient } from './podcast'
 
 interface SetIntegrationResponse {
   data: {
@@ -14,7 +28,24 @@ interface SetIntegrationResponse {
   }
 }
 
-const clients: IntegrationClient[] = [new ReadwiseClient(), new PocketClient()]
+const clients: IntegrationClient[] = [
+  new ReadwiseClient(), 
+  new PocketClient(),
+  new TwitterClient(),
+  new ZhihuClient(),
+  new BilibiliClient(),
+  new YouTubeClient(),
+  new ZoteroClient(),
+  new WeReadClient(),
+  new DiscordClient(),
+  new InstapaperClient(),
+  new NotionClient(),
+  new ObsidianClient(),
+  new ChatGPTClient(),
+  new GmailClient(),
+  new OneNoteClient(),
+  new PodcastClient()
+]
 
 export const getIntegrationClient = (name: string): IntegrationClient => {
   const client = clients.find((s) => s.name === name)
