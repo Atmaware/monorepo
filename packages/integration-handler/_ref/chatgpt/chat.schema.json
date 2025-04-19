@@ -1,0 +1,182 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/conversation_record.schema.json",
+  "title": "Conversation Record",
+  "description": "A schema representing a structured record of a conversation, which may include human participants, AI agents, multimedia, and references.",
+
+  "type": "object",
+  "required": ["conversation_id", "version", "participants", "messages"],
+
+  "properties": {
+    "conversation_id": {
+      "type": "string",
+      "description": "A unique identifier for the conversation. Could be a UUID."
+    },
+    "title": {
+      "type": "string",
+      "description": "The title of the conversation or scenario, if any."
+    },
+    "description": {
+      "type": "string",
+      "description": "An optional description providing context for the conversation."
+    },
+    "timestamp_start": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The ISO 8601 timestamp marking the start of the conversation."
+    },
+    "version": {
+      "type": "string",
+      "description": "Schema or format version of this conversation record."
+    },
+    "context": {
+      "type": "string",
+      "description": "Additional textual background or scenario context."
+    },
+    "participants": {
+      "type": "array",
+      "description": "A list of participants involved in the conversation.",
+      "items": {
+        "type": "object",
+        "required": ["id", "name"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for the participant."
+          },
+          "name": {
+            "type": "string",
+            "description": "Display name of the participant."
+          },
+          "description": {
+            "type": "string",
+            "description": "The participant's description or role."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "messages": {
+      "type": "array",
+      "description": "A chronological list of message objects representing the conversation flow.",
+      "items": {
+        "type": "object",
+        "required": ["msg_id", "sender", "type"],
+        "properties": {
+          "msg_id": {
+            "type": "string",
+            "description": "A unique message identifier."
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "The ISO 8601 timestamp when the message was sent or created."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The ID of the participant who sent this message."
+          },
+          "receivers": {
+            "type": "array",
+            "description": "Optional list of participant IDs who are the intended recipients of this message. If omitted, message may be considered broadcast or addressed to all.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of message content.",
+            "enum": ["text", "image", "audio", "video", "file", "link", "other"]
+          },
+          "content": {
+            "type": "string",
+            "description": "The main textual content of the message. For non-text messages, this may be a caption or description.",
+            "default": ""
+          },
+          "content_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the actual file or media if type is image/audio/video/file/link."
+          },
+          "mentions": {
+            "type": "array",
+            "description": "A list of participant IDs mentioned in this message.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reply_to": {
+            "type": "string",
+            "description": "If this message is a reply to another message, include the msg_id of that message."
+          },
+          "context_reference": {
+            "type": "string",
+            "description": "An ID or reference to another message or document providing context (e.g. a previously shared essay)."
+          },
+          "background": {
+            "type": "string",
+            "description": "Optional background or scene description relevant at the moment this message was produced."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "signatures": {
+      "type": "object",
+      "description": "Cryptographic or blockchain signatures to ensure data integrity and authenticity.",
+      "properties": {
+        "blockchain_proof": {
+          "type": "string",
+          "description": "A hash or reference to a blockchain entry verifying the conversation's authenticity."
+        }
+      },
+      "additionalProperties": false
+    },
+    "translations": {
+      "type": "array",
+      "description": "Optional array of translation objects for multi-language support.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "ISO language code (e.g. 'en', 'zh', 'fr')."
+          },
+          "title": {
+            "type": "string",
+            "description": "Translated title in the specified language."
+          },
+          "description": {
+            "type": "string",
+            "description": "Translated description in the specified language."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "references": {
+      "type": "array",
+      "description": "Citations, footnotes, or external references related to the conversation.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "ref_id": {
+            "type": "string",
+            "description": "A reference ID."
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "External link to the referenced source."
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief explanation of what the reference pertains to."
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

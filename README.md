@@ -10,6 +10,13 @@
 
 [Ruminer](https://ruminer.app) is a complete, open source read-it-later solution for people who like text.
 
+Aggregate your saved content from all over the web! Start scrolling over your own collection! Search them, ask AI about them, and receive weekly summaries by email!
+
+Extra features:
+- auto create notes from screenshots via OCR
+- quick notes via mobile app widgets
+- save content by sharing from other apps
+
 We built Ruminer because we love reading and we want it to be more social. Join us!
 
 - Highlighting, notes, search, and sharing

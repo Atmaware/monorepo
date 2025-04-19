@@ -27,6 +27,7 @@ completedColumns:
 ## In Progress
 
 - [fix-connection-is-not-secure-in-web-app-after-login](tasks/fix-connection-is-not-secure-in-web-app-after-login.md)
+- [fix-the-landing-page-takes-long-time-to-load](tasks/fix-the-landing-page-takes-long-time-to-load.md)
 
 ## Done
 
