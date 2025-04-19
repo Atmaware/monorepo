@@ -69,5 +69,7 @@ EXPOSE 8080
 COPY /packages/content-fetch/start.sh .
 RUN wget https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts && \
     chmod +x start.sh
+# COPY /packages/content-fetch/hosts .
+# RUN chmod +x start.sh
 
 CMD ["./start.sh"]
