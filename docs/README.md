@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-Omnivore
+Ruminer
 </h1>
 <p align="center">
 An open source read-it-later solution 
